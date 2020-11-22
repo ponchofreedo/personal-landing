@@ -1,15 +1,12 @@
 {
-  "name": "personal-landing",
+  "name": "zpfreed-landing",
   "version": "0.0.1",
   "description": "personal landing page of zach freed, product designer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ponchofreedo/personal-landing.git"
-  },
+  "repository": "git+https://github.com/ponchofreedo/personal-landing.git",
   "keywords": [
     "portfolio"
   ],
@@ -18,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ponchofreedo/personal-landing/issues"
   },
-  "homepage": "https://github.com/ponchofreedo/personal-landing#readme"
+  "homepage": "https://github.com/ponchofreedo/personal-landing#readme",
+  "dependencies": {
+    "@vue/cli": "^4.5.6"
+  }
 }
