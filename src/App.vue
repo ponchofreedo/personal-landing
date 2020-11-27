@@ -54,27 +54,27 @@ export default {
     background-color: var(--primary-background);
     color: var(--primary-text);
 
-    &.theme-1 {
+    &[data-theme="steel"] {
       --primary-color: var(--base-color--steel);
     }
 
-    &.theme-2 {
+    &[data-theme="cyber"] {
       --primary-color: var(--base-color--cyber);
     }
 
-    &.theme-3 {
+    &[data-theme="sun"] {
       --primary-color: var(--base-color--sun);
     }
 
-    &.theme-4 {
+    &[data-theme="poison"] {
       --primary-color: var(--base-color--poison);
     }
 
-    &.theme-5 {
+    &[data-theme="burn"] {
       --primary-color: var(--base-color--burn);
     }
 
-    &.theme-6 {
+    &[data-theme="ice"] {
       --primary-color: var(--base-color--ice);
     }
   }
