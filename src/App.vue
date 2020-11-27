@@ -21,10 +21,10 @@ export default {
   $base__font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   $base__colors: (
     "steel": #A0B1BA,
-    "cyber": #E065FF,
-    "sun": #FFCD1C,
+    "psychic": #E065FF,
+    "electric": #FFCD1C,
     "poison": #0AE394,
-    "burn": #F47112,
+    "fire": #F47112,
     "ice": #2CE0D7,
     "dark": #1B2F3A,
     "ghost": #FAFAFF
@@ -37,10 +37,10 @@ export default {
   // set up the round-robin vars and classes
   :root {
     --base-color--steel: #A0B1BA;
-    --base-color--cyber: #E065FF;
-    --base-color--sun: #FFCD1C;
+    --base-color--psychic: #E065FF;
+    --base-color--electric: #FFCD1C;
     --base-color--poison: #0AE394;
-    --base-color--burn: #F47112;
+    --base-color--fire: #F47112;
     --base-color--ice: #2CE0D7;
     --base-color--dark: #1B2F3A;
     --base-color--ghost: #FAFAFF;
@@ -58,20 +58,20 @@ export default {
       --primary-color: var(--base-color--steel);
     }
 
-    &[data-theme="cyber"] {
-      --primary-color: var(--base-color--cyber);
+    &[data-theme="psychic"] {
+      --primary-color: var(--base-color--psychic);
     }
 
-    &[data-theme="sun"] {
-      --primary-color: var(--base-color--sun);
+    &[data-theme="electric"] {
+      --primary-color: var(--base-color--electric);
     }
 
     &[data-theme="poison"] {
       --primary-color: var(--base-color--poison);
     }
 
-    &[data-theme="burn"] {
-      --primary-color: var(--base-color--burn);
+    &[data-theme="fire"] {
+      --primary-color: var(--base-color--fire);
     }
 
     &[data-theme="ice"] {

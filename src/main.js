@@ -14,13 +14,13 @@ window.onload = function() {
   if (randomValue == 1) {
     theme = "steel";
   } else if (randomValue == 2) {
-    theme = "cyber";
+    theme = "psychic";
   } else if (randomValue == 3) {
-    theme = "sun";
+    theme = "electric";
   } else if (randomValue == 4) {
     theme = "poison";
   } else if (randomValue == 5) {
-    theme = "burn";
+    theme = "fire";
   } else if (randomValue == 6) {
     theme = "ice";
   }
