@@ -36,18 +36,18 @@ export default {
 
   // set up the round-robin vars and classes
   :root {
-    --base-color__steel: #A0B1BA;
-    --base-color__cyber: #E065FF;
-    --base-color__sun: #FFCD1C;
-    --base-color__poison: #0AE394;
-    --base-color__burn: #F47112;
-    --base-color__ice: #2CE0D7;
-    --base-color__dark: #1B2F3A;
-    --base-color__ghost: #FAFAFF;
+    --base-color--steel: #A0B1BA;
+    --base-color--cyber: #E065FF;
+    --base-color--sun: #FFCD1C;
+    --base-color--poison: #0AE394;
+    --base-color--burn: #F47112;
+    --base-color--ice: #2CE0D7;
+    --base-color--dark: #1B2F3A;
+    --base-color--ghost: #FAFAFF;
 
-    --primary-color: var(--base-color__poison);
-    --primary-background: var(--base-color__dark);
-    --primary-text: var(--base-color__ghost);
+    --primary-color: var(--base-color--poison);
+    --primary-background: var(--base-color--dark);
+    --primary-text: var(--base-color--ghost);
   }
 
   body {
@@ -55,27 +55,27 @@ export default {
     color: var(--primary-text);
 
     &.theme-1 {
-      --primary-color: var(--base-color__steel);
+      --primary-color: var(--base-color--steel);
     }
 
     &.theme-2 {
-      --primary-color: var(--base-color__cyber);
+      --primary-color: var(--base-color--cyber);
     }
 
     &.theme-3 {
-      --primary-color: var(--base-color__sun);
+      --primary-color: var(--base-color--sun);
     }
 
     &.theme-4 {
-      --primary-color: var(--base-color__poison);
+      --primary-color: var(--base-color--poison);
     }
 
     &.theme-5 {
-      --primary-color: var(--base-color__burn);
+      --primary-color: var(--base-color--burn);
     }
 
     &.theme-6 {
-      --primary-color: var(--base-color__ice);
+      --primary-color: var(--base-color--ice);
     }
   }
 
