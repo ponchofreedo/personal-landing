@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div class="test"></div>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -31,12 +32,12 @@
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    name: 'HelloWorld',
+    props: {
+      msg: String
+    }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -54,5 +55,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.test {
+  display: block;
+  width: 100%;
+  height:40px;
+  background-color: var(--primary-color);
 }
 </style>

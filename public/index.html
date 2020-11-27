@@ -14,4 +14,9 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    window.onload = function() {
+      document.body.className = 'theme-' + Math.floor((Math.random() * 6) + 1);
+    };
+  </script>
 </html>
