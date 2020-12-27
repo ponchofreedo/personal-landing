@@ -1,7 +1,7 @@
 ![The new donut logo...because it's tasty](https://raw.githubusercontent.com/ponchofreedo/personal-landing/master/das_donut.png)
 
 # 2020 Landing Page
-Rebooting the landing page. Scaffolded in Vue w/ Stitches, deploy via Vercel.
+Rebooting the landing page. Final URL will be the new https://ponchofree.do.
 
 ## Project setup
 ```
