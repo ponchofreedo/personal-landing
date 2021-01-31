@@ -27,7 +27,8 @@ export default {
     "fire": #F47112,
     "ice": #2CE0D7,
     "dark": #1B2F3A,
-    "ghost": #FAFAFF
+    "ghost": #FAFAFF,
+    "water": #1499FF
   );
 
   @function color($key: 'dark') {
@@ -44,6 +45,7 @@ export default {
     --base-color--ice: #2CE0D7;
     --base-color--dark: #1B2F3A;
     --base-color--ghost: #FAFAFF;
+    --base-color--water: #1499FF;
 
     --primary-color: var(--base-color--poison);
     --primary-background: var(--base-color--dark);
@@ -51,6 +53,13 @@ export default {
   }
 
   body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $base__font-family;
+    text-align: center;
+    margin-top: 60px;
+
+    /* influence these based on the data-theme */
     background-color: var(--primary-background);
     color: var(--primary-text);
 
@@ -77,13 +86,13 @@ export default {
     &[data-theme="ice"] {
       --primary-color: var(--base-color--ice);
     }
-  }
 
-  #app {
-    font-family: $base__font-family;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    margin-top: 60px;
+    &[data-theme="ghost"] {
+      --primary-color: var(--base-color--ghost);
+    }
+
+    &[data-theme="water"] {
+      --primary-color: var(--base-color--water);
+    }
   }
 </style>

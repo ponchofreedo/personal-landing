@@ -8,7 +8,7 @@ new Vue({
 }).$mount('#app', true)
 
 window.onload = function() {
-  var randomValue = Math.floor((Math.random() * 6) + 1);
+  var randomValue = Math.floor((Math.random() * 8) + 1);
   var theme;
 
   if (randomValue == 1) {
@@ -23,6 +23,10 @@ window.onload = function() {
     theme = "fire";
   } else if (randomValue == 6) {
     theme = "ice";
+  } else if (randomValue == 7) {
+    theme = "ghost";
+  } else if (randomValue == 8) {
+    theme = "water";
   }
   document.body.setAttribute('data-theme', theme);
 };
