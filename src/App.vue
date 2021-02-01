@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <Header />
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
+// import meyer css reset
+import 'reset-css';
+
+import Header from './components/Header.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
+    Header,
     HelloWorld
   }
 }
@@ -31,68 +37,79 @@ export default {
     "water": #1499FF
   );
 
-  @function color($key: 'dark') {
-    @return map-get($base__colors, $key);
-  }
+  // @function color($key: 'dark') {
+  //   @return map-get($base__colors, $key);
+  // }
 
   // set up the round-robin vars and classes
   :root {
-    --base-color--steel: #A0B1BA;
-    --base-color--psychic: #E065FF;
-    --base-color--electric: #FFCD1C;
-    --base-color--poison: #0AE394;
-    --base-color--fire: #F47112;
-    --base-color--ice: #2CE0D7;
-    --base-color--dark: #1B2F3A;
-    --base-color--ghost: #FAFAFF;
-    --base-color--water: #1499FF;
+    --base__font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
-    --primary-color: var(--base-color--poison);
-    --primary-background: var(--base-color--dark);
-    --primary-text: var(--base-color--ghost);
+    --base__color--steel: #A0B1BA;
+    --base__color--psychic: #E065FF;
+    --base__color--electric: #FFCD1C;
+    --base__color--poison: #0AE394;
+    --base__color--fire: #F47112;
+    --base__color--ice: #2CE0D7;
+    --base__color--dark: #1B2F3A;
+    --base__color--ghost: #FAFAFF;
+    --base__color--water: #1499FF;
+
+    --base__spacing-multiplier: 8px;
+    --base__spacing-1: calc(var(--base__spacing-multiplier)*1);
+    --base__spacing-2: calc(var(--base__spacing-multiplier)*2);
+
+    --primary__color: var(--base__color--poison);
+    --primary__background: var(--base__color--dark);
+    --primary__text-color: var(--base__color--ghost);
   }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: $base__font-family;
+    font-family: var(--base__font-family);
     text-align: center;
-    margin-top: 60px;
+    margin: 0;
+    padding: 0;
 
     /* influence these based on the data-theme */
-    background-color: var(--primary-background);
-    color: var(--primary-text);
+    background-color: var(--primary__background);
+    color: var(--primary__text-color);
 
     &[data-theme="steel"] {
-      --primary-color: var(--base-color--steel);
+      --primary__color: var(--base__color--steel);
     }
 
     &[data-theme="psychic"] {
-      --primary-color: var(--base-color--psychic);
+      --primary__color: var(--base__color--psychic);
     }
 
     &[data-theme="electric"] {
-      --primary-color: var(--base-color--electric);
+      --primary__color: var(--base__color--electric);
     }
 
     &[data-theme="poison"] {
-      --primary-color: var(--base-color--poison);
+      --primary__color: var(--base__color--poison);
     }
 
     &[data-theme="fire"] {
-      --primary-color: var(--base-color--fire);
+      --primary__color: var(--base__color--fire);
     }
 
     &[data-theme="ice"] {
-      --primary-color: var(--base-color--ice);
+      --primary__color: var(--base__color--ice);
     }
 
     &[data-theme="ghost"] {
-      --primary-color: var(--base-color--ghost);
+      --primary__color: var(--base__color--ghost);
     }
 
     &[data-theme="water"] {
-      --primary-color: var(--base-color--water);
+      --primary__color: var(--base__color--water);
     }
+  }
+
+  .conatiner {
+    display: grid;
   }
 </style>

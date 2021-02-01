@@ -60,6 +60,6 @@ a {
   display: block;
   width: 100%;
   height:40px;
-  background-color: var(--primary-color);
+  background-color: var(--primary__color);
 }
 </style>
