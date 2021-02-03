@@ -10,7 +10,7 @@
         </article>
         <article>
           <span class="text--h2">Talk to me, Goose.</span>
-          <p>You've come this far on there here interwebs to find me. Unfortunately the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wodden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBChdwGvyiQCQl6anpn9Q" rel="noreferrer" target="_blank">r&eacute;sum&eacute;</a> or just <a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer">drop me a line</a>.</p>
+          <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wood peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBChdwGvyiQCQl6anpn9Q" rel="noreferrer" target="_blank">r&eacute;sum&eacute;</a> or just <a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer">drop me a line</a>.</p>
           <p>Or, technical issues aside, you can find me at one of these below.</p>
           <ul>
             <li><a href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
