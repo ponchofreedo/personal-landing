@@ -15,4 +15,13 @@
 </script>
 
 <style scoped>
+
+.circle-arrow__up {
+  transform: rotate(180deg);
+}
+
+.circle-arrow__down {
+  transform: rotate(0deg);
+}
+
 </style>

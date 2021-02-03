@@ -1,14 +1,18 @@
 <template>
-  <section class="container container--octo">
-    <span class="employment-status">Open to new opportunities!</span>
-    <Donut />
-    <ul>
-      <li>Product designerd.</li>
-      <li>Maker of tasty things.</li>
-      <li>Mediocre funny man.</li>
-    </ul>
-    <CircleArrow arrowClass="circle-arrow__down" svgFill="var(--primary__background)" />
-  </section>
+  <header class="container">
+    <div class="container__header container__grid">
+      <article class="container__content">
+        <span class="employment-status">Open to new opportunities!</span>
+        <Donut />
+        <ul>
+          <li>Product designerd.</li>
+          <li>Maker of tasty things.</li>
+          <li>Mediocre funny man.</li>
+        </ul>
+        <CircleArrow arrowClass="circle-arrow__down" svgFill="var(--primary__background)" />
+      </article>
+    </div>
+  </header>
 </template>
 
 <script>
@@ -60,13 +64,14 @@
     #{$property}: $remValues;
   }
 
-  section {
-    position: relative;
-    grid-area: header;
+  header {
     @include rem-fallback(margin-top, 1);
-    @include rem-fallback(padding, 24, 0, 16);
     background-color: var(--primary__color);
     color: var(--primary__background);
+  }
+
+  article {
+    @include rem-fallback(padding, 24, 0, 12);
   }
 
   .employment-status {
@@ -81,6 +86,7 @@
     font-weight: var(--font-weight--bold);
     @include rem-fallback(line-height, 1);
     text-align: center;
+    @include rem-fallback(letter-spacing, -0.032);
   }
 
   ul {

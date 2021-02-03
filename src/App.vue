@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Body />
+    <Footer />
   </div>
 </template>
 
@@ -11,13 +11,15 @@
 import 'reset-css';
 
 import Header from './components/Header.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import Body from './components/Body.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    HelloWorld
+    Body,
+    Footer
   }
 }
 </script>
@@ -106,6 +108,10 @@ export default {
     --font-weight--bold: 700;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -152,14 +158,86 @@ export default {
     }
   }
 
-  .conatiner {
+  a {
+    color: var(--primary__color);
+    font-weight: var(--font-weight--bold);
+  }
+
+  .container {
     display: grid;
+    justify-content: center;
   }
 
-  .circle-arrow__up {
-    transform: rotate(180deg);
+  .container__grid {
+    grid-template-columns: repeat(8, 1fr);
+    @include rem-fallback(column-gap, 2.5);
+    width: calc(100vw - 10rem);
+    max-width: 1440px
   }
 
-  .circle-arrow__down {
+  .container__content {
+    @include rem-fallback(max-width, 80);
+    @include rem-fallback(padding-top, 12);
+    grid-column-start: 3;
+    grid-column-end: 8;   // 8 cols, 9 lines
+  }
+
+  .container__inner-container {
+    display: inherit;
+    align-self: flex-start;
+    position: relative;
+  }
+
+  .container__header,
+  .container__body,
+  .container__footer {
+    @extend .container__inner-container;
+  }
+
+  .container__header {
+    grid-area: header;
+  }
+
+  .container__body {
+    grid-area: body;
+  }
+
+  .container__footer {
+    grid-area: footer;
+  }
+
+  h1,
+  .text--h1 {
+    @include rem-fallback(font-size, 2);
+    @include rem-fallback(line-height, 3.2);
+    font-weight: var(--font-weight--medium);
+  }
+
+  h2,
+  .text--h2 {
+    @include rem-fallback(font-size, 2.5);
+    @include rem-fallback(line-height, 4);
+    font-weight: var(--font-weight--bold);
+    @include rem-fallback(letter-spacing, -0.064);
+  }
+
+  h4,
+  .text--h4 {
+    font-weight: var(--font-weight--bold);
+  }
+
+  p {
+    @include rem-fallback(font-size, 1.5);
+    @include rem-fallback(line-height, 2.4);
+    @include rem-fallback(margin-top, 2.5);
+    @include rem-fallback(margin-bottom, 2);
+
+    &:first-of-type {
+      margin-bottom: 0;
+    }
+
+    + p {
+      @include rem-fallback(margin-top, 1.25);
+    }
   }
 </style>

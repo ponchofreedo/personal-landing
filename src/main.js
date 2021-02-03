@@ -30,3 +30,38 @@ window.onload = function() {
   }
   document.body.setAttribute('data-theme', theme);
 };
+
+// where it will inject
+const injectPokemon = document.getElementById("pokeHook");
+
+// call the api and fetch a pokemon
+const fetchPokemon = () => {
+  console.log("Gotta catch 'em all!");
+
+  // set the universe
+  const randomPokemonNumber = Math.floor((Math.random() * 151) + 1);
+
+  // pokeAPI url
+  const url = "https://pokeapi.co/api/v2/pokemon/"+ randomPokemonNumber;
+
+  // fetch and convert response to json
+  fetch(url)
+    .then(res => {
+       return res.json();
+    })
+    .then(data => {
+      const pokemon = {
+        name: data.name,
+        id: data.id
+      };
+      displayPokemon(pokemon);
+    })
+}
+
+// convert the api data into html
+const displayPokemon = (pokemon) => {
+  injectPokemon.innerHTML = '<a rel="noreferrer" style="color: inherit!important" target="_blank" href="https://bulbapedia.bulbagarden.net/wiki/' + pokemon.name +'">' + pokemon.name + '</a>';
+}
+
+// do the thing
+fetchPokemon();
