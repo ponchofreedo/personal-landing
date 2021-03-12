@@ -24,8 +24,6 @@ export default {
 }
 </script>
 
-<style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');</style>
-
 <style lang="scss">
   // global variables
   $base__colors: (
@@ -98,7 +96,7 @@ export default {
     --base__spacing-1: calc(var(--base__multiplier)*1);
     --base__spacing-2: calc(var(--base__multiplier)*2);
 
-    --primary__color: var(--base__color--poison);
+    --primary__color: initial;
     --primary__background: var(--base__color--dark);
     --primary__text-color: var(--base__color--ghost);
 
@@ -120,10 +118,6 @@ export default {
     @include rem-fallback(font-size, 1);    // equivalent to 1rem / 16px
     margin: 0;
     padding: 0;
-
-    /* influence these based on the data-theme */
-    background-color: var(--primary__background);
-    color: var(--primary__text-color);
 
     &[data-theme="steel"] {
       --primary__color: var(--base__color--steel);
@@ -156,6 +150,10 @@ export default {
     &[data-theme="water"] {
       --primary__color: var(--base__color--water);
     }
+
+    /* influence these based on the data-theme */
+    background-color: var(--primary__background);
+    color: var(--primary__text-color);
   }
 
   a {

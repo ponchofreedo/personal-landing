@@ -2,7 +2,6 @@
   <header class="container">
     <div class="container__header container__grid">
       <article class="container__content">
-        <span class="employment-status">Open to new opportunities!</span>
         <Donut />
         <ul>
           <li>Product designerd.</li>
