@@ -1,7 +1,9 @@
 ![The new donut logo...because it's tasty](https://raw.githubusercontent.com/ponchofreedo/personal-landing/master/das_donut.png)
 
-# 2020 Landing Page
-Rebooting the landing page. Final URL will be the new https://ponchofree.do.
+# 2021 Landing Page
+Rebooting the landing page.
+
+Since it's being shipped via Vercel, opened up the A and CNAME to route http://ponchofree.do to the final destination of https://zachfreed.com.
 
 ## Project setup
 ```
