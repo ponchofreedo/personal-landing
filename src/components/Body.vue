@@ -1,33 +1,52 @@
 <template>
-  <section class="container">
-    <section class="container__header container__grid">
-      <section class="container__content">
-        <article>
-          <h1>I'm Zach &mdash; a senior product designer based in CT, USA.</h1>
-          <p>I focus on crafting thoughtful and scalable design systems, practical design tooling, building accessible experiences that center around real people of all colors, shapes, and sizes, and partnering with engineers to author complex front-end solutions.</p>
-          <p>Previously I crafted thoughtful purchasing and spend visibility experiences with the team @<a href="https://negotiatus.com" rel="noreferrer" target="_blank">Negotiatus</a>, went beyond camping @<a href="https://tentrr.com" rel="noreferrer" target="_blank">Tentrr</a>, built best in class travel experiences @<a href="https://priceline.com" rel="noreferrer" target="_blank">priceline</a>, and pushed pixel performance @<a href="https://digitalsurgeons.com" rel="noreferrer" target="_blank">Digital Surgeons</a>.</p>
-        </article>
-        <article>
-          <span class="text--h2">Talk to me, Goose.</span>
-          <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wood peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to just <a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer">drop me a line</a>.</p>
-          <p>Or, technical issues aside, you can find me at one of these spots below.</p>
-          <ul>
-            <li><a href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
-            <li><a href="https://github.com/ponchofreedo" rel="noreferrer" target="_blank">Github</a></li>
-            <li><a href="https://dribbble.com/ponchofreedo" rel="noreferrer" target="_blank">Dribbble</a></li>
-            <li><a href="https://twitter.com/ponchofreedo" rel="noreferrer" target="_blank">Twitter</a></li>
-            <li><a href="https://instagram.com/ponchofreedo" rel="noreferrer" target="_blank">Instagram</a></li>
-          </ul>
-        </article>
-      </section>
-    </section>
-  </section>
+  <main class="container">
+    <span class="text--h2"><span id="timestamp"></span> min ago</span>
+    <span id="pokemon"></span>
+    <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wood peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to just <a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer">drop me a line</a>.</p>
+    <p>Or, technical issues aside, you can find me at one of these spots below.</p>
+    <ul>
+      <li><a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer" target="_blank">Drop a line</a></li>
+      <li><a href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
+      <li><a href="https://github.com/ponchofreedo" rel="noreferrer" target="_blank">Github</a></li>
+      <li><a href="https://dribbble.com/ponchofreedo" rel="noreferrer" target="_blank">Dribbble</a></li>
+      <li><a href="https://instagram.com/ponchofreedo" rel="noreferrer" target="_blank">Instagram</a></li>
+      <li><a href="https://figma.com/@ponchofreedo" rel="noreferrer" target="_blank">Figma</a></li>
+    </ul>
+    <button v-on:click="toggleMode" aria-label="Toggle for dark mode">test</button>
+  </main>
 </template>
 
 <script>
   export default {
     name: 'Body',
-    props: {}
+    props: {},
+    data() {
+      return {
+        mode: '' // will set itself to whatever is set as default
+      };
+    },
+    mounted() {
+      let localMode = localStorage.getItem('mode');
+      document.body.setAttribute('data-mode', localMode);
+      if (localMode == 'dark') {
+        console.log('darkness all around me...');
+      } else {
+        console.log('the light...it burns');
+      }
+    },
+    methods: {
+      toggleMode: function () {
+        let localMode = localStorage.getItem('mode');
+        this.mode = localMode == 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-mode', this.mode);
+        localStorage.setItem('mode', this.mode);
+        if (this.mode == 'dark') {
+          console.log('darkness all around me...');
+        } else {
+          console.log('the light...it burns');
+        }
+      }
+    }
   }
 </script>
 
@@ -64,26 +83,6 @@
 
     #{$property}: $pxValues;
     #{$property}: $remValues;
-  }
-
-  article {
-    text-align: left;
-
-    + article {
-      @include rem-fallback(padding-top, 12);
-    }
-  }
-
-  h1 {
-    color: var(--primary__color);
-  }
-
-  .temporary-scenario {
-    color: var(--base__color--steel);
-
-    a {
-      color: inherit;
-    }
   }
 
   ul {

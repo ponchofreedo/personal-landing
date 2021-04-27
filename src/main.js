@@ -8,38 +8,42 @@ new Vue({
 }).$mount('#app', true)
 
 window.onload = function() {
-  var randomValue = Math.floor((Math.random() * 8) + 1);
+  var randomValue = Math.floor((Math.random() * 4) + 1);
   var theme;
 
   if (randomValue == 1) {
-    theme = "steel";
+    theme = "blue";
   } else if (randomValue == 2) {
-    theme = "psychic";
+    theme = "green";
   } else if (randomValue == 3) {
-    theme = "electric";
+    theme = "orange";
   } else if (randomValue == 4) {
-    theme = "poison";
-  } else if (randomValue == 5) {
-    theme = "fire";
-  } else if (randomValue == 6) {
-    theme = "ice";
-  } else if (randomValue == 7) {
-    theme = "ghost";
-  } else if (randomValue == 8) {
-    theme = "water";
+    theme = "yellow";
   }
   document.body.setAttribute('data-theme', theme);
 };
 
-// where it will inject
-const injectPokemon = document.getElementById("pokeHook");
+// helper functions
+function capFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// all the randomnum generators
+const randomPokemonNumber = Math.floor((Math.random() * 151) + 1);
+const randomTimeStamp = Math.floor((Math.random() * 60) + 1);
+const randomRoute = Math.floor((Math.random() * 28) + 1);
+
+// all the pokeballs
+let pokeBalls = ['Pok&eacute;', 'Great', 'Ultra', 'Master'];
+let randomPokeBall = pokeBalls[Math.floor(Math.random() * pokeBalls.length)];
+
+// where things will inject
+const injectPokemon = document.getElementById("pokemon");
+const injectTimeStamp = document.getElementById("timestamp");
 
 // call the api and fetch a pokemon
 const fetchPokemon = () => {
   console.log("Gotta catch 'em all!");
-
-  // set the universe
-  const randomPokemonNumber = Math.floor((Math.random() * 151) + 1);
 
   // pokeAPI url
   const url = "https://pokeapi.co/api/v2/pokemon/"+ randomPokemonNumber;
@@ -58,10 +62,16 @@ const fetchPokemon = () => {
     })
 }
 
-// convert the api data into html
-const displayPokemon = (pokemon) => {
-  injectPokemon.innerHTML = '<a rel="noreferrer" style="color: inherit!important" target="_blank" href="https://bulbapedia.bulbagarden.net/wiki/' + pokemon.name +'">' + pokemon.name + '</a>';
+// add the random timestamp
+const displayTimeStamp = () => {
+  injectTimeStamp.innerHTML = randomTimeStamp;
 }
 
-// do the thing
+// convert the api data into html
+const displayPokemon = (pokemon) => {
+  injectPokemon.innerHTML = '<a rel="noreferrer" style="color: inherit!important" target="_blank" href="https://bulbapedia.bulbagarden.net/wiki/' + pokemon.name +'">' + capFirstLetter(pokemon.name) + '</a>. Route ' + randomRoute + '. Captured with ' + randomPokeBall + ' Ball.';
+}
+
+// do the things
 fetchPokemon();
+displayTimeStamp();

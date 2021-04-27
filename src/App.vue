@@ -9,35 +9,17 @@
 <script>
 // import meyer css reset
 import 'reset-css';
-
-import Header from './components/Header.vue'
 import Body from './components/Body.vue'
-import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Body,
-    Footer
+    Body
   }
 }
 </script>
 
 <style lang="scss">
-  // global variables
-  $base__colors: (
-    "steel": #A0B1BA,
-    "psychic": #E065FF,
-    "electric": #FFCD1C,
-    "poison": #16D48E,
-    "fire": #E26D18,
-    "ice": #2CE0D7,
-    "dark": #1B2F3A,
-    "ghost": #FAFAFF,
-    "water": #1499FF
-  );
-
   // global mixins
 
   // thanks Karl Merkli (https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
@@ -83,27 +65,33 @@ export default {
     --base__font-weight: var(--font-weight--normal);
     --base__font-size: calc(var(--base__multiplier)*2);
 
-    --base__color--steel: #A0B1BA;
-    --base__color--psychic: #D775F0;
-    --base__color--electric: #FFCD1C;
-    --base__color--poison: #16D48E;
-    --base__color--fire: #E26D18;
-    --base__color--ice: #2CE0D7;
-    --base__color--dark: #1B2F3A;
+    --base__color--gray: #A0B1BA;
+    --base__color--yellow: #FFCD1C;
+    --base__color--orange: #E26D18;
+    --base__color--midnight: #0C1431;
     --base__color--ghost: #FAFAFF;
-    --base__color--water: #1499FF;
+    --base__color--blue: #1499FF;
+    --base__color--green: #16D48E;
 
     --base__spacing-1: calc(var(--base__multiplier)*1);
     --base__spacing-2: calc(var(--base__multiplier)*2);
 
     --primary__color: initial;
-    --primary__background: var(--base__color--dark);
+    --primary__background: var(--base__color--midnight);
     --primary__text-color: var(--base__color--ghost);
 
     --font-weight--normal: 400;
     --font-weight--medium: 500;
     --font-weight--semi: 600;
     --font-weight--bold: 700;
+  }
+
+  [data-mode="dark"] {
+    --primary__background: var(--base__color--midnight);
+  }
+
+  [data-mode="light"] {
+    --primary__background: var(--base__color--ghost);
   }
 
   html {
@@ -119,36 +107,20 @@ export default {
     margin: 0;
     padding: 0;
 
-    &[data-theme="steel"] {
-      --primary__color: var(--base__color--steel);
+    &[data-theme="blue"] {
+      --primary__color: var(--base__color--blue);
     }
 
-    &[data-theme="psychic"] {
-      --primary__color: var(--base__color--psychic);
+    &[data-theme="green"] {
+      --primary__color: var(--base__color--green);
     }
 
-    &[data-theme="electric"] {
-      --primary__color: var(--base__color--electric);
+    &[data-theme="yellow"] {
+      --primary__color: var(--base__color--yellow);
     }
 
-    &[data-theme="poison"] {
-      --primary__color: var(--base__color--poison);
-    }
-
-    &[data-theme="fire"] {
-      --primary__color: var(--base__color--fire);
-    }
-
-    &[data-theme="ice"] {
-      --primary__color: var(--base__color--ice);
-    }
-
-    &[data-theme="ghost"] {
-      --primary__color: var(--base__color--ghost);
-    }
-
-    &[data-theme="water"] {
-      --primary__color: var(--base__color--water);
+    &[data-theme="orange"] {
+      --primary__color: var(--base__color--orange);
     }
 
     /* influence these based on the data-theme */

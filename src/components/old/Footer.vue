@@ -9,7 +9,7 @@
         <article class="happy-fun-time">
           <p>Also...since you're down here...</p>
           <p>Who's that pokemon?</p>
-          <div id="pokeHook"></div>
+          No <span id="pokemon"></span> were harmed in the making of this page.
         </article>
         <button type="button" onClick="window.scrollTo(0,0)">
           <CircleArrow arrowClass="circle-arrow__up" svgFill="var(--primary__color)" />
@@ -33,38 +33,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
-  // thanks Karl Merkli (https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/)
-  @function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
-  }
-
-  @mixin rem-fallback($property, $values...) {
-    $max: length($values);
-    $pxValues: '';
-    $remValues: '';
-
-    @for $i from 1 through $max {
-      $value: strip-unit(nth($values, $i));
-      $pxValues: #{$pxValues + $value*16}px;
-
-      @if $i < $max {
-        $pxValues: #{$pxValues + " "};
-      }
-    }
-
-    @for $i from 1 through $max {
-      $value: strip-unit(nth($values, $i));
-      $remValues: #{$remValues + $value}rem;
-
-      @if $i < $max {
-        $remValues: #{$remValues + " "};
-      }
-    }
-
-    #{$property}: $pxValues;
-    #{$property}: $remValues;
-  }
 
   footer {
     display: grid;
