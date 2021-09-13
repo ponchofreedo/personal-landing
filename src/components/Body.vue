@@ -1,20 +1,28 @@
 <template>
   <main class="container">
-    <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wood peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to just <a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer">drop me a line</a>.</p>
-    <p>Or, technical issues aside, you can find me at one of these spots below.</p>
-    <ul>
-      <li><a href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer" target="_blank">Drop a line</a></li>
-      <li><a href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
-      <li><a href="https://github.com/ponchofreedo" rel="noreferrer" target="_blank">Github</a></li>
-      <li><a href="https://dribbble.com/ponchofreedo" rel="noreferrer" target="_blank">Dribbble</a></li>
-      <li><a href="https://instagram.com/ponchofreedo" rel="noreferrer" target="_blank">Instagram</a></li>
-      <li><a href="https://figma.com/@ponchofreedo" rel="noreferrer" target="_blank">Figma</a></li>
-    </ul>
+    <header>
+      <span>Sup.</span>
+      <p>I'm Zach &mdash; a senior product designer based out of CT, USA, currently building experiences at <a href="#" rel="noreferrer" target="_blank">Klaviyo</a>.</p>
+    </header>
     <section>
+      <article>
+        <p>Previously I crafted thoughtful spend and purchasing experiences at <a href="#" rel="noreferrer" target="_blank">Negotiatus</a>, went beyond camping at <a href="#" rel="noreferrer" target="_blank">Tentrr</a>, built best in class travel experiences at <a href="#" rel="noreferrer" target="_blank">priceline</a>, and pushed pixel performance at <a href="#" rel="noreferrer" target="_blank">Digital Surgeons</a>.</p>
+        <p>Unashamedly hardcore Star Wars nerd. Casual maker of tasty things. Liker of all furry and floofy four-legged friends. I sometimes still get out and play some lacrosse, too.</p>
+      </article>
+      <ul>
+        <li><a role="button" href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer" target="_blank">Drop a line</a></li>
+        <li><a role="button" href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
+        <li><a role="button" href="https://github.com/ponchofreedo" rel="noreferrer" target="_blank">Github</a></li>
+        <li><a role="button" href="https://dribbble.com/ponchofreedo" rel="noreferrer" target="_blank">Dribbble</a></li>
+        <li><a role="button" href="https://instagram.com/ponchofreedo" rel="noreferrer" target="_blank">Instagram</a></li>
+        <li><a role="button" href="https://figma.com/@ponchofreedo" rel="noreferrer" target="_blank">Figma</a></li>
+      </ul>
+      <button v-on:click="toggleMode" aria-label="Toggle for dark mode">test</button>
+    </section>
+    <footer>
       <span id="timestamp"></span>
       <span id="pokemon"></span>
-    </section>
-    <button v-on:click="toggleMode" aria-label="Toggle for dark mode">test</button>
+    </footer>
   </main>
 </template>
 
@@ -87,16 +95,108 @@
     #{$property}: $remValues;
   }
 
+  %btn {
+    display: initial;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.0;
+    cursor: pointer;
+    text-align: center;
+    transition: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:hover,
+    &:focus {
+      background: inherit;
+    }
+
+    &:focus {
+      outline: inherit;
+      outline-offset: inherit;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
   ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    @include rem-fallback(column-gap, 2.5);
+    display: flex;
   }
 
   li {
-    @include rem-fallback(font-size, 1.5);
-    line-height: 1.0;
-    @include rem-fallback(margin-bottom, 1.5);
+    display: inline-flex;
+    @include rem-fallback(margin-right, 0.5);
+    @include rem-fallback(margin-bottom, 0.5);
+
+    a {
+      @extend %btn;
+      @include rem-fallback(font-size, 1);
+      line-height: 1.0;
+
+      // scoped theme things
+
+      // size large
+      // turn this into a mixin or variant later
+      @include rem-fallback(padding-top, 0.75);
+      @include rem-fallback(padding-right, 1);
+      @include rem-fallback(padding-bottom, 0.75);
+      @include rem-fallback(padding-left, 1);
+
+      background: transparent;
+
+      border-style: solid;
+      @include rem-fallback(border-width, 0.125);
+      border-color: var(--base__color--gray);
+      @include rem-fallback(border-radius, 0.25);
+
+      transition: all 80ms ease-in-out, transform 80ms ease;
+
+      &:hover {
+        color: var(--primary__color);
+        border-color: var(--primary__color);
+
+        // use box-shadow to inset the thicker border without blowing up the height
+        // cant use the fallback here, so have to be redundant
+        box-shadow: inset 0 0 0 2px var(--primary__color);
+        box-shadow: inset 0 0 0 0.125rem var(--primary__color);
+      }
+
+      &:focus,
+      &:focus-within {
+        box-shadow: 1px 1px 0 2px var(--primary__background),
+                    1px -1px 0 2px var(--primary__background),
+                    -1px -1px 0 2px var(--primary__background),
+                    -1px 1px 0 2px var(--primary__background),
+                    1px 1px 0 4px var(--primary__color),
+                    1px -1px 0 4px var(--primary__color),
+                    -1px -1px 0 4px var(--primary__color),
+                    -1px 1px 0 4px var(--primary__color),
+                    4px 4px 8px 1px rgba(var(--primary__color--hex), 0.64),
+                    4px -4px 8px 1px rgba(var(--primary__color--hex), 0.64),
+                    -4px -4px 8px 1px rgba(var(--primary__color--hex), 0.64),
+                    -4px 4px 8px 1px rgba(var(--primary__color--hex), 0.64);
+        box-shadow: 0.0625rem 0.0625rem 0 0.125rem var(--primary__background),
+                    0.0625rem -0.0625rem 0 0.125rem var(--primary__background),
+                    -0.0625rem -0.0625rem 0 0.125rem var(--primary__background),
+                    -0.0625rem 0.0625rem 0 0.125rem var(--primary__background),
+                    0.0625rem 0.0625rem 0 0.25rem var(--primary__color),
+                    0.0625rem -0.0625rem 0 0.25rem var(--primary__color),
+                    -0.0625rem -0.0625rem 0 0.25rem var(--primary__color),
+                    -0.0625rem 0.0625rem 0 0.25rem var(--primary__color),
+                    0.25rem 0.25rem 0.5rem 0.0625rem rgba(var(--primary__color--hex), 0.64),
+                    0.25rem -0.25rem 0.5rem 0.0625rem rgba(var(--primary__color--hex), 0.64),
+                    -0.25rem -0.25rem 0.5rem 0.0625rem rgba(var(--primary__color--hex), 0.64),
+                    -0.25rem 0.25rem 0.5rem 0.0625rem rgba(var(--primary__color--hex), 0.64)
+      }
+    }
   }
 
 </style>

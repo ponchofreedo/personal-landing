@@ -30,6 +30,8 @@ export default {
     @return $num / ($num * 0 + 1);
   }
 
+  // add redundant rem and px properties
+  // will fallback to hard pixel value when rem is not supported
   @mixin rem-fallback($property, $values...) {
     $max: length($values);
     $pxValues: '';
@@ -68,19 +70,30 @@ export default {
     --base__font-weight: var(--font-weight--normal);
     --base__font-size: calc(var(--base__multiplier)*2);
 
+    --base__color--black: #161616;
+    --base__color--black--hex: 22, 22, 22;
+    --base__color--white: #FFFFFF; // prefer ghost to white
+    --base__color--white--hex: 255, 255, 255;
     --base__color--gray: #A0B1BA;
+    --base__color--gray--hex: 160, 177, 186;
     --base__color--yellow: #FFCD1C;
+    --base__color--yellow--hex: 255, 205, 28;
     --base__color--orange: #E26D18;
-    --base__color--midnight: #18203A;
-    --base__color--ghost: #FAFAFF;
+    --base__color--orange--hex: 226, 109, 24;
+    --base__color--dk-blue: #18203A;
+    --base__color--dk-blue--hex: 24, 32, 58;
     --base__color--blue: #1499FF;
+    --base__color--blue--hex: 20, 153, 255;
     --base__color--green: #16D48E;
+    --base__color--green--hex: 22, 122, 142;
+    --base__color--ghost: #FAFAFF;
+    --base__color--ghost--hex: 250, 250, 255;
 
     --base__spacing-1: calc(var(--base__multiplier)*1);
     --base__spacing-2: calc(var(--base__multiplier)*2);
 
-    --primary__color: initial;
-    --primary__background: var(--base__color--midnight);
+    --primary__color: initial; // makes it totally agnostic and guaranteed to be overwritten
+    --primary__background: var(--base__color--dk-blue);
     --primary__text-color: var(--base__color--ghost);
 
     --font-weight--normal: 400;
@@ -90,13 +103,16 @@ export default {
   }
 
   [data-mode="dark"] {
-    --primary__background: var(--base__color--midnight);
+    --primary__background: var(--base__color--dk-blue);
+    --primary__background--hex: var(--base__color--dk-blue--hex);
   }
 
   [data-mode="light"] {
     --primary__background: var(--base__color--ghost);
+    --primary__background--hex: var(--base__color--ghost--hex);
   }
 
+  // because, modern
   html {
     scroll-behavior: smooth;
   }
@@ -112,18 +128,22 @@ export default {
 
     &[data-theme="blue"] {
       --primary__color: var(--base__color--blue);
+      --primary__color--hex: var(--base__color--blue--hex);
     }
 
     &[data-theme="green"] {
       --primary__color: var(--base__color--green);
+      --primary__color--hex: var(--base__color--green--hex);
     }
 
     &[data-theme="yellow"] {
       --primary__color: var(--base__color--yellow);
+      --primary__color--hex: var(--base__color--yellow--hex);
     }
 
     &[data-theme="orange"] {
       --primary__color: var(--base__color--orange);
+      --primary__color--hex: var(--base__color--orange--hex);
     }
 
     /* influence these based on the data-theme */
@@ -145,7 +165,7 @@ export default {
     grid-template-columns: repeat(12, 1fr);
     @include rem-fallback(column-gap, 2.5);
     width: calc(100vw - 10rem);
-    max-width: 1440px
+    max-width: 1440px;
   }
 
   .container__content {
