@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <Header />
     <Body />
     <Footer />
   </div>
 </template>
 
 <script>
-// import meyer css reset
-import 'reset-css';
+// style imports
+import 'reset-css';  // import meyer css reset
+
+// component imports
 import Body from './components/Body.vue'
 import Footer from './components/Footer.vue'
 
@@ -154,7 +155,7 @@ export default {
     grid-column-end: 8;   // 8 cols, 9 lines
   }
 
-  .container__inner-container {
+  %container__inner-container {
     display: inherit;
     align-self: flex-start;
     position: relative;
@@ -163,7 +164,7 @@ export default {
   .container__header,
   .container__body,
   .container__footer {
-    @extend .container__inner-container;
+    @extend %container__inner-container;
   }
 
   .container__header {
