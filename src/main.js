@@ -64,7 +64,7 @@ const fetchPokemon = () => {
 
 // add the random timestamp
 const displayTimeStamp = () => {
-  injectTimeStamp.innerHTML = randomTimeStamp;
+  injectTimeStamp.innerHTML = randomTimeStamp + ' min ago';
 }
 
 // convert the api data into html

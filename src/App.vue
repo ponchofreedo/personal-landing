@@ -10,11 +10,13 @@
 // import meyer css reset
 import 'reset-css';
 import Body from './components/Body.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    Body
+    Body,
+    Footer
   }
 }
 </script>
@@ -68,7 +70,7 @@ export default {
     --base__color--gray: #A0B1BA;
     --base__color--yellow: #FFCD1C;
     --base__color--orange: #E26D18;
-    --base__color--midnight: #0C1431;
+    --base__color--midnight: #18203A;
     --base__color--ghost: #FAFAFF;
     --base__color--blue: #1499FF;
     --base__color--green: #16D48E;
@@ -139,7 +141,7 @@ export default {
   }
 
   .container__grid {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     @include rem-fallback(column-gap, 2.5);
     width: calc(100vw - 10rem);
     max-width: 1440px
