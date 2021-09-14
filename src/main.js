@@ -29,13 +29,17 @@ function capFirstLetter(string) {
 }
 
 // all the randomnum generators
-const randomPokemonNumber = Math.floor((Math.random() * 151) + 1);
+const randomPokemonNumber = Math.floor((Math.random() * 251) + 1);
 const randomTimeStamp = Math.floor((Math.random() * 60) + 1);
-const randomRoute = Math.floor((Math.random() * 28) + 1);
+const randomRoute = Math.floor((Math.random() * 48) + 1); // gen 1+2 routes only
 
 // all the pokeballs
-let pokeBalls = ['Pok&eacute;', 'Great', 'Ultra', 'Master'];
+let pokeBalls = ['Pok&eacute;', 'Great', 'Ultra', 'Master', 'Safari', 'Fast', 'Level', 'Lure', 'Heavy', 'Love', 'Friend', 'Moon', 'Sport'];
 let randomPokeBall = pokeBalls[Math.floor(Math.random() * pokeBalls.length)];
+
+// leaving comment here for later
+// when i want to make improvements to hack around, see if i can leverage
+// route data or location data from pokeapi instead of doing random num gen
 
 // where things will inject
 const injectPokemon = document.getElementById("pokemon");

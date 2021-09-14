@@ -1,52 +1,14 @@
 <template>
-  <section>
-    <article>
-      <p>Previously I crafted thoughtful spend and purchasing experiences at <a href="#" rel="noreferrer" target="_blank">Negotiatus</a>, went beyond camping at <a href="#" rel="noreferrer" target="_blank">Tentrr</a>, built best in class travel experiences at <a href="#" rel="noreferrer" target="_blank">priceline</a>, and pushed pixel performance at <a href="#" rel="noreferrer" target="_blank">Digital Surgeons</a>.</p>
-      <p>Unashamedly hardcore Star Wars nerd. Casual maker of tasty things. Liker of all furry and floofy four-legged friends. I sometimes still get out and play some lacrosse, too.</p>
-    </article>
-    <ul>
-      <li><a role="button" href="mailto:zach.freed@gmail.com?subject=sup." rel="noreferrer" target="_blank">Drop a line</a></li>
-      <li><a role="button" href="https://linkedin.com/in/zpfreed" rel="noreferrer" target="_blank">Linkedin</a></li>
-      <li><a role="button" href="https://github.com/ponchofreedo" rel="noreferrer" target="_blank">Github</a></li>
-      <li><a role="button" href="https://dribbble.com/ponchofreedo" rel="noreferrer" target="_blank">Dribbble</a></li>
-      <li><a role="button" href="https://instagram.com/ponchofreedo" rel="noreferrer" target="_blank">Instagram</a></li>
-      <li><a role="button" href="https://figma.com/@ponchofreedo" rel="noreferrer" target="_blank">Figma</a></li>
-    </ul>
-    <button v-on:click="toggleMode" aria-label="Toggle for dark mode">test</button>
-  </section>
+  <header>
+    <span>Sup.</span>
+    <p>I'm Zach &mdash; a senior product designer based out of CT, USA, currently building experiences at <a href="#" rel="noreferrer" target="_blank">Klaviyo</a>.</p>
+  </header>
 </template>
 
 <script>
   export default {
-    name: 'Body',
-    props: {},
-    data() {
-      return {
-        mode: '' // will set itself to whatever is set as default
-      };
-    },
-    mounted() {
-      let localMode = localStorage.getItem('mode');
-      document.body.setAttribute('data-mode', localMode);
-      if (localMode == 'dark') {
-        console.log('darkness all around me...');
-      } else {
-        console.log('the light...it burns');
-      }
-    },
-    methods: {
-      toggleMode: function () {
-        let localMode = localStorage.getItem('mode');
-        this.mode = localMode == 'light' ? 'dark' : 'light';
-        document.body.setAttribute('data-mode', this.mode);
-        localStorage.setItem('mode', this.mode);
-        if (this.mode == 'dark') {
-          console.log('darkness all around me...');
-        } else {
-          console.log('the light...it burns');
-        }
-      }
-    }
+    name: 'Header',
+    props: {}
   }
 </script>
 
@@ -118,7 +80,7 @@
   }
 
   ul {
-    display: block;
+    display: flex;
   }
 
   li {
@@ -128,7 +90,7 @@
 
     a {
       @extend %btn;
-      font-size: inherit;
+      @include rem-fallback(font-size, 1);
       line-height: 1.0;
 
       // scoped theme things

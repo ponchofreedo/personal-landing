@@ -1,6 +1,7 @@
 <template>
   <footer>
-    bleh.
+    <span id="timestamp"></span>
+    <span id="pokemon"></span>
   </footer>
 </template>
 

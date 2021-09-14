@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <Body />
-    <Footer />
+    <main class="container container__grid">
+      <Header />
+      <Body />
+      <!--<Footer /> -->
+    </main>
   </div>
 </template>
 
@@ -10,14 +13,16 @@
 import 'reset-css';  // import meyer css reset
 
 // component imports
+import Header from './components/Header.vue'
 import Body from './components/Body.vue'
-import Footer from './components/Footer.vue'
+// import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
+    Header,
     Body,
-    Footer
+    // Footer
   }
 }
 </script>
@@ -151,21 +156,42 @@ export default {
     color: var(--primary__text-color);
   }
 
+  body {
+    @include rem-fallback(font-size, 0.875);
+  }
+
   a {
     color: var(--primary__color);
     font-weight: var(--font-weight--bold);
   }
 
+  header {
+    grid-area: header;
+  }
+
+  section {
+    grid-area: body;
+  }
+
   .container {
     display: grid;
-    justify-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas: "header"
+                          "body"
+                          "footer";
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  header,
+  section,
+  footer {
+    grid-column-start: 3;
+    grid-column-end: 7;
   }
 
   .container__grid {
-    grid-template-columns: repeat(12, 1fr);
     @include rem-fallback(column-gap, 2.5);
-    width: calc(100vw - 10rem);
-    max-width: 1440px;
   }
 
   .container__content {
@@ -185,10 +211,6 @@ export default {
   .container__body,
   .container__footer {
     @extend %container__inner-container;
-  }
-
-  .container__header {
-    grid-area: header;
   }
 
   .container__body {
@@ -219,18 +241,40 @@ export default {
     font-weight: var(--font-weight--bold);
   }
 
+  %text-link__effects {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: var(--base__color--gray);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0;
+
+    &:hover {
+      text-underline-offset: -2px;
+      text-decoration-thickness: 4px;
+      text-decoration-color: var(--primary__color);
+    }
+  }
+
   p {
-    @include rem-fallback(font-size, 1.5);
-    @include rem-fallback(line-height, 2.4);
-    @include rem-fallback(margin-top, 2.5);
-    @include rem-fallback(margin-bottom, 2);
+    @include rem-fallback(font-size, 0.875);
+    @include rem-fallback(line-height, 1.4);
+
+    a {
+      transition: color 80ms ease-in-out;
+      color: inherit;
+      @extend %text-link__effects;
+
+      &:hover {
+        color: var(--primary__color);
+      }
+    }
 
     &:first-of-type {
       margin-bottom: 0;
     }
 
     + p {
-      @include rem-fallback(margin-top, 1.25);
+      @include rem-fallback(margin-top, 1);
     }
   }
 </style>
