@@ -1,29 +1,35 @@
-![The new donut logo...because it's tasty](https://raw.githubusercontent.com/ponchofreedo/personal-landing/master/das_donut.png)
+# personal-landing
 
-# 2021 Landing Page
-Rebooting the landing page.
+This template should help get you started developing with Vue 3 in Vite.
 
-Since it's being shipped via Vercel, opened up the A and CNAME to route http://ponchofree.do to the final destination of https://zachfreed.com.
+## Recommended IDE Setup
 
-## Project setup
-```
-yarn install
-```
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Customize configuration
 
-### Compiles and minifies for production
-```
-yarn build
+See [Vite Configuration Reference](https://vitejs.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
 ```
 
-### Lints and fixes files
-```
-yarn lint
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
