@@ -1,21 +1,11 @@
 <script setup>
-defineProps({
-  greeting: {
-    type: String,
-    required: true
-  }
-})
+  defineProps({})
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ greeting }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
-    </h3>
-  </div>
+  <header>
+    <h1>Test</h1>
+  </header>
 </template>
 
 <style lang="scss" scoped>
