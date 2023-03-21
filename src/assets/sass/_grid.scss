@@ -1,7 +1,7 @@
 .container__grid {
   grid-template-columns: repeat(12,1fr);
-  @include rem-fallback(-moz-column-gap, 40);
-  @include rem-fallback(column-gap, 40);
+  @include convert-to-rem(-moz-column-gap, 40);
+  @include convert-to-rem(column-gap, 40);
   // width: calc(100vw - 10rem);
   max-width: 100vw;
 }

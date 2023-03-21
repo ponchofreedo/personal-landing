@@ -2,9 +2,9 @@
 :root {
   --base__multiplier: 8px;
   --base__font-family: 'Inter', system-ui;
-  --base__display-font: 'Neue Haas Grotesk Display', var(--base__font-family);
+  --base__font-family--display: 'Neue Haas Grotesk Display Pro', var(--base__font-family);
   --base__font-weight: var(--font-weight--normal);
-  --base__font-size: calc(var(--base__multiplier)*2);
+  --base__font-size: calc(var(--base__multiplier)*2); 
 
   // [almost] all colors pass WCAG AA Normal Text (>4.50:1)
   // --base__color--#:;
@@ -39,10 +39,12 @@
   --base__spacing-2: calc(var(--base__multiplier)*2);
 
   --primary__color: initial; // makes it totally agnostic and guaranteed to be overwritten
-  --primary__background: var(--base__color--ghost);
-  --primary__text-color: var(--base__color--dark);
+  --primary__color--background: var(--base__color--ghost);
+  --primary__color--text: var(--base__color--dark);
+  --primary__color--highlight: var(--base__color--fighting); // also known as my theme color
   --font-weight--normal: 400
-  --font-weight--bold: 700;
+  --font-weight--medium: 600;
+  --font-weight--bold: 800;
 }
 
 // programatic duplicate for darkmode @media, but im not relying on that query at the moment

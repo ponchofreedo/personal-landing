@@ -11,7 +11,7 @@
 <style lang="scss" scoped>
 
 h1 {
-  font-family: var(--base__display-font);
+  font-family: var(--base__font-family--display);
   font-weight: 500;
   font-size: 2.6rem;
   top: -10px;

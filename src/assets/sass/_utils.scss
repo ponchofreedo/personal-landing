@@ -5,7 +5,7 @@
 }
 // add redundant rem and px properties
 // will fallback to hard pixel value when rem is not supported
-@mixin rem-fallback($property, $values...) {
+@mixin convert-to-rem($property, $values...) {
   $max: length($values);
   $pxValues: '';
   $remValues: '';

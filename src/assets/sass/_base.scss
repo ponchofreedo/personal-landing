@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--base__font-family);
   font-weight: var(--base__font-weight);
-  @include rem-fallback(font-size, 1);    // equivalent to 1rem / 16px
+  @include convert-to-rem(font-size, 1); // equivalent to 1rem / 16px
   margin: 0;
   padding: 0;
   &[data-theme="blue"] {
@@ -31,5 +31,5 @@ body {
   color: var(--primary__text-color);
 }
 body {
-  @include rem-fallback(font-size, 0.875);
+  @include convert-to-rem(font-size, 0.875);
 }
