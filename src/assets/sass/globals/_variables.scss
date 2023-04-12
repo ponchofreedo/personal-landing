@@ -41,20 +41,17 @@
   --primary__color: initial; // makes it totally agnostic and guaranteed to be overwritten
   --primary__color--background: var(--base__color--ghost);
   --primary__color--text: var(--base__color--dark);
-  --primary__color--highlight: var(--base__color--fighting); // also known as my theme color
-  --font-weight--normal: 400
-  --font-weight--medium: 600;
-  --font-weight--bold: 800;
+  --primary__color--theme: var(--base__color--dark); // also known as the theme color
 }
 
 // programatic duplicate for darkmode @media, but im not relying on that query at the moment
 // this is also basically unused (very un-dry of me) since im not doing a toggle atm, but will in the future
 [data-mode="dark"] {
-  --primary__background: var(--base__color--dark);
-  --primary__background--rgb: var(--base__color--dark--rgb);
+  --primary__color--background: var(--base__color--dark);
+  --primary__color--background--rgb: var(--base__color--dark--rgb);
 }
 
 [data-mode="light"] {
-  --primary__background: var(--base__color--ghost);
-  --primary__background--rgb: var(--base__color--ghost--rgb);
+  --primary__color--background: var(--base__color--ghost);
+  --primary__color--background--rgb: var(--base__color--ghost--rgb);
 }

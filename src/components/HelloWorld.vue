@@ -5,6 +5,8 @@ defineProps({
     required: true
   }
 })
+
+var greeting = "hello"
 </script>
 
 <template>

@@ -1,12 +1,14 @@
 // all the fun sass things
 // ORDER MATTERS!
 
-// @import '_globals';
-@import '_reset';
-@import '_utils';
-@import '_font-face';
-@import '_variables';
+// global vars and helpers
+@import 'globals/_globals';
 
-@import '_grid';
-@import '_base';
-@import '_typography';
+// basic setup
+@import 'base/_base';
+
+// global components, aka "system"
+@import 'system/_system.scss';
+
+// project components
+@import 'components/_components.scss'

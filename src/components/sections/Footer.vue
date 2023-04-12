@@ -2,7 +2,10 @@
 </script>
 
 <template>
-  test main content
+  <footer>
+    test footer
+  </footer>
+  <div class="theme__highlight"></div>
 </template>
 
 <style lang="scss" scoped>
