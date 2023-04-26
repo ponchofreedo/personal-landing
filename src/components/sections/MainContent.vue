@@ -10,13 +10,19 @@
         <p>Previously crafted thoughtful spend and purchasing experiences at <a href="https://www.order.co" target="_blank">Order.co</a>, went beyond camping at <a href="https://www.tentrr.com" target="_blank">Tentrr</a>, built best in class travel experiences at <a href="https://www.priceline.com" target="_blank">priceline</a>, and learned to push pixel performance at <a href="https://www.digitalsurgeons.com" target="_blank">Digital Surgeons</a>.</p>
         <ul>
           <li>
-            <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank" class="btn btn--primary btn__sz--lg">R&eacute;sum&eacute;</a>
+            <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank">R&eacute;sum&eacute;</a>
           </li>
           <li>
-            <a href="https://github.com/ponchofreedo/portfolio-projects" target="_blank" class="btn btn--primary btn__sz--lg">Projects</a>
+            <a href="https://github.com/ponchofreedo/portfolio-projects" target="_blank">Projects</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/zpfreed" target="_blank" class="btn btn--primary btn__sz--lg">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/zpfreed" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/ponchofreedo" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.dribbble.com/ponchofreedo" target="_blank">Dribbble</a>
           </li>
         </ul>
       </div>
@@ -55,13 +61,12 @@ div {
 
 ul {
   display: flex;
-  flex-direction: row;
-  flex-flow: nowrap;
+  flex-wrap: wrap;
   list-style: none;
+  gap: 0.5rem;
 
   li {
     display: inline-flex;
-    margin: 0 0.25rem;
 
     &:first-child {
       margin-left: 0;
