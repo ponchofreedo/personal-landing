@@ -1,0 +1,80 @@
+// because, modern
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--base__font-family);
+  font-weight: var(--base__font-weight);
+  @include convert-to-rem(font-size, 1); // equivalent to 1rem / 16px
+  line-height: var(--text__line-height--base);
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // theming vars
+  &[data-theme="fire"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--fire);
+  }
+  &[data-theme="ice"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--ice);
+  }
+  &[data-theme="electric"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--electric);
+  }
+  &[data-theme="poison"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--poison);
+  }
+  &[data-theme="psychic"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--psychic);
+  }
+  &[data-theme="ghost"] {
+    --primary__color--background: var(--base__color--ghost);
+    --primary__color--text: var(--base__color--dark);
+    --primary__color--theme: var(--base__color--steel);
+  }
+  &[data-theme="steel"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--steel);
+  }
+  &[data-theme="water"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--water);
+  }
+  &[data-theme="fighting"] {
+    --primary__color--background: var(--base__color--dark);
+    --primary__color--text: var(--base__color--ghost);
+    --primary__color--theme: var(--base__color--fighting);
+  }
+  
+  /* influence these based on the data-theme */
+  background-color: var(--primary__color--background);
+  color: var(--primary__color--text);
+}
+
+.theme__highlight {
+  border-top-style: solid;
+  @include convert-to-rem(border-top-width, 0.5);
+  border-top-color: var(--primary__color--theme);
+}
+
+// import typography settings
+@import '_typography';
+
+// import grid settings
+// controversial to put this at the bottom, but im optimistic this time around
+@import '_grid';
