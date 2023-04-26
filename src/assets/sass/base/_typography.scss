@@ -21,7 +21,7 @@ h3,
 h4 {
 	font-family: var(--base__font-family--display);
 	line-height: var(--text__line-height--display);
-	@include convert-to-rem(letter-spacing, -0.001*62.5); // use the 62.5 trick
+	@include convert-to-rem(letter-spacing, -0.0001*62.5); // use the 62.5 trick
 }
 
 // line-height for p and other elements should be inherited from the body
