@@ -6,8 +6,8 @@
     <article class="container__simple theme__highlight">
       <div>
         <h1>'Sup</h1>
-        <h2>I'm Zach &mdash; a product designer who enjoys crafting frictionless experiences for real people with real needs. Recently, I was building core data management experiences at <a href="https://www.klaviyo.com" target="_blank">Klaviyo</a>.</h2>
-        <p>Previously crafted thoughtful spend and purchasing experiences at <a href="https://www.order.co" target="_blank">Order.co</a>, went beyond camping at <a href="https://www.tentrr.com" target="_blank">Tentrr</a>, built best in class travel experiences at <a href="https://www.priceline.com" target="_blank">priceline</a>, and learned to push pixel performance at <a href="https://www.digitalsurgeons.com" target="_blank">Digital Surgeons</a>.</p>
+        <h2>I'm Zach &mdash; a product designer who enjoys crafting frictionless experiences for real people with real needs. Currently, I'm building core data management experiences at <a href="https://www.hubspot.com" target="_blank">HubSpot</a>.</h2>
+        <p>Previously developed core data and advanced segmentation tools at <a href="https://www.klaviyo.com" target="_blank">Klaviyo</a>, crafted thoughtful spend and purchasing experiences at <a href="https://www.order.co" target="_blank">Order.co</a>, went beyond camping at <a href="https://www.tentrr.com" target="_blank">Tentrr</a>, built best in class travel experiences at <a href="https://www.priceline.com" target="_blank">priceline</a>, and learned to push pixel performance at <a href="https://www.digitalsurgeons.com" target="_blank">Digital Surgeons</a>.</p>
         <ul>
           <li>
             <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank">R&eacute;sum&eacute;</a>
