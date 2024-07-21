@@ -5,7 +5,9 @@ import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import CloseIcon from './icons/IconClose.vue'
 import ArrowDownIcon from './icons/IconArrowDown.vue'
+import ArrowUpIcon from './icons/IconArrowUp.vue'
 </script>
 
 <template>
@@ -89,7 +91,29 @@ import ArrowDownIcon from './icons/IconArrowDown.vue'
 
   <WelcomeItem>
     <template #icon>
+      <CloseIcon />
+    </template>
+    <template #heading>Support Vue</template>
+
+    As an independent project, Vue relies on community backing for its sustainability. You can help
+    us by
+    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
       <ArrowDownIcon />
+    </template>
+    <template #heading>Support Vue</template>
+
+    As an independent project, Vue relies on community backing for its sustainability. You can help
+    us by
+    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <ArrowUpIcon />
     </template>
     <template #heading>Support Vue</template>
 
