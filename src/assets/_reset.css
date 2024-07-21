@@ -1,0 +1,106 @@
+/* css baseline reset
+this method joins together two schools of thought
+- the Eric Meyer reset (https://meyerweb.com/eric/tools/css/reset/)
+- the modern-css-reset package (https://github.com/hankchizljaw/modern-css-reset)
+
+where the Meyer reset is a great primer that I always tend to lean on, it is
+fairly out of date, but the concept still holds its own with todays css.
+ironically, where i find the modern-css-reset lacking is being a bit brash
+and thinking it can shrug off some standards that some browsers may account
+for now out of the box, but i like to err on the side of caution and add
+the missing properties back to the mix.*/
+
+/* Reset box-sizing, of course */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Meyer heavy-handed approach to nuking everything */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* these are nice touches from modern-css-reset to address scrolling, text
+   rendering, img and picture detaults, and type quirks with form elements, links,
+   and buttons. then i went in an modified any values i didnt agree with and
+   changed them with the Meyer values. */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* standard Meyer reset for common elements to the absolute barebones */
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* controversial one from modern-css-reset especially with scoped styles, but
+   this is actually a good reset property */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* final touch from modern-css-reset dealing with accessibility and browser
+   preferences for animations. removes all animations and transitions for those
+   that would prefer not to see them. */
+@media (prefers-reduced-motion: reduce) {
+ html:focus-within {
+  scroll-behavior: auto;
+ }
+ *,
+ *::before,
+ *::after {
+   animation-duration: 0.01ms !important;
+   animation-iteration-count: 1 !important;
+   transition-duration: 0.01ms !important;
+   scroll-behavior: auto !important;
+ }
+}

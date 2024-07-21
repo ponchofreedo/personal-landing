@@ -1,0 +1,114 @@
+/* set up the round-robin vars and classes */
+:root {
+  /* these font-sizes are really only here for reference */
+  /* divide the px value by the base font-size of 16 for rem equivalent */
+  --text__font-size--h1: 64;
+  --text__font-size--h1--px: calc(var(--text__font-size--h1) * 1px);
+  --text__font-size--h1--rem: calc((var(--text__font-size--h1) / var(--base__font-size)) * 1rem);
+  --text__font-size--h2: 56;
+  --text__font-size--h2--px: calc(var(--text__font-size--h2) * 1px);
+  --text__font-size--h2--rem: calc((var(--text__font-size--h2) / var(--base__font-size)) * 1rem);
+  --text__font-size--h3: 32;
+  --text__font-size--h3--px: calc(var(--text__font-size--h3) * 1px);
+  --text__font-size--h3--rem: calc((var(--text__font-size--h3) / var(--base__font-size)) * 1rem);
+  --text__font-size--h4: 24;
+  --text__font-size--h4--px: calc(var(--text__font-size--h4) * 1px);
+  --text__font-size--h4--rem: calc((var(--text__font-size--h4) / var(--base__font-size)) * 1rem);
+  --text__font-size--h5: 20;
+  --text__font-size--h5--px: calc(var(--text__font-size--h5) * 1px);
+  --text__font-size--h5--rem: calc((var(--text__font-size--h5) / var(--base__font-size)) * 1rem);
+  --text__font-size--p: 16; /* should be the same as the --base__font-size */
+  --text__font-size--p--px: calc(var(--text__font-size--p) * 1px);
+  --text__font-size--p--rem: calc((var(--text__font-size--p) / var(--base__font-size)) * 1rem);
+  --text__font-size--small: 12;
+  --text__font-size--small--px: calc(var(--text__font-size--small) * 1px);
+  --text__font-size--small--rem: calc((var(--text__font-size--small) / var(--base__font-size)) * 1rem);
+
+  --text__line-height--base: 1.625;
+  --text__line-height--display: 1.25; /* otherwise the line-height is HUGE */
+  --text__line-height--display--mod: 1.4; /* otherwise the line-height is HUGE */
+
+  --text__font-weight--book: 400; /* this is the default font-weight for body copy */
+  --text__font-weight--regualar: 500;
+  --text__font-weight--medium: 600;
+  --text__font-weight--semibold: 700;
+  --text__font-weight--bold: 800;
+}
+
+/* h1-h2 should pair with --text__line-height--display */
+h1,
+h2 {
+  line-height: var(--text__line-height--display);
+}
+
+/* h3-h4 should pair with --text__line-height--display--mod */
+h3,
+h4 {
+  line-height: var(--text__line-height--display--mod);
+}
+
+/* h3-h4 should pair with --text__line-height--display--mod */
+h5,
+small {
+  line-height: var(--text__line-height--base);
+}
+
+/* tighten the letter-spacing for the biggest sizes */
+h1,
+h2,
+h3 {
+  letter-spacing: calc((-0.001 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
+  letter-spacing: calc(((-0.001 * var(--base__font-size-percentage)) * 16) * 1px); /* should render -0.1px */
+}
+
+/* line-height for p and other elements should be inherited from the body */
+
+h1 {
+  font-size: var(--text__font-size--h1--px);
+  font-size: var(--text__font-size--h1--rem);
+  font-weight: var(--text__font-weight--bold);
+  color: var(--primary__color--theme);
+
+  @media (max-width: 980px) {
+  }
+}
+
+h2 {
+  font-size: var(--text__font-size--h2--px);
+  font-size: var(--text__font-size--h2--rem);
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--primary__color--theme);
+
+  @media (max-width: 980px) {
+  }
+}
+
+h3 {
+  font-size: var(--text__font-size--h3--px);
+  font-size: var(--text__font-size--h3--rem);
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--primary__color--theme);
+
+  @media (max-width: 980px) {
+  }
+}
+
+h4 {
+  font-size: var(--text__font-size--h4--px);
+  font-size: var(--text__font-size--h4--rem);
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--primary__color--theme);
+
+  @media (max-width: 980px) {
+  }
+}
+
+h5 {
+  font-size: var(--text__font-size--h5--px);
+  font-size: var(--text__font-size--h5--rem);
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--primary__color--theme);
+
+  @media (max-width: 980px) {
+  }
+}

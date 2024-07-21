@@ -1,4 +1,15 @@
-@import "./base.css";
+/* vars first */
+@import './_vars.css';
+
+/* then reset */
+@import './_reset.css';
+
+/* and then the base package */
+@import './_base.css';
+/*@import './base.css';*/
+
+/* finally we import the base partials */
+@import './_typography.css';
 
 #app {
   max-width: 1280px;
