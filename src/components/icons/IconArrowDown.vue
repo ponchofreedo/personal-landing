@@ -11,8 +11,8 @@
 		<path
 			fill="none"
 			stroke="currentColor"
-			stroke-linecap="butt"
-			stroke-linejoin="butt"
+			stroke-linecap="square"
+			stroke-linejoin="miter"
 			stroke-width="40"
 			d="M176 262.62L256 342l80-79.38M256 330.97V170"
 		/>

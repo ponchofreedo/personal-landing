@@ -12,7 +12,7 @@
 			fill="none"
 			stroke="currentColor"
 			stroke-linecap="square"
-			stroke-linejoin="square"
+			stroke-linejoin="miter"
 			stroke-width="40"
 			d="M320 320L192 192M192 320l128-128"
 		/>

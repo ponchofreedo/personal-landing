@@ -12,7 +12,7 @@
 			fill="none"
 			stroke="currentColor"
 			stroke-linecap="square"
-			stroke-linejoin="square"
+			stroke-linejoin="miter"
 			stroke-width="40"
 			d="M176 249.38L256 170l80 79.38M256 181.03V342"
 		/>
