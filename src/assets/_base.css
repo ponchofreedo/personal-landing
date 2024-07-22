@@ -88,3 +88,18 @@ body {
   border-top-style: solid;
   border-top-color: var(--primary__color--theme);
 }
+
+.container__grid {
+  display: grid;
+  -moz-column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+  -moz-column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+  column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+  column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+  grid-template-columns: repeat(8, 1fr);
+  max-width: 100vw;
+}
+
+.container__simple {
+  grid-column: 3 / span 6;
+}
+
