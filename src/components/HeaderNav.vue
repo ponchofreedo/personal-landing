@@ -9,13 +9,13 @@ defineProps<{
     <h1>{{ greeting }}<span>.</span></h1>
     <ul>
       <li>
-        <a href="https://github.com/ponchofreedo/portfolio-projects/">
+        <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
           <h4>Work things<span>.</span></h4>
           <p>They're in GitHub :/.</p>
         </a>
       </li>
       <li>
-        <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV">
+        <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank">
           <h4>R&eacute;sum&eacute;<span>.</span></h4>
           <p>...and OneDrive.</p>
         </a>
