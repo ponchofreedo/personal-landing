@@ -10,13 +10,13 @@ defineProps<{
     <ul>
       <li>
         <a href="https://github.com/ponchofreedo/portfolio-projects/">
-          <h4>Work things.</h4>
+          <h4>Work things<span>.</span></h4>
           <p>They're in GitHub :/.</p>
         </a>
       </li>
       <li>
         <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV">
-          <h4>R&eacute;sum&eacute;.</h4>
+          <h4>R&eacute;sum&eacute;<span>.</span></h4>
           <p>...and OneDrive.</p>
         </a>
       </li>
@@ -25,14 +25,55 @@ defineProps<{
 </template>
 
 <style scoped>
+  nav {
+    display: grid;
+    grid-column: 3 / span 6;
+    grid-template-columns: subgrid;
+    border-top: calc((var(--base__font-size) * 0.5) * 1px) solid var(--primary__color--theme);
+    border-top: calc((var(--base__font-size) * 0.5) / var(--base__font-size) * 1rem) solid var(--primary__color--theme);
+    padding-top: calc((var(--base__font-size) * 5) * 1px);
+    padding-top: calc((var(--base__font-size) * 5) / var(--base__font-size) * 1rem);
+  }
+
+  h1 {
+    grid-column: 1 / span 2;
+    align-content: center;
+  }
+
+  ul {
+    display: inherit;
+    grid-column: 3 / span 4;
+    grid-template-columns: 2fr 2fr;
+    -moz-column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+    -moz-column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+    column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+    column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+    border-radius: calc((var(--base__font-size) * 10) * 1px);
+    border-radius: calc((var(--base__font-size) * 10) / var(--base__font-size) * 1rem);
+    padding: calc((var(--base__font-size) * 2.5) * 1px);
+    padding: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+    background-color: #242E32;
+  }
+
+  ul li {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+  }
+
   h1,
   h4,
   a {
-    color: var(--primart__color-text);
+    color: var(--primary__color-text);
   }
 
-  h1 span {
+  h1 span,
+  h4 span {
     color: var(--primary__color--theme);
+  }
+
+  p {
+    color: var(--base__color--steel);
   }
 
   a {

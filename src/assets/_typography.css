@@ -55,8 +55,13 @@ small {
 
 /* tighten the letter-spacing for the biggest sizes */
 h1,
-h2,
-h3 {
+h2 {
+  letter-spacing: calc((-0.002 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
+  letter-spacing: calc(((-0.002 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
+}
+
+h3,
+h4 {
   letter-spacing: calc((-0.001 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
   letter-spacing: calc(((-0.001 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
 }
