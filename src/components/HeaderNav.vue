@@ -33,6 +33,7 @@ defineProps<{
     border-top: calc((var(--base__font-size) * 0.5) / var(--base__font-size) * 1rem) solid var(--primary__color--theme);
     padding-top: calc((var(--base__font-size) * 5) * 1px);
     padding-top: calc((var(--base__font-size) * 5) / var(--base__font-size) * 1rem);
+    height: fit-content; /* eventually ill figure out where that height issue comes from */
   }
 
   h1 {
