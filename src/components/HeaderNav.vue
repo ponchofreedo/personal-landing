@@ -27,7 +27,6 @@ defineProps<{
 <style scoped>
   nav {
     display: grid;
-    grid-column: 3 / span 6;
     grid-template-columns: subgrid;
     border-top: calc((var(--base__font-size) * 0.5) * 1px) solid var(--primary__color--theme);
     border-top: calc((var(--base__font-size) * 0.5) / var(--base__font-size) * 1rem) solid var(--primary__color--theme);
@@ -54,6 +53,16 @@ defineProps<{
     padding: calc((var(--base__font-size) * 2.5) * 1px);
     padding: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
     background-color: #242E32;
+  }
+
+  @media (max-width: 64rem) {
+    h1 {
+      grid-column-end: span 3;
+    }
+
+    ul {
+      grid-column: 4 / fit-content;
+    }
   }
 
   ul li {
