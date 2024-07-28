@@ -30,10 +30,6 @@
   <article class="container__simple">
     <h2>Previously.</h2>
     <div class="list__brands">
-        <!-- <a href="" aria-label="klaviyo logo"><BrandKlaviyo /></a>
-        <a href="" aria-label="order.co logo"><BrandOrder /></a>
-        <a href="" aria-label="tentrr logo"></a>
-        <a href="" aria-label="priceline logo"></a> -->
         <Button
           v-for="link in links"
           :id="link.id"
