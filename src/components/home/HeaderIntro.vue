@@ -23,8 +23,6 @@
         :href="link.href"
         :location="link.location"
         :size="link.size"
-        :hasIcon="link.hasIcon"
-        :iconName="link.iconName"
       />
     </section>
   </header>

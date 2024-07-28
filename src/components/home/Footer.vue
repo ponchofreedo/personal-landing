@@ -12,7 +12,7 @@
       <small>&copy; 2024. Fuck the 'Rona.</small>
     </p>
   </footer>
-  <footer class="container__simple footer--cv" v-if="isHome === 'false'">
+  <footer class="container__simple footer--cv" v-else-if="isHome === 'false'">
     <p>im the cv footer</p>
   </footer>
 </template>
