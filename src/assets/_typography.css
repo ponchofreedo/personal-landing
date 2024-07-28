@@ -49,6 +49,7 @@ h4 {
 
 /* h3-h4 should pair with --text__line-height--display--mod */
 h5,
+p,
 small {
   line-height: var(--text__line-height--base);
 }
@@ -101,6 +102,25 @@ h5 {
   font-size: var(--text__font-size--h5--rem);
   font-weight: var(--text__font-weight--semibold);
   color: var(--primary__color--theme);
+}
+
+p {
+  font-size: var(--text__font-size--p--px);
+  font-size: var(--text__font-size--p--rem);
+  font-weight: var(--text__font-weight--book);
+  color: var(--primary__color--theme);
+}
+
+small {
+  font-size: var(--text__font-size--small--px);
+  font-size: var(--text__font-size--small--rem);
+  font-weight: var(--text__font-weight--book);
+  color: var(--base__color--steel);
+}
+
+b,
+small b {
+  font-weight: var(--text__font-weight--semibold);
 }
 
 @supports (font-variation-settings: normal) {

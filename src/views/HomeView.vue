@@ -1,7 +1,12 @@
 <script setup lang="ts">
 
-import HeaderNav from '../components/HeaderNav.vue'
-import HeaderIntro from '../components/HeaderIntro.vue'
+import HeaderNav from '../components/home/HeaderNav.vue'
+import HeaderIntro from '../components/home/HeaderIntro.vue'
+
+import AboutSection from '../components/home/AboutSection.vue'
+import AboutContact from '../components/home/AboutContact.vue'
+
+import Footer from '../components/home/Footer.vue'
 
 </script>
 
@@ -9,5 +14,8 @@ import HeaderIntro from '../components/HeaderIntro.vue'
   <section class="container__grid">
     <HeaderNav greeting="'Sup" />
     <HeaderIntro />
+    <AboutSection />
+    <AboutContact />
+    <Footer />
   </section>
 </template>

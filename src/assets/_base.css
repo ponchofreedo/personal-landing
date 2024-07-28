@@ -104,6 +104,40 @@ body {
   grid-column: 3 / span 6;
 }
 
+.container__tight {
+  grid-column: 3 / span 5;
+}
+
+.container__tighter {
+  grid-column: 3 / span 4;
+}
+
+/* some global link styles */
+a:not(.container__links a) {
+  transition: color 0.08s ease-in-out;
+}
+
+a:hover:not(.container__links a) {
+  color: var(--primary__color--theme);
+}
+
+.container__links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container__links > * {
+  margin-top: calc(var(--base__multiplier) * 1px);
+  margin-top: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
+  margin-right: calc(var(--base__multiplier) * 1px);
+  margin-right: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
+}
+
+.container__links > *:last-child {
+  margin-right: 0;
+}
+
 @media (min-width: 100rem) {
   .container__grid {
     max-width: calc((var(--base__font-size) * 94.5) * 1px);

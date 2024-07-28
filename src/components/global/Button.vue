@@ -1,26 +1,42 @@
 <script setup lang="ts">
-  import IconArrowDown from './icons/IconArrowDown.vue'
-  import IconArrowUp from './icons/IconArrowUp.vue'
-  import IconClose from './icons/IconClose.vue'
+  import IconArrowDown from '../svg/icons/IconArrowDown.vue'
+  import IconArrowUp from '../svg/icons/IconArrowUp.vue'
+  import IconClose from '../svg/icons/IconClose.vue'
+
+  import BrandKlaviyo from '../svg/brands/BrandKlaviyo.vue'
+  import BrandOrder from '../svg/brands/BrandOrder.vue'
+  import BrandTentrr from '../svg/brands/BrandTentrr.vue'
+  import BrandPriceline from '../svg/brands/BrandPriceline.vue'
+  import BrandDigitalSurgeons from '../svg/brands/BrandDigitalSurgeons.vue'
 
   defineProps([
     'name',
     'href',
     'location',
+    'size',
+    'hasBrand',
     'hasIcon',
     'iconName'
   ])
 </script>
 
 <template>
-  <a v-if="hasIcon" :href="href" :target="location" class="btn btn--lg btn--emphasis">
+  <a v-if="hasIcon" :href="href" :target="location" :class="'btn btn--' + size + ' btn--emphasis'">
     <span>{{ name }}</span>
     <IconArrowDown v-if="iconName === 'arrow-down'" />
     <IconArrowUp v-else-if="iconName === 'arrow-up'" />
     <IconClose v-else-if="iconName === 'close'" />
   </a>
 
-  <a v-else :href="href" :target="location" class="btn btn--lg">
+  <a v-else-if="hasBrand" :href="href" :target="location" class="btn btn--circle btn--brand">
+    <BrandKlaviyo v-if="name === 'Klaviyo'" />
+    <BrandOrder v-if="name === 'Order'"/>
+    <BrandTentrr v-else-if="name === 'Tentrr'"/>
+    <BrandPriceline v-else-if="name === 'Priceline'"/>
+    <BrandDigitalSurgeons v-else-if="name === 'DigitalSurgeons'"/>
+  </a>
+
+  <a v-else :href="href" :target="location" :class="'btn btn--' + size">
     {{ name }}
   </a>
 </template>
@@ -79,10 +95,30 @@
     border-radius: var(--text__font-size--h2--rem);
   }
 
+  .btn--md {
+    padding: 16px 24px;
+    font-size: var(--text__font-size--p--px);
+    font-size: var(--text__font-size--p--rem);
+    border-radius: var(--text__font-size--h4--px);
+    border-radius: var(--text__font-size--h4--rem);
+  }
+
+  .btn--sm {
+    padding: 14px 20px;
+    font-size: var(--text__font-size--small--px);
+    font-size: var(--text__font-size--small--rem);
+    border-radius: var(--text__font-size--h5--px);
+    border-radius: var(--text__font-size--h5--rem);
+  }
+
   .btn--lg svg {
     height: 24px;
     width: 24px;
     color: var(--primary__color--theme);
+  }
+
+  .btn--circle {
+    border-radius: 50%;
   }
 
   .btn--emphasis {
@@ -99,5 +135,32 @@
     border-width: calc(var(--base__multiplier) * 0.5px);
     border-width: calc((var(--base__multiplier) / var(--base__font-size)) * 0.5rem);
     border-color: var(--primary__color--theme);
+  }
+
+  .btn--brand {
+    display: flex;
+    justify-content: space-around;
+    height: 144px;
+    width: 144px;
+    background-color: #242E32;
+  }
+
+  .btn--brand div {
+    display: contents!important;
+  }
+
+  .btn--brand:hover {
+    background-color: var(--primary__color--theme);
+  }
+
+  .btn--brand:hover svg {
+    fill: var(--primary__color--background);
+  }
+
+  .btn--brand svg {
+    max-width: 80px;
+    max-height: fit-content;
+    align-self: center;
+    fill: var(--primary__color--text);
   }
 </style>
