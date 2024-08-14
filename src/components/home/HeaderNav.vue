@@ -11,7 +11,7 @@ defineProps<{
       <li>
         <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
           <h4>Work things<span>.</span></h4>
-          <p>They're in GitHub :/.</p>
+          <p>They're in GitHub.</p>
         </a>
       </li>
       <li>
