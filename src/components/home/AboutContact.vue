@@ -14,7 +14,7 @@
 <template>
   <article class="container__simple">
     <h2>Talk to me, Goose.</h2>
-    <p class="container__tight">You've come this far on these here interwebs to find me. Unfortunately, the IKEA instructions for the bat signal are pretty rough &emdash; definitely missing a wooden peg and cam screw &emdash; and my Rebel transponder code is a bit older and just barely "checks out," so in spite of those, feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank">r&eacute;sum&eacute;</a> or just <a href="mailto:zach.freed@gmail.com?subject=sup">drop me a line</a>.</p>
+    <p class="container__tight">You've come this far on these here interwebs to find me. Unfortunately, the IKEA instructions for the bat signal are pretty rough &mdash; definitely missing a wooden peg and cam screw &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so in spite of those, feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBChfAgVS4nN7C18OcttQ?e=ZEJ7nV" target="_blank">r&eacute;sum&eacute;</a> or just <a href="mailto:zach.freed@gmail.com?subject=sup">drop me a line</a>.</p>
     <p class="container__tight">Or, technical snafoos aside, you can find me doing something at one of these spots below.</p>
     <section class="container__links">
       <Button

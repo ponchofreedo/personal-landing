@@ -9,7 +9,7 @@
       <small>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org/" target="_blank">Vue</a> + <a href="https://vitejs.dev/" target="_blank">Vite</a>, authored in <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>, and shipped with <a href="https://vercel.com/" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with love and several plates of J. Kenji Lopez-Alt’s <a href="https://www.youtube.com/watch?v=Bt8YgEr-9is" target="_blank">pan-seared chicken + spring veg</a> recipe.</small>
     </p>
     <p>
-      <small>&copy; 2024. Fuck the 'Rona.</small>
+      <small>&copy; 2024.</small>
     </p>
   </footer>
   <footer class="container__simple footer--cv" v-else-if="isHome === 'false'">
