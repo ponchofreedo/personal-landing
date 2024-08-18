@@ -14,7 +14,7 @@
 
 <template>
   <header class="container__simple">
-    <h2>I'm Zach &mdash; a product designer who enjoys crafting frictionless experiences and soliving complex problems. Recently, I was building property management experiences at <a href="https://hubspot.com" target="_blank">HubSpot</a>.</h2>
+    <h2>I'm Zach &mdash; a product designer who enjoys crafting frictionless experiences and solving complex problems. Recently, I was building property management experiences at <a href="https://hubspot.com" target="_blank">HubSpot</a>.</h2>
     <section class="container__links">
       <Button
         v-for="link in links"
