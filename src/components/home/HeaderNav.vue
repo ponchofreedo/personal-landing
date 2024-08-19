@@ -15,7 +15,7 @@ defineProps<{
         </a>
       </li>
       <li>
-        <a href="https://1drv.ms/b/s!AiXwFLoNRqBCidt4vyAYf6RENe1nxw?e=ShQwyJ" target="_blank">
+        <a href="https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ" target="_blank">
           <h4>R&eacute;sum&eacute;<span>.</span></h4>
           <p>...and OneDrive.</p>
         </a>
