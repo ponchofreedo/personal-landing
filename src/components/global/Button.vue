@@ -28,9 +28,17 @@
     <IconClose v-else-if="iconName === 'close'" />
   </a>
 
+  <a v-else-if="hasIconOnly" :href="href" :target="location" class="btn btn--circle btn--icon">
+    <BrandKlaviyo v-if="name === 'Klaviyo'" />
+    <BrandOrder v-else-if="name === 'Order'"/>
+    <BrandTentrr v-else-if="name === 'Tentrr'"/>
+    <BrandPriceline v-else-if="name === 'Priceline'"/>
+    <BrandDigitalSurgeons v-else-if="name === 'DigitalSurgeons'"/>
+  </a>
+
   <a v-else-if="hasBrand" :href="href" :target="location" class="btn btn--circle btn--brand">
     <BrandKlaviyo v-if="name === 'Klaviyo'" />
-    <BrandOrder v-if="name === 'Order'"/>
+    <BrandOrder v-else-if="name === 'Order'"/>
     <BrandTentrr v-else-if="name === 'Tentrr'"/>
     <BrandPriceline v-else-if="name === 'Priceline'"/>
     <BrandDigitalSurgeons v-else-if="name === 'DigitalSurgeons'"/>

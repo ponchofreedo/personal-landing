@@ -3,18 +3,18 @@
   import Button from '../global/Button.vue'
 
   const links = ref([
-    // { id: 1, name: 'About me', href:'#about', location:'', size: 'lg', hasIcon: 'true', iconName: 'arrow-down' },
-    { id: 2, name: 'LinkedIn', href:'https://www.linkedin.com/in/zpfreed', location: '_blank', size: 'lg' },
-    { id: 3, name: 'Figma', href:'https://www.figma.com/@ponchofreedo', location:'_blank', size: 'lg' },
-    { id: 4, name: 'GitHub', href:'https://www.github.com/ponchofreedo', location:'_blank', size: 'lg' },
-    { id: 5, name: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', location:'_blank', size: 'lg' },
-    { id: 6, name: 'Instagram', href:'https://www.instagram.com/ponchofreedo', location:'_blank', size: 'lg' }
+    { id: 1, name: 'LinkedIn', href:'https://www.linkedin.com/in/zpfreed', location: '_blank', type:'iconButton', size: 'lg' },
+    { id: 2, name: 'Figma', href:'https://www.figma.com/@ponchofreedo', location:'_blank', type:'iconButton', size: 'lg' },
+    { id: 3, name: 'GitHub', href:'https://www.github.com/ponchofreedo', location:'_blank', type:'iconButton', size: 'lg' },
+    { id: 4, name: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', location:'_blank', type:'iconButton', size: 'lg' },
+    { id: 5, name: 'Instagram', href:'https://www.instagram.com/ponchofreedo', location:'_blank', type:'iconButton', size: 'lg' },
+    { id: 6, name: 'R&eacute;sum&eacute;', href:'https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ', location:'_blank', type:'button', size: 'lg' }
   ])
 </script>
 
 <template>
   <header class="container__simple">
-    <h2>I'm Zach &mdash; a designer and front-end guy who likes to find solutions for people and teams of all shapes and sizes. Recently, I was building property management experiences at <a href="https://hubspot.com" target="_blank">HubSpot</a>.</h2>
+    <h2>I'm Zach &mdash; a product designer who enjoys crafting frictionless experiences and soliving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>.</h2>
     <section class="container__links">
       <Button
         v-for="link in links"
@@ -22,6 +22,7 @@
         :name="link.name"
         :href="link.href"
         :location="link.location"
+        :type="link.type"
         :size="link.size"
       />
     </section>

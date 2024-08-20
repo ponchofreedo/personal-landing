@@ -14,74 +14,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* influence these based on the data-theme */
+  /* reset all inheritance of these so we have a clean slate */
   background-color: unset;
   color: unset;
-
-  /* theming vars */
-  &[data-theme="fire"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--fire);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="ice"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--ice);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="electric"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--electric);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="poison"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--poison);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="psychic"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--psychic);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="ghost"] {
-    --primary__color--background: var(--base__color--ghost);
-    --primary__color--text: var(--base__color--dark);
-    --primary__color--theme: var(--base__color--steel);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="steel"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--steel);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="water"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--water);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
-  &[data-theme="fighting"] {
-    --primary__color--background: var(--base__color--dark);
-    --primary__color--text: var(--base__color--ghost);
-    --primary__color--theme: var(--base__color--fighting);
-    background-color: var(--primary__color--background);
-    color: var(--primary__color--text);
-  }
 }
 
 .theme__highlight {
@@ -101,7 +36,7 @@ body {
 }
 
 .container__simple {
-  grid-column: 3 / span 6;
+  grid-column: 1 / span 8;
 }
 
 .container__tight {
@@ -140,9 +75,6 @@ a:hover:not(.container__links a) {
 
 @media (min-width: 100rem) {
   .container__grid {
-    max-width: calc((var(--base__font-size) * 94.5) * 1px);
-    max-width: calc((var(--base__font-size) * 94.5) / var(--base__font-size) * 1rem);
-    grid-column-start: 3;
   }
 }
 
@@ -157,3 +89,6 @@ a:hover:not(.container__links a) {
   }
 }
 
+.hidden {
+  display: none;
+}
