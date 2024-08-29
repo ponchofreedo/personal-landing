@@ -9,19 +9,6 @@
   --base__font-size--px: calc(var(--base__multiplier) * 2px);
   --base__font-size--rem: calc(var(--base__multiplier) * 2rem); 
 
-  /* [almost] all colors pass WCAG AA Normal Text (>4.50:1) */
-  /* template: --base__color--#:; */
-  --base__color--fire: #E26D18;
-  --base__color--ice: #2CE0D7;
-  --base__color--electric: #FFCD1C;
-  --base__color--poison: #16D48E;
-  --base__color--psychic: #D775F0;
-  --base__color--dark: #1E262A;
-  --base__color--ghost: #FAFAFF;
-  --base__color--steel: #A0B1BA; /* steel is not accessible on ghost, but idgaf ¯\_(ツ)_/¯ */
-  --base__color--water: #1499FF;
-  --base__color--fighting: #EA5E3E;
-
   /* new color set (will deprecate old ones after) */
   /* influenced HEAVILY by NY MTA styleguide) */
   --base__color--black-1: #1B1C1C;
@@ -33,6 +20,14 @@
   --base__color--blue-1: #0039A6; /* this is the main theme color right now */
   --base__color--blue-2: #002B7D;
   --base__color--blue-3: #A4C4FF; /* use for colophon and anchor in footer */
+
+  /* special prefixed vars correspond to specific things that are immuatable, like brand colors */
+  /* define social media platform colors */
+  --special__social-color--linkedin: #0A66C2;
+  --special__social-color--figma: #000000;
+  --special__social-color--github: #000000;
+  --special__social-color--dribbble: #EA4C89;
+  --special__social-color--instagram: #C13584;
 
   /* when using with rgba, default value for alpha should be 0.4!!! */
   --base__color-alpha-value: 0.4;

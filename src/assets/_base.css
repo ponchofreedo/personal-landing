@@ -31,20 +31,33 @@ body {
   column-gap: calc((var(--base__font-size) * 2.5) * 1px);
   column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
   grid-template-columns: repeat(8, 1fr);
-  height: fit-content;
+  grid-template-rows: auto 1fr auto; /* later, i will need to move this to a different place when there is more content */
+  height: 100vh;
   max-width: 100vw;
 }
 
-.container__simple {
-  grid-column: 1 / span 8;
+.container--fill {
+  grid-auto-flow: column;
+  grid-column: auto / span 8;
 }
 
-.container__tight {
+.container--simple {
+  grid-column: 1 / span 6;
+}
+
+.container--tight {
   grid-column: 3 / span 5;
 }
 
-.container__tighter {
+.container--tighter {
   grid-column: 3 / span 4;
+}
+
+.container {
+  grid-template-areas:
+  "nav"
+  "intro"
+  "footer";
 }
 
 /* some global link styles */

@@ -12,12 +12,6 @@
 @import './_typography.css';
 
 body {
-  
-  /* just temporary, but for now gonna fix to one color scheme.
-     when i have time, i'll come back and add the pokedex and those features. */
-  --primary__color--background: var(--base__color--dark);
-  --primary__color--text: var(--base__color--ghost);
-  --primary__color--theme: var(--base__color--water);
   background-color: var(--primary__color--background);
   color: var(--primary__color--text);
   min-height: 100vh;

@@ -13,39 +13,31 @@
     'name',
     'href',
     'location',
+    'type',
     'size',
     'hasBrand',
     'hasIcon',
     'iconName'
   ])
+
+  const customLabel = ['R&eacute;sum&eacute;', 'test']
 </script>
 
 <template>
-  <a v-if="hasIcon" :href="href" :target="location" :class="'btn btn--' + size + ' btn--emphasis'">
+  <!-- <a v-if="hasIcon" :href="href" :target="location" :class="'btn btn--' + size + ' btn--emphasis'">
     <span>{{ name }}</span>
     <IconArrowDown v-if="iconName === 'arrow-down'" />
     <IconArrowUp v-else-if="iconName === 'arrow-up'" />
     <IconClose v-else-if="iconName === 'close'" />
+  </a> -->
+
+  <a v-if="type === 'iconOnlyButton'" :href="href" :target="location" :class="'btn btn--' + size + ' btn--circle btn--icon ' + type">
+    <IconArrowDown />
   </a>
 
-  <a v-else-if="hasIconOnly" :href="href" :target="location" class="btn btn--circle btn--icon">
-    <BrandKlaviyo v-if="name === 'Klaviyo'" />
-    <BrandOrder v-else-if="name === 'Order'"/>
-    <BrandTentrr v-else-if="name === 'Tentrr'"/>
-    <BrandPriceline v-else-if="name === 'Priceline'"/>
-    <BrandDigitalSurgeons v-else-if="name === 'DigitalSurgeons'"/>
-  </a>
-
-  <a v-else-if="hasBrand" :href="href" :target="location" class="btn btn--circle btn--brand">
-    <BrandKlaviyo v-if="name === 'Klaviyo'" />
-    <BrandOrder v-else-if="name === 'Order'"/>
-    <BrandTentrr v-else-if="name === 'Tentrr'"/>
-    <BrandPriceline v-else-if="name === 'Priceline'"/>
-    <BrandDigitalSurgeons v-else-if="name === 'DigitalSurgeons'"/>
-  </a>
-
-  <a v-else :href="href" :target="location" :class="'btn btn--' + size">
-    {{ name }}
+  <a v-else :href="href" :target="location" :class="'btn btn--' + size + ' ' + type">
+    <span v-if="name === 'Resume'" v-html="customLabel[0]"></span>
+    <span v-else>{{ name }}</span>
   </a>
 </template>
 
@@ -64,7 +56,6 @@
   a span {
     display: inline-flex;
     white-space: nowrap;
-    margin-right: 8px;
   }
 
   svg {
@@ -95,12 +86,13 @@
     line-height: 1;
   }
 
-  .btn--lg {
-    padding: 16px 24px;
-    font-size: var(--text__font-size--h4--px);
-    font-size: var(--text__font-size--h4--rem);
-    border-radius: var(--text__font-size--h2--px);
-    border-radius: var(--text__font-size--h2--rem);
+  /* button size definitions */
+  .btn--sm {
+    padding: 14px 20px;
+    font-size: var(--text__font-size--small--px);
+    font-size: var(--text__font-size--small--rem);
+    border-radius: var(--text__font-size--h5--px);
+    border-radius: var(--text__font-size--h5--rem);
   }
 
   .btn--md {
@@ -110,13 +102,18 @@
     border-radius: var(--text__font-size--h4--px);
     border-radius: var(--text__font-size--h4--rem);
   }
+  
+  .btn--lg {
+    padding: 16px 24px;
+    font-size: var(--text__font-size--h4--px);
+    font-size: var(--text__font-size--h4--rem);
+    border-radius: var(--text__font-size--h2--px);
+    border-radius: var(--text__font-size--h2--rem);
+  }
 
-  .btn--sm {
-    padding: 14px 20px;
-    font-size: var(--text__font-size--small--px);
-    font-size: var(--text__font-size--small--rem);
-    border-radius: var(--text__font-size--h5--px);
-    border-radius: var(--text__font-size--h5--rem);
+  /* overrides like these need to be below button size definitions to interrupt the cascade */
+  .btn--icon {
+    padding: 16px;
   }
 
   .btn--lg svg {
