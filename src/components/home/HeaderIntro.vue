@@ -14,7 +14,7 @@
 
 <template>
   <header class="container--simple">
-    <h2>I'm Zach &mdash; a senior product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>.</h2>
+    <h1>I'm Zach &mdash; a senior product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>, <a href="https://priceline.com" target="_blank">@priceline</a>.</h1>
     <section class="container__links">
       <Button
         v-for="link in links"
@@ -43,13 +43,56 @@
     align-self: flex-start;
   }
 
-  h2,
-  a {
+  h2{
     color: var(--primary__color--text);
   }
 
   a {
+    text-decoration: none;
+    text-decoration-color: white;
+    text-decoration-thickness: unset;
+    text-decoration-skip-ink: none;
+    transition: color 80ms ease-in-out,
+                text-decoration 80ms ease-in-out;
+
+  }
+
+  a,
+  a:active,
+  a:link,
+  a:visited {
+    color: var(--primary__color--theme);
+  }
+
+  a:hover {
+    /*color: var(--base__color--blue-3);*/
+    text-decoration: revert;
+    text-decoration-style: solid;
     text-decoration-color: var(--primary__color--theme);
-    text-decoration-thickness: calc((var(--base__font-size) / 2) * 1px);
+    text-decoration-thickness: from-font;
+    text-underline-offset: -1%;
+  }
+
+  /*a:hover {
+    color: var(--base__color--blue-3);
+    outline-color: red;
+    outline-style: auto;
+  }*/
+
+  .container__links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .container__links > * {
+    margin-top: calc(var(--base__multiplier) * 1px);
+    margin-top: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
+    margin-right: calc(var(--base__multiplier) * 1px);
+    margin-right: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
+  }
+
+  .container__links > *:last-child {
+    margin-right: 0;
   }
 </style>

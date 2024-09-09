@@ -1,8 +1,12 @@
 /* set up the round-robin vars and classes */
 :root {
   --base__multiplier: 8;
-  --base__font-family: 'Neue Montreal', 'Inter', system-ui;
-  --base__font-family--variable: 'Neue Montreal V';
+  --base__font-family--non-variable: 'PP Neue Montreal';
+  --base__font-family--variable: 'PP Neue Montreal V';
+  --base__font-family--system: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+  --base__font-family: var(--base__font-family--non-variable), 'Inter', system-ui, var(--base__font-family--system);
+  --base__font-family--v: var(--base__font-family--variable), var(--base__font-family);
   --base__font-weight: var(--text__font-weight--book);
   --base__font-size-percentage: 62.5;
   --base__font-size: calc(var(--base__multiplier) * 2);

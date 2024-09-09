@@ -17,6 +17,10 @@ body {
   /* reset all inheritance of these so we have a clean slate */
   background-color: unset;
   color: unset;
+
+  /* experimenting with some things... */
+  writing-mode: horizontal-tb;
+  column-count: 1;
 }
 
 .theme__highlight {
@@ -58,32 +62,6 @@ body {
   "nav"
   "intro"
   "footer";
-}
-
-/* some global link styles */
-a:not(.container__links a) {
-  transition: color 0.08s ease-in-out;
-}
-
-a:hover:not(.container__links a) {
-  color: var(--primary__color--theme);
-}
-
-.container__links {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.container__links > * {
-  margin-top: calc(var(--base__multiplier) * 1px);
-  margin-top: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
-  margin-right: calc(var(--base__multiplier) * 1px);
-  margin-right: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
-}
-
-.container__links > *:last-child {
-  margin-right: 0;
 }
 
 @media (min-width: 100rem) {

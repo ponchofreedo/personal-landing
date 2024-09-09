@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <nav class="container--fill">
-    <h1>{{ greeting }}<span>.</span></h1>
+    <h1><b>{{ greeting }}<span>.</span></b></h1>
     <ul>
       <li>
         <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
@@ -31,6 +31,7 @@ defineProps<{
 
   h1 {
     align-content: center;
+    color: var(--base__color--black-1);
   }
 
   ul {
@@ -80,10 +81,6 @@ defineProps<{
 
   h1 span {
     color: var(--primary__color--theme);
-  }
-
-  p {
-    color: var(--base__color--steel);
   }
 
   a {

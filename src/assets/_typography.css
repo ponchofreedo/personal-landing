@@ -1,3 +1,21 @@
+/* start with the font-face imports */
+/* these are the font-family vars from _vars.css, for reference */
+/*
+  base__font-family--non-variable: 'PP Neue Montreal';
+  --base__font-family--variable: 'PP Neue Montreal V';
+  --base__font-family--system: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+  --base__font-family: var(--base__font-family--non-variable), 'Inter', system-ui, var(--base__font-family--system);
+  --base__font-family--v: var(--base__font-family--variable), var(--base__font-family);
+*/
+
+/* import the normal font files first, so they are guaranteed to be ignored by the variable stuff later */
+@font-face {
+  font-family: var(--base__font-family--non-variable);
+  src: url(./public/PPNeueMontreal-Book.woff2) format("woff2");
+  font-weight: normal;
+}
+
 /* set up the round-robin vars and classes */
 :root {
   /* these font-sizes are really only here for reference */
@@ -72,14 +90,14 @@ h4 {
 h1 {
   font-size: var(--text__font-size--h1--px);
   font-size: var(--text__font-size--h1--rem);
-  font-weight: var(--text__font-weight--bold);
+  font-weight: var(--text__font-weight--medium);
   color: var(--primary__color--theme);
 }
 
 h2 {
   font-size: var(--text__font-size--h2--px);
   font-size: var(--text__font-size--h2--rem);
-  font-weight: var(--text__font-weight--semibold);
+  font-weight: var(--text__font-weight--medium);
   color: var(--primary__color--theme);
 }
 

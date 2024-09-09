@@ -31,7 +31,7 @@
     <IconClose v-else-if="iconName === 'close'" />
   </a> -->
 
-  <a v-if="type === 'iconOnlyButton'" :href="href" :target="location" :class="'btn btn--' + size + ' btn--circle btn--icon ' + type">
+  <a v-if="type === 'iconOnlyButton'" :href="href" :target="location" :class="'btn btn--' + size + ' btn--circle btn--icon'" :debug-type="type">
     <IconArrowDown />
   </a>
 
