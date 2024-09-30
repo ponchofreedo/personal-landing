@@ -28,6 +28,12 @@ body {
   border-top-color: var(--primary__color--theme);
 }
 
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: var(--base__font-family--v);
+  }
+}
+
 .container__grid {
   display: grid;
   -moz-column-gap: calc((var(--base__font-size) * 2.5) * 1px);

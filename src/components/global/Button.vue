@@ -1,18 +1,18 @@
 <script setup lang="ts">
-  import IconArrowDown from '../svg/icons/IconArrowDown.vue'
-  import IconArrowUp from '../svg/icons/IconArrowUp.vue'
-  import IconClose from '../svg/icons/IconClose.vue'
+  import IconArrowDown from '@svg/icons/IconArrowDown.vue'
+  import IconArrowUp from '@svg/icons/IconArrowUp.vue'
+  import IconClose from '@svg/icons/IconClose.vue'
 
-  import BrandKlaviyo from '../svg/brands/BrandKlaviyo.vue'
-  import BrandOrder from '../svg/brands/BrandOrder.vue'
-  import BrandTentrr from '../svg/brands/BrandTentrr.vue'
-  import BrandPriceline from '../svg/brands/BrandPriceline.vue'
-  import BrandDigitalSurgeons from '../svg/brands/BrandDigitalSurgeons.vue'
+  import BrandKlaviyo from '@svg/brands/BrandKlaviyo.vue'
+  import BrandOrder from '@svg/brands/BrandOrder.vue'
+  import BrandTentrr from '@svg/brands/BrandTentrr.vue'
+  import BrandPriceline from '@svg/brands/BrandPriceline.vue'
+  import BrandDigitalSurgeons from '@svg/brands/BrandDigitalSurgeons.vue'
 
   defineProps([
-    'name',
+    'label',
     'href',
-    'location',
+    'target',
     'type',
     'size',
     'hasBrand',
@@ -20,24 +20,24 @@
     'iconName'
   ])
 
-  const customLabel = ['R&eacute;sum&eacute;', 'test']
+  const customLabel = ['R&eacute;sum&eacute;', 'Resume']
 </script>
 
 <template>
-  <!-- <a v-if="hasIcon" :href="href" :target="location" :class="'btn btn--' + size + ' btn--emphasis'">
-    <span>{{ name }}</span>
+  <!-- <a v-if="hasIcon" :href="href" :target="target" :class="'btn btn--' + size + ' btn--emphasis'">
+    <span>{{ label }}</span>
     <IconArrowDown v-if="iconName === 'arrow-down'" />
     <IconArrowUp v-else-if="iconName === 'arrow-up'" />
     <IconClose v-else-if="iconName === 'close'" />
   </a> -->
 
-  <a v-if="type === 'iconOnlyButton'" :href="href" :target="location" :class="'btn btn--' + size + ' btn--circle btn--icon'" :debug-type="type">
+  <a v-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon'" :debug-type="type">
     <IconArrowDown />
   </a>
 
-  <a v-else :href="href" :target="location" :class="'btn btn--' + size + ' ' + type">
-    <span v-if="name === 'Resume'" v-html="customLabel[0]"></span>
-    <span v-else>{{ name }}</span>
+  <a v-else :href="href" :target="target" :class="'btn btn--' + size">
+    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
+    <span v-else>{{ label }}</span>
   </a>
 </template>
 

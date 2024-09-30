@@ -9,7 +9,7 @@ import Footer from '../components/home/Footer.vue'
 
 <template>
   <section class="container container__grid">
-    <HeaderNav greeting="'Sup" />
+    <HeaderNav greeting="&#x2018;Sup" />
     <HeaderIntro />
     <Footer />
   </section>

@@ -8,7 +8,12 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/": ["./src/components/*"],
+      "@css/": ["./src/assets/css/*"],
+      "@global/": ["./src/components/global/*"],
+      "@svg/": ["./src/components/svg*"],
+      "@fonts/": ["./src/assets/fonts/*"]
     }
   }
 }

@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
   <nav class="container--fill">
-    <h1><b>{{ greeting }}<span>.</span></b></h1>
+    <h1>{{ greeting }}<span>.</span></h1>
     <ul>
       <li>
         <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
