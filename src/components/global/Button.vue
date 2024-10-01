@@ -35,7 +35,8 @@
     display: inline-flex;
     transition: color 0.08s ease-in-out,
                 background-color 0.08s ease-in-out,
-                border-color 0.08s ease-in-out;
+                border-color 0.08s ease-in-out,
+                fill 0.08s ease-in-out;
   }
 
   a span {
@@ -115,6 +116,9 @@
     background-color: var(--special__social-color--linkedin);
   }
 
+  .BrandLinkedIn:hover {
+  }
+
   .btn--icon.BrandFigma {
     background-color: var(--special__social-color--figma);
   }
@@ -125,6 +129,11 @@
 
   .btn--icon.BrandDribbble {
     background-color: var(--special__social-color--dribbble);
+  }
+
+  .btn--icon.BrandInstagram {
+    background-color: var(--special__social-color--instagram);
+    background: radial-gradient(circle at 22% 111%, #fcb045 9%, #fd1d1d 47%, #d6249f 64%, #833ab4 90%, #285aeb 98%);
   }
 
   .btn--lg svg {
