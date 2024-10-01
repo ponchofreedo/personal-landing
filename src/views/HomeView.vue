@@ -1,9 +1,8 @@
 <script setup lang="ts">
 
-import HeaderNav from '../components/home/HeaderNav.vue'
-import HeaderIntro from '../components/home/HeaderIntro.vue'
-
-import Footer from '../components/home/Footer.vue'
+import HeaderNav from '@components/home/HeaderNav.vue'
+import HeaderIntro from '@components/home/HeaderIntro.vue'
+import Footer from '@components/home/Footer.vue'
 
 </script>
 

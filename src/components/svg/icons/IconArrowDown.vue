@@ -1,7 +1,7 @@
-<!-- Ionicons v7.1.0 (https://github.com/ionic-team/ionicons), MIT License -->
-<!-- Icon: arrow-down-circle-outline -->
-<!-- modified to match my specifications -->
 <template>
+	<!-- Ionicons v7.1.0 (https://github.com/ionic-team/ionicons), MIT License -->
+	<!-- Icon: arrow-down-circle-outline -->
+	<!-- modified to match my specifications -->
 	<svg 
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 512 512"

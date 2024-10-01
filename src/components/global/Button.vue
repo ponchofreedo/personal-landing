@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import IconArrowDown from '@svg/icons/IconArrowDown.vue'
-  import IconArrowUp from '@svg/icons/IconArrowUp.vue'
-  import IconClose from '@svg/icons/IconClose.vue'
+  import '@svg/icons/IconArrowDown.vue'
+  import '@svg/icons/IconArrowUp.vue'
+  import '@svg/icons/IconClose.vue'
 
-  import BrandKlaviyo from '@svg/brands/BrandKlaviyo.vue'
-  import BrandOrder from '@svg/brands/BrandOrder.vue'
-  import BrandTentrr from '@svg/brands/BrandTentrr.vue'
-  import BrandPriceline from '@svg/brands/BrandPriceline.vue'
-  import BrandDigitalSurgeons from '@svg/brands/BrandDigitalSurgeons.vue'
+  import '@svg/brands/BrandKlaviyo.vue'
+  import '@svg/brands/BrandOrder.vue'
+  import '@svg/brands/BrandTentrr.vue'
+  import '@svg/brands/BrandPriceline.vue'
+  import '@svg/brands/BrandDigitalSurgeons.vue'
 
   defineProps([
     'label',
