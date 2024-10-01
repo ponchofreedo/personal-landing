@@ -10,7 +10,7 @@ defineProps<{
     <ul>
       <li>
         <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
-          <span>Projects</span><svg></svg>
+          <span>Projects</span><icon type="icon" name="IconArrowDown" />
         </a>
       </li>
     </ul>

@@ -1,13 +1,4 @@
 <script setup lang="ts">
-  import '@svg/icons/IconArrowDown.vue'
-  import '@svg/icons/IconArrowUp.vue'
-  import '@svg/icons/IconClose.vue'
-
-  import '@svg/brands/BrandKlaviyo.vue'
-  import '@svg/brands/BrandOrder.vue'
-  import '@svg/brands/BrandTentrr.vue'
-  import '@svg/brands/BrandPriceline.vue'
-  import '@svg/brands/BrandDigitalSurgeons.vue'
 
   defineProps([
     'label',
@@ -17,22 +8,16 @@
     'size',
     'hasBrand',
     'hasIcon',
-    'iconName'
+    'iconName',
+    'iconType'
   ])
 
   const customLabel = ['R&eacute;sum&eacute;', 'Resume']
 </script>
 
 <template>
-  <!-- <a v-if="hasIcon" :href="href" :target="target" :class="'btn btn--' + size + ' btn--emphasis'">
-    <span>{{ label }}</span>
-    <IconArrowDown v-if="iconName === 'arrow-down'" />
-    <IconArrowUp v-else-if="iconName === 'arrow-up'" />
-    <IconClose v-else-if="iconName === 'close'" />
-  </a> -->
-
-  <a v-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon'" :debug-type="type">
-    <IconArrowDown />
+  <a v-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon ' + iconName" :debug-type="type">
+    <icon :type="iconType" :name="iconName" />
   </a>
 
   <a v-else :href="href" :target="target" :class="'btn btn--' + size">
@@ -116,9 +101,35 @@
     padding: 16px;
   }
 
+  /* special color classes and mods for social icons */
+  .btn--icon.BrandLinkedIn,
+  .btn--icon.BrandFigma,
+  .btn--icon.BrandGitHub,
+  .btn--icon.BrandDribbble,
+  .btn--icon.BrandInstagram {
+    background-color: unset;
+    padding: 12px;
+  }
+
+  .btn--icon.BrandLinkedIn {
+    background-color: var(--special__social-color--linkedin);
+  }
+
+  .btn--icon.BrandFigma {
+    background-color: var(--special__social-color--figma);
+  }
+
+  .btn--icon.BrandGitHub {
+    background-color: var(--special__social-color--github);
+  }
+
+  .btn--icon.BrandDribbble {
+    background-color: var(--special__social-color--dribbble);
+  }
+
   .btn--lg svg {
-    height: 24px;
-    width: 24px;
+    height: 32px;
+    width: 32px;
     color: var(--primary__color--theme);
   }
 

@@ -78,8 +78,8 @@
 /* Book - 400 */
 @font-face {
   font-family: 'PP Neue Montreal';
-  src: url("../fonts/PPNeueMontreal-Book.woff2") format('woff2'),
-       url("../fonts/PPNeueMontreal-Book.woff") format('woff');
+  src: url("@fonts/PPNeueMontreal-Book.woff2") format('woff2'),
+       url("@fonts/PPNeueMontreal-Book.woff") format('woff');
   font-weight: normal;
   font-weight: var(--text__font-weight--book);
   font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
@@ -88,8 +88,8 @@
 /* Medium - 500 */
 @font-face {
   font-family: 'PP Neue Montreal';
-  src: url("../fonts/PPNeueMontreal-Medium.woff2") format('woff2'),
-       url("../fonts/PPNeueMontreal-Medium.woff") format('woff');
+  src: url("@fonts/PPNeueMontreal-Medium.woff2") format('woff2'),
+       url("@fonts/PPNeueMontreal-Medium.woff") format('woff');
   font-weight: var(--text__font-weight--medium);
   font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
 }
@@ -97,8 +97,8 @@
 /* Semibold - 600 */
 @font-face {
   font-family: 'PP Neue Montreal';
-  src: url("../fonts/PPNeueMontreal-Semibold.woff2") format('woff2'),
-       url("../fonts/PPNeueMontreal-Semibold.woff") format('woff');
+  src: url("@fonts/PPNeueMontreal-Semibold.woff2") format('woff2'),
+       url("@fonts/PPNeueMontreal-Semibold.woff") format('woff');
   font-weight: var(--text__font-weight--semibold);
   font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
 }
@@ -106,8 +106,8 @@
 /* Bold - 700 */
 @font-face {
   font-family: 'PP Neue Montreal';
-  src: url("../fonts/PPNeueMontreal-Bold.woff2") format('woff2'),
-       url("../fonts/PPNeueMontreal-Bold.woff") format('woff');
+  src: url("@fonts/PPNeueMontreal-Bold.woff2") format('woff2'),
+       url("@fonts/PPNeueMontreal-Bold.woff") format('woff');
   font-weight: bold;
   font-weight: var(--text__font-weight--bold);
   font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
