@@ -21,7 +21,7 @@
 
 <template>
   <header class="container--simple">
-    <h1>I&#x2019;m Zach &mdash; a friendly neighborhood senior product designer and Star Wars nerd who enjoys crafting frictionless experiences and solving complex problems. Previously <Link :label="textLinks[0].label" :href="textLinks[0].href" :target="textLinks[0].target" :type="textLinks[0].type" />, <Link :label="textLinks[1].label" :href="textLinks[1].href" :target="textLinks[1].target" :type="textLinks[1].type" />, <Link :label="textLinks[2].label" :href="textLinks[2].href" :target="textLinks[2].target" :type="textLinks[2].type" />.</h1>
+    <h1>I&#x2019;m Zach &mdash; a friendly neighborhood senior product designerd who enjoys crafting frictionless experiences and solving complex problems. Previously <Link :label="textLinks[0].label" :href="textLinks[0].href" :target="textLinks[0].target" :type="textLinks[0].type" />, <Link :label="textLinks[1].label" :href="textLinks[1].href" :target="textLinks[1].target" :type="textLinks[1].type" />, <Link :label="textLinks[2].label" :href="textLinks[2].href" :target="textLinks[2].target" :type="textLinks[2].type" />.</h1>
     <section class="container__links">
       <Button
         v-for="button in buttonLinks"
