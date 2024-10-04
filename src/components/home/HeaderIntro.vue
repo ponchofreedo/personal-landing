@@ -9,7 +9,7 @@
     { id: 3, label: 'GitHub', href:'https://www.github.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandGitHub', size: 'lg' },
     { id: 4, label: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandDribbble', size: 'lg' },
     { id: 5, label: 'Instagram', href:'https://www.instagram.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandInstagram', size: 'lg' },
-    { id: 6, label: 'Resume', href:'https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ', target:'_blank', type:'button', size: 'lg' }
+    { id: 6, label: 'Resume', href:'https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ', target:'_blank', type:'iconButton', iconType:'icon', iconName: 'IconDownload', size: 'lg', classes: 'btn--secondary' }
   ])
 
   const textLinks = ref([
@@ -21,18 +21,19 @@
 
 <template>
   <header class="container--simple">
-    <h1>I&#x2019;m Zach &mdash; a sr. product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <Link :label="textLinks[0].label" :href="textLinks[0].href" :target="textLinks[0].target" :type="textLinks[0].type" />, <Link :label="textLinks[1].label" :href="textLinks[1].href" :target="textLinks[1].target" :type="textLinks[1].type" />, <Link :label="textLinks[2].label" :href="textLinks[2].href" :target="textLinks[2].target" :type="textLinks[2].type" />.</h1>
+    <h1>I&#x2019;m Zach &mdash; a friendly neighborhood senior product designer and Star Wars nerd who enjoys crafting frictionless experiences and solving complex problems. Previously <Link :label="textLinks[0].label" :href="textLinks[0].href" :target="textLinks[0].target" :type="textLinks[0].type" />, <Link :label="textLinks[1].label" :href="textLinks[1].href" :target="textLinks[1].target" :type="textLinks[1].type" />, <Link :label="textLinks[2].label" :href="textLinks[2].href" :target="textLinks[2].target" :type="textLinks[2].type" />.</h1>
     <section class="container__links">
       <Button
-        v-for="buttonLink in buttonLinks"
-        :id="buttonLink.id"
-        :label="buttonLink.label"
-        :href="buttonLink.href"
-        :target="buttonLink.target"
-        :type="buttonLink.type"
-        :iconType="buttonLink.iconType"
-        :iconName="buttonLink.iconName"
-        :size="buttonLink.size"
+        v-for="button in buttonLinks"
+        :id="button.id"
+        :label="button.label"
+        :href="button.href"
+        :target="button.target"
+        :type="button.type"
+        :iconType="button.iconType"
+        :iconName="button.iconName"
+        :size="button.size"
+        :classes="button.classes"
       />
     </section>
   </header>

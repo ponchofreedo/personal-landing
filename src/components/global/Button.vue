@@ -6,6 +6,7 @@
     'target',
     'type',
     'size',
+    'classes',
     'hasBrand',
     'hasIcon',
     'iconName',
@@ -16,7 +17,13 @@
 </script>
 
 <template>
-  <a v-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon ' + iconName" :debug-type="type">
+  <a v-if="type === 'iconButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--icon ' + classes + ' ' + iconName" :debug-type="type">
+    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
+    <span v-else>{{ label }}</span>
+    <icon :type="iconType" :name="iconName" />
+  </a>
+
+  <a v-else-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon ' + iconName" :debug-type="type">
     <icon :type="iconType" :name="iconName" />
   </a>
 
@@ -35,8 +42,8 @@
     display: inline-flex;
     transition: color 0.08s ease-in-out,
                 background-color 0.08s ease-in-out,
-                border-color 0.08s ease-in-out,
-                fill 0.08s ease-in-out;
+                border-color 0.08s ease-in-out;
+
   }
 
   a span {
@@ -47,6 +54,8 @@
   svg {
     height: initial;
     width: initial;
+    color: inherit;
+    fill: initial;
   }
 
   a:hover,
@@ -63,7 +72,7 @@
   /* weird hack needed to render svg contents */
 
   .btn {
-    background-color: #242E32;
+    background-color: initial;
     box-sizing: content-box;
     color: inherit;
     font-weight: var(--text__font-weight--semibold);
@@ -97,9 +106,43 @@
     border-radius: var(--text__font-size--h2--rem);
   }
 
+  .btn--lg svg {
+    height: 24px;
+    width: 24px;
+    color: var(--base__color--gray-1); /* if this isnt being overridden...something is wrong */
+    /* color: red; */ /* just for debugging */
+  }
+
+  .btn--lg span {
+    margin-right: 0.5rem;
+  }
+
+  /* btn style modifier classes */
+  .btn--primary {
+    background-color: var(--primary__color--theme);
+  }
+
+  .btn--primary:hover {}
+
+  .btn--secondary {
+    padding: 0.75rem 1rem!important; /* box-sizing for some reason not working */
+    background-color: var(--primary__color--background);
+    border-width: 0.25rem;
+    border-color: var(--base__color--black-2);
+    border-style: solid;
+  }
+
+  .btn--secondary:hover svg {
+    color: var(--base__color--blue-3);
+  }
+
   /* overrides like these need to be below button size definitions to interrupt the cascade */
   .btn--icon {
-    padding: 16px;
+    padding: currentColor;
+  }
+
+  .btn--icon svg {
+    fill: inherit;
   }
 
   /* special color classes and mods for social icons */
@@ -109,14 +152,11 @@
   .btn--icon.BrandDribbble,
   .btn--icon.BrandInstagram {
     background-color: unset;
-    padding: 12px;
+    padding: 0.75rem;
   }
 
   .btn--icon.BrandLinkedIn {
     background-color: var(--special__social-color--linkedin);
-  }
-
-  .BrandLinkedIn:hover {
   }
 
   .btn--icon.BrandFigma {
@@ -136,14 +176,14 @@
     background: radial-gradient(circle at 22% 111%, #fcb045 9%, #fd1d1d 47%, #d6249f 64%, #833ab4 90%, #285aeb 98%);
   }
 
-  .btn--lg svg {
-    height: 32px;
-    width: 32px;
-    color: var(--primary__color--theme);
-  }
-
   .btn--circle {
     border-radius: 50%;
+  }
+
+  .btn--circle svg {
+    height: 32px;
+    width: 32px;
+    color: var(--primary__color--theme); /* fallback */
   }
 
   .btn--emphasis {
@@ -187,5 +227,16 @@
     max-height: fit-content;
     align-self: center;
     fill: var(--primary__color--text);
+  }
+
+  /* background-color override classes...just in case ;p */
+  .btn--black {
+    background-color: var(--base__color--black-1)!important;
+    color: var(--base__color--white)!important;
+  }
+
+  .btn--blue {
+    background-color: var(--base__color--blue-1)!important;
+    color: var(--base__color--white)!important;
   }
 </style>
