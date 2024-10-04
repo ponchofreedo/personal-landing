@@ -82,8 +82,14 @@
   }
 
   /* button size definitions */
+  .btn--xs {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--text__font-size--p--px);
+    border-radius: var(--text__font-size--p--rem);
+  }
+
   .btn--sm {
-    padding: 14px 20px;
+    padding: 0.75rem 1rem;
     font-size: var(--text__font-size--small--px);
     font-size: var(--text__font-size--small--rem);
     border-radius: var(--text__font-size--h5--px);
@@ -91,7 +97,7 @@
   }
 
   .btn--md {
-    padding: 16px 24px;
+    padding: 1rem 1.5rem;
     font-size: var(--text__font-size--p--px);
     font-size: var(--text__font-size--p--rem);
     border-radius: var(--text__font-size--h4--px);
@@ -99,22 +105,40 @@
   }
   
   .btn--lg {
-    padding: 16px 24px;
-    font-size: var(--text__font-size--h4--px);
-    font-size: var(--text__font-size--h4--rem);
+    padding: 1rem 1.5rem;
     border-radius: var(--text__font-size--h2--px);
     border-radius: var(--text__font-size--h2--rem);
   }
 
-  .btn--lg svg {
-    height: 24px;
-    width: 24px;
-    color: var(--base__color--gray-1); /* if this isnt being overridden...something is wrong */
-    /* color: red; */ /* just for debugging */
+  /* per button span settings */
+  [class^="btn"] span {
+    line-height: 1.0;
+  }
+
+  .btn--xs span {
+    font-size: var(--text__font-size--p--px);
+    font-size: var(--text__font-size--p--rem);
+    font-weight: var(--text__font-weight--medium);
+    margin-right: 0.25rem;
   }
 
   .btn--lg span {
+    font-size: var(--text__font-size--h4--px);
+    font-size: var(--text__font-size--h4--rem);
     margin-right: 0.5rem;
+  }
+
+  /* per button svg settings */
+
+  .btn--xs svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .btn--lg svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    /* color: red; */ /* just for debugging */
   }
 
   /* btn style modifier classes */
@@ -132,13 +156,23 @@
     border-style: solid;
   }
 
-  .btn--secondary:hover svg {
+  .btn--tertiary {
+    background-color: var(--primary__color--background);
+  }
+
+  .btn--secondary svg,
+  .btn--tertiary svg {
+    color: var(--base__color--gray-1);
+  }
+
+  .btn--secondary:hover svg,
+  .btn--tertiary:hover svg {
     color: var(--base__color--blue-3);
   }
 
   /* overrides like these need to be below button size definitions to interrupt the cascade */
   .btn--icon {
-    padding: currentColor;
+    fill: currentColor;
   }
 
   .btn--icon svg {
@@ -238,5 +272,11 @@
   .btn--blue {
     background-color: var(--base__color--blue-1)!important;
     color: var(--base__color--white)!important;
+  }
+
+  /* really special styles that i dont want to write, but have to 
+     because i hate inlining */
+  .rotated svg {
+    transform: rotate(135deg);
   }
 </style>

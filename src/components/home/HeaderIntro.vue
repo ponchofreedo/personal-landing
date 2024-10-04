@@ -53,9 +53,13 @@
     align-self: flex-start;
   }
 
-  h1{
+  h1 {
     color: var(--primary__color--text);
     font-variation-settings: 'wght' var(--text__font-weight--medium);
+  }
+
+  h1 a {
+    font-variation-settings: 'wght' 600;
   }
 
   .container__links {

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-defineProps<{
-  greeting: string
-}>()
+  import Button from '@global/Button.vue'
+
+  defineProps<{
+    greeting: string
+  }>()
 </script>
 
 <template>
@@ -9,9 +11,20 @@ defineProps<{
     <h1>{{ greeting }}<span>.</span></h1>
     <ul>
       <li>
-        <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
-          <span>Projects</span><icon type="icon" name="IconArrowDown" />
-        </a>
+        <Button
+          id="1"
+          label="Projects"
+          href="https://github.com/ponchofreedo/portfolio-projects/"
+          target="_blank"
+          type="iconButton"
+          iconType="icon"
+          iconName="IconArrowLeft"
+          size="xs"
+          classes="btn--tertiary rotated"
+        />
+      </li>
+      <li id="im__available">
+        <span>Available for hire</span><icon type="icon" name="IconAlert" />
       </li>
     </ul>
   </nav>
@@ -35,18 +48,20 @@ defineProps<{
   }
 
   ul {
+    display: flex;
+    flex-direction: row;
     justify-self: flex-end;
     align-self: center;
   }
 
   ul span {
     font-size: 1rem;
+    line-height: 1.0;
   }
 
   ul svg {
-    height: 20px;
-    width: 20px;
-    background-color: red;
+    height: 1rem;
+    width: 1rem;
   }
 
   @media (max-width: 64rem) {
@@ -85,5 +100,25 @@ defineProps<{
 
   a {
     text-decoration: none;
+  }
+
+  /* shameless...un-dry...but necessary */
+  #im__available {
+    display: flex;
+    background-color: var(--primary__color--theme);
+    color: var(--base__color--white);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--text__font-size--p--px);
+    border-radius: var(--text__font-size--p--rem);
+    align-items: center;
+  }
+
+  #im__available span {
+    font-weight: var(--text__font-weight--medium);
+    margin-right: 0.25rem;
+  }
+
+  #im__available svg {
+    fill: var(--base__color--blue-3);
   }
 </style>
