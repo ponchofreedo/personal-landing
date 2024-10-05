@@ -63,13 +63,6 @@ body {
   grid-column: 3 / span 4;
 }
 
-.container {
-  grid-template-areas:
-  "nav"
-  "intro"
-  "footer";
-}
-
 @media (min-width: 100rem) {
   .container__grid {
   }

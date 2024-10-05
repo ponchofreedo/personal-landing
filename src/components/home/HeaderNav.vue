@@ -54,9 +54,10 @@
     align-self: center;
   }
 
-  ul span {
+  ul li {
     font-size: 1rem;
     line-height: 1.0;
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
   }
 
   ul svg {
@@ -114,7 +115,7 @@
   }
 
   #im__available span {
-    font-weight: var(--text__font-weight--medium);
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
     margin-right: 0.25rem;
   }
 
