@@ -13,9 +13,11 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@css/*": ["./src/assets/css/*"],
+      "@fonts/*": ["./src/assets/fonts/*"],
       "@global/*": ["./src/components/global/*"],
-      "@svg/*": ["./src/components/svg*"],
-      "@fonts/*": ["./src/assets/fonts/*"]
+      "@img/*": ["./src/assets/img/*"],
+      "@layout/*": ["./src/components/layout/*"],
+      "@svg/*": ["./src/components/svg*"]
     }
   }
 }

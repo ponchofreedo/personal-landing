@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import Button from '../global/Button.vue'
 
   const facts = ref([
     { id: 1, content: 'Hardcore Star Wars nerd.' },
@@ -19,83 +18,109 @@
 </script>
 
 <template>
-  <article class="container__simple" id="#about">
-    <ul>
-      <li v-for="fact in facts"
-          :content="fact.content">
-          <h3>{{ fact.content }}</h3>
-      </li>
-    </ul>
-  </article>
-  <article class="container__simple">
-    <h2>Previously.</h2>
-    <div class="list__brands">
-        <Button
-          v-for="link in links"
-          :id="link.id"
-          :name="link.name"
-          :href="link.href"
-          :location="link.location"
-          :hasBrand="link.hasBrand"
-        />
-    </div>
-    <!--<p>For more history, <a href="">check out my CV</a>.</p>-->
-  </article>
+  <aside class="container--tight left">
+    <h2 class="section__title">About.</h2>
+  </aside>
+  <main class="container--simple right">
+    <article class="facts__container">
+      <ul>
+        <li v-for="fact in facts" :content="fact.content">
+          <em :class="{ 'emphasis': fact.id === 1 }">{{ fact.content }}</em>
+        </li>
+      </ul>
+    </article>
+    <article>
+      <p class="text--as-h3">I would call myself a reformed graphic and web designer who now practices UX and product design with a healthy dose of advocating for better designer-developer relations. For the past 10+ years I’ve been learning and applying my hybrid mindset to teams and building great products that solve complex problems with less friction in the process.</p>
+      <section class="facts__container--split">
+        <p class="text--as-h3">With a more pragmatic approach, I enjoy crafting systems and breaking larger epics into bite-sized stories. Trying so solve puzzles; that’s what drives me to want to learn and improve. Whether it's starting a design systems initiative, forming a cross-functional guild, or mentoring more junior designers, I've really come to appreciate this field and all the avenues it affords. It makes the mission of building empathy and achieving balance between user and business needs that much more exciting.</p>
+        <figure>
+          <div>
+            <img class="it-me" src="@img/it-me.png" />
+            <img class="it-obi" src="@img/it-obi.png" />
+          </div>
+          <small>These will never not be the best photos I’ve ever taken or had taken.</small>
+        </figure>
+      </section>
+      <p class="text--as-h3">I have experience helping startup teams achieve success and growth, maturing growth-stage teams by building more lucrative experiences, and iterating in the fast-paced environments of mature and public teams. No matter the scene, it all boils down to finding ways to <b>raise the value of design</b> and <b>advocate for the right solutions at the right time</b>.</p>
+      <p class="text--as-h3">When I'm not at my keyboard, which is some weeks not often enough, I like to trade it for a kitchen knife, lacrosse stick, or a soldering iron. If one of those isn't available, then the leash for my lovable rascal of a rescue dog, Obi (short for Obi-Dog Kenobi), is most definitely available.</p>
+    </article>
+  </main>
 </template>
 
 <style scoped>
   article {
     display: flex;
     flex-direction: column;
-    row-gap: calc((var(--base__font-size) * 2) * 1px);
-    row-gap: calc((var(--base__font-size) * 2) / var(--base__font-size) * 1rem);
-    padding-bottom: calc((var(--base__font-size) * 10) * 1px);
-    padding-bottom: calc((var(--base__font-size) * 10) / var(--base__font-size) * 1rem);
+    padding-bottom: 2.5rem;
   }
 
-  h2,
-  h3 {
-    color: var(--base__color--steel);
+  article + article,
+  p + p {
+    margin-top: 2.5rem;
   }
 
-  h3 {
-    font-weight: var(--text__font-weight--medium);
+  article section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
-  ul:not(.list__brands) > li:first-child h3 {
-    font-weight: revert;
-    color: var(--primary__color--theme);
+  .facts__container {
+    border-bottom: 0.125rem solid var(--base__color--gray-3);
   }
 
-  .list__brands {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .list__brands > * {
-    display: inline-flex;
-    margin-right: 8px;
+  .facts__container--split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+    -moz-column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
+    column-gap: calc((var(--base__font-size) * 2.5) * 1px);
+    column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
   }
 
-  @media (max-width: 64rem) {
-    .list__brands > * {
-      margin-bottom: 8px;
+  @media (min-width: 100rem) {
+    .facts__container--split {
+      grid-template-columns: 1fr auto;
+      -moz-column-gap: calc((var(--base__font-size) * 4) * 1px);
+      -moz-column-gap: calc((var(--base__font-size) * 4) / var(--base__font-size) * 1rem);
+      column-gap: calc((var(--base__font-size) * 4) * 1px);
+      column-gap: calc((var(--base__font-size) * 4) / var(--base__font-size) * 1rem);
     }
   }
 
-  p,
-  p a {
-    color: var(--primary__color--text);
+  .facts__container--split p {
+    justify-self: flex-start;
   }
 
-  p a {
-    text-decoration-color: var(--primary__color--theme);
-    text-decoration-thickness: calc((var(--base__font-size) / 4) * 1px);
-    transition: color 0.08s ease-in-out;
+  .facts__container--split figure {
+    justify-self: center;
+    align-content: space-around;
   }
 
-  p a:hover {
-    color: var(--primary__color--theme);
+  figure div {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .it-me {
+    height: 25rem;
+    width: 25rem;
+  }
+
+  .it-obi {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    outline-style: solid;
+    outline-width: 1rem;
+    outline-color: white;
+  }
+
+  small {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
   }
 </style>

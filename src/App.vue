@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <main class="main__container">
+  <main class="main__container" :layout="$route.name">
     <RouterView />
   </main>
 </template>
@@ -12,10 +12,16 @@ import { RouterLink, RouterView } from 'vue-router'
 
   .main__container {
     display: grid;
-    padding-left: calc((var(--base__font-size) * 5) * 1px);
-    padding-left: calc((var(--base__font-size) * 5) / var(--base__font-size) * 1rem);
-    padding-right: calc((var(--base__font-size) * 5) * 1px);
-    padding-right: calc((var(--base__font-size) * 5) / var(--base__font-size) * 1rem);
-    height: 100vh;
+    grid-auto-flow: row;
+    grid-auto-columns: initial;
+  }
+
+  [layout="home"] {
+    grid-template-areas: "nav"
+                         "header"
+                         "works"
+                         "about"
+                         "exp"
+                         "footer";
   }
 </style>

@@ -23,6 +23,9 @@
   --text__font-size--small: 12;
   --text__font-size--small--px: calc(var(--text__font-size--small) * 1px);
   --text__font-size--small--rem: calc((var(--text__font-size--small) / var(--base__font-size)) * 1rem);
+  --text__font-size--emphasis: 40;
+  --text__font-size--emphasis--px: calc(var(--text__font-size--emphasis) * 1px);;
+  --text__font-size--emphasis--rem: calc((var(--text__font-size--emphasis) / var(--base__font-size)) * 1rem);;
 
   --text__line-height--base: 1.625;
   --text__line-height--display: 1.25; /* otherwise the line-height is HUGE */
@@ -121,121 +124,196 @@
   }
 }
 
+/* p should pair with --text__line-height--base, but needs to be defined first */
+p {
+  line-height: var(--text__line-height--base);
+}
+
 /* h1-h2 should pair with --text__line-height--display */
 h1,
-h2 {
+h2,
+.text--as-h1,
+.text--as-h2 {
   line-height: var(--text__line-height--display);
 }
 
-/* h3-h4 should pair with --text__line-height--display--mod */
+/* h3-h4 and em should pair with --text__line-height--display--mod */
 h3,
-h4 {
+h4,
+em,
+.text--as-h3,
+.text--as-h4 {
   line-height: var(--text__line-height--display--mod);
 }
 
-/* h3-h4 should pair with --text__line-height--display--mod */
+/* h5 and smaller should pair with --text__line-height--display--base */
 h5,
-p,
-small {
+small,
+.text--as-h5 {
   line-height: var(--text__line-height--base);
 }
 
 /* tighten the letter-spacing for the biggest sizes */
 h1,
-h2 {
+h2,
+.text--as-h1,
+.text--as-h2 {
   letter-spacing: calc((-0.002 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
   letter-spacing: calc(((-0.002 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
 }
 
-h3,
-h4 {
+h4,
+.text--as-h4 {
   letter-spacing: calc((-0.001 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
   letter-spacing: calc(((-0.001 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
 }
 
 /* line-height for p and other elements should be inherited from the body */
-
-h1 {
-  font-size: var(--text__font-size--h1--px);
-  font-size: var(--text__font-size--h1--rem);
-  font-weight: var(--text__font-weight--semibold);
-  color: var(--primary__color--theme);
-}
-
-@supports (font-variation-settings: normal) {
-  h1 {
-    font-variation-settings: 'wght' var(--text__font-weight--semibold);
-  }
-}
-
-h2 {
-  font-size: var(--text__font-size--h2--px);
-  font-size: var(--text__font-size--h2--rem);
-  font-weight: var(--text__font-weight--medium);
-  color: var(--primary__color--theme);
-}
-
-@supports (font-variation-settings: normal) {
-  h2 {
-    font-variation-settings: 'wght' var(--text__font-weight--medium);
-  }
-}
-
-h3 {
-  font-size: var(--text__font-size--h3--px);
-  font-size: var(--text__font-size--h3--rem);
-  font-weight: var(--text__font-weight--semibold);
-  color: var(--primary__color--theme);
-}
-
-@supports (font-variation-settings: normal) {
-  h3 {
-    font-variation-settings: 'wght' var(--text__font-weight--semibold);
-  }
-}
-
-h4 {
-  font-size: var(--text__font-size--h4--px);
-  font-size: var(--text__font-size--h4--rem);
-  font-weight: var(--text__font-weight--semibold);
-  color: var(--primary__color--theme);
-}
-
-@supports (font-variation-settings: normal) {
-  h4 {
-    font-variation-settings: 'wght' var(--text__font-weight--semibold);
-  }
-}
-
-h5 {
-  font-size: var(--text__font-size--h5--px);
-  font-size: var(--text__font-size--h5--rem);
-  font-weight: var(--text__font-weight--semibold);
-  color: var(--primary__color--theme);
-}
-
-@supports (font-variation-settings: normal) {
-  h5 {
-    font-variation-settings: 'wght' var(--text__font-weight--semibold);
-  }
-}
-
+/* p has to come first because of the text--as-h* classes */
 p {
   font-size: var(--text__font-size--p--px);
   font-size: var(--text__font-size--p--rem);
   font-weight: var(--text__font-weight--book);
-  color: var(--primary__color--theme);
 }
 
 @supports (font-variation-settings: normal) {
   p {
+    font-variation-settings: 'wght' var(--text__font-weight--book);
+  }
+}
+
+h1,
+.text--as-h1 {
+  font-size: var(--text__font-size--h1--px);
+  font-size: var(--text__font-size--h1--rem);
+  font-weight: var(--text__font-weight--semibold);
+}
+
+@supports (font-variation-settings: normal) {
+  h1,
+  .text--as-h1 {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
+
+h2,
+.text--as-h2 {
+  font-size: var(--text__font-size--h2--px);
+  font-size: var(--text__font-size--h2--rem);
+  font-weight: var(--text__font-weight--medium);
+}
+
+h2.section__title {
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--base__color--gray-2);
+}
+
+@supports (font-variation-settings: normal) {
+  h2,
+  .text--as-h2 {
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
+  }
+
+  h2.section__title {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
+
+h3,
+.text--as-h3 {
+  font-size: var(--text__font-size--h3--px);
+  font-size: var(--text__font-size--h3--rem);
+  font-weight: var(--text__font-weight--regular);
+}
+
+@supports (font-variation-settings: normal) {
+  h3,
+  .text--as-h3 {
     font-variation-settings: 'wght' var(--text__font-weight--regular);
+  }
+}
+
+h4,
+.text--as-h4 {
+  font-size: var(--text__font-size--h4--px);
+  font-size: var(--text__font-size--h4--rem);
+  font-weight: var(--text__font-weight--semibold);
+}
+
+@supports (font-variation-settings: normal) {
+  h4,
+  .text--as-h4 {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
+
+h5,
+.text--as-h5 {
+  font-size: var(--text__font-size--h5--px);
+  font-size: var(--text__font-size--h5--rem);
+  font-weight: var(--text__font-weight--semibold);
+}
+
+@supports (font-variation-settings: normal) {
+  h5,
+  .text--as-h5 {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
   }
 }
 
 small {
   font-size: var(--text__font-size--small--px);
   font-size: var(--text__font-size--small--rem);
-  font-weight: var(--text__font-weight--book);
-  color: var(--base__color--steel);
+  font-weight: var(--text__font-weight--regular);
+  color: var(--base__color--gray-2);
+}
+
+@supports (font-variation-settings: normal) {
+  small {
+    font-variation-settings: 'wght' var(--text__font-weight--regular);
+  }
+}
+
+em {
+  font-size: var(--text__font-size--emphasis--px);
+  font-size: var(--text__font-size--emphasis--rem);
+  font-weight: var(--text__font-weight--medium);
+  color: var(--base__color--black--1);
+}
+
+.emphasis {
+  font-weight: var(--text__font-weight--semibold);
+  color: var(--primary__color--theme);
+}
+
+@supports (font-variation-settings: normal) {
+  em {
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
+  }
+
+  .emphasis {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
+
+b {
+  font-weight: var(--text__font-weight--semibold);
+}
+
+@supports (font-variation-settings: normal) {
+  b {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--primary__color--theme);
+}
+
+p {
+  color: var(--primary__color--text);
 }

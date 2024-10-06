@@ -79,6 +79,7 @@
     text-decoration: none;
     height: unset;
     line-height: 1;
+    gap: 0.5rem; /* default value, should be overridden lower */
   }
 
   /* button size definitions */
@@ -86,6 +87,7 @@
     padding: 0.5rem 0.75rem;
     border-radius: var(--text__font-size--p--px);
     border-radius: var(--text__font-size--p--rem);
+    gap: 0.25rem;
   }
 
   .btn--sm {
@@ -94,6 +96,7 @@
     font-size: var(--text__font-size--small--rem);
     border-radius: var(--text__font-size--h5--px);
     border-radius: var(--text__font-size--h5--rem);
+    gap: 0.25rem;
   }
 
   .btn--md {
@@ -102,12 +105,14 @@
     font-size: var(--text__font-size--p--rem);
     border-radius: var(--text__font-size--h4--px);
     border-radius: var(--text__font-size--h4--rem);
+    gap: 0.5rem;
   }
   
   .btn--lg {
     padding: 1rem 1.5rem;
     border-radius: var(--text__font-size--h2--px);
     border-radius: var(--text__font-size--h2--rem);
+    gap: 0.5rem;
   }
 
   /* per button span settings */
@@ -119,13 +124,11 @@
     font-size: var(--text__font-size--p--px);
     font-size: var(--text__font-size--p--rem);
     font-weight: var(--text__font-weight--medium);
-    margin-right: 0.25rem;
   }
 
   .btn--lg span {
     font-size: var(--text__font-size--h4--px);
     font-size: var(--text__font-size--h4--rem);
-    margin-right: 0.5rem;
   }
 
   /* per button svg settings */

@@ -20,7 +20,7 @@
 </script>
 
 <template>
-  <header class="container--simple">
+  <header class="container--simple left">
     <h1>I&#x2019;m Zach &mdash; a friendly neighborhood senior product designerd who enjoys crafting frictionless experiences and solving complex problems. Previously <Link :label="textLinks[0].label" :href="textLinks[0].href" :target="textLinks[0].target" :type="textLinks[0].type" />, <Link :label="textLinks[1].label" :href="textLinks[1].href" :target="textLinks[1].target" :type="textLinks[1].type" />, <Link :label="textLinks[2].label" :href="textLinks[2].href" :target="textLinks[2].target" :type="textLinks[2].type" />.</h1>
     <section class="container__links">
       <Button
@@ -41,14 +41,13 @@
 
 <style scoped>
   header {
-    display: inherit;
+    display: inline-grid;
     row-gap: calc((var(--base__font-size) * 2) * 1px);
     row-gap: calc((var(--base__font-size) * 2) / var(--base__font-size) * 1rem);
     padding-top: calc((var(--base__font-size) * 4) * 1px);
     padding-top: calc((var(--base__font-size) * 4) / var(--base__font-size) * 1rem);
     padding-bottom: calc((var(--base__font-size) * 4) * 1px);
     padding-bottom: calc((var(--base__font-size) * 4) / var(--base__font-size) * 1rem);
-    grid-template-rows: auto 1fr;
     height: fit-content;
     align-self: flex-start;
   }
@@ -66,13 +65,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-
-  .container__links > * {
-    margin-top: calc(var(--base__multiplier) * 1px);
-    margin-top: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
-    margin-right: calc(var(--base__multiplier) * 1px);
-    margin-right: calc((var(--base__multiplier) / var(--base__font-size)) * 1rem);
+    gap: 0.5rem;
   }
 
   .container__links > *:last-child {

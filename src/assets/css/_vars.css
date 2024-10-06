@@ -25,6 +25,9 @@
   --base__color--blue-2: #002B7D;
   --base__color--blue-3: #A4C4FF; /* use for colophon and anchor in footer */
 
+  /* theme colors */
+  --theme__color--accent: var(--base__color--blue-1);
+
   /* special prefixed vars correspond to specific things that are immuatable, like brand colors */
   /* define social media platform colors */
   --special__social-color--linkedin: #0A66C2;
@@ -39,7 +42,7 @@
   --primary__color: initial; /* makes it totally agnostic and guaranteed to be overwritten */
   --primary__color--background: var(--base__color--white);
   --primary__color--text: var(--base__color--black-2);
-  --primary__color--theme: var(--base__color--blue-1); /* also known as the theme color */
+  --primary__color--theme: var(--theme__color--accent); /* also known as the theme color */
 }
 
 /* programatic duplicate for darkmode @media, but im not relying on that query at the
