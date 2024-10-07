@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  // import ExpListItem from '@home/exp/ExpListItem.vue'
+
   import Button from '@global/Button.vue'
   import Link from '@global/Link.vue'
 
