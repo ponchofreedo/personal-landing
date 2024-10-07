@@ -7,14 +7,6 @@
     { id: 3, content: 'Liker of all furry and fluffy four-legged friends.' },
     { id: 4, content: 'Occasionally I still get to grapple and play lacrosse.' }
   ])
-
-  const links = ref([
-    { id: 1, name: 'Klaviyo', href: 'https://www.klaviyo.com', location: '_blank', hasBrand: 'true'},
-    { id: 2, name: 'Order', href: 'https://www.order.co', location: '_blank', hasBrand: 'true'},
-    { id: 3, name: 'Tentrr', href: 'https://www.instagram.com/tentrr', location: '_blank', hasBrand: 'true'},
-    { id: 4, name: 'Priceline', href: 'https://www.priceline.com', location: '_blank', hasBrand: 'true'},
-    { id: 5, name: 'DigitalSurgeons', href: 'https://www.digitalsurgeons.com', location: '_blank', hasBrand: 'true'}
-  ])
 </script>
 
 <template>
@@ -31,8 +23,9 @@
     </article>
     <article>
       <p class="text--as-h3">I would call myself a reformed graphic and web designer who now practices UX and product design with a healthy dose of advocating for better designer-developer relations. For the past 10+ years I’ve been learning and applying my hybrid mindset to teams and building great products that solve complex problems with less friction in the process.</p>
+      <p class="text--as-h3">I have experience helping startup teams achieve success, enabling growth-stage teams to mature by building more lucrative experiences, and iterating in the fast-paced environments of mature and public teams. No matter the scene, it all boils down to finding ways to <b>raise the value of design and craft</b> and <b>advocate for the right solutions at the right time</b>.</p>
       <section class="facts__container--split">
-        <p class="text--as-h3">With a more pragmatic approach, I enjoy crafting systems and breaking larger epics into bite-sized stories. Trying so solve puzzles; that’s what drives me to want to learn and improve. Whether it's starting a design systems initiative, forming a cross-functional guild, or mentoring more junior designers, I've really come to appreciate this field and all the avenues it affords. It makes the mission of building empathy and achieving balance between user and business needs that much more exciting.</p>
+        <p class="text--as-h3">When I'm not at my keyboard, which is some weeks not often enough, I like to trade it for a kitchen knife, lacrosse stick, or a soldering iron. If one of those isn't available, then the leash for my lovable rascal of a rescue dog, Obi (short for Obi-Dog Kenobi), is most definitely available.</p>
         <figure>
           <div>
             <img class="it-me" src="@img/it-me.png" />
@@ -41,8 +34,7 @@
           <small>These will never not be the best photos I’ve ever taken or had taken.</small>
         </figure>
       </section>
-      <p class="text--as-h3">I have experience helping startup teams achieve success and growth, maturing growth-stage teams by building more lucrative experiences, and iterating in the fast-paced environments of mature and public teams. No matter the scene, it all boils down to finding ways to <b>raise the value of design</b> and <b>advocate for the right solutions at the right time</b>.</p>
-      <p class="text--as-h3">When I'm not at my keyboard, which is some weeks not often enough, I like to trade it for a kitchen knife, lacrosse stick, or a soldering iron. If one of those isn't available, then the leash for my lovable rascal of a rescue dog, Obi (short for Obi-Dog Kenobi), is most definitely available.</p>
+      <!--<p class="text--as-h3">With a more pragmatic approach, I enjoy crafting systems and breaking larger epics into bite-sized stories. Trying so solve puzzles; that’s what drives me to want to learn and improve. Whether it's starting a design systems initiative, forming a cross-functional guild, or mentoring more junior designers, I've really come to appreciate this field and all the avenues it affords. It makes the mission of building empathy and achieving balance between user and business needs that much more exciting.</p> -->
     </article>
   </main>
 </template>

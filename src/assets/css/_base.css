@@ -5,7 +5,7 @@ html {
 
 body {
   font-family: var(--base__font-family);
-  font-size: var(--base__font-size-percentage);
+  font-size: var(--base__font-size);
   font-weight: var(--base__font-weight);
   line-height: var(--text__line-height--base);
   margin: 0;
@@ -21,6 +21,13 @@ body {
   /* experimenting with some things... */
   writing-mode: horizontal-tb;
   column-count: 1;
+  min-height: 100vh;
+}
+
+/* override some basic vars for the body */
+body {
+  background-color: var(--primary__color--background);
+  color: var(--primary__color--text);
 }
 
 .theme__highlight {

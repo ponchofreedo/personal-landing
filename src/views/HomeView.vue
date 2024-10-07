@@ -6,6 +6,7 @@ import HeaderIntro from '@components/home/HeaderIntro.vue'
 import HeaderFooter from '@components/home/HeaderFooter.vue'
 
 import AboutSection from '@components/home/AboutSection.vue'
+import ExpSection from '@components/home/ExpSection.vue'
 
 </script>
 
@@ -27,10 +28,11 @@ import AboutSection from '@components/home/AboutSection.vue'
     <AboutSection />
   </section>
   <!-- about end -->
-  <!-- exp start
+  <!-- exp start -->
   <section id="exp" class="container container__grid">
+    <ExpSection />
   </section>
-  exp end -->
+  <!-- exp end -->
   <!-- footer start -->
   <!-- footer should be a global component
   <section id="footer" class="container container__grid">

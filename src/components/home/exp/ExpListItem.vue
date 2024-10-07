@@ -1,36 +1,31 @@
 <script setup lang="ts">
+  import Link from '@global/Link.vue'
 
   defineProps([
-    'label',
-    'href',
-    'target',
-    'type',
-    'size',
-    'classes',
-    'hasBrand',
-    'hasIcon',
-    'iconName',
-    'iconType'
+    'id',
+    'brand',
+    'title',
+    'startDate',
+    'endDate',
+    'location',
+    'content'
   ])
 
-  const customLabel = ['R&eacute;sum&eacute;', 'Resume']
+
 </script>
 
 <template>
-  <a v-if="type === 'iconButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--icon ' + classes + ' ' + iconName" :debug-type="type">
-    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
-    <span v-else>{{ label }}</span>
-    <icon :type="iconType" :name="iconName" />
-  </a>
-
-  <a v-else-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon ' + iconName" :debug-type="type">
-    <icon :type="iconType" :name="iconName" />
-  </a>
-
-  <a v-else :href="href" :target="target" :class="'btn btn--' + size">
-    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
-    <span v-else>{{ label }}</span>
-  </a>
+  <ul>
+    <li>
+      <section>
+        <a v-if="type === 'iconButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--icon ' + classes + ' ' + iconName" :debug-type="type">
+          <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
+          <span v-else>{{ label }}</span>
+          <icon :type="iconType" :name="iconName" />
+        </a>
+      </section>
+    </li>
+  </ul>
 </template>
 
 <style scoped>

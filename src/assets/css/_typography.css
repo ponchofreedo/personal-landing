@@ -205,7 +205,7 @@ h2,
 
 h2.section__title {
   font-weight: var(--text__font-weight--semibold);
-  color: var(--base__color--gray-2);
+  color: var(--base__color--gray-1);
 }
 
 @supports (font-variation-settings: normal) {
@@ -261,7 +261,8 @@ h5,
   }
 }
 
-small {
+small,
+caption {
   font-size: var(--text__font-size--small--px);
   font-size: var(--text__font-size--small--rem);
   font-weight: var(--text__font-weight--regular);
@@ -269,7 +270,8 @@ small {
 }
 
 @supports (font-variation-settings: normal) {
-  small {
+  small,
+  caption {
     font-variation-settings: 'wght' var(--text__font-weight--regular);
   }
 }
@@ -316,4 +318,14 @@ h5 {
 
 p {
   color: var(--primary__color--text);
+}
+
+p a {
+  font-weight: var(--text__font-weight--medium);
+}
+
+@supports (font-variation-settings: normal) {
+  p a {
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
+  }
 }
