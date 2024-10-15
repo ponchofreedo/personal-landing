@@ -9,7 +9,7 @@
     { id: 3, label: 'GitHub', href:'https://www.github.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandGitHub', size: 'lg' },
     { id: 4, label: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandDribbble', size: 'lg' },
     { id: 5, label: 'Instagram', href:'https://www.instagram.com/ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandInstagram', size: 'lg' },
-    { id: 6, label: 'Resume', href:'https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ', target:'_blank', type:'iconButton', iconType:'icon', iconName: 'IconDownload', size: 'lg', classes: 'btn--secondary' }
+    { id: 6, label: 'Resume', href:'https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=oMsV9w', target:'_blank', type:'iconButton', iconType:'icon', iconName: 'IconDownload', size: 'lg', classes: 'btn--secondary' }
   ])
 
   const textLinks = ref([

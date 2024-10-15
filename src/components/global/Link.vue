@@ -7,12 +7,14 @@
     'type',
     'size',
     'hasIcon',
-    'iconName'
+    'iconName',
+    'classes'
   ])
 </script>
 
 <template>
-  <a :href="href" :target="target" :class="'link link--' + type">{{ label }}</a>
+  <a v-if="classes" :href="href" :target="target" :class="'link link--' + type + ' ' + classes">{{ label }}</a>
+  <a v-else :href="href" :target="target" :class="'link link--' + type">{{ label }}</a>
 </template>
 
 <style>
@@ -86,5 +88,14 @@
   .link--inline:hover {
     color: var(--primary__color--theme);
     text-decoration-color: var(--base__color--blue-3);
+  }
+
+  .link--inherit {
+    color: inherit!important;
+    text-decoration: underline;
+  }
+
+  a.link--on-blue {
+    color: var(--base__color--white)!important;
   }
 </style>

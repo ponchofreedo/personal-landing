@@ -1,36 +1,31 @@
 <script setup lang="ts">
+  import Link from '@global/Link.vue'
 
   defineProps([
-    'label',
-    'href',
-    'target',
-    'type',
-    'size',
-    'classes',
-    'hasBrand',
-    'hasIcon',
-    'iconName',
-    'iconType'
+    'id',
+    'brand',
+    'title',
+    'startDate',
+    'endDate',
+    'location',
+    'content'
   ])
 
-  const customLabel = ['R&eacute;sum&eacute;', 'Resume']
+
 </script>
 
 <template>
-  <a v-if="type === 'iconButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--icon ' + classes + ' ' + iconName" :debug-type="type">
-    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
-    <span v-else>{{ label }}</span>
-    <icon :type="iconType" :name="iconName" />
-  </a>
-
-  <a v-else-if="type === 'iconOnlyButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--circle btn--icon ' + iconName" :debug-type="type">
-    <icon :type="iconType" :name="iconName" />
-  </a>
-
-  <a v-else :href="href" :target="target" :class="'btn btn--' + size + ' ' + classes">
-    <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
-    <span v-else>{{ label }}</span>
-  </a>
+  <ul>
+    <li>
+      <section>
+        <a v-if="type === 'iconButton'" :href="href" :target="target" :class="'btn btn--' + size + ' btn--icon ' + classes + ' ' + iconName" :debug-type="type">
+          <span v-if="label === 'Resume'" v-html="customLabel[0]"></span>
+          <span v-else>{{ label }}</span>
+          <icon :type="iconType" :name="iconName" />
+        </a>
+      </section>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
@@ -67,6 +62,9 @@
     border-color: var(--primary__color--theme);
   }
 
+
+  /* weird hack needed to render svg contents */
+
   .btn {
     background-color: initial;
     box-sizing: content-box;
@@ -88,11 +86,11 @@
   }
 
   .btn--sm {
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     font-size: var(--text__font-size--small--px);
     font-size: var(--text__font-size--small--rem);
-    border-radius: var(--text__font-size--h4--px);
-    border-radius: var(--text__font-size--h4--rem);
+    border-radius: var(--text__font-size--h5--px);
+    border-radius: var(--text__font-size--h5--rem);
     gap: 0.25rem;
   }
 
@@ -115,7 +113,6 @@
     line-height: 1.0;
   }
 
-  .btn--sm span,
   .btn--xs span {
     font-size: var(--text__font-size--p--px);
     font-size: var(--text__font-size--p--rem);
@@ -133,7 +130,6 @@
 
   /* per button svg settings */
 
-  .btn--sm svg,
   .btn--xs svg {
     height: 1rem;
     width: 1rem;
@@ -154,25 +150,9 @@
   /* btn style modifier classes */
   .btn--primary {
     background-color: var(--primary__color--theme);
-    color: var(--base__color--white);
-    border-width: 0.25rem;
-    border-color: var(--primary__color--background);
-    border-style: solid;
   }
 
-  .btn--primary.on--dark {
-    background-color: var(--base__color--blue-2);
-    border-color: var(--base__color--blue-2);
-  }
-
-  .btn--primary:hover {
-    background-color: var(--base__color--blue-1);
-  }
-
-  .btn--primary.on--dark:hover {
-    border-color: var(--base__color--blue-3);
-    color: var(--base__color--blue-3);
-  }
+  .btn--primary:hover {}
 
   .btn--secondary {
     background-color: var(--primary__color--background);

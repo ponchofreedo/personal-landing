@@ -46,6 +46,10 @@
     padding-bottom: 2.5rem;
   }
 
+  article:last-of-type {
+    padding-bottom: 0;
+  }
+
   article + article,
   p + p {
     margin-top: 2.5rem;
@@ -53,7 +57,6 @@
 
   article section {
     margin-top: 2rem;
-    margin-bottom: 2rem;
   }
 
   .facts__container {
@@ -69,9 +72,8 @@
     column-gap: calc((var(--base__font-size) * 2.5) / var(--base__font-size) * 1rem);
   }
 
-  @media (min-width: 100rem) {
+  @media (min-width: 128rem) {
     .facts__container--split {
-      grid-template-columns: 1fr auto;
       -moz-column-gap: calc((var(--base__font-size) * 4) * 1px);
       -moz-column-gap: calc((var(--base__font-size) * 4) / var(--base__font-size) * 1rem);
       column-gap: calc((var(--base__font-size) * 4) * 1px);

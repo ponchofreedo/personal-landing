@@ -40,7 +40,7 @@
   <main class="container--simple right">
     <article class="exp__container">
       <ul class="exp__roles">
-        <li v-for="role in roles" class="exp__role">
+        <li v-for="role in roles" class="exp__role" :team="role.brand">
           <section class="exp__role--info">
             <icon type="brandIcon" :name="'Brand' + role.brand" />
             <h4>{{ role.title }}</h4>
@@ -59,7 +59,7 @@
         <li>
           <Button
             label="Resume"
-            href="https://1drv.ms/b/s!AiXwFLoNRqBCidwdUMbw_CSpy98XYg?e=SQKXLJ"
+            href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=oMsV9w"
             target="_blank"
             type="iconButton"
             iconType="icon"
@@ -98,12 +98,30 @@
     border-bottom: 0.06225rem solid var(--base__color--gray-3);
   }
 
+  @media (min-width: 128rem) {
+    .exp__roles li {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
   .exp__role--info {
     grid-column: 1 / span 2;
   }
 
+  @media (min-width: 128rem) {
+    .exp__role--info {
+      grid-column: 1 / span 1;
+    }
+  }
+
   .exp__role--content {
     grid-column: 3 / span 4;
+  }
+
+  @media (min-width: 128rem) {
+    .exp__role--content {
+      grid-column: 2 / span 3;
+    }
   }
 
   .exp__role--info div {
@@ -143,5 +161,10 @@
 
   .exp__role h4 {
     color: var(--base__color--black-1);
+  }
+
+  [team="Order"] svg {
+    height: 1.25rem;
+    margin: 0.125rem 0;
   }
 </style>

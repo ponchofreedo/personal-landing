@@ -8,15 +8,17 @@ import HeaderFooter from '@components/home/HeaderFooter.vue'
 import AboutSection from '@components/home/AboutSection.vue'
 import ExpSection from '@components/home/ExpSection.vue'
 
+import GlobalFooter from '@components/layout/GlobalFooter.vue'
+
 </script>
 
 <template>
   <!-- header start -->
-  <section id="header" class="container container__grid">
+  <header id="header" class="container container__grid">
     <GlobalNav greeting="&#x2018;Sup" />
     <HeaderIntro />
     <HeaderFooter />
-  </section>
+  </header>
   <!-- header end -->
   <!-- works start
   <section id="works" class="container container__grid">
@@ -34,15 +36,15 @@ import ExpSection from '@components/home/ExpSection.vue'
   </section>
   <!-- exp end -->
   <!-- footer start -->
-  <!-- footer should be a global component
-  <section id="footer" class="container container__grid">
-  </section>
-  footer end -->
+  <footer id="footer">
+    <GlobalFooter :layout="$route.name" />
+  </footer>
+  <!-- footer end -->
 </template>
 
 <style scoped>
   section + section {
-    margin-top: 7.5rem;
+    margin-top: 10rem;
   }
 
   section[id] {
@@ -63,6 +65,7 @@ import ExpSection from '@components/home/ExpSection.vue'
 
   #about {
     grid-area: about;
+    margin-top: 10rem;
   }
 
   #exp {
@@ -71,6 +74,10 @@ import ExpSection from '@components/home/ExpSection.vue'
 
   #footer {
     grid-area: footer;
+    height: max-content;
+    width: 100%;
+    margin-top: 10rem;
+    background-color: var(--primary__color--theme);
   }
 
   /* exclude footer from left and right padding */
@@ -90,12 +97,11 @@ import ExpSection from '@components/home/ExpSection.vue'
     height: inherit;
   }
 
-  @media (min-width: 100rem) {
+  @media (min-width: 128rem) {
     #works,
     #about,
     #exp {
-      max-width: 100rem; /* should line up almost perfectly centered @2560 */
-      justify-self: flex-end;
+      justify-self: flex-start;
     }
   }
 

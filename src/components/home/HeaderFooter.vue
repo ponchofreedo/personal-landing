@@ -1,9 +1,8 @@
 <script setup lang="ts">
-  const isHome = "true"
 </script>
 
 <template>
-  <footer class="container--fill" v-if="isHome === 'true'">
+  <footer class="container--fill">
     <p>NY born and bred. Based in Stamford, CT.</p>
     <icon type="icon" name="IconArrowDown" />
   </footer>
