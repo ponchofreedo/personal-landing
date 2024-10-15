@@ -5,10 +5,10 @@
 
   const buttonLinks = ref([
     { id: 1, label: 'LinkedIn', href:'https://www.linkedin.com/in/zpfreed', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
-    { id: 2, label: 'Figma', href:'https://www.figma.com/@ponchofreedo', target:'_blank', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
-    { id: 3, label: 'GitHub', href:'https://www.github.com/ponchofreedo', target:'_blank', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
-    { id: 4, label: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', target:'_blank', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
-    { id: 5, label: 'Instagram', href:'https://www.instagram.com/ponchofreedo', target:'_blank', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' }
+    { id: 2, label: 'Figma', href:'https://www.figma.com/@ponchofreedo', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
+    { id: 3, label: 'GitHub', href:'https://www.github.com/ponchofreedo', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
+    { id: 4, label: 'Dribbble', href:'https://www.dribbble.com/ponchofreedo', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' },
+    { id: 5, label: 'Instagram', href:'https://www.instagram.com/ponchofreedo', target: '_blank',  size: 'sm', classes:'btn--primary on--dark' }
   ])
 </script>
 
