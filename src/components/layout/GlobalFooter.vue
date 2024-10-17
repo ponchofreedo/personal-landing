@@ -17,7 +17,7 @@
     <section class="container container__grid">
       <main>
         <h2 class="section__title">Talk to me, Goose.</h2>
-        <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my B&auml;tssignalen are pretty rough &nbsp; definitely missing a wooden peg &nbsp; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to take a gander at my <Link label="r&eacute;sum&eacute;" href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=oMsV9w" target="_blank" type="inline" classes="link--on-blue" /> or just <Link label="drop me a line" href="mailto:zach.freed@gmail.com?subject=%27Sup" target="_blank" type="inline" classes="link--on-blue" />.</p>
+        <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my B&auml;tssignalen are pretty rough &mdash; definitely missing a wooden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so because of those issues, feel free to take a gander at my <Link label="r&eacute;sum&eacute;" href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=oMsV9w" target="_blank" type="inline" classes="link--on-blue" /> or just <Link label="drop me a line" href="mailto:zach.freed@gmail.com?subject=%27Sup" target="_blank" type="inline" classes="link--on-blue" />.</p>
         <p>Or, technical issues aside, you can find me at one of these places below.</p>
         <ul>
           <li v-for="button in buttonLinks">
