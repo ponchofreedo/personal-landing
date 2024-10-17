@@ -3,6 +3,7 @@
   import Button from '@global/Button.vue'
   import Link from '@global/Link.vue'
 
+  // just leaving myself a note as a reminder to convert the social link icons to ionicons in the near future
   const buttonLinks = ref([
     { id: 1, label: 'LinkedIn', href:'https://www.linkedin.com/in/zpfreed', target: '_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName:'BrandLinkedIn', size: 'lg' },
     { id: 2, label: 'Figma', href:'https://www.figma.com/@ponchofreedo', target:'_blank', type:'iconOnlyButton', iconType:'socialIcon', iconName: 'BrandFigma', size: 'lg' },
