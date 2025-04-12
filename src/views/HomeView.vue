@@ -60,8 +60,7 @@
     #experience,
     #resources,
     footer {
-      padding: 0 24px;
-      padding: 0 1.5rem;
+      padding: 0;
     }
   }
 </style>

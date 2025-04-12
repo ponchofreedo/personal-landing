@@ -143,14 +143,14 @@ h1,
 h2,
 .text--as-h1,
 .text--as-h2 {
-  letter-spacing: calc((-0.002 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
-  letter-spacing: calc(((-0.002 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
+  letter-spacing: calc(-0.0008px * var(--base__font-size-percentage)) * var(--base__font-size))); /* should render -0.1px */
+  letter-spacing: calc(-0.0008rem * var(--base__font-size-percentage)); /* should render to -0.00625rem */
 }
 
 h4,
 .text--as-h4 {
-  letter-spacing: calc((-0.001 * var(--base__font-size-percentage)) * 1rem); /* should render to -0.00625rem */
-  letter-spacing: calc(((-0.001 * var(--base__font-size-percentage)) * var(--base__font-size)) * 1px); /* should render -0.1px */
+  letter-spacing: calc(-0.0001px * var(--base__font-size-percentage)) * var(--base__font-size))); /* should render -0.1px */
+  letter-spacing: calc(-0.0001rem * var(--base__font-size-percentage)); /* should render to -0.00625rem */
 }
 
 /* line-height for p and other elements should be inherited from the body */
