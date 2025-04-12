@@ -19,7 +19,7 @@
       "@layout/*": ["./src/components/layout/*"],
       "@pdf/*": ["./src/assets/pdf*"],
       "@svg/*": ["./src/components/svg*"],
-      "@util/*": ["./src/components/util*"]
+      "@util/*": ["./src/components/util/*"]
     }
   }
 }
