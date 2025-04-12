@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue'
+    import { RouterLink, RouterView } from 'vue-router'
 
     // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
     const recentExp = ref([
@@ -8,11 +9,12 @@
             team: 'Whalar',
             url: 'https://whalar.com',
             title: 'Lead Product Designer',
-            detail: 'Recently I joined up with the <a href="https://foam.io" target="_blank">Foam</a> product team at <a href="https://www.whalar.com/" target="_blank">Whalar</a> to kickstart their design systems efforts and help with some complicated flows.',
+            detail: 'Recently I joined up with the <a href="https://foam.io" target="_blank" class="link link--inline">Foam</a> product team at <a href="https://www.whalar.com/" target="_blank" class="link link--inline">Whalar</a> to kickstart their design systems efforts and help with some complicated flows.',
             startDate: 'January 2025',
             endDate:'March 2025',
             location:'Remote',
-            freelance: 'true'
+            freelance: 'true',
+            iconHeight: 16
         },
         {
             id: 2,
@@ -22,7 +24,8 @@
             detail: 'I joined the new CRM Data Management team at <a href="https://hubspot.com" target="_blank" class="link link--inline">HubSpot</a> as a design lead building scalable property management experiences. Also partnered with the design systems team to adopt some federated process initiatives to improve things like handoff and visibility.',
             startDate: 'June 2023',
             endDate:'August 2024',
-            location:'Remote'
+            location:'Remote',
+            iconHeight: 23
         },
         {
             id: 3,
@@ -32,7 +35,8 @@
             detail: 'Lead design for several data infrastructure features at <a href="https://klaviyo.com" target="_blank" class="link link--inline">Klaviyo</a> including customer profiles, subscription and consent management, and segmentation. My focus was on evolving antiquated core tools and building newer, more powerful tools for marketers. Also got to help drive our internal design systems initiatives and start building that dedicated team.',
             startDate: 'March 2021',
             endDate:'March 2023',
-            location:'Remote'
+            location:'Remote',
+            iconHeight: 24
         },
         {
             id: 4,
@@ -42,80 +46,10 @@
             detail: '<a href="https://order.co" target="_blank" class="link link--inline">Order</a> (fka Negotiatus when I joined) was my first lead product design position where I concepted and delivered new flagship products, including invoice submission and bill pay products, that were key to closing their Series B round.',
             startDate: 'January 2020',
             endDate: 'February 2021',
-            location:'New York, NY + remote'
+            location:'New York, NY + remote',
+            iconHeight: 23
         }
     ])
-
-    // defineProps ({
-    //     toggleIcon: String
-    // })
-</script>
-
-<script lang="ts">
-    // export default {
-    //     // setup() {
-    //     //     const isExpanded = ref(false);
-    //     //     return {
-    //     //         isExpanded
-    //     //     };
-    //     // },
-    //     data() {
-    //         return {
-    //             isExpanded: false,
-    //             isOpen: false,
-    //             // toggleIcon: "iconPlus"
-    //         }
-    //     },
-    //     methods: {
-    //         // changeIcon() {
-    //         //     this.toggleIcon = (this.toggleIcon === "iconPlus" ? "iconMinus" : "test")
-    //         // },
-    //         handleToggle(event) {
-    //             this.isOpen = event.target.open;
-    //         },
-    //         toggleExpand() {
-    //             this.isExpanded = !this.isExpanded;
-    //         }
-    //     }
-    // };
-
-    // const details = document.querySelectorAll('details');
-
-    // details.forEach(detail => {
-    //     detail.addEventListener('toggle', (event) => {
-    //         if (detail.open) {    
-    //             details.forEach(otherDetail => {
-    //                 if (otherDetail !== detail && otherDetail.open) {
-    //                     otherDetail.removeAttribute('open');
-    //                 }
-    //             });
-    //         }
-    //     });
-    // });
-
-    // export default {
-    //     data() {
-    //         return {
-    //             isOpen: false
-    //         };
-    //     },
-    //     methods: {
-    //         toggleAttribute() {
-    //             this.isOpen = !this.isOpen;
-    //             const element = document.querySelector('details');
-    //             if (element.hasAttribute('open')) {
-    //                 element.setAttribute('open', this.isOpen);
-    //             }
-    //         }
-    //     },
-    //     mounted() {
-    //         const element = document.querySelector('details');
-    //         if(element.hasAttribute('open')) {
-    //             console.log(element.getAttribute('open'));
-    //         }
-    //     }
-    // }
-
 </script>
 
 <template>
@@ -126,8 +60,8 @@
             <summary>
                 <a :href='exp.url' target="_blank">
                     <figure>
-                        <icon type="svg" :name='"brand" + exp.team' />
-                        <figcaption>{{ exp.team }}</figcaption>
+                        <icon type="svg" :name='"brand" + exp.team' :height="exp.iconHeight" />
+                        <figcaption :alt='"Go to " + exp.team'>Go to {{ exp.team }}</figcaption>
                     </figure>
                 </a>
                 <section>
@@ -150,13 +84,10 @@
             <span v-show="isExpanded">i show when expanded</span>
         </div> -->
         <footer>
-            <p>For my full history, take a look at my 
-                <a href="https://github.com/ponchofreedo/projects/" target="_blank">
-                    CV<icon type="icon" name="iconArrowSquareUpRight"/>
-                </a>
+            <p>For my full history, take a look at my <RouterLink to="/cv" class="link link--inline">CV<icon type="icon" name="iconArrowSquareUpRight" /></RouterLink>
             </p>
             <p>Or, grab a copy of 
-                <a href="https://github.com/ponchofreedo/projects/" target="_blank">
+                <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">
                     my r&eacute;sum&eacute;
                     <icon type="icon" name="iconArrowSquareUpRight" />
                 </a>
@@ -166,8 +97,56 @@
 </template>
 
 <style scoped>
+    #experience {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h4,
+    h4 + small {
+        color: var(--base__color--green-700);
+    }
+
+    h4 {
+        margin-bottom: 4px;
+        margin-bottom: 0.25rem;
+    }
+
+    h4 + small {
+        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
+    }
+
+    details,
+    figure,
+    aside {
+        border-style: solid;
+        border-width: 2px;
+        border-width: 0.125rem;
+        border-radius: 16px;
+        border-radius: 1rem;
+        border-color: inherit;
+    }
+
+    details {
+        display: flex;
+        flex-direction: column;
+        border-radius: 24px;
+        border-radius: 1.5rem;
+        border-color: var(--base__color--neutral-500);
+        padding: 32px;
+        padding: 2rem;
+        margin-bottom: 16px;
+        margin-bottom: 1rem;
+    }
 
     details > summary {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 40px;
+        column-gap: 2.5rem;
         list-style: none;
     }
 
@@ -175,10 +154,107 @@
     details > summary::-webkit-details-marker {
         display:none!important;
     }
+
+    details > p {
+        margin-top: 8px;
+        margin-top: 0.5rem;
+        margin-left: 160px;
+        margin-left: 10rem;
+    }
+
+    summary a {
+        text-decoration: none;
+    }
+
+    summary figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 120px;
+        height: 7.5rem;
+        width: 120px;
+        width: 7.5rem;
+        color: var(--base__color--green-100);
+        border-radius: 16px;
+        border-radius: 1rem;
+        border-color: var(--base__color--neutral-500);
+    }
+
+    summary figcaption {
+        display: none;
+        text-align: center;
+    }
+
+    figure svg {
+        height: auto;
+        min-height: 16px;
+        min-height: 1rem;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    summary > section {
+        display: inherit;
+        flex-direction: column;
+    }
+
+    h3 {
+        color: var(--base__color--green-100);
+        margin-bottom: 4px;
+        margin-botttom: 0.25rem;
+    }
+
+    .exp__details {
+        display: inherit;
+        flex-wrap: wrap;
+        gap: 16px;
+        gap: 1rem;
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: var(--text__line-height--display--mod);
+        color: var(--base__color--neutral-200);
+    }
+
+    .exp__details span {
+        position: relative;
+        margin-left: 24px;
+        margin-left: 1.5rem;
+    }
+
+    .exp__details span:first-child {
+        margin: 0;
+    }
+
+    .exp__details span:not(span:last-child)::after {
+        position: absolute;
+        content: '';
+        top: 7px;
+        top: 0.425rem;
+        right: -24px;
+        right: -1.5rem;
+        display: inline-block;
+        vertical-align: middle;
+        height: 8px;
+        height: 0.5rem;
+        width: 8px;
+        width: 0.5rem;
+        -moz-border-radius: 999px;
+        -webkit-border-radius: 999px;
+        border-radius: 999px;
+        background-color: var(--base__color--neutral-500);
+    }
+
+    p {
+        color: var(--base__color--neutral-50);
+    }
     
     footer {
         display: flex;
         flex-direction: column;
+        margin-top: 24px;
+        margin-top: 1.5rem;
+        color: var(--base__color--neutral-50);
     }
 
     footer a {
@@ -187,7 +263,6 @@
         gap: 4px;
         gap: 0.25rem;
         color: inherit;
-        text-decoration: none;
     }
 
     footer p {

@@ -288,3 +288,23 @@ p a {
 .text__line-height--fixed {
   line-height: var(--text__line-height--fixed);
 }
+
+/* link styles here for now to be referenced globally */
+.link,
+.link:link,
+.link:active,
+.link:visited {
+    color: var(--base__color--green-400);
+}
+
+.link--inline {
+  font-weight: var(--text__font-weight--semibold);
+  text-decoration: underline solid 2px;
+  text-decoration: underline solid 0.125rem;
+}
+
+@supports (font-variation-settings: normal) {
+  .link--inline {
+    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+  }
+}
