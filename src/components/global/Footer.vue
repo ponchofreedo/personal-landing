@@ -33,8 +33,8 @@
                     { who: 'Dudley Boyz', phrase: 'GET THE TABLES!' },
                     { who: 'Teddy Long', phrase: 'Holla, holla holla!' }
                 ]),
-                randomCatchphrase: null,
-                randomWrestler: null,
+                randomCatchphrase: '',
+                randomWrestler: '',
             };
         },
         mounted() {
