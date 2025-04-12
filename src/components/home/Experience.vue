@@ -52,46 +52,69 @@
 </script>
 
 <script lang="ts">
-    export default {
-        // setup() {
-        //     const isExpanded = ref(false);
-        //     return {
-        //         isExpanded
-        //     };
-        // },
-        data() {
-            return {
-                isExpanded: false,
-                isOpen: false,
-                // toggleIcon: "iconPlus"
-            }
-        },
-        methods: {
-            // changeIcon() {
-            //     this.toggleIcon = (this.toggleIcon === "iconPlus" ? "iconMinus" : "test")
-            // },
-            handleToggle(event) {
-                this.isOpen = event.target.open;
-            },
-            toggleExpand() {
-                this.isExpanded = !this.isExpanded;
-            }
-        }
-    };
+    // export default {
+    //     // setup() {
+    //     //     const isExpanded = ref(false);
+    //     //     return {
+    //     //         isExpanded
+    //     //     };
+    //     // },
+    //     data() {
+    //         return {
+    //             isExpanded: false,
+    //             isOpen: false,
+    //             // toggleIcon: "iconPlus"
+    //         }
+    //     },
+    //     methods: {
+    //         // changeIcon() {
+    //         //     this.toggleIcon = (this.toggleIcon === "iconPlus" ? "iconMinus" : "test")
+    //         // },
+    //         handleToggle(event) {
+    //             this.isOpen = event.target.open;
+    //         },
+    //         toggleExpand() {
+    //             this.isExpanded = !this.isExpanded;
+    //         }
+    //     }
+    // };
 
-    const details = document.querySelectorAll('details');
+    // const details = document.querySelectorAll('details');
 
-    details.forEach(detail => {
-        detail.addEventListener('toggle', (event) => {
-            if (detail.open) {    
-                detailsElements.forEach(otherDetail => {
-                    if (otherDetail !== detail && otherDetail.open) {
-                        otherDetail.removeAttribute('open');
-                    }
-                });
-            }
-        });
-    });
+    // details.forEach(detail => {
+    //     detail.addEventListener('toggle', (event) => {
+    //         if (detail.open) {    
+    //             details.forEach(otherDetail => {
+    //                 if (otherDetail !== detail && otherDetail.open) {
+    //                     otherDetail.removeAttribute('open');
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+
+    // export default {
+    //     data() {
+    //         return {
+    //             isOpen: false
+    //         };
+    //     },
+    //     methods: {
+    //         toggleAttribute() {
+    //             this.isOpen = !this.isOpen;
+    //             const element = document.querySelector('details');
+    //             if (element.hasAttribute('open')) {
+    //                 element.setAttribute('open', this.isOpen);
+    //             }
+    //         }
+    //     },
+    //     mounted() {
+    //         const element = document.querySelector('details');
+    //         if(element.hasAttribute('open')) {
+    //             console.log(element.getAttribute('open'));
+    //         }
+    //     }
+    // }
 
 </script>
 
@@ -99,7 +122,7 @@
 	<section id="experience">
         <h4>Experience.</h4>
         <small>The recent bits.</small>
-        <details name="details" v-for="exp in recentExp" :id="exp.id" :team="exp.team" v-on:click="exp.isOpen = !exp.isOpen">
+        <details name="details" v-for="exp in recentExp" :id="exp.id" :team="exp.team" v-on:click="toggleAttribute">
             <summary>
                 <a :href='exp.url' target="_blank">
                     <figure>
@@ -115,10 +138,10 @@
                         <span v-if="exp.freelance">Freelance</span>
                     </div>
                 </section>
-                <aside>
-                    <icon v-if="!exp.isOpen" type="icon" name="iconPlus" />
-                    <icon v-else type="icon" name="iconMinus" />
-                </aside>
+                <!-- <aside>
+                    <icon v-show="!exp.isOpen" type="icon" name="iconPlus" />
+                    <icon v-show="exp.isOpen" type="icon" name="iconMinus" />
+                </aside> -->
             </summary>
             <p v-html="exp.detail"></p>
         </details>
