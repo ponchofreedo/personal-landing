@@ -50,7 +50,7 @@
                 <article>
                     <section>
                         <ul>
-                            <li v-for="link in links" :id="link.id">
+                            <li v-for="link in links" :key="link.id">
                                 <a :href='link.url' target="_blank">
                                     <span>{{ link.platform }}</span>
                                     <icon type="icon" name="iconArrowSquareUpRight" />

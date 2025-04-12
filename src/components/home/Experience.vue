@@ -122,7 +122,7 @@
 	<section id="experience">
         <h4>Experience.</h4>
         <small>The recent bits.</small>
-        <details name="details" v-for="exp in recentExp" :id="exp.id" :team="exp.team" v-on:click="toggleAttribute">
+        <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team">
             <summary>
                 <a :href='exp.url' target="_blank">
                     <figure>

@@ -99,7 +99,7 @@
 <template>
 	<section id="works">
         <h4>Selected works.</h4>
-        <article v-for="selectedWork in selectedWorks" :id="selectedWork.id" :team="selectedWork.team">
+        <article v-for="selectedWork in selectedWorks" :key="selectedWork.id" :team="selectedWork.team">
             <a :href="selectedWork.href" :target="selectedWork.target">
                 <h2 v-html="selectedWork.title"></h2>
             </a>

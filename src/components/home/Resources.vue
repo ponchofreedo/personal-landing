@@ -41,7 +41,7 @@
     <section id="resources">
         <h4>Projects and resources.</h4>
         <small>Some things I tinker with for the community.</small>
-        <article v-for="resource in resources" :id="resource.id">
+        <article v-for="resource in resources" :key="resource.id">
             <h3>{{ resource.name }}</h3>
             <div>
                 <icon type="svg" :name='resource.platformIcon' />
