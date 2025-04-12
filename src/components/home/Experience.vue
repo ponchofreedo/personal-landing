@@ -138,6 +138,7 @@
         padding: 2rem;
         margin-bottom: 16px;
         margin-bottom: 1rem;
+        cursor: pointer;
     }
 
     details > summary {
