@@ -1,0 +1,17 @@
+/* vars first */
+@import '_vars.css';
+
+/* then reset */
+@import '_reset.css';
+
+/* and then the base package */
+@import '_base.css';
+
+/* finally we import the base partials since they inherit downstream rules */
+@import '_typography.css';
+
+body {
+  background-color: var(--primary__color--background);
+  color: var(--primary__color--text);
+  min-height: 100vh;
+}
