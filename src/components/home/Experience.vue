@@ -152,7 +152,7 @@
         <footer>
             <p>For my full history, take a look at my 
                 <a href="https://github.com/ponchofreedo/projects/" target="_blank">
-                    CV<icon type="icon" name="iconArrowSquareUpRight" />
+                    CV<icon type="icon" name="iconArrowSquareUpRight"/>
                 </a>
             </p>
             <p>Or, grab a copy of 
