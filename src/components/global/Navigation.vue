@@ -6,7 +6,7 @@
 	<nav :layout="$route.name">
     	<ul>
             <li>
-                <RouterLink to="/" class=""><span>'Sup.</span></RouterLink>
+                <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
             </li>
             <li>
                 <a href="https://github.com/ponchofreedo/portfolio-projects" target="_blank">
@@ -28,8 +28,11 @@
             </li>
         </ul>
         <ul>
-            <li><icon type="icon" name="iconMegaphone" />Available for hire: FT</li>
-            <li><button>mode<icon type="icon" name="iconMoon" /></button></li>
+            <li class="tag tag--availability">
+                <icon type="icon" name="iconMegaphone" />
+                <span>Available for hire: FT</span>
+            </li>
+            <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
         </ul>
     </nav>
 </template>
@@ -46,23 +49,45 @@
 
     ul {
         display: inline-flex;
+        align-items: center;
         list-style: none;
+        gap: 24px;
+        gap: 1.5rem;
     }
 
     ul + ul {
         justify-content: flex-end;
     }
 
-    a {
+    li a {
+        display: flex;
+        gap: 4px;
+        gap: 0.24rem;
+        font-size: 24px;
+        font-size: 1.5rem;
         line-height: var(--text__line-height--fixed);
+        color: var(--base__color--neutral-50);
+        text-decoration: none;
     }
 
-    svg {
+    nav:first-child li:first-child a {
+        color: var(--base__color--green-400)!important;
+        font-weight: var(--text__font-weight--semibold);
+    }
+
+    nav:first-child ul:first-child li a svg {
+        height: 24px;
         height: 1.5rem;
         width: auto;
+        color: var(--base__color--green-400);
     }
 
-    [class*="router"]:not(:first-of-type) {
-        color: red;
+    @media (max-width: 720px) {
+        nav {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 16px;
+            gap: 1rem;
+        }
     }
 </style>

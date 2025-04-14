@@ -5,7 +5,7 @@
 	<header>
         <article>
             <img src="@img/it-me.png" alt="it's a rad photo of me that I may never get rid of" />
-            <h1>I'm Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>, <a href="https://priceline.com" target="_blank">@priceline</a>.</h1>
+            <h1>I&rsquo;m Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>, <a href="https://priceline.com" target="_blank">@priceline</a>.</h1>
         </article>
         <footer>
             <p>NY born and bred. Based in Stamford, CT.</p>
@@ -46,8 +46,9 @@
     }
 
     a {
-       color: var(--primary__color--theme);
-       text-decoration: none; 
+        color: var(--primary__color--theme);
+        text-decoration: underline solid 4px;
+        text-decoration: underline solid 0.25rem; 
     }
 
     footer {
@@ -74,6 +75,10 @@
     }
 
     @media (max-width: 720px) {
+        header {
+            margin-top: 40px;
+            margin-top: 2.5rem;
+        }
         img {
             height: 96px;
             height: 6rem;
