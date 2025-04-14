@@ -16,3 +16,8 @@ body {
   color: var(--primary__color--text);
   min-height: 100vh;
 }
+
+::selection {
+  color: var(--primary__color--background);
+  background-color: var(--primary__color--theme);
+}

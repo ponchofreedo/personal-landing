@@ -210,6 +210,7 @@
     li:last-child {
         margin-left: 32px;
         margin-left: 2rem;
+        color: var(--base__color--neutral-200);
     }
 
     li:last-child::before {

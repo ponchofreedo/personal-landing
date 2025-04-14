@@ -37,11 +37,6 @@ body {
   color: var(--primary__color--text);
 }
 
-.theme__highlight {
-  border-top-style: solid;
-  border-top-color: var(--primary__color--theme);
-}
-
 @supports (font-variation-settings: normal) {
   body {
     font-family: var(--base__font-family--v);
