@@ -27,6 +27,11 @@
             id: 5,
             platform: 'Instagram',
             url: 'https://instagram.com/ponchofreedo'
+        },
+        {
+            id: 6,
+            platform: 'Bluesky',
+            url: 'https://bsky.app/profile/ponchofreedo.bsky.social'
         }
     ])
 </script>
