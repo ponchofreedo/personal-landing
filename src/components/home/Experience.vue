@@ -282,11 +282,16 @@
     }
 
     @media (max-width: 720px) {
+        h4 + small {
+            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+        }
+
         details {
             padding: 24px;
             padding: 1.5rem;
         }
-        
+
         details > summary {
             flex-direction: column;
             align-items: flex-start;
@@ -326,6 +331,11 @@
         .exp__details span:not(span:last-child)::after {
             display: none;
             margin: 0;
+        }
+
+        footer {
+            margin-top: 16px;
+            margin-top: 1rem;
         }
     }
 </style>

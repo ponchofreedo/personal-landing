@@ -14,7 +14,7 @@
             shipped: '',  
             freelance:'true',
             date: '2025',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/design/nob8jgXwQ9VzMmlqZDc04F/Spike--Mobile-app-invitations?node-id=0-1&t=F6MX8esnJhSVv61X-1',
             target: '_blank',
             team: 'Whalar'
         },

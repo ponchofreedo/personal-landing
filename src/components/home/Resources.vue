@@ -157,6 +157,11 @@
             grid-template-columns: 1fr;
         }
 
+        h4 + small {
+            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+        }
+
         article {
             padding: 24px;
             padding: 1.5rem;
