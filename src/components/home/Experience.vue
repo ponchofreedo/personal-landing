@@ -280,4 +280,52 @@
         height: 1rem;
         width: auto;
     }
+
+    @media (max-width: 720px) {
+        details {
+            padding: 24px;
+            padding: 1.5rem;
+        }
+        
+        details > summary {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        summary figure {
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: auto;
+            height: auto;
+            width: auto;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 16px;
+            margin-bottom: 1rem;
+        }
+
+        details > p {
+            margin-top: 24px;
+            margin-top: 1.5rem;
+            margin-left: 0;
+        }
+
+        .exp__details {
+            flex-direction: column;
+            gap: 8px;
+            gap: 0.5rem;
+            font-size: 14px;
+            font-size: 0.875rem;
+        }
+
+        .exp__details span {
+            margin-left: 0;
+        }
+
+        .exp__details span:not(span:last-child)::after {
+            display: none;
+            margin: 0;
+        }
+    }
 </style>
