@@ -36,11 +36,21 @@
 
 <style scoped>
     nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         margin-top: 40px;
         margin-top: 2.5rem;
-        margin-bottom: 80px;
-        margin-bottom: 5rem;
         line-height: unset;
+    }
+
+    ul {
+        display: inline-flex;
+        list-style: none;
+    }
+
+    ul + ul {
+        justify-content: flex-end;
     }
 
     a {

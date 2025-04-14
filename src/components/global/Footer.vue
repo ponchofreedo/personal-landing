@@ -60,6 +60,9 @@
                 <p>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org" target="_blank">Vue</a>, authored in <a href="https://sublimetext.com" target="_blank">Sublime Text</a>, and shipped with <a href="https://vercel.com" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with controlled chaos and my take on Thomas Keller's <a href="https://youtube.com/watch?v=Bt8YgEr-9is" target="_blank">roast chicken</a> recipe. Also built with <a href="https://instagram.com/obi_dog__kenobi_/" target="_blank">my dog</a> at my feet.</p>
             </section>
             <section>
+                <a id="anchor" href="#app">
+                    <icon type="icon" name="iconArrowSquareUp" />
+                </a>
                 <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
             </section>
         </article>
@@ -104,8 +107,21 @@
         font-weight: var(--text__font-weight--medium);
     }
 
-    * { 
+    b,
+    p,
+    a { 
         color: var(--base__color--green-700)
+    }
+
+    #anchor {
+        width: fit-content;
+        align-self: flex-end;
+    }
+
+    #anchor svg {
+        height: 24px;
+        height: 1.5rem;
+        width: auto;
     }
 
     @media (max-width: 720px) {
@@ -121,9 +137,14 @@
         }
 
         article section+section {
+            flex-direction: column-reverse;
             align-self: flex-start;
             justify-content: flex-start;
             text-align: left;
+        }
+
+        #anchor {
+            align-self: flex-start;
         }
     }
 </style>

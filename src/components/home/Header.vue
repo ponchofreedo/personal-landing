@@ -4,15 +4,81 @@
 <template>
 	<header>
         <article>
-            <img src="@img/it-me.png" height="120" width="auto" alt="it's a rad photo of me that I may never get rid of" />
-            <h1>I'm Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="#">@HubSpot</a>, <a href="#">@Klaviyo</a>, <a href="#">@priceline</a>.</h1>
+            <img src="@img/it-me.png" alt="it's a rad photo of me that I may never get rid of" />
+            <h1>I'm Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank">@Klaviyo</a>, <a href="https://priceline.com" target="_blank">@priceline</a>.</h1>
         </article>
         <footer>
             <p>NY born and bred. Based in Stamford, CT.</p>
-            <a href="#works"><icon type="icon" name="iconArrowSquareDown" height="24" width="24" /></a>
+            <a href="#works">
+                <icon type="icon" name="iconArrowSquareDown" />
+            </a>
         </footer>
     </header>
 </template>
 
 <style scoped>
+    header {
+        display: flex;
+        flex-flow: column;
+        height: calc(100vh - 192px);
+        margin-top: 80px;
+        margin-top: 5rem;
+    }
+
+    article {
+        display: inherit;
+        flex-direction: inherit;
+        gap: 24px;
+        gap: 1.5rem;
+        height: fit-content;
+        justify-content: flex-start;
+    }
+
+    img {
+        height: 160px;
+        height: 10rem;
+        width: 160px;
+        width: 10rem;
+    }
+
+    h1 {
+        color: var(--base__color--neutral-50);
+    }
+
+    a {
+       color: var(--primary__color--theme);
+       text-decoration: none; 
+    }
+
+    footer {
+        display: inherit;
+        flex-direction: inherit;
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    footer p {
+        color: var(--base__color--neutral-320);
+        margin-bottom: 16px;
+        margin-bottom: 1rem;
+    }
+
+    footer a {
+        width: fit-content;
+    }
+
+    footer svg {
+        height: 24px;
+        height: 1.5rem;
+        width: auto;
+    }
+
+    @media (max-width: 720px) {
+        img {
+            height: 96px;
+            height: 6rem;
+            width: 96px;
+            width: 6rem;
+        }
+    }
 </style>
