@@ -20,8 +20,8 @@
   @media (max-width: 960px) {
     main#app {
       width: 100%;
-      padding: 0 16px;
-      padding: 0 1rem;
+      padding: 0 24px;
+      padding: 0 1.5rem;
     }
   }
 

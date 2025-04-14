@@ -78,12 +78,18 @@
         header {
             margin-top: 40px;
             margin-top: 2.5rem;
+            height: fit-content;
         }
         img {
             height: 96px;
             height: 6rem;
             width: 96px;
             width: 6rem;
+        }
+
+        footer {
+            margin-top: 64px;
+            margin-top: 4rem
         }
     }
 </style>

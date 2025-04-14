@@ -86,6 +86,8 @@
         nav {
             flex-direction: column-reverse;
             align-items: flex-start;
+            margin-top: 24px;
+            margin-top: 1.5rem;
             gap: 16px;
             gap: 1rem;
         }
