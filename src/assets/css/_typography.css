@@ -76,30 +76,30 @@
 /* import the normal font files first, so they are guaranteed to be ignored by the variable stuff later */
 /* Regular - 450 */
 @font-face {
+  font-display: swap; /* has nothing to do with the fact that this is the fallback font */
   font-family: 'PP Neue Montreal';
   src: url("@fonts/PPNeueMontreal-Regular.woff2") format('woff2'),
        url("@fonts/PPNeueMontreal-Regular.woff") format('woff');
   font-weight: normal;
   font-weight: var(--text__font-weight--regular);
-  font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
 }
 
 /* Medium - 530 */
 @font-face {
+  font-display: swap; /* has nothing to do with the fact that this is the fallback font */
   font-family: 'PP Neue Montreal';
   src: url("@fonts/PPNeueMontreal-Medium.woff2") format('woff2'),
        url("@fonts/PPNeueMontreal-Medium.woff") format('woff');
   font-weight: var(--text__font-weight--medium);
-  font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
 }
 
 /* Semibold - 700 */
 @font-face {
+  font-display: swap; /* has nothing to do with the fact that this is the fallback font */
   font-family: 'PP Neue Montreal';
   src: url("@fonts/PPNeueMontreal-Semibold.woff2") format('woff2'),
        url("@fonts/PPNeueMontreal-Semibold.woff") format('woff');
   font-weight: var(--text__font-weight--semibold);
-  font-display: fallback; /* has nothing to do with the fact that this is the fallback font */
 }
 
 /* variable font settings for all respected tags */
@@ -155,11 +155,17 @@ h4,
 
 /* line-height for p and other elements should be inherited from the body */
 /* p has to come first because of the text--as-h* classes */
-p,
-header {
+p {
   font-size: var(--text__font-size--p--px);
   font-size: var(--text__font-size--p--rem);
   font-weight: var(--text__font-weight--regular);
+}
+
+@media (max-width: 720px) {
+  p {
+    font-size: calc(var(--text__font-size--p--px) * 1.12);
+    font-size: calc(var(--text__font-size--p--rem) * 1.12);
+  }
 }
 
 @supports (font-variation-settings: normal) {
@@ -173,6 +179,14 @@ h1,
   font-size: var(--text__font-size--h1--px);
   font-size: var(--text__font-size--h1--rem);
   font-weight: var(--text__font-weight--semibold);
+}
+
+@media (max-width: 720px) {
+  h1,
+  .text--as-h1 {
+    font-size: calc(var(--text__font-size--h1--px) * 0.64);
+    font-size: calc(var(--text__font-size--h1--rem) * 0.64);
+  }
 }
 
 @supports (font-variation-settings: normal) {
@@ -189,6 +203,14 @@ h2,
   font-weight: var(--text__font-weight--medium);
 }
 
+@media (max-width: 720px) {
+  h2,
+  .text--as-h2 {
+    font-size: calc(var(--text__font-size--h2--px) * 0.72);
+    font-size: calc(var(--text__font-size--h2--rem) * 0.72);
+  }
+}
+
 @supports (font-variation-settings: normal) {
   h2,
   .text--as-h2 {
@@ -201,6 +223,14 @@ h3,
   font-size: var(--text__font-size--h3--px);
   font-size: var(--text__font-size--h3--rem);
   font-weight: var(--text__font-weight--regular);
+}
+
+@media (max-width: 720px) {
+  h3,
+  .text--as-h3 {
+    font-size: calc(var(--text__font-size--h3--px) * 0.8);
+    font-size: calc(var(--text__font-size--h3--rem) * 0.8);
+  }
 }
 
 @supports (font-variation-settings: normal) {
@@ -217,6 +247,14 @@ h4,
   font-weight: var(--text__font-weight--semibold);
 }
 
+@media (max-width: 720px) {
+  h4,
+  .text--as-h4 {
+    font-size: calc(var(--text__font-size--h4--px) * 0.96);
+    font-size: calc(var(--text__font-size--h4--rem) * 0.96);
+  }
+}
+
 @supports (font-variation-settings: normal) {
   h4,
   .text--as-h4 {
@@ -228,6 +266,13 @@ h4,
   font-size: var(--text__font-size--big--px);
   font-size: var(--text__font-size--big--rem);
   font-weight: var(--text__font-weight--regular);
+}
+
+@media (max-width: 720px) {
+  .text--big {
+    font-size: calc(var(--text__font-size--big--px) * 0.96);
+    font-size: calc(var(--text__font-size--big--rem) * 0.96);
+  }
 }
 
 @supports (font-variation-settings: normal) {

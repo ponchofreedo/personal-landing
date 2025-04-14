@@ -115,13 +115,13 @@
                 </li>
                 <li class="tag tag--in-dev" v-if="selectedWork.inDev">
                     <svg viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="9" cy="9" r="8" stroke="black" stroke-width="2" stroke-dasharray="4" stroke-linecap="square" />
+                        <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4" stroke-linecap="square" />
                     </svg>
                     <span>In development</span>
                 </li>
                 <li class="tag tag--beta" v-if="selectedWork.beta">
                     <svg viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="9" cy="9" r="8" stroke="black" stroke-width="2" />
+                        <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
                     </svg>
                     <span>Beta</span>
                 </li>
@@ -139,7 +139,8 @@
         </article>
         <footer>
             <p>See all available projects on
-                <a href="https://github.com/ponchofreedo/projects/" target="_blank">
+                <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">
+                    GitHub
                     <icon type="svg" name="brandGithub" />
                     <icon type="icon" name="iconArrowSquareUpRight" />
                 </a>
@@ -149,9 +150,41 @@
 </template>
 
 <style scoped>
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        gap: 0.5rem;
+        padding: 40px 0 48px;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-width: 0.125rem;
+        border-bottom-color: var(--base__color--neutral-500);
+    }
+
+    article:first-of-type {
+        padding-top: 0;
+    }
+
+    h4 {
+        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
+        color: var(--base__color--green-700);
+    }
+
     a {
         color: inherit;
-        text-decoration: inherit;
+        text-decoration: none;
+    }
+
+    h2 {
+        color: var(--base__color--green-100);
+        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: var(--base__color--neutral-200);
     }
 
     ul {
@@ -159,10 +192,13 @@
         flex-direction: row;
         gap: 8px;
         gap: 0.5rem;
+        margin-top: 16px;
+        margin-top: 1rem;
+        flex-wrap: wrap;
     }
 
-    li,
-    .tag {
+    li {
+        position: relative;
         height: unset;
         display: inline-flex;
         align-items: center;
@@ -171,26 +207,18 @@
         line-height: var(--text__line-height--fixed);
     }
 
-    .tag {
-        background-color: var(--primary__color--background);
-        padding: 0.5rem 0.75rem;
-        border: 1px solid;
-        border-radius: 8px;
-        border-radius: 0.5rem;
-        gap: 4px;
-        gap: 0.25rem;
-    }
-
-    li {
-    }
-
-    li svg {
-        height: 1rem;
-        width: auto;
+    li:last-child {
+        margin-left: 32px;
+        margin-left: 2rem;
     }
 
     li:last-child::before {
+        position: absolute;
         content: '';
+        top: 15px;
+        top: .8375rem;
+        left: -24px;
+        left: -1.5rem;
         display: inline-block;
         vertical-align: middle;
         height: 8px;
@@ -200,20 +228,22 @@
         -moz-border-radius: 999px;
         -webkit-border-radius: 999px;
         border-radius: 999px;
-        background-color: #A7A9AC;
-        margin-right: 8px;
-    }
-
-    li span {
-        white-space: nowrap;
+        background-color: var(--base__color--neutral-500);
     }
 
     footer {
         display: flex;
-        flex-direction: row;
-        gap: 0.25rem;
+        margin-top: 32px;
+        margin-top: 2rem;
+        color: var(--base__color--neutral-50);
+    }
+
+    footer a {
+        display: inline-flex;
         align-items: center;
-        vertical-align: middle;
+        gap: 4px;
+        gap: 0.25rem;
+        color: inherit;
     }
 
     footer p {
@@ -226,4 +256,27 @@
         width: auto;
     }
 
+    @media (max-width: 720px) {
+        h4 {
+            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+        }
+
+        article {
+            padding: 32px 0 40px;
+        }
+
+        li:last-child {
+            flex-basis: 100%;
+            margin-top: 8px;
+            margin-top: 0.5rem;
+            margin-left: 0;
+
+        }
+
+        li:last-child::before {
+            display: none;
+            margin: 0;
+        }
+    }
 </style>
