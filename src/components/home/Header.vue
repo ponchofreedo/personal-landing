@@ -56,6 +56,8 @@
         flex-direction: inherit;
         flex: 1;
         justify-content: flex-end;
+        margin-top: 32px;
+        margin-top: 2rem
     }
 
     footer p {
@@ -74,6 +76,18 @@
         width: auto;
     }
 
+    @media (max-height: 800px) {
+        header {
+            margin-top: 40px;
+            margin-top: 2.5rem;
+            height: fit-content;
+        }
+
+        footer {
+            margin-top: 64px;
+            margin-top: 4rem
+        }
+    }
     @media (max-width: 720px) {
         header {
             margin-top: 40px;

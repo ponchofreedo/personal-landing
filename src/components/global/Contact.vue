@@ -156,11 +156,14 @@
         text-decoration: underline solid 0.125rem;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 800px) {
         #contact {
-            padding: 24px;
-            padding: 1.5rem;
+            padding: 32px;
+            padding: 2rem;
         }
+    }
+
+    @media (max-width: 720px) {
 
         .content__blocks {
             flex-direction: column;

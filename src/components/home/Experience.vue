@@ -52,6 +52,9 @@
     ])
 </script>
 
+<script lang="ts">
+</script>
+
 <template>
 	<section id="experience">
         <h4>Experience.</h4>
@@ -72,10 +75,10 @@
                         <span v-if="exp.freelance">Freelance</span>
                     </div>
                 </section>
-                <!-- <aside>
-                    <icon v-show="!exp.isOpen" type="icon" name="iconPlus" />
-                    <icon v-show="exp.isOpen" type="icon" name="iconMinus" />
-                </aside> -->
+                <aside>
+                    <icon type="icon" name="iconPlus" class="open" />
+                    <icon type="icon" name="iconMinus" class="close" />
+                </aside>
             </summary>
             <p v-html="exp.detail"></p>
         </details>
@@ -163,6 +166,33 @@
         margin-left: 10rem;
     }
 
+    summary > aside {
+        display: flex;
+        justify-self: flex-end;
+        padding: 8px;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border-radius: 0.5rem;
+        border-color: var(--base__color--green-400);
+        color: var(--base__color--green-400);
+    }
+
+    summary > aside svg {
+        height: 24px;
+        height: 1.5rem;
+        width: auto;
+    }
+
+    details:not([open]) aside svg.close,
+    details[open] aside svg.open {
+        display: none;
+    }
+
+    details:not([open]) aside svg.open,
+    details[open] aside svg.close {
+        display: revert;
+    }
+
     summary a {
         text-decoration: none;
     }
@@ -198,6 +228,7 @@
     summary > section {
         display: inherit;
         flex-direction: column;
+        flex-grow: 1;
     }
 
     h3 {
@@ -308,6 +339,19 @@
             border-radius: 0;
             margin-bottom: 16px;
             margin-bottom: 1rem;
+        }
+
+        summary > aside {
+            justify-self: flex-start;
+            padding: 4px;
+            padding: 0.25rem;
+            margin-top: 16px;
+            margin-top: 1rem;
+        }
+
+        summary > aside svg {
+            height: 16px;
+            height: 1rem;
         }
 
         details > p {
