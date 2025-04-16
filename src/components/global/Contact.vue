@@ -46,7 +46,7 @@
             <main class="contact__blocks">
                 <article>
                     <section>
-                        <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so yeah...feel free to take a gander at my <a href="" target="_blank">résumé</a> or just <a href="" target="_blank">drop me a line</a>.</p>
+                        <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so yeah...feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">résumé</a> or just <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop me a line</a>.</p>
                     </section>
                     <section>
                         <p>Or, technical issues aside, you can find/follow me at all of these places.</p>
@@ -56,7 +56,7 @@
                     <section>
                         <ul>
                             <li v-for="link in links" :key="link.id">
-                                <a :href='link.url' target="_blank">
+                                <a :href='link.url' target="_blank" class="link">
                                     <span>{{ link.platform }}</span>
                                     <icon type="icon" name="iconArrowSquareUpRight" />
                                 </a>

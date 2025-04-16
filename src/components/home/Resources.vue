@@ -45,7 +45,7 @@
                     <span class="text--big">{{ resource.platform }}</span>
                 </div>
                 <p>{{ resource.detail }}</p>
-                <a class="resource__cta" v-if="resource.url" :href='resource.url' target="_blank">
+                <a class="resource__cta link" v-if="resource.url" :href='resource.url' target="_blank">
                     <span>{{ resource.cta }}</span>
                     <icon type="icon" name="iconArrowSquareUpRight" />
                 </a>

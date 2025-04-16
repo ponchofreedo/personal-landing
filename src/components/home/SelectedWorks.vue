@@ -14,7 +14,7 @@
             shipped: '',  
             freelance:'true',
             date: '2025',
-            href:'https://www.figma.com/design/nob8jgXwQ9VzMmlqZDc04F/Spike--Mobile-app-invitations?node-id=0-1&t=F6MX8esnJhSVv61X-1',
+            href:'https://www.figma.com/design/nob8jgXwQ9VzMmlqZDc04F/Spike--Mobile-app-invitations?node-id=0-1&t=0jriHaqhP6X8Xc8V-1',
             target: '_blank',
             team: 'Whalar'
         },
@@ -22,29 +22,29 @@
             id: 2,
             title: 'Building Buoy &ndash; the design system for Foam',
             preview: 'Starting from square one and architecting a design system to solve issues related to scalability, velocity, communication, and consistency for product development at Whalar.',
-            private: '',
+            private: 'true',
             testing: '',
             inDev: 'true',
             beta: '',
             shipped: '',  
             freelance:'true',
             date: '2025',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/design/knEE0IraTJMirfejvjmAeq/Buoy-%E2%80%93-System?node-id=2-3365&t=J9SXZBpsHFf4ueEr-1',
             target: '_blank',
             team: 'Whalar'
         },
         {
             id: 3,
-            title: 'New CRM property creation experience',
-            preview: 'Rethinking the overall workflow of creating properties in HubSpot’s CRM to reduce CS overhead and to prepare for a more integrated and scalable future.',
-            private: 'true',
-            testing: '',
+            title: 'Unblocking CRM admins so they can *actually* control their data and save hours of their time in the process',
+            preview: 'Took the first steps to alleviate the #1 reported issue (both by users and support) to unblock thousands of customers and give them hours, even days, of their time back.',
+            private: '',
+            testing: 'true',
             inDev: '',
             beta: 'true',
-            shipped: 'true',  
+            shipped: '',  
             freelance:'',
             date: '2023 - 2024',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/proto/akeNpaDhaOsUj9GP6OQ86b/Case-Studies?page-id=0%3A1&node-id=6-322&viewport=857%2C5%2C0.07&t=SJaY4QC7HokaUT88-9&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=6%3A322&show-proto-sidebar=1',
             target: '_blank',
             team: 'HubSpot'
         },
@@ -52,14 +52,14 @@
             id: 4,
             title: 'Simplifying property creation for non-admin users',
             preview: 'Seized on an opportunity and built a simplified experience when creating custom properties outside of admin spaces and as a non-admin user in HubSpot to curtail confusion and redundancy.',
-            private: 'true',
+            private: '',
             testing: '',
             inDev: '',
             beta: '',
             shipped: 'true',  
             freelance:'',
             date: '2023',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/proto/akeNpaDhaOsUj9GP6OQ86b/Case-Studies?page-id=0%3A1&node-id=9-983&viewport=857%2C5%2C0.07&t=SJaY4QC7HokaUT88-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=9%3A983&show-proto-sidebar=1',
             target: '_blank',
             team: 'HubSpot'
         },
@@ -74,7 +74,7 @@
             shipped: 'true',  
             freelance:'',
             date: '2023',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/design/k1GVbZkZVS6xWE9LpnvpBl/Calculated-Properties?node-id=1128-109004&t=v1AwiHKgeUvzRA5x-1',
             target: '_blank',
             team: 'HubSpot'
         },
@@ -82,14 +82,14 @@
             id: 6,
             title: 'Revisiting customer profiles',
             preview: 'End-to-end redesign of the oldest (by viewing still active Git commits) product space in the Klaviyo app and a lesson in weighing prioritized customer needs against technical and product needs.',
-            private: '',
+            private: 'true',
             testing: '',
             inDev: '',
             beta: '',
             shipped: 'true',  
             freelance:'',
             date: '2022 - 2023',
-            href:'https://www.linkedin.com/in/zpfreed',
+            href:'https://www.figma.com/proto/wCWuyQcs22BSVmQX0PTOMZ/Profiles-%E2%80%94-Individual-Profile-Page?page-id=111%3A425317&node-id=136-444424&p=f&viewport=112%2C508%2C0.12&t=BaMCj2WzCbzVeujI-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=136%3A444424',
             target: '_blank',
             team: 'Klaviyo'
         }
@@ -145,6 +145,9 @@
                     <icon type="icon" name="iconArrowSquareUpRight" />
                 </a>
             </p>
+            <p>
+                <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">Drop a messge</a> if you'd like to discuss anything that is labeled <icon class="link" type="icon" name="iconPrivate" /><span class="link">Private</span>.
+            </p>
         </footer>
     </section>
 </template>
@@ -172,9 +175,12 @@
         color: var(--base__color--green-700);
     }
 
+    article a {
+        text-decoration: none;
+    }
+
     a {
         color: inherit;
-        text-decoration: none;
     }
 
     h2 {
@@ -234,6 +240,7 @@
 
     footer {
         display: flex;
+        flex-direction: column;
         margin-top: 32px;
         margin-top: 2rem;
         color: var(--base__color--neutral-50);
@@ -247,14 +254,24 @@
         color: inherit;
     }
 
-    footer p {
-        line-height: var(--text__line-height--fixed);
+    footer {
+    }
+
+    footer p + p {
+        margin-top: 16px;
+        margin-top: 1rem;
     }
 
     footer svg {
+        display: inline-flex;
+        vertical-align: text-top;
         height: 16px;
         height: 1rem;
         width: auto;
+        margin-top: 1px;
+        margin-top: 0.0625rem;
+        margin-right: 2px;
+        margin-right: 0.125rem;
     }
 
     @media (max-width: 720px) {

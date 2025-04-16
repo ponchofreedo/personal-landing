@@ -53,7 +53,7 @@
 </script>
 
 <template>
-	<footer :layout="$route.name">
+	<footer v-if="$route.name === 'home'" :layout="$route.name">
         <article>
             <section>
                 <b>Colophon.</b>
