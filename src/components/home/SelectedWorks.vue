@@ -6,7 +6,7 @@
         {
             id: 1,
             title: 'Concepting a new mobile sign up and invitation flow',
-            preview: 'A design spike to get some meaninfgul user feedback on an extremely common problem for talent managers using the Foam management platform at Whalar.',
+            preview: 'A design spike to get some meaningful user feedback on an extremely common problem for talent managers using the Foam management platform at Whalar.',
             private: 'true',
             testing: 'true',
             inDev: '',

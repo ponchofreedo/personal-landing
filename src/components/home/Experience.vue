@@ -32,7 +32,7 @@
             team: 'Klaviyo',
             url: 'https://klaviyo.com',
             title: 'Senior Product Designer',
-            detail: 'Lead design for several data infrastructure features at <a href="https://klaviyo.com" target="_blank" class="link link--inline">Klaviyo</a> including customer profiles, subscription and consent management, and segmentation. My focus was on evolving antiquated core tools and building newer, more powerful tools for marketers. Also got to help drive our internal design systems initiatives and start building that dedicated team.',
+            detail: 'Lead designer for several data infrastructure features at <a href="https://klaviyo.com" target="_blank" class="link link--inline">Klaviyo</a> including customer profiles, subscription and consent management, and segmentation. My focus was on evolving antiquated core tools and building newer, more powerful tools for marketers. Also got to help drive our internal design systems initiative and start building out a dedicated team.',
             startDate: 'March 2021',
             endDate:'March 2023',
             location:'Remote',
@@ -52,14 +52,11 @@
     ])
 </script>
 
-<script lang="ts">
-</script>
-
 <template>
 	<section id="experience">
         <h4>Experience.</h4>
         <small>The recent bits.</small>
-        <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team">
+        <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team" open>
             <summary>
                 <a :href='exp.url' target="_blank">
                     <figure>
