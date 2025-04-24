@@ -3,23 +3,20 @@
 </script>
 
 <template>
-	<nav :layout="$route.name">
+	<nav v-if="$route.name != 'cv'" :layout="$route.name">
     	<ul>
             <li>
                 <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
             </li>
-            <li>
-                <a href="https://github.com/ponchofreedo/portfolio-projects" target="_blank">
-                    <span>Works</span>
-                    <icon type="icon" name="iconArrowSquareUpRight" />
-                </a>
-            </li>
             <!-- <li>
-                <RouterLink to="/works"><span>About</span><icon type="icon" name="iconArrowSquareUpRight" /></RouterLink>
-            </li>
-            <li>
-                <RouterLink to="/cv"><span>CV</span><icon type="icon" name="iconArrowSquareUpRight" /></RouterLink>
+                <RouterLink to="/works"><span>Works</span><icon type="icon" name="iconPackage" /></RouterLink>
             </li> -->
+            <!-- <li>
+                <RouterLink to="/about"><span>About</span><icon type="icon" name="iconPackage" /></RouterLink>
+            </li> -->
+            <li>
+                <RouterLink to="/cv"><span>CV</span><icon type="icon" name="iconGradHat" /></RouterLink>
+            </li>
             <li>
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=INJVuT" target="_blank">
                     <span>Resume</span>
@@ -35,6 +32,16 @@
             <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
         </ul>
     </nav>
+    <nav v-else :layout="$route.name">
+        <ul>
+            <li>
+                <RouterLink to="" v-on:click="$router.back()" class=""><icon type="icon" name="iconArrowLeft" /><span>Back</span></RouterLink>
+            </li>
+        </ul>
+        <!-- <ul>
+            <li><button>mode<icon type="icon" name="iconMoon" /></button></li>
+        </ul> -->
+    </nav>
 </template>
 
 <style scoped>
@@ -47,12 +54,18 @@
         line-height: unset;
     }
 
+    [layout="cv"] {
+        margin-bottom: 24px;
+        margin-bottom: 1.5rem;
+    }
+
     ul {
         display: inline-flex;
         align-items: center;
         list-style: none;
         gap: 24px;
         gap: 1.5rem;
+        flex-wrap: wrap;
     }
 
     ul + ul {
@@ -75,6 +88,10 @@
         font-weight: var(--text__font-weight--semibold);
     }
 
+    [layout="cv"] a {
+        font-weight: var(--text__font-weight--medium)!important;
+    }
+
     nav:first-child ul:first-child li a svg {
         height: 24px;
         height: 1.5rem;
@@ -90,6 +107,17 @@
             margin-top: 1.5rem;
             gap: 16px;
             gap: 1rem;
+        }
+    }
+
+    @media (max-width: 500px) {
+        ul {
+            gap: 16px 24px;
+            gap: 1rem 1.5rem;
+        }
+
+        ul:first-of-type li:first-child {
+            flex-basis: 100%;
         }
     }
 </style>
