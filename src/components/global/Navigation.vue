@@ -27,7 +27,7 @@
         <ul>
             <li class="tag tag--availability">
                 <icon type="icon" name="iconMegaphone" />
-                <span>Available for hire: FT</span>
+                <span>Available for hire</span>
             </li>
             <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
         </ul>
