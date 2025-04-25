@@ -161,7 +161,7 @@
           <span class="text--body">May 2012 &ndash; August 2012</span>
           <span class="text--body">New Haven, CT</span>
         </div>
-        <p>In the summer before my senior year of college, I had an internship with a senior designer at <a href="" target="_blank" class="link link--inline">Digital Surgeons</a>, a small design studio doing big projects. Fun fact: I barely knew HTML or CSS before I started this internship, and never wrote any code while there, but somehow after a long summer mostly working in Photoshop, I somehow learned pretty fluent HTML and CSS. ¯\_(ツ)_/¯.</p>
+        <p>In the summer before my senior year of college, I had an internship with a senior designer at <a href="https://digitalsurgeons.com" target="_blank" class="link link--inline">Digital Surgeons</a>, a small design studio doing big projects. Fun fact: I barely knew HTML or CSS before I started this internship, and never wrote any code while there, but somehow after a long summer mostly working in Photoshop, I somehow learned pretty fluent HTML and CSS. ¯\_(ツ)_/¯.</p>
       </section>
     </article>
   </section>
