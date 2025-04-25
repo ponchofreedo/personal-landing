@@ -155,21 +155,24 @@ h4,
 
 /* line-height for p and other elements should be inherited from the body */
 /* p has to come first because of the text--as-h* classes */
-p {
+p,
+.text--body {
   font-size: var(--text__font-size--p--px);
   font-size: var(--text__font-size--p--rem);
   font-weight: var(--text__font-weight--regular);
 }
 
 @media (max-width: 800px) {
-  p {
+  p,
+  .text--body {
     font-size: calc(var(--text__font-size--p--px) * 1.12);
     font-size: calc(var(--text__font-size--p--rem) * 1.12);
   }
 }
 
 @supports (font-variation-settings: normal) {
-  p {
+  p,
+  .text--body {
     font-variation-settings: 'wght' var(--text__font-weight--regular);
   }
 }

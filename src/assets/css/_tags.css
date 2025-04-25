@@ -76,6 +76,7 @@
   font-size: 1.25rem;
   line-height: var(--text__line-height--fixed);
   font-weight: var(--text__font-weight--medium);
+  color: inherit;
 }
 
 .tag--availability svg {

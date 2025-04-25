@@ -55,8 +55,10 @@
     }
 
     [layout="cv"] {
-        margin-bottom: 24px;
-        margin-bottom: 1.5rem;
+        margin-bottom: 80px;
+        margin-bottom: 5rem;
+        padding-top: 6px; /* optical placement to match while there's no mode switch button */
+        padding-top: 0.375rem; /* optical placement to match while there's no mode switch button */
     }
 
     ul {
