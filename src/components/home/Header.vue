@@ -14,7 +14,7 @@
     export default {
         methods: {
             scrollToWorks() {
-                const id = "works";
+                let id = "works";
                 const offsetValue = -32;
                 const section = document.getElementById(id);
                 const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
