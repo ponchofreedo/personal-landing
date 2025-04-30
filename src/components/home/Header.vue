@@ -14,7 +14,7 @@
     export default {
         methods: {
             scrollToWorks() {
-                let id = "works";
+                const id = "works"!;
                 if (id !== null) {
                     const offsetValue = -32;
                     const section = document.getElementById(id);
@@ -23,8 +23,9 @@
                         top: sectionWithOffset,
                         behavior: 'smooth'
                     });
+                    console.log('scrolling to ' + id);
                 } else {
-                    console.log('section doesnt exist');
+                    console.log('works section doesnt exist');
                 }
             }
         }
