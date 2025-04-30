@@ -15,13 +15,17 @@
         methods: {
             scrollToWorks() {
                 let id = "works";
-                const offsetValue = -32;
-                const section = document.getElementById(id);
-                const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
-                window.scrollTo({
-                    top: sectionWithOffset,
-                    behavior: 'smooth'
-                });
+                if (id !== null) {
+                    const offsetValue = -32;
+                    const section = document.getElementById(id);
+                    const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
+                    window.scrollTo({
+                        top: sectionWithOffset,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    console.log('section doesnt exist');
+                }
             }
         }
     };
