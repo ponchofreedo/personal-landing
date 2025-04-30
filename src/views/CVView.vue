@@ -1,7 +1,19 @@
 <script setup lang="ts">
+  import { onMounted } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
   import Navigation from '@global/Navigation.vue'
   import Footer from '@global/Footer.vue'
+
+  onMounted(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    })
+  })
+</script>
+
+<script lang="ts">
 </script>
 
 <template>
@@ -15,10 +27,12 @@
     <h4>Work experience.</h4>
     <article name="whalar">
       <aside>
-        <figure>
-          <icon type="svg" name="brandWhalar" height="24" />
-          <figcaption alt="Whalar logo">Whalar</figcaption>
-        </figure>
+        <a href="https://whalar.com" target="_blank">
+          <figure>
+            <icon type="svg" name="brandWhalar" height="24" />
+            <figcaption alt="Whalar logo">Whalar</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>Contract Lead Product Designer, Foam</h3>
@@ -46,10 +60,12 @@
     </article>
     <article name="hubspot">
       <aside>
-        <figure>
-          <icon type="svg" name="brandHubSpot" height="32" />
-          <figcaption alt="HubSpot logo">HubSpot</figcaption>
-        </figure>
+        <a href="https://hubspot.com" target="_blank">
+          <figure>
+            <icon type="svg" name="brandHubSpot" height="32" />
+            <figcaption alt="HubSpot logo">HubSpot</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>Senior Product Designer I</h3>
@@ -63,10 +79,12 @@
     </article>
     <article name="klaviyo">
       <aside>
-        <figure>
-          <icon type="svg" name="brandKlaviyo" height="32" />
-          <figcaption alt="Klaviyo logo">Klaviyo</figcaption>
-        </figure>
+        <a href="https://klaviyo.com" target="_blank">
+          <figure>
+            <icon type="svg" name="brandKlaviyo" height="32" />
+            <figcaption alt="Klaviyo logo">Klaviyo</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>Senior Product Designer, Data Infrastructure</h3>
@@ -80,10 +98,12 @@
     </article>
     <article name="order">
       <aside>
-        <figure>
-          <icon type="svg" name="brandOrder" height="32" />
-          <figcaption alt="Order logo">Order</figcaption>
-        </figure>
+        <a href="https://order.co" target="_blank">
+          <figure>
+            <icon type="svg" name="brandOrder" height="32" />
+            <figcaption alt="Order logo">Order</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>Senior Product Designer</h3>
@@ -114,10 +134,12 @@
     </article>
     <article name="priceline">
       <aside>
-        <figure>
-          <icon type="svg" name="brandPriceline" height="32" />
-          <figcaption alt="Priceline logo">priceline.com</figcaption>
-        </figure>
+        <a href="https://priceline.com" target="_blank">
+          <figure>
+            <icon type="svg" name="brandPriceline" height="26" />
+            <figcaption alt="Priceline logo">priceline.com</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <article>
@@ -149,10 +171,12 @@
     </article>
     <article name="digitalsurgeons">
       <aside>
-        <figure>
-          <icon type="svg" name="brandDigitalSurgeons" height="17" />
-          <figcaption alt="Digital Surgeons logo">Digital Surgeons</figcaption>
-        </figure>
+        <a href="https://digitalsurgeons.com" target="_blank">
+          <figure>
+            <icon type="svg" name="brandDigitalSurgeons" height="17" />
+            <figcaption alt="Digital Surgeons logo">Digital Surgeons</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>Design Intern</h3>
@@ -170,10 +194,12 @@
     <h4>Education.</h4>
     <article name="quinnipiac">
       <aside>
-        <figure>
-          <icon type="svg" name="brandQuinnipiac" height="32" />
-          <figcaption alt="Quinnipiac University logo">Quinnipiac University</figcaption>
-        </figure>
+        <a href="https://quinnipiac.edu" target="_blank">
+          <figure>
+            <icon type="svg" name="brandQuinnipiac" height="32" />
+            <figcaption alt="Quinnipiac University logo">Quinnipiac University</figcaption>
+          </figure>
+        </a>
       </aside>
       <section>
         <h3>BA, Interactive Digital Design</h3>
@@ -195,16 +221,19 @@
   nav,
   header,
   #experience,
-  #education {
+  #education,
+  footer {
     padding: 0 64px;
     padding: 0 4rem;
   }
 
-  #education {
+  #education,
+  footer {
     margin-top: 120px;
   }
 
-  header {
+  header,
+  footer {
     margin-bottom: 120px;
     margin-bottom: 7.5rem;
   }
@@ -236,6 +265,12 @@
     flex-shrink: 0;
     width: 120px;
     width: 7.5rem;
+  }
+
+  aside a {
+    display: inline-flex;
+    line-height:normal;
+    height: min-content;
   }
 
   figure {
@@ -307,13 +342,37 @@
     header,
     section,
     #experience,
-    #education {
+    #education,
+    footer {
       padding: 0;
     }
 
     header {
-      margin-bottom: 40px;
-      margin-bottom: 2.5rem;
+      margin-bottom: 80px;
+      margin-bottom: 5rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    article[name] {
+      flex-direction: column;
+      gap: 16px;
+      gap: 1rem;
+    }
+
+    article[name] svg {
+      height: 24px;
+    }
+
+    [name="freelance"] aside,
+    em {
+      display: none!important;
+    }
+
+    span {
+      font-size: 14px;
+      font-size: 0.875rem;
+      line-height: var(--text__line-height--display--mod);
     }
   }
 </style>

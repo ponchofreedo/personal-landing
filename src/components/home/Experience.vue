@@ -84,7 +84,7 @@
             <span v-show="isExpanded">i show when expanded</span>
         </div> -->
         <footer>
-            <!-- <p>For my full history, take a look at my <RouterLink to="/cv" class="link link--inline">CV<icon type="icon" name="iconArrowSquareUpRight" /></RouterLink></p> -->
+            <p>For my full history, take a look at my <RouterLink to="/cv" class="link link--inline">CV<icon type="icon" name="iconArrowSquareUpRight" /></RouterLink></p>
             <p>Grab a copy of 
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">
                     my r&eacute;sum&eacute;

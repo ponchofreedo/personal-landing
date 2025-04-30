@@ -1,7 +1,8 @@
-/* because, modern */
-html {
-  scroll-behavior: smooth;
-}
+/* because, modern...
+   but is causing modern inheritance problems... */
+/*html {
+    scroll-behavior: smooth; 
+}*/
 
 body {
   font-family: var(--base__font-family);

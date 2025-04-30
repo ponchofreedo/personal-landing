@@ -181,7 +181,7 @@ h1,
 .text--as-h1 {
   font-size: var(--text__font-size--h1--px);
   font-size: var(--text__font-size--h1--rem);
-  font-weight: var(--text__font-weight--semibold);
+  font-weight: var(--text__font-weight--medium);
 }
 
 @media (max-width: 800px) {
@@ -203,7 +203,7 @@ h1,
 @supports (font-variation-settings: normal) {
   h1,
   .text--as-h1 {
-    font-variation-settings: 'wght' var(--text__font-weight--semibold);
+    font-variation-settings: 'wght' var(--text__font-weight--medium);
   }
 }
 

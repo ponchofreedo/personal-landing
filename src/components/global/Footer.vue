@@ -46,6 +46,13 @@
                     this.randomWrestler = this.catchphrases[randomIndex].who;
                     this.randomCatchphrase = this.catchphrases[randomIndex].phrase;
                 }
+            },
+            scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
             }
         }
     };
@@ -59,15 +66,44 @@
                 <p>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org" target="_blank">Vue</a>, authored in <a href="https://sublimetext.com" target="_blank">Sublime Text</a> (yes, I'm a VS Code holdout...for now), and shipped with <a href="https://vercel.com" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with controlled chaos and my take on Thomas Keller's <a href="https://youtube.com/watch?v=Bt8YgEr-9is" target="_blank">roast chicken</a> recipe. Also built with <a href="https://instagram.com/obi_dog__kenobi_/" target="_blank">my dog</a> at my feet.</p>
             </section>
             <section>
-                <a id="anchor" href="#app">
-                    <icon type="icon" name="iconArrowSquareUp" />
-                </a>
+                <RouterLink to="" @click.native="scrollToTop()" id="anchor">
+                    <icon type="icon" name="iconArrowUp" />
+                </RouterLink>
                 <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
             </section>
         </article>
     </footer>
-    <footer v-else-if="$route.name === 'cv'">
-        This should only show in the CV view
+    <footer v-else-if="$route.name === 'cv'" :layout="$route.name">
+        <article>
+            <ul>
+                <li id="anchor">
+                    <RouterLink to="" @click.native="scrollToTop()">
+                        <icon type="icon" name="iconArrowUp" />
+                    </RouterLink>
+                </li>
+                <li>
+                    <a href="https://linkedin.com/in/zpfreed" target="_blank">
+                        <icon type="svg" name="brandLinkedIn" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://figma.com/@ponchofreedo" target="_blank">
+                        <icon type="svg" name="brandFigmaOutlined" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/ponchofreedo" target="_blank">
+                        <icon type="svg" name="brandGithub" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/ponchofreedo" target="_blank">
+                        <icon type="svg" name="brandInstagram" />
+                    </a>
+                </li>
+            </ul>
+            <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
+        </article>
     </footer>
 </template>
 
@@ -120,10 +156,60 @@
         align-self: flex-end;
     }
 
+    ul li svg,
     #anchor svg {
         height: 24px;
         height: 1.5rem;
         width: auto;
+    }
+
+    [layout="cv"] article {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    [layout="cv"] ul {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+    }
+
+    [layout="home"] #anchor,
+    [layout="cv"] li,
+    [layout="cv"] li a {
+        display: inline-flex;
+        height: fit-content;
+        width: fit-content;
+        line-height: normal;
+        color: currentColor;
+    }
+
+    [layout="home"] #anchor {
+        color: var(--base__color--green-700);
+    }
+
+    [layout="cv"] li,
+    [layout="cv"] li a {
+        color: var(--base__color--green-400);
+    }
+
+    [layout="cv"] li,
+    [layout="cv"] li a {
+        align-self: center;
+    }
+
+    [layout="home"] #anchor,
+    [layout="cv"] #anchor a {
+        padding: 6px;
+        padding: 0.375rem;
+        border-style: solid;
+        border-width: 2px;
+        border-width: 0.125rem;
+        border-color: currentColor;
+        border-radius: 8px;
+        border-radius: 0.5rem;
     }
 
     @media (max-width: 720px) {
@@ -147,6 +233,21 @@
 
         #anchor {
             align-self: flex-start;
+        }
+
+        [layout="cv"] article {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        [layout="cv"] ul {
+            flex-wrap: wrap;
+        }
+
+        [layout="cv"] li:first-of-type {
+            flex-basis: 100% !important;
+            order: 999; /* force it to be the last item in the list */
         }
     }
 </style>

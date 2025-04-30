@@ -8,14 +8,16 @@
             <li>
                 <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
             </li>
-            <!-- <li>
-                <RouterLink to="/works"><span>Works</span><icon type="icon" name="iconPackage" /></RouterLink>
-            </li> -->
+            <li>
+                <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
+                    <span>Works</span><icon type="icon" name="iconArrowSquareUpRight" />
+                </a>
+            </li>
             <!-- <li>
                 <RouterLink to="/about"><span>About</span><icon type="icon" name="iconPackage" /></RouterLink>
             </li> -->
             <li>
-                <RouterLink to="/cv"><span>CV</span><icon type="icon" name="iconGradHat" /></RouterLink>
+                <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li>
             <li>
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=INJVuT" target="_blank">
@@ -55,8 +57,8 @@
     }
 
     [layout="cv"] {
-        margin-bottom: 80px;
-        margin-bottom: 5rem;
+        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
         padding-top: 6px; /* optical placement to match while there's no mode switch button */
         padding-top: 0.375rem; /* optical placement to match while there's no mode switch button */
     }
@@ -120,6 +122,7 @@
 
         ul:first-of-type li:first-child {
             flex-basis: 100%;
+            order: -999; /* override order to guarantee it stays on top */
         }
     }
 </style>
