@@ -66,8 +66,8 @@
                 <p>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org" target="_blank">Vue</a>, authored in <a href="https://sublimetext.com" target="_blank">Sublime Text</a> (yes, I'm a VS Code holdout...for now), and shipped with <a href="https://vercel.com" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with controlled chaos and my take on Thomas Keller's <a href="https://youtube.com/watch?v=Bt8YgEr-9is" target="_blank">roast chicken</a> recipe. Also built with <a href="https://instagram.com/obi_dog__kenobi_/" target="_blank">my dog</a> at my feet.</p>
             </section>
             <section>
-                <RouterLink to="" @click.native="scrollToTop()" id="anchor">
-                    <icon type="icon" name="iconArrowUp" />
+                <RouterLink to="" v-on:click.native="scrollToTop()" id="anchor">
+                    <icon type="icon" name="iconArrowSquareUp" />
                 </RouterLink>
                 <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
             </section>
@@ -77,8 +77,8 @@
         <article>
             <ul>
                 <li id="anchor">
-                    <RouterLink to="" @click.native="scrollToTop()">
-                        <icon type="icon" name="iconArrowUp" />
+                    <RouterLink to="" v-on:click.native="scrollToTop()">
+                        <icon type="icon" name="iconArrowSquareUp" />
                     </RouterLink>
                 </li>
                 <li>
@@ -163,6 +163,11 @@
         width: auto;
     }
 
+    #anchor svg {
+        height: 32px; /* optical correction */
+        height: 2rem; /* optical correction */
+    }
+
     [layout="cv"] article {
         display: flex;
         flex-direction: row;
@@ -200,7 +205,7 @@
         align-self: center;
     }
 
-    [layout="home"] #anchor,
+    /*[layout="home"] #anchor,
     [layout="cv"] #anchor a {
         padding: 6px;
         padding: 0.375rem;
@@ -210,7 +215,7 @@
         border-color: currentColor;
         border-radius: 8px;
         border-radius: 0.5rem;
-    }
+    }*/
 
     @media (max-width: 720px) {
         article {
@@ -243,11 +248,6 @@
 
         [layout="cv"] ul {
             flex-wrap: wrap;
-        }
-
-        [layout="cv"] li:first-of-type {
-            flex-basis: 100% !important;
-            order: 999; /* force it to be the last item in the list */
         }
     }
 </style>

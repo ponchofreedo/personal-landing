@@ -17,14 +17,17 @@
                 <RouterLink to="/about"><span>About</span><icon type="icon" name="iconPackage" /></RouterLink>
             </li> -->
             <li>
-                <RouterLink to="/cv"><span>CV</span></RouterLink>
+                <RouterLink to="/cv">
+                    <span>CV</span>
+                    <icon type="icon" name="iconArrowSquareUpRight" />
+                </RouterLink>
             </li>
-            <li>
+            <!-- <li>
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=INJVuT" target="_blank">
                     <span>Resume</span>
                     <icon type="icon" name="iconDownload" />
                 </a>
-            </li>
+            </li> -->
         </ul>
         <ul>
             <li class="tag tag--availability">
@@ -37,7 +40,7 @@
     <nav v-else :layout="$route.name">
         <ul>
             <li>
-                <RouterLink to="" v-on:click="$router.back()" class=""><icon type="icon" name="iconArrowLeft" /><span>Back</span></RouterLink>
+                <RouterLink to="/" class=""><icon type="icon" name="iconArrowLeft" /><span>Back</span></RouterLink>
             </li>
         </ul>
         <!-- <ul>

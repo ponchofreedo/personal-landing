@@ -1,3 +1,32 @@
+<script setup lang="ts">
+    import { onMounted } from 'vue'
+
+    onMounted(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        })
+    })
+</script>
+
+<script lang="ts">
+    export default {
+        methods: {
+            scrollToWorks() {
+                const id = "works";
+                const offsetValue = -32;
+                const section = document.getElementById(id);
+                const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
+                window.scrollTo({
+                    top: sectionWithOffset,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+</script>
+
 <template>
 	<header>
         <article>
@@ -6,9 +35,9 @@
         </article>
         <footer>
             <p>NY born and bred. Based in Stamford, CT.</p>
-            <a href="#works">
+            <RouterLink to="" v-on:click.native="scrollToWorks()">
                 <icon type="icon" name="iconArrowSquareDown" />
-            </a>
+            </RouterLink>
         </footer>
     </header>
 </template>
@@ -68,8 +97,8 @@
     }
 
     footer svg {
-        height: 24px;
-        height: 1.5rem;
+        height: 32px;
+        height: 2rem;
         width: auto;
     }
 

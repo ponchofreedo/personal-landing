@@ -88,7 +88,7 @@
             <p>Grab a copy of 
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">
                     my r&eacute;sum&eacute;
-                    <icon type="icon" name="iconArrowSquareUpRight" />
+                    <icon type="icon" name="iconDownload" />
                 </a>
             </p>
         </footer>

@@ -21,6 +21,8 @@
 
   <header>
     <h1>CV.</h1>
+    <p class="text--big">Grab a copy of <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a>
+    </p>
   </header>
 
   <section id="experience">
@@ -241,6 +243,24 @@
   h1,
   h4 {
     color: var(--base__color--green-400);
+  }
+
+  header p {
+    margin-top: 16px;
+    margin-top: 1rem;
+  }
+
+  header a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    gap: 0.25rem;
+  }
+
+  header svg {
+    height: 20px;
+    height: 1.25rem;
+    width: auto;
   }
 
   article {
