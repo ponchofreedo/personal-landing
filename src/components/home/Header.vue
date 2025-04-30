@@ -17,7 +17,7 @@
                 const id = "works"!;
                 if (id !== null) {
                     const offsetValue = -32;
-                    const section = document.getElementById(id);
+                    const section = document.getElementById(id)!;
                     const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
                     window.scrollTo({
                         top: sectionWithOffset,
