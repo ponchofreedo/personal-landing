@@ -7,7 +7,7 @@
   <RouterView />
 </template>
 
-<style>
+<style lang="scss">
 
   main#app {
     display: flex;

@@ -1,0 +1,11 @@
+// helper functions
+@use "sass:math";
+
+$default-font-size: 16px;
+
+@function stripUnit($value) {
+    @return math.div($value , ($value * 0 + 1));
+}
+@function convertRem($pxValue) {
+    @return #{math.div(stripUnit($pxValue) , stripUnit($default-font-size))}rem;
+}

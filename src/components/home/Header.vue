@@ -33,7 +33,7 @@
 </script>
 
 <template>
-	<header>
+	<header class="theme-1">
         <article>
             <img src="@img/it-me.png" alt="it's a rad photo of me that I may never get rid of" loading="lazy" decoding="async" />
             <h1>I&rsquo;m Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</h1>

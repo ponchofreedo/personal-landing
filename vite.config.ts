@@ -16,6 +16,14 @@ export default defineConfig({
       defaultImport: 'component'
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData:
+          `@use "@scss/main.scss" as *;`, // should allow for global use of sass
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -26,6 +34,7 @@ export default defineConfig({
       '@img': fileURLToPath(new URL('./src/assets/img', import.meta.url)),
       '@layout': fileURLToPath(new URL('./src/components/layout', import.meta.url)),
       '@pdf': fileURLToPath(new URL('./src/assets/pdf', import.meta.url)),
+      '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)),
       '@svg': fileURLToPath(new URL('./src/components/svg', import.meta.url)),
       '@util': fileURLToPath(new URL('./src/components/util', import.meta.url))
     }

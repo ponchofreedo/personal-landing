@@ -1,0 +1,20 @@
+// import functions
+@use 'functions';
+
+// set up all the vars to pass forward
+
+// super globals
+// master value
+$base__multiple: 8;
+
+// font-family vars
+$base__font-family--non-variable: 'PP Neue Montreal';
+$base__font-family--variable: 'PP Neue Montreal V';
+$base__font-family--system: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+$base__font-family: $base__font-family--non-variable, 'Inter', sans-serif, $base__font-family--system;
+$base__font-family--v: $base__font-family--variable, $base__font-family;
+
+// font accessory vars
+// $base__font-weight: $text__font-weight--book;
+$base__font-size-ratio: 62.5;
+$base__font-size: 16;

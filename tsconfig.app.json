@@ -18,6 +18,7 @@
       "@img/*": ["./src/assets/img/*"],
       "@layout/*": ["./src/components/layout/*"],
       "@pdf/*": ["./src/assets/pdf*"],
+      "@scss/*": ["./src/assets/scss/*"],
       "@svg/*": ["./src/components/svg*"],
       "@util/*": ["./src/components/util/*"]
     }

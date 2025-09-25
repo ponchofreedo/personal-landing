@@ -36,7 +36,7 @@
   <!-- footer end -->
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   header,
   section,
   footer {
