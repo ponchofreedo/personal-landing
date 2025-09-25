@@ -8,7 +8,7 @@
 @import '_base.css';
 
 /* finally we import the base partials since they inherit downstream rules */
-@import '_typography.css';
+/*@import '_typography.css';*/
 @import '_tags.css';
 
 body {

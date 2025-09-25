@@ -40,8 +40,7 @@
   header,
   section,
   footer {
-    margin-bottom: 120px;
-    margin-bottom: 7.5rem;
+    margin-bottom: convertRem(120px);
   }
 
   nav,
@@ -50,8 +49,7 @@
   #experience,
   #resources,
   footer {
-    padding: 0 64px;
-    padding: 0 4rem;
+    padding: 0 convertRem(64px);
   }
 
   @media (max-width: 800px) {
