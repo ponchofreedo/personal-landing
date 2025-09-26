@@ -1,5 +1,4 @@
 // import functions
-@use "sass:math";
 @use "functions" as *;
 @use "vars" as *;
 
@@ -87,73 +86,25 @@
   }
 }
 
-/* p should pair with --text__line-height--base, but needs to be defined first */
-p {
-  line-height: $text__line-height--base;
-}
-
-/* h1-h2 should pair with --text__line-height--display */
-h1,
-h2,
-.text--as-h1,
-.text--as-h2 {
-  line-height: $text__line-height--display;
-}
-
-/* h3-h4 and em should pair with --text__line-height--display--mod */
-h3,
-h4,
-em,
-.text--as-h3,
-.text--as-h4 {
-  line-height: $text__line-height--ui;
-}
-
-/* h5 and smaller should pair with --text__line-height--display--base */
-small,
-.text--as-h5 {
-  line-height: $text__line-height--base;
-}
-
-/* tighten the letter-spacing for the biggest sizes */
-h1,
-h2,
-.text--as-h1,
-.text--as-h2 {
-  $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -1px
-}
-
-h4,
-.text--as-h4 {
-  $value: ((($base__multiple * -0.0000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -0.1px
-}
-
-/* line-height for p and other elements should be inherited from the body */
 /* p has to come first because of the text--as-h* classes */
+/* p should pair with --text__line-height--base, but needs to be defined first */
+/* line-height for p and other elements should be inherited from the body */
 p,
 .text--body {
-  font-size: convertRem($text__font-size--p);
-  font-weight: $text__font-weight--normal;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--normal;
-  }
+  @include text-style(p, normal, base);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--p * 1.125);
   }
 }
 
+/* h1-h2 should pair with --text__line-height--display */
 h1,
 .text--as-h1 {
-  font-size: convertRem($text__font-size--h1);
-  font-weight: $text__font-weight--medium;
+  @include text-style(h1, semibold, display);
 
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
+  $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
+  letter-spacing: convertRem($value); // should render -1px
 
   @media (max-width: 800px) {
   	font-size: convertRem($text__font-size--h1 * 0.64);
@@ -166,12 +117,7 @@ h1,
 
 h2,
 .text--as-h2 {
-  font-size: convertRem($text__font-size--h2);
-  font-weight: $text__font-weight--medium;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
+  @include text-style(h2, medium, display);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h2 * 0.72);
@@ -182,14 +128,18 @@ h2,
   }
 }
 
+h1,
+h2,
+.text--as-h1,
+.text--as-h2 {
+  $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
+  letter-spacing: convertRem($value); // should render -1px
+}
+
+/* h3-h4 and em should pair with --text__line-height--display--mod */
 h3,
 .text--as-h3 {
-  font-size: convertRem($text__font-size--h3);
-  font-weight: $text__font-weight--normal;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--normal;
-  }
+  @include text-style(h3, normal, ui);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h3 * 0.8);
@@ -198,12 +148,10 @@ h3,
 
 h4,
 .text--as-h4 {
-  font-size: convertRem($text__font-size--h4);
-  font-weight: $text__font-weight--semibold;
+  @include text-style(h4, semibold, ui);
 
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--semibold;
-  }
+  $value: ((($base__multiple * -0.0000125) * 62.5) * $base__font-size) * 1px;
+  letter-spacing: convertRem($value); // should render -0.1px
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h4 * 0.96);
@@ -211,12 +159,7 @@ h4,
 }
 
 .text--big {
-  font-size: $text__font-size--big;
-  font-weight: $text__font-weight--normal;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--normal;
-  }
+  @include text-style(big, normal, ui);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--big * 0.96);
@@ -225,47 +168,19 @@ h4,
 
 small,
 caption {
-  font-size: convertRem($text__font-size--small);
-  font-weight: $text__font-weight--normal;
+  @include text-style(small, normal, base);
 }
 
-@supports (font-variation-settings: normal) {
-  small,
-  caption {
-    font-variation-settings: 'wght' $text__font-weight--normal;
-  }
-}
-
+b,
 em,
 .text--emphasis {
-  font-size: inherit;
-  font-weight: $text__font-weight--medium;
-}
-
-@supports (font-variation-settings: normal) {
-  em,
-  .text--emphasis {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
-}
-
-b {
-  font-size: inherit;
-  font-weight: $text__font-weight--semibold;
-}
-
-@supports (font-variation-settings: normal) {
-  b {
-    font-variation-settings: 'wght' $text__font-weight--semibold;
-  }
+  @include text-style(inherit, semibold, inherit);
 }
 
 p a {
   font-weight: $text__font-weight--medium;
-}
 
-@supports (font-variation-settings: normal) {
-  p a {
+  @supports (font-variation-settings: normal) {
     font-variation-settings: 'wght' $text__font-weight--medium;
   }
 }
@@ -280,16 +195,14 @@ p a {
 .link:link,
 .link:active,
 .link:visited {
-    color: var(--base__color--green-400);
+    color: $primary__color--accent;
 }
 
 .link--inline {
   font-weight: $text__font-weight--semibold;
   text-decoration: underline solid convertRem(2px);
-}
 
-@supports (font-variation-settings: normal) {
-  .link--inline {
+  @supports (font-variation-settings: normal) {
     font-variation-settings: 'wght' $text__font-weight--semibold;
   }
 }

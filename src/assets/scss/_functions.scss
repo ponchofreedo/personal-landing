@@ -1,6 +1,9 @@
 // helper functions
+@use "sass:map";
 @use "sass:math";
+@use "vars" as *;
 
+// functions
 $default-font-size: 16px;
 
 @function stripUnit($value) {
@@ -8,4 +11,43 @@ $default-font-size: 16px;
 }
 @function convertRem($pxValue) {
     @return #{math.div(stripUnit($pxValue) , stripUnit($default-font-size))}rem;
+}
+
+// mixins
+@mixin text-style($size, $weight, $line-height) {
+  
+  @if $size != "inherit" {
+  	font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
+  } @else {
+  	font-size: inherit;
+  }
+
+  @if $weight != "inherit" {
+  	font-weight: map.get(map.get($type-vars, weights), $weight);
+  } @else {
+  	font-weight: inherit;
+  }
+
+  @if $line-height != "inherit" {
+  	line-height:  map.get(map.get($type-vars, line-heights), $line-height);
+  } @else {
+  	line-height: inherit;
+  }
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' map.get(map.get($type-vars, weights), $weight);
+  }
+}
+
+@mixin container-width($value) {
+	@if $value == "padded" {
+		padding-left: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
+		padding-right: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
+	} @else if $value > 0 {
+		padding-left: convertRem($value);
+		padding-right: convertRem($value);
+	} @else {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }

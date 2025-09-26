@@ -219,7 +219,7 @@
 
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   nav,
   header,
   #experience,

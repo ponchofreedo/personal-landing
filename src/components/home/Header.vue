@@ -36,7 +36,7 @@
 	<header>
         <article>
             <img src="@img/it-me.png" alt="it's a rad photo of me that I may never get rid of" loading="lazy" decoding="async" />
-            <h1>I&rsquo;m Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</h1>
+            <h1>&#128075;&#127996; I&rsquo;m Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</h1>
         </article>
         <footer>
             <p>NY born and bred. Based in Stamford, CT.</p>
@@ -47,7 +47,7 @@
     </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     header {
         display: flex;
         flex-flow: column;

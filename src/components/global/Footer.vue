@@ -107,7 +107,7 @@
     </footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     h1 {
         font-weight: var(--text__font-weight--medium);
     }

@@ -152,7 +152,7 @@
     </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     article {
         display: flex;
         flex-direction: column;

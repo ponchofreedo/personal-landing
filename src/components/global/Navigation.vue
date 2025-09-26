@@ -49,29 +49,25 @@
     </nav>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     nav {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 40px;
-        margin-top: 2.5rem;
+        margin-top: convertRem(40px);
         line-height: unset;
     }
 
     [layout="cv"] {
-        margin-bottom: 40px;
-        margin-bottom: 2.5rem;
-        padding-top: 6px; /* optical placement to match while there's no mode switch button */
-        padding-top: 0.375rem; /* optical placement to match while there's no mode switch button */
+        margin-bottom: convertRem(40px);
+        padding-top: convertRem(6px); /* optical placement to match while there's no mode switch button */
     }
 
     ul {
         display: inline-flex;
         align-items: center;
         list-style: none;
-        gap: 24px;
-        gap: 1.5rem;
+        gap: convertRem(24px);
         flex-wrap: wrap;
     }
 
@@ -81,22 +77,20 @@
 
     li a {
         display: flex;
-        gap: 4px;
-        gap: 0.24rem;
-        font-size: 24px;
-        font-size: 1.5rem;
-        line-height: var(--text__line-height--fixed);
-        color: var(--base__color--neutral-50);
+        gap: convertRem(4px);
+        font-size: convertRem(24px);
+        line-height: $text__line-height--fixed;
+        color: $primary__color--text--darker;
         text-decoration: none;
     }
 
     nav:first-child li:first-child a {
-        color: var(--base__color--green-400)!important;
-        font-weight: var(--text__font-weight--semibold);
+        color: $primary__color--accent!important;
+        font-weight: $text__font-weight--semibold;
     }
 
     [layout="cv"] a {
-        font-weight: var(--text__font-weight--medium)!important;
+        font-weight: $text__font-weight--medium!important;
     }
 
     nav:first-child ul:first-child li a svg {

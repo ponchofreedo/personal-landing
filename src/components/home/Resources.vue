@@ -55,7 +55,7 @@
     </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     #resources {
         display: flex;
         flex-direction: column;

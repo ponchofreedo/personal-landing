@@ -1,11 +1,7 @@
-// helpers
-@forward "vars"; // import all vars into this doc
-@forward "functions"; // pass functions forward so they run in vue components
-
-// globals
-@use "typography"; // import type styles
-
-// component partials
+// // helpers
+// @forward "vars"; // import all vars into this doc
+// @forward "functions"; // pass functions forward so they run in vue components
 
 // base
-@use "base"; // import global styles
+@use "base/_base"; // import global styles
+@use "base/_grid"; // import global styles

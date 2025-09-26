@@ -1,0 +1,76 @@
+/* support classes for tags */
+.tag {
+  height: unset;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text__font-size--p--px);
+  line-height: var(--text__line-height--fixed);
+  background-color: var(--primary__color--background);
+  padding: 8px 0 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: inherit;
+  border-radius: 8px;
+  gap: 6px;
+  color: inherit;
+}
+
+.tag span {
+  white-space: nowrap;
+}
+
+.tag svg {
+  height: 1rem;
+  width: auto;
+  color: inherit;
+}
+
+.tag--private {
+  background-color: var(--base__color--dark-960);
+  gap: 4px; /* occular adjusment */
+  border: 0!important;
+  color: var(--base__color--green-400);
+}
+
+.tag--testing {
+  gap: 4px; /* occular adjusment */
+  border-color: #DEB94A;
+  color: #DEB94A;
+}
+
+.tag--in-dev {
+  border-color: #E4A464;
+  color: #E4A464;
+}
+
+.tag--beta {
+  border-color: #D189D8;
+  color: #D189D8;
+}
+
+.tag--shipped {
+  border-color: var(--base__color--green-400);
+  color: var(--base__color--green-400);
+}
+
+.tag--freelance {
+  border-color: var(--base__color--green-700);
+  color: var(--base__color--green-100);
+}
+
+.tag--availability {
+  border: 0!important;
+  background-color: var(--base__color--green-400);
+  color: var(--base__color--dark-800);
+}
+
+.tag--availability span {
+  font-size: 20px;
+  line-height: var(--text__line-height--fixed);
+  font-weight: var(--text__font-weight--medium);
+  color: inherit;
+}
+
+.tag--availability svg {
+  height: 20px;
+}

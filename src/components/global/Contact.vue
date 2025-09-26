@@ -69,7 +69,7 @@
     </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     #contact {
         background-color: var(--base__color--dark-960);
         padding: 64px;

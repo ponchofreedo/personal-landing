@@ -40,7 +40,7 @@ $theme__color--slowpoke: #D189D8;
 $theme__color--magikarp: #E4A464;
 
 // consumables
-$primary__color: initial; // mmakes it agnostic and globally rewritable
+$primary__color: initial; // agnostic and globally overridden
 $primary__color--background: $base__color--neutral--960;
 $primary__color--background--alt: $base__color--neutral--800;
 $primary__color--border: $primary__color--background--alt;
@@ -55,7 +55,7 @@ $accent__color--4: $primary__color--text--darker;
 $ui__color--neutral: $base__color--neutral--650;
 
 // text vars
-// these will be much DRYer than the css var system
+// these will be much DRYer than the css var system, but will repeat with the mapped vars
 
 // font sizes should be used with the convertRem() function
 $text__font-size--h1: 64;
@@ -78,3 +78,29 @@ $text__font-weight--normal: 450;
 $text__font-weight--medium: 530;
 $text__font-weight--semibold: 700; // should be the boldest value used
 $text__font-weight--bold: 800;
+
+// map for use with dynamic classes and objects
+$type-vars: (
+	sizes: (
+		h1: $text__font-size--h1,
+		h2: $text__font-size--h2,
+		h3: $text__font-size--h3,
+		h4: $text__font-size--h4,
+		p: $text__font-size--p,
+		big: $text__font-size--big,
+		small: $text__font-size--small,
+	),
+	line-heights: (
+		base: $text__line-height--base,
+		ui: $text__line-height--ui,
+		display: $text__line-height--display,
+		fixed: $text__line-height--fixed,
+	),
+	weights: (
+		book: $text__font-weight--book,
+		normal: $text__font-weight--normal,
+		medium: $text__font-weight--medium,
+		semibold: $text__font-weight--semibold,
+		bold: $text__font-weight--bold,
+	),
+);

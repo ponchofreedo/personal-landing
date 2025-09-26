@@ -1,6 +1,6 @@
 // import functions
-@use "vars" as *;
-@use "functions";
+@use "@scss/vars" as *;
+@use "@scss/functions";
 
 // base global styes
 html {
@@ -18,7 +18,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 
 	// reset all inheritance of these for a clean slate
-	// background-color: unset;
+	background-color: unset;
 	color: unset;
 
 	// experiments
@@ -31,4 +31,15 @@ body {
   body {
     font-family: var(--base__font-family--v);
   }
+}
+
+// and now for the styles
+body {
+  background-color: $primary__color--background;
+  color: $primary__color--text;
+}
+
+::selection {
+  color: $primary__color--background;
+  background-color: $primary__color--accent;
 }

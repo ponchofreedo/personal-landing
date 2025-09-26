@@ -43,13 +43,16 @@
     margin-bottom: convertRem(120px);
   }
 
-  nav,
+  nav {
+    @include container-width(0);
+  }
+
   header,
   #works,
   #experience,
   #resources,
   footer {
-    padding: 0 convertRem(64px);
+    @include container-width(padded);
   }
 
   @media (max-width: 800px) {

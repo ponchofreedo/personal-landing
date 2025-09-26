@@ -19,8 +19,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData:
-          `@use "@scss/main.scss" as *;`, // should allow for global use of sass
+        additionalData: `@use "@scss/_functions.scss" as *; @use "@scss/_vars.scss" as *;`
       }
     }
   },
