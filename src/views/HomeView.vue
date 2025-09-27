@@ -19,40 +19,17 @@
   <SelectedWorks />
   <!-- works end -->
 
-  <!-- experience start -->
-  <Experience />
-  <!-- experience end -->
-
-  <!-- resources start -->
-  <Resources />
-  <!-- resources end -->
-
-  <!-- contact start -->
-  <Contact />
-  <!-- contact end -->
-
-  <!-- footer start -->
-  <Footer />
-  <!-- footer end -->
 </template>
 
 <style lang="scss" scoped>
-  header,
-  section,
-  footer {
-    margin-bottom: convertRem(120px);
-  }
+  @use "sass:math";
 
-  nav {
-    @include container-width(0);
-  }
-
-  header,
   #works,
   #experience,
   #resources,
-  footer {
-    @include container-width(padded);
+  #fun,
+  #footer {
+    @include inner-flex-container;
   }
 
   @media (max-width: 800px) {

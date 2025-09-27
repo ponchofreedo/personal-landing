@@ -1,6 +1,6 @@
 // import functions
-@use "functions" as *;
-@use "vars" as *;
+@use "@scss/functions" as *;
+@use "@scss/vars" as *;
 
 // declare the variable font first, for priority
 @supports (font-variation-settings: normal) {
@@ -117,7 +117,7 @@ h1,
 
 h2,
 .text--as-h2 {
-  @include text-style(h2, medium, display);
+  @include text-style(h2, semibold, display);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h2 * 0.72);
@@ -205,4 +205,8 @@ p a {
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'wght' $text__font-weight--semibold;
   }
+}
+
+.highlight {
+  color: $primary__color--accent;
 }

@@ -1,7 +1,6 @@
-// // helpers
-// @forward "vars"; // import all vars into this doc
-// @forward "functions"; // pass functions forward so they run in vue components
+// need to explore importing helpers here instead of in every partial
 
-// base
-@use "base/_base"; // import global styles
-@use "base/_grid"; // import global styles
+// parent partial imports
+@forward "global";
+@forward "base";
+@forward "components";

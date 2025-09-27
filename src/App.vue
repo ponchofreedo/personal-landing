@@ -12,8 +12,9 @@
   main#app {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    height: initial;
     max-width: convertRem(1280px);
+    margin: auto;
   }
 
   @media (max-width: 960px) {

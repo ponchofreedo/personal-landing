@@ -1,12 +1,8 @@
 // import functions
 @use "@scss/vars" as *;
-@use "@scss/functions";
+@use "@scss/functions" as *;
 
 // base global styes
-html {
-
-}
-
 body {
 	font-family: $base__font-family;
 	font-size: $base__font-size-ratio;
@@ -29,7 +25,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: var(--base__font-family--v);
+    font-family: $base__font-family--v;
   }
 }
 

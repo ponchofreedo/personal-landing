@@ -35,66 +35,65 @@
 <template>
 	<header>
         <article>
-            <img src="@img/it-me.png" alt="it's a rad photo of me that I may never get rid of" loading="lazy" decoding="async" />
-            <h1>&#128075;&#127996; I&rsquo;m Zach &mdash; an experienced product designer who enjoys crafting frictionless experiences and solving complex problems. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</h1>
+            <aside>
+                <h1>&#128075;&#127996; I&rsquo;m Zach.</h1>
+            </aside>
+            <section>
+                <h1>An <span class="highlight">experienced product design nerd</span>, creative problem solver, builder of cool sh*t, and mildly mediocre funny man.</h1>
+                <p class="text--big">I enjoy crafting frictionless experiences, solving complex problems, and learning about UX engineering. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</p>
+                <footer>
+                    <RouterLink to="" v-on:click.native="scrollToWorks()"><icon type="icon" name="iconArrowSquareDown" /></RouterLink>
+                </footer>
+            </section>
         </article>
-        <footer>
-            <p>NY born and bred. Based in Stamford, CT.</p>
-            <RouterLink to="" v-on:click.native="scrollToWorks()">
-                <icon type="icon" name="iconArrowSquareDown" />
-            </RouterLink>
-        </footer>
     </header>
 </template>
 
 <style lang="scss" scoped>
+    @use "sass:math";
+
     header {
-        display: flex;
-        flex-flow: column;
-        height: calc(100vh - 192px);
-        margin-top: 80px;
-        margin-top: 5rem;
+        @include inner-flex-container;
     }
 
     article {
-        display: inherit;
-        flex-direction: inherit;
-        gap: 24px;
-        gap: 1.5rem;
-        height: fit-content;
-        justify-content: flex-start;
+        @include split-column-layout-container;
+        height: calc(100dvh - 240px);
     }
 
-    img {
-        height: 160px;
-        height: 10rem;
-        width: 160px;
-        width: 10rem;
+    aside {
+        @include split-column-layout-side(left);   
     }
 
-    h1 {
-        color: var(--base__color--neutral-50);
+    section {
+        @include split-column-layout-side(right);
     }
 
-    a {
-        color: var(--primary__color--theme);
-        text-decoration: underline solid 4px;
-        text-decoration: underline solid 0.25rem; 
+    aside {
+
+        h1 {
+            font-weight: $text__font-weight--medium;
+
+            @supports (font-variation-settings: normal) {
+                font-variation-settings: 'wght' $text__font-weight--medium;
+            }
+        }
+    }
+
+    section {
+
+        h1 {
+            margin-bottom: convertRem(32px);
+        }
+
+        p {
+            color: $primary__color--text--darker;
+        }
     }
 
     footer {
-        display: inherit;
-        flex-direction: inherit;
-        flex: 1;
-        justify-content: flex-end;
-        margin-top: 32px;
-        margin-top: 2rem
-    }
-
-    footer p {
-        color: var(--base__color--neutral-320);
-        margin-bottom: 16px;
-        margin-bottom: 1rem;
+        margin-top: convertRem(80px);
+        margin-bottom: convertRem(80px);
     }
 
     footer a {
@@ -102,39 +101,17 @@
     }
 
     footer svg {
-        height: 32px;
-        height: 2rem;
+        height: convertRem(32px);
         width: auto;
     }
 
-    @media (max-height: 800px) {
-        header {
-            margin-top: 40px;
-            margin-top: 2.5rem;
-            height: fit-content;
-        }
-
-        footer {
-            margin-top: 64px;
-            margin-top: 4rem
-        }
+    h1 {
+        color: $primary__color--text;
     }
-    @media (max-width: 720px) {
-        header {
-            margin-top: 40px;
-            margin-top: 2.5rem;
-            height: fit-content;
-        }
-        img {
-            height: 96px;
-            height: 6rem;
-            width: 96px;
-            width: 6rem;
-        }
 
-        footer {
-            margin-top: 64px;
-            margin-top: 4rem
-        }
+    a {
+        color: $primary__color--accent;
+        text-decoration: underline solid 4px;
+        text-decoration: underline solid 0.25rem; 
     }
 </style>

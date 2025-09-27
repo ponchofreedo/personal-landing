@@ -1,0 +1,78 @@
+@use "@scss/functions" as *;
+@use "@scss/vars" as *;
+
+/* support classes for tags */
+.tag {
+  height: unset;
+  display: inline-flex;
+  align-items: center;
+  font-size: convertRem($text__font-size--p);
+  font-weight: $text__font-weight--medium;
+  line-height: $text__line-height--fixed;
+  padding: convertRem(8px) 0;
+  background-color: $primary__color--background;
+  color: inherit;
+}
+
+.tag span {
+  white-space: nowrap;
+}
+
+.tag svg {
+  height: convertRem($base__font-size);
+  margin-right: convertRem(8px);
+  width: auto;
+  color: inherit;
+}
+
+.tag--private {
+  gap: convertRem(4px); /* occular adjusment */
+  color: $primary__color--accent;
+
+  svg {
+    margin-right: convertRem(4px);
+  }
+}
+
+.tag--testing {
+  gap: convertRem(4px); /* occular adjusment */
+  color: #DEB94A;
+
+  svg {
+    margin-right: convertRem(2px);
+  }
+}
+
+.tag--in-dev {
+  color: #E4A464;
+}
+
+.tag--beta {
+  color: #D189D8;
+}
+
+.tag--shipped {
+  color: $primary__color--accent;
+}
+
+.tag--freelance {
+  color: $primary__color--text--muted;
+}
+
+.tag--availability {
+  padding: convertRem(8px) convertRem(12px);
+  border-radius: convertRem(8px);
+  background-color: $primary__color--accent;
+  color: $primary__color--background;
+}
+
+.tag--availability span {
+  font-size: convertRem(20px);
+  line-height: $text__line-height--fixed;
+  font-weight: $text__font-weight--medium;
+  color: inherit;
+}
+
+.tag--availability svg {
+  height: convertRem(20px);
+}

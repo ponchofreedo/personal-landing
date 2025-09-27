@@ -10,17 +10,14 @@
             </li>
             <li>
                 <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
-                    <span>Works</span><icon type="icon" name="iconArrowSquareUpRight" />
+                    <span>Works</span>
                 </a>
             </li>
             <!-- <li>
                 <RouterLink to="/about"><span>About</span><icon type="icon" name="iconPackage" /></RouterLink>
             </li> -->
             <li>
-                <RouterLink to="/cv">
-                    <span>CV</span>
-                    <icon type="icon" name="iconArrowSquareUpRight" />
-                </RouterLink>
+                <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li>
             <!-- <li>
                 <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=INJVuT" target="_blank">
@@ -53,9 +50,11 @@
     nav {
         display: flex;
         flex-direction: row;
+        flex: 0 0 100%;
         justify-content: space-between;
-        margin-top: convertRem(40px);
+        margin: convertRem(40px) 0;
         line-height: unset;
+        @include container-width(0);
     }
 
     [layout="cv"] {
@@ -94,27 +93,23 @@
     }
 
     nav:first-child ul:first-child li a svg {
-        height: 24px;
-        height: 1.5rem;
+        height: convertRem(24px);
         width: auto;
-        color: var(--base__color--green-400);
+        color: $primary__color--accent;
     }
 
     @media (max-width: 720px) {
         nav {
             flex-direction: column-reverse;
             align-items: flex-start;
-            margin-top: 24px;
-            margin-top: 1.5rem;
-            gap: 16px;
-            gap: 1rem;
+            margin-top: convertRem(24px);
+            gap: convertRem(16px);
         }
     }
 
     @media (max-width: 500px) {
         ul {
-            gap: 16px 24px;
-            gap: 1rem 1.5rem;
+            gap: convertRem(16px) convertRem(24px);
         }
 
         ul:first-of-type li:first-child {
