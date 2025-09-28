@@ -3,60 +3,130 @@
     import { RouterLink, RouterView } from 'vue-router'
 
     // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
-    const recentExp = ref([
+    const exps = ref([
         {
             id: 1,
             team: 'Whalar',
-            url: 'https://whalar.com',
             title: 'Lead Product Designer',
-            detail: 'Recently I joined up with the <a href="https://foam.io" target="_blank" class="link link--inline">Foam</a> product team at <a href="https://www.whalar.com/" target="_blank" class="link link--inline">Whalar</a> to kickstart their design systems efforts and help with some complicated flows.',
-            startDate: 'January 2025',
-            endDate:'March 2025',
+            date: '2025',
             location:'Remote',
             freelance: 'true',
-            iconHeight: 16
+            extra: '',
+            logoFile: 'logo__whalar'
         },
         {
             id: 2,
             team: 'HubSpot',
-            url: 'https://hubspot.com',
             title: 'Senior Product Designer',
-            detail: 'I joined the new CRM Data Management team at <a href="https://hubspot.com" target="_blank" class="link link--inline">HubSpot</a> as a design lead building scalable property management experiences. Also partnered with the design systems team to adopt some federated process initiatives to improve things like handoff and visibility.',
-            startDate: 'June 2023',
-            endDate:'August 2024',
+            date: '2023 - 2024',
             location:'Remote',
-            iconHeight: 23
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__hubspot'
         },
         {
             id: 3,
             team: 'Klaviyo',
-            url: 'https://klaviyo.com',
             title: 'Senior Product Designer',
-            detail: 'Lead designer for several data infrastructure features at <a href="https://klaviyo.com" target="_blank" class="link link--inline">Klaviyo</a> including customer profiles, subscription and consent management, and segmentation. My focus was on evolving antiquated core tools and building newer, more powerful tools for marketers. Also got to help drive our internal design systems initiative and start building out a dedicated team.',
-            startDate: 'March 2021',
-            endDate:'March 2023',
+            date: '2021 - 2023',
             location:'Remote',
-            iconHeight: 24
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__klaviyo'
         },
         {
             id: 4,
-            team: 'Order',
-            url: 'https://order.co',
+            team: 'Order.co',
             title: 'Senior Product Designer',
-            detail: '<a href="https://order.co" target="_blank" class="link link--inline">Order</a> (fka Negotiatus when I joined) was my first lead product design position where I concepted and delivered new flagship products, including invoice submission and bill pay products, that were key to closing their Series B round.',
-            startDate: 'January 2020',
-            endDate: 'February 2021',
-            location:'New York, NY + remote',
-            iconHeight: 23
+            date: '2020 - 2021',
+            location:'NYC + remote',
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__order'
+        },
+        {
+            id: 5,
+            team: 'Tentrr',
+            title: 'Senior Designer',
+            date: '2018 - 2020',
+            location:'NYC',
+            freelance: '',
+            extra: 'OOB, 2023',
+            logoFile: 'logo__tentrr'
+        },
+        {
+            id: 6,
+            team: 'priceline',
+            title: 'Designer',
+            date: '2015 - 2017',
+            location:'NYC + Norwalk, CT',
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__priceline'
+        },
+        {
+            id: 7,
+            team: 'priceline',
+            title: 'Associate Designer',
+            date: '2013 - 2015',
+            location:'NYC + Norwalk, CT',
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__priceline'
+        },
+        {
+            id: 8,
+            team: 'priceline',
+            title: 'Design Intern',
+            date: 'Summer 2013',
+            location:'Norwalk, CT',
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__priceline'
+        },
+        {
+            id: 9,
+            team: 'Digital Surgeons',
+            title: 'Design Intern',
+            date: 'Summer 2012',
+            location:'New Haven, CT',
+            freelance: '',
+            extra: '',
+            logoFile: 'logo__ds'
         }
     ])
 </script>
 
 <template>
-	<section id="experience">
-        <h4>Experience.</h4>
-        <small>The recent bits.</small>
-        <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team" open>
+	<section id="works">
+        <main>
+            <aside>
+                <h2>Experience.</h2>
+            </aside>
+            <section>
+                <article v-for="exp in exps" :key="exp.id" :team="exp.team">
+                    <figure>
+                        <icon type="svg" :name="exp.logoFile" />
+                    </figure>
+                    <div class="exp__details">
+                        <header>
+                            <h3>{{ exp.title }}</h3>
+                            <span>{{ exp.date }}</span>
+                        </header>
+                        <ul>
+                            <li class="exp__team">{{ exp.team }}</li>
+                            <li>{{ exp.location }}</li>
+                            <li v-if="exp.freelance">Freelance</li>
+                            <li v-if="exp.extra">{{ exp.extra }}</li>
+                        </ul>
+                    </div>
+                </article>
+                <footer>
+                    <p>Grab a copy of <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a>.</p>
+                </footer>
+            </section>
+        </main>
+        <!-- <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team" open>
             <summary>
                 <a :href='exp.url' target="_blank">
                     <figure>
@@ -78,300 +148,154 @@
                 </aside>
             </summary>
             <p v-html="exp.detail"></p>
-        </details>
+        </details> -->
         <!-- <div v-on:click="toggleExpand">
             <p>Click me to expand the card</p>
             <span v-show="isExpanded">i show when expanded</span>
         </div> -->
-        <footer>
-            <p>For my full history, take a look at my <RouterLink to="/cv" class="link link--inline">CV<icon type="icon" name="iconArrowSquareUpRight" /></RouterLink></p>
-            <p>Grab a copy of 
-                <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">
-                    my r&eacute;sum&eacute;
-                    <icon type="icon" name="iconDownload" />
-                </a>
-            </p>
-        </footer>
     </section>
 </template>
 
 <style lang="scss" scoped>
-    #experience {
-        display: flex;
-        flex-direction: column;
+    @use "sass:math";
+
+    section {
+        
+        #works {
+            @include inner-flex-container;
+        }
+
+        main {
+            @include split-column-layout-container;
+        }
     }
 
-    h4,
-    h4 + small {
-        color: var(--base__color--green-700);
-    }
-
-    h4 {
-        margin-bottom: 4px;
-        margin-bottom: 0.25rem;
-    }
-
-    h4 + small {
-        margin-bottom: 40px;
-        margin-bottom: 2.5rem;
-    }
-
-    details,
-    figure,
     aside {
-        border-style: solid;
-        border-width: 2px;
-        border-width: 0.125rem;
-        border-radius: 16px;
-        border-radius: 1rem;
-        border-color: inherit;
+        @include split-column-layout-side(left);   
     }
 
-    details {
-        display: flex;
-        flex-direction: column;
-        border-radius: 24px;
-        border-radius: 1.5rem;
-        border-color: var(--base__color--neutral-500);
-        padding: 32px;
-        padding: 2rem;
-        margin-bottom: 16px;
-        margin-bottom: 1rem;
-        cursor: pointer;
+    h2 {
+        color: $primary__color--text--darker;
     }
 
-    details > summary {
+    section {
+        width: 100%;
+        @include split-column-layout-side(right);
+    }
+
+    article {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        column-gap: 40px;
-        column-gap: 2.5rem;
-        list-style: none;
+        gap: convertRem(16px);
+        margin-bottom: convertRem(32px);
     }
 
-    details > summary::marker,
-    details > summary::-webkit-details-marker {
-        display:none!important;
-    }
+    figure {
+        height: convertRem(64px);
+        width: convertRem(64px);
+        padding: convertRem(16px);
+        background-color: $primary__color--background--alt;
+        border-radius: convertRem(12px);
+        align-content: center;
 
-    details > p {
-        margin-top: 8px;
-        margin-top: 0.5rem;
-        margin-left: 160px;
-        margin-left: 10rem;
-    }
-
-    summary > aside {
-        display: flex;
-        justify-self: flex-end;
-        padding: 8px;
-        padding: 0.5rem;
-        border-radius: 8px;
-        border-radius: 0.5rem;
-        border-color: var(--base__color--green-400);
-        color: var(--base__color--green-400);
-    }
-
-    summary > aside svg {
-        height: 24px;
-        height: 1.5rem;
-        width: auto;
-    }
-
-    details:not([open]) aside svg.close,
-    details[open] aside svg.open {
-        display: none;
-    }
-
-    details:not([open]) aside svg.open,
-    details[open] aside svg.close {
-        display: revert;
-    }
-
-    summary a {
-        text-decoration: none;
-    }
-
-    summary figure {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 120px;
-        height: 7.5rem;
-        width: 120px;
-        width: 7.5rem;
-        color: var(--base__color--green-100);
-        border-radius: 16px;
-        border-radius: 1rem;
-        border-color: var(--base__color--neutral-500);
-    }
-
-    summary figcaption {
-        display: none;
-        text-align: center;
-    }
-
-    figure svg {
-        height: auto;
-        min-height: 16px;
-        min-height: 1rem;
-        width: auto;
-        margin: 0 auto;
-    }
-
-    summary > section {
-        display: inherit;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    h3 {
-        color: var(--base__color--green-100);
-        margin-bottom: 4px;
-        margin-botttom: 0.25rem;
+        svg {
+            height: auto;
+            max-width: convertRem(32px);
+            fill: $primary__color--accent;
+            color: $primary__color--accent;
+        }
     }
 
     .exp__details {
-        display: inherit;
-        flex-wrap: wrap;
-        gap: 16px;
-        gap: 1rem;
-        font-size: 16px;
-        font-size: 1rem;
-        line-height: var(--text__line-height--display--mod);
-        color: var(--base__color--neutral-200);
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+        gap: convertRem(8px);
+        place-self: center;
     }
 
-    .exp__details span {
-        position: relative;
-        margin-left: 24px;
-        margin-left: 1.5rem;
+    header {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            font-size: convertRem($text__font-size--p);
+            font-weight: $text__font-weight--medium;
+            color: $primary__color--text--muted;
+        }
     }
 
-    .exp__details span:first-child {
-        margin: 0;
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        li {
+            position: relative;
+            display: inline-flex;
+            @include text-style(p, book, fixed); 
+            color: $primary__color--text--darker;
+
+            &:first-child {
+                color: $primary__color--text; 
+            }
+
+            &:last-child {
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: convertRem(6px);
+                right: convertRem(-12px);
+                display: inline-block;
+                vertical-align: middle;
+                height: convertRem(4px);
+                width: convertRem(4px);
+                border-radius: convertRem(999px);
+                background-color: $ui__color--neutral;
+            }
+        }
     }
 
-    .exp__details span:not(span:last-child)::after {
-        position: absolute;
-        content: '';
-        top: 7px;
-        top: 0.425rem;
-        right: -24px;
-        right: -1.5rem;
-        display: inline-block;
-        vertical-align: middle;
-        height: 8px;
-        height: 0.5rem;
-        width: 8px;
-        width: 0.5rem;
-        -moz-border-radius: 999px;
-        -webkit-border-radius: 999px;
-        border-radius: 999px;
-        background-color: var(--base__color--neutral-500);
-    }
-
-    p {
-        color: var(--base__color--neutral-50);
+    h3 {
+        color: $primary__color--text;
     }
     
     footer {
         display: flex;
         flex-direction: column;
-        margin-top: 24px;
-        margin-top: 1.5rem;
+        margin-top: convertRem(40px);
         color: var(--base__color--neutral-50);
-    }
+            
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: convertRem(4px);
+            color: inherit;
+        }
 
-    footer a {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        gap: 0.25rem;
-        color: inherit;
-    }
+        p {
+            line-height: var(--text__line-height--fixed);
 
-    footer p {
-        line-height: var(--text__line-height--fixed);
-    }
+            + p {
+                margin-top: convertRem(16px);
+            }
+        }
 
-    footer p + p {
-        margin-top: 16px;
-        margin-top: 1rem;
-    }
-
-    footer svg {
-        height: 16px;
-        height: 1rem;
-        width: auto;
+        svg {
+            height: convertRem(16px);
+            width: auto;
+        }
     }
 
     @media (max-width: 720px) {
-        h4 + small {
-            margin-bottom: 24px;
-            margin-bottom: 1.5rem;
-        }
-
-        details {
-            padding: 24px;
-            padding: 1.5rem;
-        }
-
-        details > summary {
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        summary figure {
-            align-items: flex-start;
-            justify-content: flex-start;
-            height: auto;
-            height: auto;
-            width: auto;
-            border: 0;
-            border-radius: 0;
-            margin-bottom: 16px;
-            margin-bottom: 1rem;
-        }
-
-        summary > aside {
-            justify-self: flex-start;
-            padding: 4px;
-            padding: 0.25rem;
-            margin-top: 16px;
-            margin-top: 1rem;
-        }
-
-        summary > aside svg {
-            height: 16px;
-            height: 1rem;
-        }
-
-        details > p {
-            margin-top: 24px;
-            margin-top: 1.5rem;
-            margin-left: 0;
-        }
-
-        .exp__details {
-            flex-direction: column;
-            gap: 8px;
-            gap: 0.5rem;
-            font-size: 14px;
-            font-size: 0.875rem;
-        }
-
-        .exp__details span {
-            margin-left: 0;
-        }
-
-        .exp__details span:not(span:last-child)::after {
-            display: none;
-            margin: 0;
-        }
 
         footer {
             margin-top: 16px;

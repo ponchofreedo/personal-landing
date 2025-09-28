@@ -91,7 +91,7 @@
 /* line-height for p and other elements should be inherited from the body */
 p,
 .text--body {
-  @include text-style(p, normal, base);
+  @include text-style(p, book, base);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--p * 1.125);
@@ -175,14 +175,6 @@ b,
 em,
 .text--emphasis {
   @include text-style(inherit, semibold, inherit);
-}
-
-p a {
-  font-weight: $text__font-weight--medium;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
 }
 
 /* line-height override class for ui elements */

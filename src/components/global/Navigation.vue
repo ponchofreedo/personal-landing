@@ -8,23 +8,20 @@
             <li>
                 <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
             </li>
-            <li>
+            <!-- <li>
                 <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
                     <span>Works</span>
                 </a>
-            </li>
-            <!-- <li>
-                <RouterLink to="/about"><span>About</span><icon type="icon" name="iconPackage" /></RouterLink>
             </li> -->
             <li>
-                <RouterLink to="/cv"><span>CV</span></RouterLink>
+                <RouterLink to="/about"><span>About</span></RouterLink>
             </li>
             <!-- <li>
-                <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=INJVuT" target="_blank">
-                    <span>Resume</span>
-                    <icon type="icon" name="iconDownload" />
-                </a>
+                <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li> -->
+            <li>
+                <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank"><span>R&eacute;sum&eacute;</span></a>
+            </li>
         </ul>
         <ul>
             <li class="tag tag--availability">
@@ -48,13 +45,16 @@
 
 <style lang="scss" scoped>
     nav {
+        position: sticky;
+        top: 0;
         display: flex;
         flex-direction: row;
         flex: 0 0 100%;
         justify-content: space-between;
-        margin: convertRem(40px) 0;
+        padding: convertRem(40px) 0;
         line-height: unset;
         @include container-width(0);
+        background-color: rgba($primary__color--background, 0.9);
     }
 
     [layout="cv"] {

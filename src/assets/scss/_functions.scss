@@ -59,6 +59,7 @@ $default-font-size: 16px;
   align-self: center;
   max-width: convertRem(1060px);
   margin-top: convertRem(120px);
+  margin-bottom: convertRem(120px);
 }
 
 @mixin split-column-layout-container {

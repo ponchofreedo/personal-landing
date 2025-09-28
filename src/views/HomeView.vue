@@ -19,6 +19,10 @@
   <SelectedWorks />
   <!-- works end -->
 
+  <!-- experience start -->
+  <Experience />
+  <!-- experience end -->
+
 </template>
 
 <style lang="scss" scoped>

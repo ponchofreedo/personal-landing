@@ -115,55 +115,8 @@
                         <p>{{ selectedWork.preview }}</p>
                     </a>
                 </article>
-                <!-- <article v-for="selectedWork in selectedWorks" :key="selectedWork.id" :team="selectedWork.team">
-                    <a :href="selectedWork.href" :target="selectedWork.target">
-                        <h2 v-html="selectedWork.title"></h2>
-                        <p class="text--big">{{ selectedWork.preview }}</p>
-                        <ul>
-                            <li class="tag tag--private" v-if="selectedWork.private">
-                                <icon type="icon" name="iconPrivate" />
-                                <span>Private</span>
-                            </li>
-                            <li class="tag tag--testing" v-if="selectedWork.testing">
-                                <icon type="icon" name="iconLightning" />
-                                <span>Testing</span>
-                            </li>
-                            <li class="tag tag--in-dev" v-if="selectedWork.inDev">
-                                <svg viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4" stroke-linecap="square" />
-                                </svg>
-                                <span>In development</span>
-                            </li>
-                            <li class="tag tag--beta" v-if="selectedWork.beta">
-                                <svg viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
-                                </svg>
-                                <span>Beta</span>
-                            </li>
-                            <li class="tag tag--shipped" v-if="selectedWork.shipped">
-                                <svg viewBox="0 0 18 18" height="16" width="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9" cy="9" r="8" />
-                                </svg>
-                                <span>Shipped</span>
-                            </li>
-                            <li class="tag tag--freelance" v-if="selectedWork.freelance">
-                                <span>Freelance</span>
-                            </li>
-                            <li>{{ selectedWork.date }}</li>
-                        </ul>
-                    </a>
-                </article> -->
                 <footer>
-                    <p>See all available projects on
-                        <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">
-                            GitHub
-                            <icon type="svg" name="brandGithub" />
-                            <icon type="icon" name="iconArrowSquareUpRight" />
-                        </a>
-                    </p>
-                    <p>
-                        <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">Drop a messge</a> if you'd like to discuss anything that is labeled <icon class="link" type="icon" name="iconPrivate" /><span class="link">Private</span>.
-                    </p>
+                    <p>See all available projects on <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">GitHub<icon type="svg" name="brandGithub" /><icon type="icon" name="iconArrowSquareUpRight" /></a> or <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop a messge</a> if you'd like to discuss anything that is labeled <icon class="link" type="icon" name="iconPrivate" /><span class="link">Private</span>.</p>
                 </footer>
             </section>
         </main>
@@ -265,7 +218,7 @@
         span:not(li span) {
             position: relative;
             font-size: convertRem($text__font-size--p);
-            font-weight: $text__font-weight--medium;
+            font-weight: $text__font-weight--normal;
             line-height: $text__line-height--fixed;
             padding: convertRem(8px) 0;
             flex-wrap: inherit;
@@ -347,53 +300,45 @@
     footer {
         display: flex;
         flex-direction: column;
-        margin-top: 32px;
-        margin-top: 2rem;
-        color: var(--base__color--neutral-50);
+        margin-top: convertRem(32px);
+
+        p {
+            color: $primary__color--text;
+        }
     }
 
     footer a {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        gap: 0.25rem;
+        gap: convertRem(4px);
         color: inherit;
     }
 
-    footer {
-    }
-
     footer p + p {
-        margin-top: 16px;
-        margin-top: 1rem;
+        margin-top: convertRem(16px);
     }
 
     footer svg {
         display: inline-flex;
         vertical-align: text-top;
-        height: 16px;
-        height: 1rem;
+        height: convertRem(16px);
         width: auto;
-        margin-top: 1px;
-        margin-top: 0.0625rem;
-        margin-right: 2px;
-        margin-right: 0.125rem;
+        margin-top: convertRem(1px);
+        margin-right: convertRem(2px);
     }
 
     @media (max-width: 720px) {
         h4 {
-            margin-bottom: 24px;
-            margin-bottom: 1.5rem;
+            margin-bottom: convertRem(24px);
         }
 
         article {
-            padding: 32px 0 40px;
+            padding: convertRem(32px) 0 convertRem(40px);
         }
 
         li:last-child {
             flex-basis: 100%;
-            margin-top: 8px;
-            margin-top: 0.5rem;
+            margin-top: convertRem(8px);
             margin-left: 0;
 
         }

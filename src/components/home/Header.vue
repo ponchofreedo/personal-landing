@@ -16,7 +16,7 @@
             scrollToWorks() {
                 const id = "works"!;
                 if (id !== null) {
-                    const offsetValue = -32;
+                    const offsetValue = -160;
                     const section = document.getElementById(id)!;
                     const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
                     window.scrollTo({
@@ -54,11 +54,14 @@
 
     header {
         @include inner-flex-container;
+        height: calc(100dvh - 120px);
+        margin: 0;
+        justify-content: space-around;
     }
 
     article {
         @include split-column-layout-container;
-        height: calc(100dvh - 240px);
+        margin-top: convertRem(-24px);
     }
 
     aside {
@@ -93,7 +96,6 @@
 
     footer {
         margin-top: convertRem(80px);
-        margin-bottom: convertRem(80px);
     }
 
     footer a {
