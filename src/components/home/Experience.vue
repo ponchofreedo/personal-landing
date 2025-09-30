@@ -126,33 +126,6 @@
                 </footer>
             </section>
         </main>
-        <!-- <details name="details" v-for="exp in recentExp" :key="exp.id" :team="exp.team" open>
-            <summary>
-                <a :href='exp.url' target="_blank">
-                    <figure>
-                        <icon type="svg" :name='"brand" + exp.team' :height="exp.iconHeight" />
-                        <figcaption :alt='"Go to " + exp.team'>Go to {{ exp.team }}</figcaption>
-                    </figure>
-                </a>
-                <section>
-                    <h3>{{ exp.title }}</h3>
-                    <div class="exp__details">
-                        <span>{{ exp.startDate }} &ndash; {{ exp.endDate}}</span>
-                        <span>{{ exp.location }}</span>
-                        <span v-if="exp.freelance">Freelance</span>
-                    </div>
-                </section>
-                <aside>
-                    <icon type="icon" name="iconPlus" class="open" />
-                    <icon type="icon" name="iconMinus" class="close" />
-                </aside>
-            </summary>
-            <p v-html="exp.detail"></p>
-        </details> -->
-        <!-- <div v-on:click="toggleExpand">
-            <p>Click me to expand the card</p>
-            <span v-show="isExpanded">i show when expanded</span>
-        </div> -->
     </section>
 </template>
 
@@ -191,12 +164,14 @@
     }
 
     figure {
+        display: flex;
         height: convertRem(64px);
         width: convertRem(64px);
         padding: convertRem(16px);
         background-color: $primary__color--background--alt;
         border-radius: convertRem(12px);
-        align-content: center;
+        justify-content: space-around;
+        align-items: center;
 
         svg {
             height: auto;

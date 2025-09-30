@@ -23,6 +23,10 @@
   <Experience />
   <!-- experience end -->
 
+  <!-- resources start -->
+  <Resources />
+  <!-- resources end -->
+
 </template>
 
 <style lang="scss" scoped>

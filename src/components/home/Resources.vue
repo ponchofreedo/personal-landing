@@ -8,8 +8,7 @@
             name: 'The UX Gesture Kit',
             platform: 'Figma',
             platformIcon: 'brandFigmaOutlined',
-            detail: 'A simple community library for simple pointer and touch gestures on desktop and mobile. Fits right into flow and interaction documentation.',
-            cta: 'Check it out',
+            detail: 'A simple community library for pointer and touch gestures.',
             url: 'https://www.figma.com/community/file/1098810879785324342'
         },
         {
@@ -17,154 +16,199 @@
             name: 'Design Markup Library',
             platform: 'Figma',
             platformIcon: 'brandFigmaOutlined',
-            detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation.',
-            cta: 'Check it out',
-            url: ''
+            detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days? Still a WIP, but feel free to look around.',
+            url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645'
         },
         {
             id: 3,
             name: 'The Lonely UXers Discord',
             platform: 'Discord',
             platformIcon: 'brandDiscord',
-            detail: 'What started as a random Zoom coffee meetup for solo designers at startups during peak COVID times later became a community for those of us that have been on our own or are starting out in our careers.',
-            cta: 'Grab your invite',
+            detail: 'What started as a random COVID-era Zoom coffee meetup for solo designers at startups in various countries later became a community for those of us that have been on our own or are starting out in our careers.',
             url: 'https://discord.gg/AdqW5S8'
+        },
+        {
+            id: 4,
+            name: 'Design Operating System',
+            platform: 'Figma',
+            platformIcon: 'brandFigmaOutlined',
+            detail: 'Sometimes Figma docs are complicated to follow. This one-sheet hopes to provide some clarity and be a source of truth. Still a WIP.',
+            url: '',
+            state: 'wip'
+
         }
     ])
 </script>
 
 <template>
     <section id="resources">
-        <h4>Projects and resources.</h4>
-        <small>Some things I tinker with for the community.</small>
         <main>
-            <article v-for="resource in resources" :key="resource.id">
-                <h3>{{ resource.name }}</h3>
-                <div>
-                    <icon type="svg" :name='resource.platformIcon' />
-                    <span class="text--big">{{ resource.platform }}</span>
-                </div>
-                <p>{{ resource.detail }}</p>
-                <a class="resource__cta link" v-if="resource.url" :href='resource.url' target="_blank">
-                    <span>{{ resource.cta }}</span>
-                    <icon type="icon" name="iconArrowSquareUpRight" />
-                </a>
-                <span class="resource__cta" v-else>Coming soon.</span>
-            </article>
+            <aside>
+                <h2>Projects and resources.</h2>
+                <small>Giving back is cool, so here's a few things I tinker with for the community.</small>
+            </aside>
+            <section>
+                <article v-for="resource in resources" :key="resource.id" :class="resource.state ? 'resource__wip' : ''">
+                    <a :href="resource.url" target="_blank">
+                        <header>
+                            <figure>
+                                <icon type="svg" :name="resource.platformIcon" />
+                                <figcaption>{{ resource.platform }}</figcaption>
+                            </figure>
+                            <h3>{{ resource.name }}</h3>
+                            <icon type="icon" name="iconArrowSquareUpRight" />
+                        </header>
+                        <p>{{ resource.detail }}</p>
+                    </a>
+                </article>
+            </section>
         </main>
     </section>
 </template>
 
 <style lang="scss" scoped>
-    #resources {
-        display: flex;
-        flex-direction: column;
+    section {
+        
+        #resources {
+            @include inner-flex-container;
+        }
+
+        main {
+            @include split-column-layout-container;
+        }
     }
 
-    h4,
-    h4 + small {
-        color: var(--base__color--green-700);
+    aside {
+        @include split-column-layout-side(left);   
     }
 
-    h4 {
-        margin-bottom: 4px;
-        margin-bottom: 0.25rem;
+    h2 {
+        color: $primary__color--text--darker;
+        margin-bottom: convertRem(8px);
     }
 
-    h4 + small {
-        margin-bottom: 40px;
-        margin-bottom: 2.5rem;
+    small {
+        @include text-style(small, book, base);
+        color: $primary__color--text--muted;
     }
 
-    main {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: unset;
-        gap: 16px;
-        gap: 1rem;
+    section {
+        width: 100%;
+        @include split-column-layout-side(right);
     }
 
     article {
-        padding: 32px;
-        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: convertRem(8px);
+        margin-bottom: convertRem(16px); 
+        background-color: transparent;
+        border-radius: convertRem(24px);
+        border-color: $primary__color--border;
+        border-width: convertRem(2px);
         border-style: solid;
-        border-width: 2px;
-        border-width: 0.125rem;
-        border-color: var(--base__color--neutral-500);
-        border-radius: 24px;
-        border-radius: 1.5rem;
+        transition: background-color 0.12s ease-in-out;
+
+        &:hover {
+            background-color: $primary__color--border;
+        }
+
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        a {
+            display: inherit;
+            flex-direction: inherit;
+            gap: inherit;
+            text-decoration: none;
+            color: inherit;
+        }
     }
+
+    .resource__wip {
+
+        transition: none;
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        a {
+            pointer-events: none;
+        }
+
+        header,
+        p,
+        svg {
+            color: $primary__color--text--darker!important;
+        }
+
+        figure {
+
+            svg {
+                fill: $primary__color--text--darker!important;
+            }
+        }
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: convertRem(16px) convertRem(24px) 0 convertRem(16px);
+        justify-content: space-between;
+        gap: convertRem(8px);
+        color: $primary__color--accent;
+
+        h3 {
+            width: 100%;
+        }
+
+        + p {
+            padding-left: convertRem(72px);
+            padding-right: convertRem(24px);
+            padding-bottom: convertRem(24px);
+        }
+    }
+
+    figure {
+        display: flex;
+        height: convertRem(48px);
+        width: convertRem(48px);
+        padding: convertRem(8px);
+        justify-content: space-around;
+        align-items: center;
+
+        figcaption {
+            display: none;
+        }
+
+        svg {
+            height: auto;
+            width: auto;
+            max-height: convertRem(28px);
+            max-width: convertRem(32px);
+            fill: $primary__color--accent;
+            color: inherit;
+        }
+    }
+
 
     h3 {
-        color: var(--base__color--green-100);
-        margin-bottom: 8px;
-        margin-bottom: 0.5rem;
+
+        + svg {
+            height: convertRem(24px);
+            width: convertRem(24px);
+            color: inherit;
+        }
     }
 
-    div {
-        display: flex;
-        color: var(--base__color--neutral-320);
-        margin-bottom: 16px;
-        margin-bottom: 1rem;
-    }
-
-    p,
-    .resource__cta {
-        color: var(--base__color--neutral-200);
-    }
-
-    div,
-    a,
-    .resource__cta {
-        align-items: center;
-        gap: 4px;
-        gap: 0.25rem;
-        font-size: 20px;
-        font-size: 1.25rem;
-        line-height: var(--text__line-height--fixed);
-    }
-
-    a,
-    .resource__cta {
-        display: inline-flex;
-        margin-top: 16px;
-        margin-top: 1rem;
-        text-decoration: none;
-        font-weight: var(--text__font-weight--medium);
-    }
-
-    a {
-        color: var(--base__color--green-400)!important;
-    }
-
-    div svg,
-    a svg {
-        width: auto;
-    }
-
-    div svg {
-        height: 16px;
-        height: 1rem;
-    }
-
-    a svg {
-        height: 20px;
-        height: 1.25rem;
+    p {
+        color: $primary__color--text--muted;
     }
 
     @media (max-width: 720px) {
-        main {
-            grid-template-columns: 1fr;
-        }
-
-        h4 + small {
-            margin-bottom: 24px;
-            margin-bottom: 1.5rem;
-        }
-
-        article {
-            padding: 24px;
-            padding: 1.5rem;
-        }
     }
 </style>
