@@ -16,7 +16,7 @@
             name: 'Design Markup Library',
             platform: 'Figma',
             platformIcon: 'brandFigmaOutlined',
-            detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days? Still a WIP, but feel free to look around.',
+            detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days?',
             url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645'
         },
         {
@@ -163,7 +163,7 @@
         color: $primary__color--accent;
 
         h3 {
-            width: 100%;
+            flex-grow: 1;
         }
 
         + p {
@@ -178,7 +178,7 @@
         height: convertRem(48px);
         width: convertRem(48px);
         padding: convertRem(8px);
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
 
         figcaption {
@@ -188,7 +188,7 @@
         svg {
             height: auto;
             width: auto;
-            max-height: convertRem(28px);
+            max-height: convertRem(24px);
             max-width: convertRem(32px);
             fill: $primary__color--accent;
             color: inherit;
