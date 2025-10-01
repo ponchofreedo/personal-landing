@@ -90,6 +90,7 @@
         }
 
         p {
+            @include text-style(h2, book, ui);
             color: $primary__color--text--darker;
         }
     }
