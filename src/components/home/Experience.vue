@@ -98,7 +98,7 @@
 </script>
 
 <template>
-	<section id="works">
+	<section id="experience">
         <main>
             <aside>
                 <h2>Experience.</h2>
@@ -122,7 +122,7 @@
                     </div>
                 </article>
                 <footer>
-                    <p>Grab a copy of <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a>.</p>
+                    <p>Grab a copy of <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a></p>
                 </footer>
             </section>
         </main>
@@ -134,8 +134,7 @@
 
     section {
         
-        #works {
-            @include inner-flex-container;
+        #experience {
         }
 
         main {

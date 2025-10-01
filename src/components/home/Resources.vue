@@ -67,11 +67,10 @@
 </template>
 
 <style lang="scss" scoped>
+    #resources {
+    }
+
     section {
-        
-        #resources {
-            @include inner-flex-container;
-        }
 
         main {
             @include split-column-layout-container;
@@ -93,15 +92,17 @@
     }
 
     section {
-        width: 100%;
         @include split-column-layout-side(right);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: convertRem(16px);
     }
 
     article {
         display: flex;
         flex-direction: column;
         gap: convertRem(8px);
-        margin-bottom: convertRem(16px); 
         background-color: transparent;
         border-radius: convertRem(24px);
         border-color: $primary__color--border;
@@ -111,11 +112,6 @@
 
         &:hover {
             background-color: $primary__color--border;
-        }
-
-
-        &:last-of-type {
-            margin-bottom: 0;
         }
 
         a {
@@ -207,8 +203,5 @@
 
     p {
         color: $primary__color--text--muted;
-    }
-
-    @media (max-width: 720px) {
     }
 </style>

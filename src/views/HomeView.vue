@@ -4,6 +4,7 @@
   import SelectedWorks from '@components/home/SelectedWorks.vue'
   import Experience from '@components/home/Experience.vue'
   import Resources from '@components/home/Resources.vue'
+  import Experimental from '@components/home/Experimental.vue'
   import Contact from '@global/Contact.vue'
   import Footer from '@global/Footer.vue'
 </script>
@@ -27,6 +28,18 @@
   <Resources />
   <!-- resources end -->
 
+  <!-- fun start -->
+  <Experimental />
+  <!-- fun end -->
+
+  <!-- contact start -->
+  <Contact />
+  <!-- contact end -->
+
+  <!-- footer start -->
+  <Footer />
+  <!-- footer end -->
+
 </template>
 
 <style lang="scss" scoped>
@@ -35,7 +48,7 @@
   #works,
   #experience,
   #resources,
-  #fun,
+  #fun-section,
   #footer {
     @include inner-flex-container;
   }

@@ -159,7 +159,7 @@ h4,
 }
 
 .text--big {
-  @include text-style(big, normal, ui);
+  @include text-style(big, book, ui);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--big * 0.96);

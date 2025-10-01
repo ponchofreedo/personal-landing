@@ -56,7 +56,7 @@
         @include inner-flex-container;
         height: calc(100dvh - 120px);
         margin: 0;
-        justify-content: space-around;
+        justify-content: center;
     }
 
     article {

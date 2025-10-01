@@ -41,158 +41,108 @@
 
 <template>
 	<section id="contact">
-        <article>
-            <h1>Talk to me, Goose.</h1>
-            <main class="contact__blocks">
+        <main>
+            <aside>
+                <h2>Talk too me, Goose.</h2>
+            </aside>
+            <section>
                 <article>
                     <section>
-                        <p>You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so yeah...feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">résumé</a> or just <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop me a line</a>.</p>
-                    </section>
-                    <section>
-                        <p>Or, technical issues aside, you can find/follow me at all of these places.</p>
+                        <p class="text--big">You've come this far on these here interwebs to find me. Unfortunately the IKEA instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out," so yeah...feel free to take a gander at my <a href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25" target="_blank" class="link link--inline">résumé</a> or just <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop me a line</a>.</p>
+                        <p class="text--big">Or, technical issues aside, you can find/follow me at all of these places.</p>
                     </section>
                 </article>
                 <article>
-                    <section>
-                        <ul>
-                            <li v-for="link in links" :key="link.id">
-                                <a :href='link.url' target="_blank" class="link">
-                                    <span>{{ link.platform }}</span>
-                                    <icon type="icon" name="iconArrowSquareUpRight" />
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
+                    <ul>
+                        <li v-for="link in links" :key="link.id">
+                            <a :href='link.url' target="_blank" class="link">
+                                <span>{{ link.platform }}</span>
+                                <icon type="icon" name="iconArrowSquareUpRight" />
+                            </a>
+                        </li>
+                    </ul>
                 </article>
-            </main>
-        </article>   
+            </section>
+        </main>   
     </section>
 </template>
 
 <style lang="scss" scoped>
+    @use "sass:math";
+
     #contact {
-        background-color: var(--base__color--dark-960);
-        padding: 64px;
-        padding: 4rem;
-        border-radius: 24px;
-        border-radius: 1.5rem;
+        background-color: $primary__color--background--alt;
+        padding: convertRem(120px) 0;
+        border-radius: convertRem(24px);
+        margin-top: 0;
+        margin-bottom: 0;
+        place-items: center;
     }
 
-    h1 {
-        font-weight: var(--text__font-weight--medium);
-        color: var(--theme__color--accent);
+    section {
+
+        main {
+            @include split-column-layout-container;
+            max-width: convertRem(1060px);
+        }
     }
 
-    .contact__blocks {
+    aside {
+        @include split-column-layout-side(left);   
+    }
+
+    h2 {
+        color: $primary__color--text--darker;
+        margin-bottom: convertRem(8px);
+    }
+
+    section {
+        width: 100%;
+        @include split-column-layout-side(right);
+    }
+
+    article {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        margin-top: 24px;
-        margin-top: 1.25rem;
-    }
+        gap: convertRem(16px);
+        margin-bottom: convertRem(32px);
 
-    .contact__blocks article {
-        display: inherit;
-        flex-direction: row;
-        gap: 40px;
-        gap: 2.5rem;
-    }
-
-    .contact__blocks section {
-        flex-basis: 50%;
-    }
-
-    .contact__blocks section:last-child:not(article section:only-child) {
-        align-self: flex-end;
-    }
-
-    article + article {
-        flex-direction: row-reverse!important;
-        gap: 0!important;
-    }
-
-    section:only-child {
-        padding-left: 20px;
-        padding-left: 1.25rem;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     p {
-        color: var(--base__color--neutral-200);
+        color: $primary__color--text--muted;
         font-weight: 400;
-    }
 
-    ul li {
-        margin-bottom: 1rem;
-    }
-
-    li a {
-        display: inline-flex;
-        align-items: center;
-        color: inherit;
-        text-decoration: none;
-        font-size: 32px;
-        font-size: 2rem;
-        line-height: 1.4;
-        gap: 4px;
-        gap: 0.25rem;
-    }
-
-    li a svg {
-        height: 24px;
-        height: 1.5rem;
-        width: auto;
-    }
-
-    a,
-    li a,
-    svg,
-    li svg {
-        color: var(--theme__color--accent);
-    }
-
-    p a {
-        font-weight: var(--text__font-weight--medium);
-        text-decoration: underline solid 2px;
-        text-decoration: underline solid 0.125rem;
-    }
-
-    @media (max-width: 800px) {
-        #contact {
-            padding: 32px;
-            padding: 2rem;
+        + p {
+            margin-top: convertRem(24px);
+            margin-bottom: convertRem(32px);
         }
     }
 
-    @media (max-width: 720px) {
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: convertRem(8px);
+    }
 
-        .content__blocks {
-            flex-direction: column;
+    li {
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            color: inherit;
+            text-decoration: none;
+            @include text-style(h2, normal, ui);
+            gap: convertRem(4px);
         }
 
-        .contact__blocks article {
-            display: inherit;
-            flex-direction: inherit;
-            gap: 24px;
-            gap: 1.5rem;
+        svg {
+            height: convertRem(24px);
+            width: auto;
         }
-
-        .contact__blocks section {
-            height: fit-content;
-        }
-
-        article + article {
-            flex-direction: inherit!important;
-            gap: 0!important;
-        }
-
-        .contact__blocks section:last-child:not(article section:only-child) {
-            align-self: flex-start;
-        }
-
-        section:only-child {
-            padding: 0;
-        }
-
     }
 
 </style>

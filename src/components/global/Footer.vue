@@ -60,18 +60,18 @@
 
 <template>
 	<footer v-if="$route.name === 'home'" :layout="$route.name">
-        <article>
-            <section>
+        <main>
+            <aside>
                 <b>Colophon.</b>
                 <p>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org" target="_blank">Vue</a>, authored in <a href="https://sublimetext.com" target="_blank">Sublime Text</a> (yes, I'm a VS Code holdout...for now), and shipped with <a href="https://vercel.com" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with controlled chaos and my take on Thomas Keller's <a href="https://youtube.com/watch?v=Bt8YgEr-9is" target="_blank">roast chicken</a> recipe. Also built with <a href="https://instagram.com/obi_dog__kenobi_/" target="_blank">my dog</a> at my feet.</p>
-            </section>
+            </aside>
             <section>
                 <RouterLink to="" v-on:click.native="scrollToTop()" id="anchor">
                     <icon type="icon" name="iconArrowSquareUp" />
                 </RouterLink>
                 <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
             </section>
-        </article>
+        </main>
     </footer>
     <footer v-else-if="$route.name === 'cv'" :layout="$route.name">
         <article>
@@ -108,146 +108,64 @@
 </template>
 
 <style lang="scss" scoped>
-    h1 {
-        font-weight: var(--text__font-weight--medium);
+    
+    footer {
+        margin: convertRem(120px) 0;
+        font-size: convertRem(14px);
+        color: $primary__color--text--darker;
+
+        p {
+            margin-top: convertRem(8px);
+            font-size: inherit;
+            line-height: $text__line-height--ui;
+        }
+
+        a {
+            color: inherit;
+            @include text-style(inherit, medium, inherit);
+        }
+    }
+
+    footer {
+
+        main {
+            @include split-column-layout-container;
+        }
+    }
+
+    aside {
+        @include split-column-layout-side(left);
+    }
+
+    section {
+        @include split-column-layout-side(right);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: convertRem(16px);
+        padding-left: convertRem(20px);
+        align-items: flex-end;
+        align-self: flex-end;
     }
 
     article {
         display: flex;
         flex-direction: row;
-        gap: 40px;
-        gap: 2.5rem;
-        margin-top: 24px;
-        margin-top: 1.25rem;
-    }
-
-    article section {
-        display: inherit;
-        flex-direction: column;
-        flex-basis: 50%;
-        gap: 8px;
-        gap: 0.5rem;
-    }
-
-    article section+section {
-        align-self: flex-end;
-        justify-content: right;
-        text-align: right;
-    }
-
-    b,
-    p {
-        font-size: 14px;
-        font-size: calc((14/16) * 1rem);
-    }
-
-    a {
-        font-weight: var(--text__font-weight--medium);
-    }
-
-    b,
-    p,
-    a { 
-        color: var(--base__color--green-700)
+        gap: convertRem(8px);
     }
 
     #anchor {
-        width: fit-content;
-        align-self: flex-end;
-    }
-
-    ul li svg,
-    #anchor svg {
-        height: 24px;
-        height: 1.5rem;
-        width: auto;
-    }
-
-    #anchor svg {
-        height: 32px; /* optical correction */
-        height: 2rem; /* optical correction */
-    }
-
-    [layout="cv"] article {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    [layout="cv"] ul {
-        display: flex;
-        gap: 32px;
-        list-style: none;
-    }
-
-    [layout="home"] #anchor,
-    [layout="cv"] li,
-    [layout="cv"] li a {
         display: inline-flex;
         height: fit-content;
         width: fit-content;
         line-height: normal;
         color: currentColor;
-    }
+        width: fit-content;
+        align-self: flex-end;
 
-    [layout="home"] #anchor {
-        color: var(--base__color--green-700);
-    }
-
-    [layout="cv"] li,
-    [layout="cv"] li a {
-        color: var(--base__color--green-400);
-    }
-
-    [layout="cv"] li,
-    [layout="cv"] li a {
-        align-self: center;
-    }
-
-    /*[layout="home"] #anchor,
-    [layout="cv"] #anchor a {
-        padding: 6px;
-        padding: 0.375rem;
-        border-style: solid;
-        border-width: 2px;
-        border-width: 0.125rem;
-        border-color: currentColor;
-        border-radius: 8px;
-        border-radius: 0.5rem;
-    }*/
-
-    @media (max-width: 720px) {
-        article {
-            flex-direction: column;
-            gap: 40px;
-            gap: 2.5rem;
-        }
-
-        article section {
-            display: inherit;
-            flex-direction: inherit;
-        }
-
-        article section+section {
-            flex-direction: column-reverse;
-            align-self: flex-start;
-            justify-content: flex-start;
-            text-align: left;
-        }
-
-        #anchor {
-            align-self: flex-start;
-        }
-
-        [layout="cv"] article {
-            flex-direction: column-reverse;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        [layout="cv"] ul {
-            flex-wrap: wrap;
+        svg {
+            height: convertRem(32px);
+            width: auto;
         }
     }
 </style>

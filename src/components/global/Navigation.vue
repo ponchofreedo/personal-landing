@@ -13,9 +13,9 @@
                     <span>Works</span>
                 </a>
             </li> -->
-            <li>
+            <!-- <li>
                 <RouterLink to="/about"><span>About</span></RouterLink>
-            </li>
+            </li> -->
             <!-- <li>
                 <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li> -->
@@ -55,6 +55,7 @@
         line-height: unset;
         @include container-width(0);
         background-color: rgba($primary__color--background, 0.9);
+        z-index: 999;
     }
 
     [layout="cv"] {
