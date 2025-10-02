@@ -13,9 +13,9 @@
                     <span>Works</span>
                 </a>
             </li> -->
-            <!-- <li>
-                <RouterLink to="/about"><span>About</span></RouterLink>
-            </li> -->
+            <li>
+                <RouterLink to="/works"><span>Works</span></RouterLink>
+            </li>
             <!-- <li>
                 <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li> -->
