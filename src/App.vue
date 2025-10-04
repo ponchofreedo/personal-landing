@@ -1,5 +1,35 @@
 <script setup lang="ts">
+  import { onMounted } from 'vue'
 
+    onMounted(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto'
+        })
+    })
+</script>
+
+<script lang="ts">
+    export default {
+        methods: {
+            scrollToWorks() {
+                const id = "works"!;
+                if (id !== null) {
+                    const offsetValue = -160;
+                    const section = document.getElementById(id)!;
+                    const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
+                    window.scrollTo({
+                        top: sectionWithOffset,
+                        behavior: 'smooth'
+                    });
+                    console.log('scrolling to ' + id);
+                } else {
+                    console.log('works section doesnt exist');
+                }
+            }
+        }
+    };
 </script>
 
 <template>

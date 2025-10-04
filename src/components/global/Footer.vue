@@ -59,7 +59,7 @@
 </script>
 
 <template>
-	<footer v-if="$route.name === 'home'" :layout="$route.name">
+	<footer id="footer" v-if="$route.name === 'home'" :layout="$route.name">
         <main>
             <aside>
                 <b>Colophon.</b>
@@ -73,7 +73,7 @@
             </section>
         </main>
     </footer>
-    <footer v-else-if="$route.name === 'cv'" :layout="$route.name">
+    <footer id="footer" v-else :layout="$route.name">
         <article>
             <ul>
                 <li id="anchor">
@@ -110,9 +110,12 @@
 <style lang="scss" scoped>
     
     footer {
-        margin: convertRem(120px) 0;
         font-size: convertRem(14px);
         color: $primary__color--text--darker;
+
+        &:not([layout="home"]) {
+            margin: convertRem(40px) 0!important;
+        }
 
         p {
             margin-top: convertRem(8px);
@@ -152,20 +155,45 @@
         display: flex;
         flex-direction: row;
         gap: convertRem(8px);
+
+        &:not([layout="home"]) {
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        p {
+            margin-top: 0;
+        }
     }
 
-    #anchor {
+    ul {
+        display: flex;
+        gap: convertRem(32px);
+        list-style: none;
+    }
+
+    li {
         display: inline-flex;
         height: fit-content;
         width: fit-content;
-        line-height: normal;
-        color: currentColor;
-        width: fit-content;
-        align-self: flex-end;
+        vertical-align: baseline;
+        align-self: center;
+        color: $primary__color--accent;
 
         svg {
-            height: convertRem(32px);
+            height: convertRem(24px);
             width: auto;
+            color: currentColor;
+        }
+
+        &#anchor {
+            align-self: flex-end;
+
+            svg {
+                height: convertRem(32px);
+            }
         }
     }
+
+
 </style>

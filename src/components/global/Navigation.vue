@@ -1,22 +1,53 @@
 <script setup lang="ts">
 	import { RouterLink, RouterView } from 'vue-router'
+    import { ref } from 'vue'
+
+    // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
+    const navLinks = ref([
+        {
+            id: 1,
+            name: 'home',
+            label: 'Sup.',
+            href: '/'
+        },
+        {
+            name: 'works',
+            label: 'Works',
+            href: '/works'
+        },
+        {
+            name: 'about',
+            label: 'About',
+            href: '/about'
+        },
+        {
+            name: 'cv',
+            label: 'CV',
+            href: '/cv'
+        }
+    ])
 </script>
 
 <template>
-	<nav v-if="$route.name != 'cv'" :layout="$route.name">
+	<nav :layout="$route.name">
     	<ul>
-            <li>
-                <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
+            <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
+                <RouterLink :to="navLink.href" :class="navLink.name == $route.name ? 'active' : ''">
+                    <span><span v-if="navLink.name == 'home'">&lsquo;</span>{{ navLink.label }}<span v-if="$route.name == navLink.name && ($route.name != 'home')" class="indicator">.</span></span>
+                </RouterLink>
             </li>
             <!-- <li>
+                <RouterLink to="/" class=""><span>&lsquo;Sup.</span></RouterLink>
+            </li>
+            <li>
                 <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank">
                     <span>Works</span>
                 </a>
-            </li> -->
-            <li>
-                <RouterLink to="/works"><span>Works</span></RouterLink>
             </li>
-            <!-- <li>
+            <li>
+                <RouterLink to="/works"><span>Works</span><span v-if="$route.name == 'home'">.</span></RouterLink>
+            </li>
+            <li>
                 <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li> -->
             <li>
@@ -31,16 +62,16 @@
             <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
         </ul>
     </nav>
-    <nav v-else :layout="$route.name">
+    <!-- <nav v-else :layout="$route.name">
         <ul>
             <li>
                 <RouterLink to="/" class=""><icon type="icon" name="iconArrowLeft" /><span>Back</span></RouterLink>
             </li>
         </ul>
-        <!-- <ul>
+        <ul>
             <li><button>mode<icon type="icon" name="iconMoon" /></button></li>
-        </ul> -->
-    </nav>
+        </ul>
+    </nav> -->
 </template>
 
 <style lang="scss" scoped>
@@ -69,28 +100,41 @@
         list-style: none;
         gap: convertRem(24px);
         flex-wrap: wrap;
+        @include text-style(big, regular, fixed);
+
+        + ul {
+            justify-content: flex-end;
+        }
     }
 
-    ul + ul {
-        justify-content: flex-end;
+    .active {
+
+        &:not([data-route="home"]) {
+            @include text-style(inherit, semibold, inherit);
+            color: $primary__color--text;
+        }
+
+        .indicator {
+            color: $primary__color--accent;
+        }
     }
 
     li a {
         display: flex;
-        gap: convertRem(4px);
-        font-size: convertRem(24px);
-        line-height: $text__line-height--fixed;
         color: $primary__color--text--darker;
         text-decoration: none;
     }
 
-    nav:first-child li:first-child a {
-        color: $primary__color--accent!important;
-        font-weight: $text__font-weight--semibold;
+    span {
+
+        + span {
+            color: $primary__color--accent;
+        }
     }
 
-    [layout="cv"] a {
-        font-weight: $text__font-weight--medium!important;
+    nav:first-child li:first-child a {
+        @include text-style(inherit, semibold, inherit);
+        color: $primary__color--accent!important;
     }
 
     nav:first-child ul:first-child li a svg {

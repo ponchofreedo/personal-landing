@@ -175,6 +175,10 @@ b,
 em,
 .text--emphasis {
   @include text-style(inherit, semibold, inherit);
+
+  &.soft {
+    @include text-style(inherit, medium, inherit);
+  }
 }
 
 /* line-height override class for ui elements */

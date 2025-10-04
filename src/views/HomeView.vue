@@ -9,6 +9,14 @@
   import Footer from '@global/Footer.vue'
 </script>
 
+<script lang="ts">
+    export default {
+        mounted() {
+            window.scrollTo(0, 0);
+        }
+    }
+</script>
+
 <template>
   <Navigation />
   
