@@ -14,9 +14,9 @@
   export default {
     data() {
       return {
-        projects: json.projects,
-        company: this.$route.params.company,
-        slug: this.$route.params.slug
+        projects: json.projects as const,
+        company: this.$route.params.company as const,
+        slug: this.$route.params.slug as const
       };
     },
     computed: {
