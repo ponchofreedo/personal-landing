@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue'
+    import { RouterLink, RouterView } from 'vue-router'
 
     // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
     const selectedWorks = ref([
@@ -14,8 +15,9 @@
             shipped: 'true',  
             freelance:'',
             date: '2024',
-            href:'',
-            target: '_blank',
+            slug: 'create-edit',
+            staticHref:'/works/hubspot/create-edit',
+            target: '_self',
             team: 'HubSpot'
         },
         {
@@ -29,8 +31,8 @@
             shipped: 'true',  
             freelance:'',
             date: '2023',
-            href:'',
-            target: '_blank',
+            staticHref:'',
+            target: '_self',
             team: 'HubSpot'
         },
         {
@@ -44,8 +46,8 @@
             shipped: '',  
             freelance:'',
             date: '2024',
-            href:'',
-            target: '_blank',
+            staticHref:'',
+            target: '_self',
             team: 'HubSpot'
         },
         {
@@ -59,11 +61,17 @@
             shipped: '',  
             freelance:'',
             date: '2025',
-            href:'',
-            target: '_blank',
+            staticHref:'',
+            target: '_self',
             team: 'Whalar'
         }
     ])
+</script>
+
+<script lang="ts">
+    export default {
+        props: ['id']
+    };
 </script>
 
 <template>
@@ -71,7 +79,7 @@
         <main>
             <section>
                 <article v-for="selectedWork in selectedWorks" :key="selectedWork.id" :team="selectedWork.team">
-                    <a href="" :target="selectedWork.target">
+                    <RouterLink :to="'/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug" :id="selectedWork.id" :target="selectedWork.target">
                         <figure>
                             <img decoding="async" loading="lazy" width="2560" height="1280" sizes="max(min(100vw - 200px, 1440px) * 0.6, 1px)" />
                         </figure>
@@ -110,7 +118,7 @@
                         </div>
                         <h3>{{ selectedWork.title }}</h3>
                         <p>{{ selectedWork.preview }}</p>
-                    </a>
+                    </RouterLink>
                 </article>
             </section>
         </main>

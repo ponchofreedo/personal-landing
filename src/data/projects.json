@@ -1,0 +1,65 @@
+{
+  "projects": {
+    "hubspot": {
+      "create-edit": {
+        "title": "Improving admin property creation and editing experiences",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Rethinking the overall workflow of creating and editing properties in HubSpot’s CRM to reduce CS overhead and to prepare for a more integrated and scalable future."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
+              "p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property."
+            },
+            "opportunity": {
+              "title": "Opportunity.",
+              "p1": "Between the customer support ticket and call volume related to creating and managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties."
+            },
+            "creation": {
+              "title": "Creation: linear vs. non-linear flow.",
+              "p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced properties, but even for some more simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for users.",
+              "p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
+              "p4": "Going back meant needing to go all the way back. This became a regular headache for most users.",
+              "p5": "By changing the flow to be non-linear, we could improve several things related to this problem."
+            },
+            "manage": {
+              "title": "Manage: removing friction by unifying experiences.",
+              "p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
+              "p2": "There were other issues at play related to managing properties that fell out of scope for this project (things like core actions, ie, deleting, copying, etc), but by migrating the management experience to the same framework as the new creation experience, it allowed for more flexibility to perform a task and also allowed for more visibility and discovery for problem-solving tasks. It also allowed for down-the-road improvements like integrations, AI/ML augments, and KB helper injection so that customers would gain more clarity in the moment as opposed to being shepherded away for most of those moments.",
+              "p3": "The old panel left a lot to be desired according to internal and external anecdotes. It was also starting to get crowded with information and began to feel cramped. With more content and features on the way, it needed to change so that it could scale.",
+              "p4": "The updated experience allowed for more of the free-flow of information and flexibility that our admin customers were craving for some time."
+            },
+            "retro": {
+              "title": "Next steps and reflections.",
+              "p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 1,000 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "p2": "At the same time, there were two UX projects happening concurrently while engineering was in the middle of rebuilding the core tech stack for this product area: this framework delivery for creation and management and an encapsulated quick property creation experience for use outside of the admin space. The quick property creation project actually spawned the larger project, funny enough.",
+              "p3": "The coalescing projects meant that a lot of planning was needed to deliver properly. One thing I would reflect on for this projects relates to communication. At one point I was on one track of work and unaware of what my engineering partners were working on. We discovered that we were working on opposite projects at one point and that syncing back up to get back on track was going to take at least a week. This all could’ve been alleviated by a one-line clarification in a Slack message. It taught me a lesson about properly setting the table and making sure that each partner in the pod is aligned at the right time."
+            }
+          }
+        },
+        "meta": {
+          "tags": ["beta", "shipped"],
+          "date": "2024",
+          "slug": "create-edit",
+          "href": "/works/create-edit"
+        },
+        "team": "1D&#128075;&#127996;, 1EM, 1PM, 1SWE"
+      },
+      "date-time-props": {
+
+      },
+      "formula-editor": {
+
+      },
+      "formula-tester": {
+
+      },
+      "prop-declutter": {
+
+      }
+    }
+  }
+}

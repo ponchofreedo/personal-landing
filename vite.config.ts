@@ -28,6 +28,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
       '@css': fileURLToPath(new URL('./src/assets/css', import.meta.url)),
+      '@data': fileURLToPath(new URL('./src/data', import.meta.url)),
       '@fonts': fileURLToPath(new URL('./src/assets/fonts', import.meta.url)),
       '@global': fileURLToPath(new URL('./src/components/global', import.meta.url)),
       '@img': fileURLToPath(new URL('./src/assets/img', import.meta.url)),

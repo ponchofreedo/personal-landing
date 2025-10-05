@@ -27,7 +27,7 @@
                     { who: 'Macho Man Randy Savage', phrase: 'OHHHHH YEAAAAAAAAH!' },
                     { who: 'The Rock', phrase: 'Know your role...' },
                     { who: 'The Rock', phrase: 'Finally...' },
-                    { who: 'The Rock', phrase: 'If you smelllllLlLlLlLlL...' },
+                    { who: 'The Rock', phrase: 'IF YA SMELLLLLLlLlLlL oooooooo...' },
                     { who: 'Ron Simmons', phrase: 'DAMN!' },
                     { who: 'Dudley Boyz', phrase: 'GET THE TABLES!' },
                     { who: 'Teddy Long', phrase: 'Holla, holla holla!' }

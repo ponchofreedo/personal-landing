@@ -32,8 +32,8 @@
 	<nav :layout="$route.name">
     	<ul>
             <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
-                <RouterLink :to="navLink.href" :class="navLink.name == $route.name ? 'active' : ''">
-                    <span><span v-if="navLink.name == 'home'">&lsquo;</span>{{ navLink.label }}<span v-if="$route.name == navLink.name && ($route.name != 'home')" class="indicator">.</span></span>
+                <RouterLink :to="navLink.href" :class="(navLink.name == $route.name) || (($route.name == 'project') && (navLink.name == 'works')) ? 'active' : ''">
+                    <span><span v-if="navLink.name == 'home'">&lsquo;</span>{{ navLink.label }}<span v-if="($route.name == navLink.name && ($route.name != 'home')) || (($route.name == 'project') && (navLink.name == 'works'))" class="indicator">.</span></span>
                 </RouterLink>
             </li>
             <!-- <li>
@@ -93,6 +93,8 @@
         margin-bottom: convertRem(40px);
         padding-top: convertRem(6px); /* optical placement to match while there's no mode switch button */
     }
+
+    [layout="project"] {}
 
     ul {
         display: inline-flex;

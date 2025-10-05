@@ -13,6 +13,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@css/*": ["./src/assets/css/*"],
+      "@data/*": ["./src/data/*"],
       "@fonts/*": ["./src/assets/fonts/*"],
       "@global/*": ["./src/components/global/*"],
       "@img/*": ["./src/assets/img/*"],
