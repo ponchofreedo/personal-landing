@@ -15,12 +15,12 @@
     data() {
       return {
         projects: json.projects,
-        company: this.$route.params.company as string,
-        slug: this.$route.params.slug as string
+        company: this.$route.params.company,
+        slug: this.$route.params.slug
       };
     },
     computed: {
-      project() {
+      project():string {
         return this.projects[this.company]?.[this.slug] || null;
       },
       copy() {
