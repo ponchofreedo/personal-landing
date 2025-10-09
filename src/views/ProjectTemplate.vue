@@ -65,7 +65,7 @@
   <header v-if="project">
     <img />
     <article>
-      <h1>{{ project.title }}</h1>
+      <h1>{{ project?.title }}</h1>
       <aside>
         <div>
           <em>Company</em>
@@ -73,7 +73,7 @@
         </div>
         <div>
           <em>Year(s)</em>
-          <div>{{ project.meta.date }}</div>
+          <div>{{ project?.meta?.date }}</div>
         </div>
         <div>
           <em>Status</em>
@@ -96,7 +96,7 @@
         </div>
         <div>
           <em>Team</em>
-          <div v-html="project.team"></div>
+          <div v-html="project?.team"></div>
         </div>
       </aside>
       <section>
