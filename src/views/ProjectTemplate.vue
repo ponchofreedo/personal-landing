@@ -12,22 +12,22 @@
   import json from '@data/projects.json'
 
   type Project = {
-    title: Record<string, any>;
+    title: string;
     copy: {
-      intro: Record<string, any>;
+      intro: string;
     };
     meta: {
       tags: {
-        private?: Record<string, any>;
-        testing?: Record<string, any>;
-        inDev?: Record<string, any>;
-        beta?: Record<string, any>;
-        shipped?: Record<string, any>;
-        freelance?: Record<string, any>;
+        private?: string;
+        testing?: string;
+        inDev?: string;
+        beta?: string;
+        shipped?: string;
+        freelance?: string;
       };
-      date: Record<string, any>;
-      slug: Record<string, any>;
-      href: Record<string, any>;
+      date: string;
+      slug: string;
+      href: string;
     };
   };
 
@@ -40,7 +40,7 @@
   export default {
     data() {
       return {
-        projects: json.projects as Record<string, Record<string, Project>>,
+        projects: json.projects,
         company: this.$route.params.company,
         slug: this.$route.params.slug
       };
