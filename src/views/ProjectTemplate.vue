@@ -40,16 +40,16 @@
   };
 </script>
 
-<template v-if="project">
+<template>
 
   <!-- start nav -->
   <Navigation />
   <!-- end nav -->
 
-  <header>
+  <header v-if="project">
     <img />
     <article>
-      <h1>{{ project.title }}</h1>
+      <h1>{{ project?.title }}</h1>
       <aside>
         <div>
           <em>Company</em>
@@ -87,6 +87,9 @@
         <p>paragraph 1</p>
       </section>
     </article>
+  </header>
+  <header v-else>
+    <div>project not found</div>
   </header>
   <section>
   </section>
