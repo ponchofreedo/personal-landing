@@ -1,31 +1,7 @@
 <script setup lang="ts">
 	import { RouterLink, RouterView } from 'vue-router'
     import { ref } from 'vue'
-
-    // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
-    const navLinks = ref([
-        {
-            id: 1,
-            name: 'home',
-            label: 'Sup.',
-            href: '/'
-        },
-        {
-            name: 'works',
-            label: 'Works',
-            href: '/works'
-        },
-        {
-            name: 'about',
-            label: 'About',
-            href: '/about'
-        },
-        {
-            name: 'cv',
-            label: 'CV',
-            href: '/cv'
-        }
-    ])
+    import { navLinks } from '@data/constants'
 </script>
 
 <template>

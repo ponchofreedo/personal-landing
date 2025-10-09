@@ -1,43 +1,6 @@
 <script setup lang="ts">
     import { ref } from 'vue'
-
-    // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
-    const resources = ref([
-        {
-            id: 1,
-            name: 'The UX Gesture Kit',
-            platform: 'Figma',
-            platformIcon: 'brandFigmaOutlined',
-            detail: 'A simple community library for pointer and touch gestures.',
-            url: 'https://www.figma.com/community/file/1098810879785324342'
-        },
-        {
-            id: 2,
-            name: 'Design Markup Library',
-            platform: 'Figma',
-            platformIcon: 'brandFigmaOutlined',
-            detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days?',
-            url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645'
-        },
-        {
-            id: 3,
-            name: 'The Lonely UXers Discord',
-            platform: 'Discord',
-            platformIcon: 'brandDiscord',
-            detail: 'What started as a random COVID-era Zoom coffee meetup for solo designers at startups in various countries later became a community for those of us that have been on our own or are starting out in our careers.',
-            url: 'https://discord.gg/AdqW5S8'
-        },
-        {
-            id: 4,
-            name: 'Design Operating System',
-            platform: 'Figma',
-            platformIcon: 'brandFigmaOutlined',
-            detail: 'Sometimes Figma docs are complicated to follow. This one-sheet hopes to provide some clarity and be a source of truth. Still a WIP.',
-            url: '',
-            state: 'wip'
-
-        }
-    ])
+    import { resourceList } from '@data/constants'
 </script>
 
 <template>
@@ -48,7 +11,7 @@
                 <small>Giving back is cool, so here's a few things I tinker with for the community.</small>
             </aside>
             <section>
-                <article v-for="resource in resources" :key="resource.id" :class="resource.state ? 'resource__wip' : ''">
+                <article v-for="resource in resourceList" :key="resource.id" :class="resource.state ? 'resource__wip' : ''">
                     <a :href="resource.url" target="_blank">
                         <header>
                             <figure>
