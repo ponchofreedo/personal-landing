@@ -14,26 +14,14 @@
   export default {
     data() {
       return {
-        projects: json.projects as string,
+        projects: json.projects,
         company: this.$route.params.company,
         slug: this.$route.params.slug
       };
     },
     computed: {
-      project():string {
+      project() {
         return this.projects[this.company]?.[this.slug] || null;
-      },
-      copy() {
-        return this.project?.copy || null;
-      },
-      section() {
-        return this.copy?.sections || null;
-      },
-      meta() {
-        return this.project?.meta || null;
-      },
-      tags() {
-        return this.meta?.tags || null;
       }
     },
     created() {
@@ -42,9 +30,6 @@
       }
     },
   };
-
-  // rename the api for easier consumption
-  // const projects = ref(jsonData);
 </script>
 
 <template>
@@ -57,21 +42,22 @@
     <header>
       <img />
       <article>
-        <h1>{{ project.title }}</h1>
+        <h1>{{ project.title }}
+        </h1>
         <aside>
           <div>
             <em>Company</em>
-            <div>{{ company }}</div>
+            <div>company</div>
           </div>
           <div>
             <em>Year(s)</em>
-            <div>{{ meta.date }}</div>
+            <div>date</div>
           </div>
           <div>
             <em>Status</em>
             <ul>
-              <li v-for="tag in tags" :class="'tag' + ' ' + 'tag--' + tag">
-                <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
+              <li :class="'tag'">
+                <!-- <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
                 <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
                 <svg v-if="tag == 'beta'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
@@ -81,18 +67,18 @@
                 </svg>
                 <svg v-if="tag =='shipped'" viewBox="0 0 18 18" height="16" width="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="9" cy="9" r="8" />
-                </svg>
-                <span>{{ tag }}</span>
+                </svg> -->
+                <span>tag</span>
               </li>
             </ul>
           </div>
           <div>
             <em>Team</em>
-            <div v-html="project.team"></div>
+            <div>team</div>
           </div>
         </aside>
         <section>
-          <p>{{ section.intro.p1 }}</p>
+          <p>paragraph 1</p>
         </section>
       </article>
     </header>
