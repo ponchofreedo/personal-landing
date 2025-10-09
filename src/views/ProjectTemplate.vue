@@ -24,6 +24,7 @@
       href?: string;
       [key: string]: any;
     };
+    team: string;
   }
 
   export default {
