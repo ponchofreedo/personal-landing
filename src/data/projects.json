@@ -11,11 +11,25 @@
             "context": {
               "title": "Context.",
               "p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
-              "p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property."
+              "p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. On top of this, when you factor in portal type, ie., SMB, enterprise, etc, this makes the offering even more complex. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property."
             },
             "opportunity": {
               "title": "Opportunity.",
               "p1": "Between the customer support ticket and call volume related to creating and managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties."
+            },
+            "goals": {
+              "1": {
+                "goal": "Rebuild flow with alternative to wizard and allow for flexibility",
+                "result": "New flow doesn’t require redundant actions and <span class='highlight'>is not linear</span>"
+              },
+              "2": {
+                "goal": "Reduce relevant support volume by at least 20% WoW (2wk lag)",
+                "result": "Support volume <span class='highlight'>reduced by ~35% WoW<span>"
+              },
+              "3": {
+                "goal": "Improve UX flexibility for AI and KB helpers to help drive usage of them",
+                "result": "New framework includes content slots for AI/ML and KB inclusions to keep customers on task and doesn’t drive them away"
+              }
             },
             "creation": {
               "title": "Creation: linear vs. non-linear flow.",

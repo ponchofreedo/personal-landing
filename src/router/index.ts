@@ -12,17 +12,11 @@ const router = createRouter({
     {
       path: '/works',
       name: 'works',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/WorksView.vue'),
     },
     {
       path: '/works/:company/:slug',
       name: 'project',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProjectTemplate.vue'),
       props: true
     },
