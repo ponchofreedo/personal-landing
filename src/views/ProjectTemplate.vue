@@ -53,18 +53,6 @@
         if (!company || !slug) return null;
         
         return this.projects[company]?.[slug] || null;
-      },
-      copy() {
-        return this.project?.copy || null;
-      },
-      section() {
-        return this.copy?.sections || null;
-      },
-      meta() {
-        return this.project?.meta || null;
-      },
-      tags() {
-        return this.meta?.tags || null;
       }
     },
     created() {
