@@ -11,6 +11,21 @@
 <script lang="ts">
   import json from '@data/projects.json'
 
+  interface Project {
+    title: string;
+    copy: {
+      intro?: string;
+      [key: string]: any;
+    };
+    meta: {
+      tags?: Record<string, string>;
+      date?: string;
+      slug?: string;
+      href?: string;
+      [key: string]: any;
+    };
+  }
+
   export default {
     data() {
       return {
@@ -20,7 +35,7 @@
       };
     },
     computed: {
-      project() {
+      project(): Project | null {
         const company = typeof this.company === 'string' ? this.company : this.company?.[0];
         const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0];
         
@@ -57,7 +72,7 @@
         </div>
         <div>
           <em>Year(s)</em>
-          <div>date</div>
+          <div>{{ project?.meta?.date }}</div>
         </div>
         <div>
           <em>Status</em>
