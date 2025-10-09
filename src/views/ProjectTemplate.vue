@@ -65,21 +65,21 @@
   <header v-if="project">
     <img />
     <article>
-      <h1>{{ project?.title }}</h1>
+      <h1>{{ project.title }}</h1>
       <aside>
         <div>
           <em>Company</em>
-          <div>{{company}}</div>
+          <div>{{ company }}</div>
         </div>
         <div>
           <em>Year(s)</em>
-          <div>{{ project?.meta?.date }}</div>
+          <div>{{ project.meta.date }}</div>
         </div>
         <div>
           <em>Status</em>
           <ul>
-            <li :class="'tag'">
-              <!-- <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
+            <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
+              <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
               <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
               <svg v-if="tag == 'beta'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
@@ -89,18 +89,18 @@
               </svg>
               <svg v-if="tag =='shipped'" viewBox="0 0 18 18" height="16" width="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="9" cy="9" r="8" />
-              </svg> -->
-              <span>tag</span>
+              </svg>
+              <span>{{ tag }}</span>
             </li>
           </ul>
         </div>
         <div>
           <em>Team</em>
-          <div>team</div>
+          <div v-html="project.team"></div>
         </div>
       </aside>
       <section>
-        <p>paragraph 1</p>
+        <p>{{ project.copy.sections.intro.p1 }}</p>
       </section>
     </article>
   </header>
