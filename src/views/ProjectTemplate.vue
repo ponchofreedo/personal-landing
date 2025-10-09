@@ -40,59 +40,56 @@
   };
 </script>
 
-<template>
+<template v-if="project">
 
   <!-- start nav -->
   <Navigation />
   <!-- end nav -->
 
-  <div>
-    <header>
-      <img />
-      <article>
-        <h1>{{ project.title }}
-        </h1>
-        <aside>
-          <div>
-            <em>Company</em>
-            <div>{{company}}</div>
-          </div>
-          <div>
-            <em>Year(s)</em>
-            <div>date</div>
-          </div>
-          <div>
-            <em>Status</em>
-            <ul>
-              <li :class="'tag'">
-                <!-- <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
-                <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
-                <svg v-if="tag == 'beta'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
-                </svg>
-                <svg v-if="tag == 'in-dev'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4" stroke-linecap="square" />
-                </svg>
-                <svg v-if="tag =='shipped'" viewBox="0 0 18 18" height="16" width="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="9" cy="9" r="8" />
-                </svg> -->
-                <span>tag</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <em>Team</em>
-            <div>team</div>
-          </div>
-        </aside>
-        <section>
-          <p>paragraph 1</p>
-        </section>
-      </article>
-    </header>
-    <section>
-    </section>
-  </div>
+  <header>
+    <img />
+    <article>
+      <h1>{{ project.title }}</h1>
+      <aside>
+        <div>
+          <em>Company</em>
+          <div>{{company}}</div>
+        </div>
+        <div>
+          <em>Year(s)</em>
+          <div>date</div>
+        </div>
+        <div>
+          <em>Status</em>
+          <ul>
+            <li :class="'tag'">
+              <!-- <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
+              <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
+              <svg v-if="tag == 'beta'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <svg v-if="tag == 'in-dev'" viewBox="0 0 18 18" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4" stroke-linecap="square" />
+              </svg>
+              <svg v-if="tag =='shipped'" viewBox="0 0 18 18" height="16" width="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="8" />
+              </svg> -->
+              <span>tag</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <em>Team</em>
+          <div>team</div>
+        </div>
+      </aside>
+      <section>
+        <p>paragraph 1</p>
+      </section>
+    </article>
+  </header>
+  <section>
+  </section>
 </template>
 
 <style lang="scss" scoped>
