@@ -10,31 +10,11 @@
 
 <script lang="ts">
   import json from '@data/projects.json'
-
+  
   type Project = {
     title: string;
-    copy: {
-      intro: string;
-    };
-    meta: {
-      tags: {
-        private?: string;
-        testing?: string;
-        inDev?: string;
-        beta?: string;
-        shipped?: string;
-        freelance?: string;
-      };
-      date: string;
-      slug: string;
-      href: string;
-    };
-  };
-
-  type Projects = {
-    [company: string]: {
-      [slug: string]: Project;
-    };
+    copy: any;
+    meta: any;
   };
 
   export default {
@@ -46,12 +26,13 @@
       };
     },
     computed: {
-      project(): any {
+      project(): Project | null {
         const company = typeof this.company === 'string' ? this.company : this.company?.[0];
         const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0];
         
         if (!company || !slug) return null;
         
+        // @ts-ignore
         return this.projects[company]?.[slug] || null;
       }
     },
