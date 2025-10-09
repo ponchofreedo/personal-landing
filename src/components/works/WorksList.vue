@@ -31,7 +31,8 @@
             shipped: 'true',  
             freelance:'',
             date: '2023',
-            staticHref:'',
+            slug: 'formula-editor',
+            staticHref:'/works/hubspot/formula-editor',
             target: '_self',
             team: 'HubSpot'
         },
