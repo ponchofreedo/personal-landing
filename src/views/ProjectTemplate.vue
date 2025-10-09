@@ -44,7 +44,8 @@
         const companyProjects = this.projects[company as keyof typeof this.projects];
         if (!companyProjects) return null;
         
-        return companyProjects[slug as keyof typeof companyProjects] || null;
+        const result = companyProjects[slug as keyof typeof companyProjects];
+        return result ? (result as Project) : null;
       }
     },
     created() {
