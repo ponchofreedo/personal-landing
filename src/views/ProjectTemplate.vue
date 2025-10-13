@@ -273,14 +273,26 @@
 
 <style lang="scss" scoped>
 
-  figure:not(figure svg):not(figcaption) {
-    background-color: red;
+  figure {
+    
+    &:not(figure svg) { // this is just a test
+      background-color: $primary__color--background--alt;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: inherit;
+    }
   }
 
   .img {
 
     &--hero {
-      aspect-ratio: 2.5 / 1;
+      border-radius: convertRem(16px);
+      aspect-ratio: 2.6667 / 1; // 1280x480
     }
 
   }
