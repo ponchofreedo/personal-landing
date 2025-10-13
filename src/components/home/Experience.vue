@@ -1,100 +1,7 @@
 <script setup lang="ts">
     import { ref } from 'vue'
     import { RouterLink, RouterView } from 'vue-router'
-
-    // i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
-    const exps = ref([
-        {
-            id: 1,
-            team: 'Whalar',
-            title: 'Lead Product Designer',
-            date: '2025',
-            location:'Remote',
-            freelance: 'true',
-            extra: '',
-            logoFile: 'logo__whalar'
-        },
-        {
-            id: 2,
-            team: 'HubSpot',
-            title: 'Senior Product Designer',
-            date: '2023 - 2024',
-            location:'Remote',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__hubspot'
-        },
-        {
-            id: 3,
-            team: 'Klaviyo',
-            title: 'Senior Product Designer',
-            date: '2021 - 2023',
-            location:'Remote',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__klaviyo'
-        },
-        {
-            id: 4,
-            team: 'Order.co',
-            title: 'Senior Product Designer',
-            date: '2020 - 2021',
-            location:'NYC + remote',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__order'
-        },
-        {
-            id: 5,
-            team: 'Tentrr',
-            title: 'Senior Designer',
-            date: '2018 - 2020',
-            location:'NYC',
-            freelance: '',
-            extra: 'OOB, 2023',
-            logoFile: 'logo__tentrr'
-        },
-        {
-            id: 6,
-            team: 'priceline',
-            title: 'Designer',
-            date: '2015 - 2017',
-            location:'NYC + Norwalk, CT',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__priceline'
-        },
-        {
-            id: 7,
-            team: 'priceline',
-            title: 'Associate Designer',
-            date: '2013 - 2015',
-            location:'NYC + Norwalk, CT',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__priceline'
-        },
-        {
-            id: 8,
-            team: 'priceline',
-            title: 'Design Intern',
-            date: 'Summer 2013',
-            location:'Norwalk, CT',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__priceline'
-        },
-        {
-            id: 9,
-            team: 'Digital Surgeons',
-            title: 'Design Intern',
-            date: 'Summer 2012',
-            location:'New Haven, CT',
-            freelance: '',
-            extra: '',
-            logoFile: 'logo__ds'
-        }
-    ])
+    import { experienceList } from '@data/constants'
 </script>
 
 <template>
@@ -104,20 +11,20 @@
                 <h2>Experience.</h2>
             </aside>
             <section>
-                <article v-for="exp in exps" :key="exp.id" :team="exp.team">
+                <article v-for="experience in experienceList" :key="experience.id" :team="experience.team">
                     <figure>
-                        <icon type="svg" :name="exp.logoFile" />
+                        <icon type="svg" :name="experience.logoFile" />
                     </figure>
-                    <div class="exp__details">
+                    <div class="experience__details">
                         <header>
-                            <h3>{{ exp.title }}</h3>
-                            <span>{{ exp.date }}</span>
+                            <h3>{{ experience.title }}</h3>
+                            <span>{{ experience.date }}</span>
                         </header>
                         <ul>
-                            <li class="exp__team">{{ exp.team }}</li>
-                            <li>{{ exp.location }}</li>
-                            <li v-if="exp.freelance">Freelance</li>
-                            <li v-if="exp.extra">{{ exp.extra }}</li>
+                            <li class="experience__team">{{ experience.team }}</li>
+                            <li>{{ experience.location }}</li>
+                            <li v-if="experience.freelance">Freelance</li>
+                            <li v-if="experience.extra">{{ experience.extra }}</li>
                         </ul>
                     </div>
                 </article>
@@ -180,7 +87,7 @@
         }
     }
 
-    .exp__details {
+    .experience__details {
         display: flex;
         flex-direction: column;
         flex: auto;

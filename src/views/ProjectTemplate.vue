@@ -71,7 +71,9 @@
   <div v-if="project">
     <!-- header start -->
     <header>
-      <img />
+      <figure class="img--hero">
+        <img decoding="async" loading="lazy" sizes="" />
+      </figure>
       <article>
         <h1>{{ project?.title }}</h1>
         <aside>
@@ -270,6 +272,18 @@
 </template>
 
 <style lang="scss" scoped>
+
+  figure:not(figure svg):not(figcaption) {
+    background-color: red;
+  }
+
+  .img {
+
+    &--hero {
+      aspect-ratio: 2.5 / 1;
+    }
+
+  }
 
   ul {
 

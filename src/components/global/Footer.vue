@@ -33,7 +33,7 @@
                     { who: 'Teddy Long', phrase: 'Holla, holla holla!' }
                 ]),
                 randomCatchphrase: '',
-                randomWrestler: '',
+                randomWrestler: ''
             };
         },
         mounted() {

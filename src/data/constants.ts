@@ -88,6 +88,99 @@ export const selectedWorks = [
     }
 ];
 
+export const experienceList = [
+    {
+        id: 1,
+        team: 'Whalar',
+        title: 'Lead Product Designer',
+        date: '2025',
+        location:'Remote',
+        freelance: 'true',
+        extra: '',
+        logoFile: 'logo__whalar'
+    },
+    {
+        id: 2,
+        team: 'HubSpot',
+        title: 'Senior Product Designer',
+        date: '2023 - 2024',
+        location:'Remote',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__hubspot'
+    },
+    {
+        id: 3,
+        team: 'Klaviyo',
+        title: 'Senior Product Designer',
+        date: '2021 - 2023',
+        location:'Remote',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__klaviyo'
+    },
+    {
+        id: 4,
+        team: 'Order.co',
+        title: 'Senior Product Designer',
+        date: '2020 - 2021',
+        location:'NYC + remote',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__order'
+    },
+    {
+        id: 5,
+        team: 'Tentrr',
+        title: 'Senior Designer',
+        date: '2018 - 2020',
+        location:'NYC',
+        freelance: '',
+        extra: 'OOB, 2023',
+        logoFile: 'logo__tentrr'
+    },
+    {
+        id: 6,
+        team: 'priceline',
+        title: 'Designer',
+        date: '2015 - 2017',
+        location:'NYC + Norwalk, CT',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__priceline'
+    },
+    {
+        id: 7,
+        team: 'priceline',
+        title: 'Associate Designer',
+        date: '2013 - 2015',
+        location:'NYC + Norwalk, CT',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__priceline'
+    },
+    {
+        id: 8,
+        team: 'priceline',
+        title: 'Design Intern',
+        date: 'Summer 2013',
+        location:'Norwalk, CT',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__priceline'
+    },
+    {
+        id: 9,
+        team: 'Digital Surgeons',
+        title: 'Design Intern',
+        date: 'Summer 2012',
+        location:'New Haven, CT',
+        freelance: '',
+        extra: '',
+        logoFile: 'logo__ds'
+    }
+];
+
 export const resourceList = [
     {
         id: 1,
@@ -95,7 +188,8 @@ export const resourceList = [
         platform: 'Figma',
         platformIcon: 'brandFigmaOutlined',
         detail: 'A simple community library for pointer and touch gestures.',
-        url: 'https://www.figma.com/community/file/1098810879785324342'
+        url: 'https://www.figma.com/community/file/1098810879785324342',
+        state: ''
     },
     {
         id: 2,
@@ -103,7 +197,8 @@ export const resourceList = [
         platform: 'Figma',
         platformIcon: 'brandFigmaOutlined',
         detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days?',
-        url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645'
+        url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645',
+        state: ''
     },
     {
         id: 3,
@@ -111,7 +206,8 @@ export const resourceList = [
         platform: 'Discord',
         platformIcon: 'brandDiscord',
         detail: 'What started as a random COVID-era Zoom coffee meetup for solo designers at startups in various countries later became a community for those of us that have been on our own or are starting out in our careers.',
-        url: 'https://discord.gg/AdqW5S8'
+        url: 'https://discord.gg/AdqW5S8',
+        state: ''
     },
     {
         id: 4,
@@ -124,3 +220,32 @@ export const resourceList = [
 
     }
 ];
+
+export const catchphrases = [
+    { who: 'Stone Cold Steve Austin', phrase: 'Gimme a Hell Yeah!' },
+    { who: 'Stone Cold Steve Austin', phrase: 'What?' },
+    { who: 'Stone Cold Steve Austin', phrase: 'And that\'s the bottom line...' },
+    { who: 'Mick Foley', phrase: 'Have a nice day!' },
+    { who: 'Cactus Jack', phrase: 'Bang Bang!' },
+    { who: 'Dude Love', phrase: 'Oooooow have mercy!' },
+    { who: 'Booker T', phrase: 'Can you dig it, sucka?' },
+    { who: 'Bret Hart', phrase: 'The best there is...' },
+    { who: 'Chris Jericho', phrase: 'You just made the list!' },
+    { who: 'DX', phrase: 'If you\'re not down with that...' },
+    { who: 'DX', phrase: '...we got TWO WORDS for ya!' },
+    { who: 'Hacksaw Jim Duggan', phrase: 'HOOOOOOOOOO!' },
+    { who: 'Kurt Angle', phrase: 'It\'s true...it\'s damn true.' },
+    { who: 'NWO', phrase: 'NWO for life.' },
+    { who: 'Road Dogg', phrase: 'Oh, you did\'t know?' },
+    { who: 'Ric Flair', phrase: 'WOOOOOOOOOOOOOO!' },
+    { who: 'Macho Man Randy Savage', phrase: 'OHHHHH YEAAAAAAAAH!' },
+    { who: 'The Rock', phrase: 'Know your role...' },
+    { who: 'The Rock', phrase: 'Finally...' },
+    { who: 'The Rock', phrase: 'IF YA SMELLLLLLlLlLlL oooooooo...' },
+    { who: 'Ron Simmons', phrase: 'DAMN!' },
+    { who: 'Dudley Boyz', phrase: 'GET THE TABLES!' },
+    { who: 'Teddy Long', phrase: 'Holla, holla holla!' }
+];
+
+export const randomCatchphrase = '';
+export const randomWrestler = '';
