@@ -2,6 +2,7 @@
   import { ref } from 'vue'
   import Navigation from '@global/Navigation.vue'
   import Footer from '@global/Footer.vue'
+  // import { projectImages, getImageUrl } from '@data/constants'
 
   defineOptions({
     inheritAttrs: false
@@ -30,6 +31,11 @@
       href?: string;
       [key: string]: any;
     };
+    img: {
+      fileName?: string;
+      alt?: string;
+      [key: string]: any;
+    }
     team: string;
   }
 
@@ -72,7 +78,12 @@
     <!-- header start -->
     <header>
       <figure class="img--hero">
-        <img decoding="async" loading="lazy" sizes="" />
+        <img
+          :src="`/img/projects/${company}/${slug}/${project.img[0].fileName}`" 
+          decoding="async"
+          loading="lazy"
+          sizes=""
+        />
       </figure>
       <article>
         <h1>{{ project?.title }}</h1>

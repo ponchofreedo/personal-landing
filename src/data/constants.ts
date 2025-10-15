@@ -249,3 +249,10 @@ export const catchphrases = [
 
 export const randomCatchphrase = '';
 export const randomWrestler = '';
+
+export const projectImages = import.meta.glob('@img/projects/**/*', { eager: true, import: 'default' })
+
+export const getImageUrl = (company: string, slug: string, fileName: string) => {
+    const path = `/src/assets/img/projects/${company}/${slug}/${fileName}`
+    return projectImages[path] as string
+};

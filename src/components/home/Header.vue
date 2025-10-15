@@ -1,11 +1,11 @@
 <script setup lang="ts">
     import { onMounted } from 'vue'
-
+    
     onMounted(() => {
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'auto'
+            behavior: 'smooth'
         })
     })
 </script>
@@ -42,6 +42,7 @@
                 <h1>An <span class="highlight">experienced product design nerd</span>, creative problem solver, builder of cool sh*t, and mildly mediocre funny man.</h1>
                 <p class="text--big">I enjoy crafting frictionless experiences, solving complex problems, and learning about UX engineering. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</p>
                 <footer>
+                    <small>NY born and bred. Based in Stamford, CT. Go Birds.</small>
                     <RouterLink to="" v-on:click.native="scrollToWorks()"><icon type="icon" name="iconArrowSquareDown" /></RouterLink>
                 </footer>
             </section>
@@ -91,21 +92,28 @@
 
         p {
             @include text-style(h2, book, ui);
-            color: $primary__color--text--darker;
+            color: $primary__color--text--muted;
         }
     }
 
     footer {
         margin-top: convertRem(80px);
-    }
 
-    footer a {
-        width: fit-content;
-    }
+        small {
+            display: inherit;
+            margin-bottom: convertRem(16px);
+            @include text-style(p, medium, ui);
+            color: $primary__color--text--darker;
+        }        
 
-    footer svg {
-        height: convertRem(32px);
-        width: auto;
+        a {
+            width: fit-content;
+        }
+
+        svg {
+            height: convertRem(32px);
+            width: auto;
+        }
     }
 
     h1 {
@@ -114,7 +122,6 @@
 
     a {
         color: $primary__color--accent;
-        text-decoration: underline solid 4px;
-        text-decoration: underline solid 0.25rem; 
+        text-decoration: underline solid convertRem(4px);
     }
 </style>

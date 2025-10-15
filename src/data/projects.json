@@ -60,7 +60,11 @@
           "slug": "create-edit",
           "href": "/works/create-edit"
         },
-        "team": "1D&#128075;&#127996;, 1EM, 1PM, 1SWE"
+        "team": "1D&#128075;&#127996;, 1EM, 1PM, 1SWE",
+        "slug": "create-edit",
+        "img": [
+          { "fileName": "hero_1.jpg", "alt": "New designs for creating and editing properties in HubSpot" }
+        ]
       },
       "date-time-props": {
 
