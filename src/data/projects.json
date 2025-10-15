@@ -64,7 +64,10 @@
         "company": "HubSpot",
         "slug": "create-edit",
         "img": [
-          { "fileName": "hero__1.jpg", "alt": "New designs for creating and editing properties in HubSpot" }
+          { "fileName": "hero__1.jpg", "alt": "New designs for creating and editing properties in HubSpot" },
+          { "fileName": "feature__1--mini.jpg", "alt": "Status and badge indicators for the new sidebar nav" },
+          { "fileName": "feature__2--mini.mp4", "alt": "Smooth transition for adding more options to multi-option properties" },
+          { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" }
         ]
       },
       "date-time-props": {

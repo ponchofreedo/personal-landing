@@ -139,18 +139,31 @@
     </section>
     <!-- context end -->
     <!-- 3-col image start -->
-    <section>
-      <main>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
+    <section class="container__feature-images">
+        <figure class="img--feature">
+          <img
+            :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`" 
+            decoding="async"
+            loading="lazy"
+            sizes=""
+          />
         </figure>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
+        <figure class="img--feature">
+          <video autoplay muted loop>
+             <source :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" type="video/mp4">
+          </video>
+          <!-- <img
+            :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" 
+            decoding="async"
+            loading="lazy"
+            sizes=""
+          /> -->
         </figure>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
+        <figure class="img--feature">
+          <video autoplay muted loop>
+             <source :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`" type="video/mp4">
+          </video>
         </figure>
-      </main>
     </section>
     <!-- 3-col image end -->
     <!-- opportunity start -->
@@ -283,6 +296,21 @@
 
 <style lang="scss" scoped>
 
+  .container__feature-images {
+    display: grid;
+    place-items: start;
+    grid-template-columns: repeat(3, minmax(convertRem(240px), 1fr));
+    column-gap: convertRem(40px);
+
+    main {
+    }
+
+    figure {
+      display: inherit;
+      flex: 1;
+    }
+  }
+
   figure {
     
     &:not(figure svg) { // this is just a test
@@ -296,13 +324,27 @@
       object-position: center center;
       border-radius: inherit;
     }
+
+    video {
+      border-radius: convertRem(16px);
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .img {
 
-    &--hero {
+    &--hero,
+    &--feature {
       border-radius: convertRem(16px);
-      aspect-ratio: 2.6667 / 1; // 1280x480
+    }
+
+    &--hero {
+       aspect-ratio: 2.6667 / 1; // 1280x480
+    }
+
+    &--feature {
+      aspect-ratio: 5 / 3;
     }
 
   }
