@@ -37,6 +37,7 @@ export const selectedWorks = [
         date: '2024',
         slug: 'create-edit',
         staticHref:'/works/hubspot/create-edit',
+        heroImg: 'hero__list.jpg',
         target: '_self',
         team: 'HubSpot'
     },
@@ -221,38 +222,41 @@ export const resourceList = [
     }
 ];
 
-export const catchphrases = [
-    { who: 'Stone Cold Steve Austin', phrase: 'Gimme a Hell Yeah!' },
-    { who: 'Stone Cold Steve Austin', phrase: 'What?' },
-    { who: 'Stone Cold Steve Austin', phrase: 'And that\'s the bottom line...' },
-    { who: 'Mick Foley', phrase: 'Have a nice day!' },
-    { who: 'Cactus Jack', phrase: 'Bang Bang!' },
-    { who: 'Dude Love', phrase: 'Oooooow have mercy!' },
-    { who: 'Booker T', phrase: 'Can you dig it, sucka?' },
-    { who: 'Bret Hart', phrase: 'The best there is...' },
-    { who: 'Chris Jericho', phrase: 'You just made the list!' },
-    { who: 'DX', phrase: 'If you\'re not down with that...' },
-    { who: 'DX', phrase: '...we got TWO WORDS for ya!' },
-    { who: 'Hacksaw Jim Duggan', phrase: 'HOOOOOOOOOO!' },
-    { who: 'Kurt Angle', phrase: 'It\'s true...it\'s damn true.' },
-    { who: 'NWO', phrase: 'NWO for life.' },
-    { who: 'Road Dogg', phrase: 'Oh, you did\'t know?' },
-    { who: 'Ric Flair', phrase: 'WOOOOOOOOOOOOOO!' },
-    { who: 'Macho Man Randy Savage', phrase: 'OHHHHH YEAAAAAAAAH!' },
-    { who: 'The Rock', phrase: 'Know your role...' },
-    { who: 'The Rock', phrase: 'Finally...' },
-    { who: 'The Rock', phrase: 'IF YA SMELLLLLLlLlLlL oooooooo...' },
-    { who: 'Ron Simmons', phrase: 'DAMN!' },
-    { who: 'Dudley Boyz', phrase: 'GET THE TABLES!' },
-    { who: 'Teddy Long', phrase: 'Holla, holla holla!' }
-];
+// somethings not working correctly, so fix it later
+// export const catchphrases = [
+//     { who: 'Stone Cold Steve Austin', phrase: 'Gimme a Hell Yeah!' },
+//     { who: 'Stone Cold Steve Austin', phrase: 'What?' },
+//     { who: 'Stone Cold Steve Austin', phrase: 'And that\'s the bottom line...' },
+//     { who: 'Mick Foley', phrase: 'Have a nice day!' },
+//     { who: 'Cactus Jack', phrase: 'Bang Bang!' },
+//     { who: 'Dude Love', phrase: 'Oooooow have mercy!' },
+//     { who: 'Booker T', phrase: 'Can you dig it, sucka?' },
+//     { who: 'Bret Hart', phrase: 'The best there is...' },
+//     { who: 'Chris Jericho', phrase: 'You just made the list!' },
+//     { who: 'DX', phrase: 'If you\'re not down with that...' },
+//     { who: 'DX', phrase: '...we got TWO WORDS for ya!' },
+//     { who: 'Hacksaw Jim Duggan', phrase: 'HOOOOOOOOOO!' },
+//     { who: 'Kurt Angle', phrase: 'It\'s true...it\'s damn true.' },
+//     { who: 'NWO', phrase: 'NWO for life.' },
+//     { who: 'Road Dogg', phrase: 'Oh, you did\'t know?' },
+//     { who: 'Ric Flair', phrase: 'WOOOOOOOOOOOOOO!' },
+//     { who: 'Macho Man Randy Savage', phrase: 'OHHHHH YEAAAAAAAAH!' },
+//     { who: 'The Rock', phrase: 'Know your role...' },
+//     { who: 'The Rock', phrase: 'Finally...' },
+//     { who: 'The Rock', phrase: 'IF YA SMELLLLLLlLlLlL oooooooo...' },
+//     { who: 'Ron Simmons', phrase: 'DAMN!' },
+//     { who: 'Dudley Boyz', phrase: 'GET THE TABLES!' },
+//     { who: 'Teddy Long', phrase: 'Holla, holla holla!' }
+// ];
 
-export const randomCatchphrase = '';
-export const randomWrestler = '';
+// export const randomCatchphrase = '';
+// export const randomWrestler = '';
 
-export const projectImages = import.meta.glob('@img/projects/**/*', { eager: true, import: 'default' })
 
-export const getImageUrl = (company: string, slug: string, fileName: string) => {
-    const path = `/src/assets/img/projects/${company}/${slug}/${fileName}`
-    return projectImages[path] as string
-};
+// save these for a rainy day
+// export const projectImages = import.meta.glob('@img/projects/**/*', { eager: true, import: 'default' })
+
+// export const getImageUrl = (company: string, slug: string, fileName: string) => {
+//     const path = `/src/assets/img/projects/${company}/${slug}/${fileName}`
+//     return projectImages[path] as string
+// };

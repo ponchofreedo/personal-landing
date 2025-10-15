@@ -13,7 +13,12 @@
                 <article v-for="selectedWork in selectedWorks" :key="selectedWork.id" :team="selectedWork.team">
                     <a :href="'/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug" :target="selectedWork.target">
                         <figure>
-                            <img decoding="async" loading="lazy" width="2560" height="1280" sizes="max(min(100vw - 200px, 1440px) * 0.6, 1px)" />
+                            <img
+                                :src="`/img${selectedWork.staticHref}/${selectedWork.heroImg}`"
+                                decoding="async" 
+                                loading="lazy" 
+                                sizes=""
+                            />
                         </figure>
                         <div class="snackbar">
                             <span>{{ selectedWork.team }}</span>
@@ -65,7 +70,7 @@
 
     section {
         
-        #works {
+        #works__list {
             @include inner-flex-container;
         }
 
@@ -122,7 +127,7 @@
         aspect-ratio: 2 / 1;
         border-radius: convertRem(16px);
         background-color: $ui__color--neutral;
-        opacity: 0.8;
+        opacity: 0.96;
         will-change: transform;
         transition: opacity 0.2s ease-in-out;
 
