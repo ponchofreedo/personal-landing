@@ -61,6 +61,9 @@
                         <p>{{ selectedWork.preview }}</p>
                     </RouterLink>
                 </article>
+                <footer>
+                    <p>More projects coming soon!</p>
+                </footer>
             </section>
         </main>
     </section>
@@ -157,6 +160,14 @@
 
     p {
         color: $primary__color--text--muted;
+    }
+
+    footer {
+        p {
+            @include text-style(h3, medium, display);
+            color: $primary__color--accent;
+            text-align: center;
+        }
     }
 
     @media (max-width: 720px) {
