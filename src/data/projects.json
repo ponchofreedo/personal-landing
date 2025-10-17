@@ -62,6 +62,7 @@
         },
         "team": "1D&#128075;&#127996;, 1EM, 1PM, 1SWE",
         "company": "HubSpot",
+        "company_url": "https://www.hubspot.com/",
         "slug": "create-edit",
         "img": [
           { "fileName": "hero__1.jpg", "alt": "New designs for creating and editing properties in HubSpot" },

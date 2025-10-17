@@ -27,7 +27,7 @@
                 <RouterLink to="/cv"><span>CV</span></RouterLink>
             </li> -->
             <li>
-                <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank"><span>R&eacute;sum&eacute;</span></a>
+                <a href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=drive_link" target="_blank"><span>R&eacute;sum&eacute;</span></a>
             </li>
         </ul>
         <ul>

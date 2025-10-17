@@ -36,6 +36,7 @@
       [key: string]: any;
     }
     company: string;
+    company_url: string;
     team: string;
   }
 
@@ -82,7 +83,7 @@
         <aside>
           <div class="content__meta">
             <em class="content__meta__title">Company</em>
-            <div class="content__meta__value"><a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">{{ project?.company }}<icon type="icon" name="iconArrowSquareUpRight" /></a></div>
+            <div class="content__meta__value"><a :href="project?.company_url" target="_blank" class="link link--inline">{{ project?.company }}<icon type="icon" name="iconArrowSquareUpRight" /></a></div>
           </div>
           <div class="content__meta">
             <em class="content__meta__title">Year(s)</em>
