@@ -29,7 +29,7 @@
                     </div>
                 </article>
                 <footer>
-                    <p>Grab a copy of <a href="https://drive.google.com/file/d/1TXfsN4rRj39buzPWenTnIZ2tC2Zzx6Qk/view?usp=sharing" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a></p>
+                    <p>Grab a copy of <a href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing" target="_blank" class="link link--inline">my r&eacute;sum&eacute;<icon type="icon" name="iconDownload" /></a></p>
                 </footer>
             </section>
         </main>
