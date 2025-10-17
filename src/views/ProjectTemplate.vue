@@ -473,11 +473,9 @@
 
       &--hero {
         margin: convertRem(80px) 0;
-        aspect-ratio: 2.6667 / 1; // 1280x480
       }
 
       &--feature {
-        aspect-ratio: 5 / 3;
       }
     }
   }
