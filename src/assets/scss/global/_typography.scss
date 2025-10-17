@@ -186,23 +186,6 @@ em,
   line-height: $text__line-height--fixed;
 }
 
-/* link styles here for now to be referenced globally */
-.link,
-.link:link,
-.link:active,
-.link:visited {
-    color: $primary__color--accent;
-}
-
-.link--inline {
-  font-weight: $text__font-weight--semibold;
-  text-decoration: underline solid convertRem(2px);
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--semibold;
-  }
-}
-
 .highlight {
   color: $primary__color--accent;
 }

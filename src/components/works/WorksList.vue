@@ -24,7 +24,7 @@
                                 sizes=""
                             />
                         </figure>
-                        <div class="snackbar">
+                        <div class="tag__snackbar snackbar--no-gap">
                             <span>{{ selectedWork.team }}</span>
                             <ul>
                                 <li class="tag tag--private" v-if="selectedWork.private">
@@ -149,87 +149,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: convertRem(8px);
-    }
-
-    .snackbar {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-
-
-        span:not(li span) {
-            position: relative;
-            font-size: convertRem($text__font-size--p);
-            font-weight: $text__font-weight--normal;
-            line-height: $text__line-height--fixed;
-            padding: convertRem(8px) 0;
-            flex-wrap: inherit;
-            color: $primary__color--text--darker;
-
-            &:first-of-type {
-                font-weight: $text__font-weight--semibold;
-
-                &:has(+ ul) {
-                    margin-right: 32px;
-
-                    &::after {
-                        position: absolute;
-                        content: '';
-                        top: convertRem(14px);
-                        right: convertRem(-17px);
-                        display: inline-block;
-                        vertical-align: middle;
-                        height: convertRem(4px);
-                        width: convertRem(4px);
-                        border-radius: convertRem(999px);
-                        background-color: $ui__color--neutral;
-                    }
-                }
-            }
-
-            &:last-of-type {
-                flex: auto;
-                font-weight: $text__font-weight--medium;
-                text-align: right;
-            }
-        }
-    }
-
-    li {
-        position: relative;
-        height: unset;
-        display: inline-flex;
-        align-items: center;
-        font-size: convertRem($text__font-size--p);
-        line-height: $text__line-height--fixed;
-        padding-left: convertRem(12px);
-        padding-right: convertRem(12px);
-
-        &:first-child {
-            padding-left: 0;
-        }
-
-        &:last-child {
-            padding-right: 0;
-
-            &::after {
-                display: none;
-            }
-        }
-
-        &::after {
-            position: absolute;
-            content: '';
-            top: convertRem(14px);
-            right: convertRem(-7px);
-            display: inline-block;
-            vertical-align: middle;
-            height: convertRem(4px);
-            width: convertRem(4px);
-            border-radius: convertRem(999px);
-            background-color: $ui__color--neutral;
-        }
     }
 
     h3 {

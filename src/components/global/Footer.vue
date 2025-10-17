@@ -134,6 +134,15 @@
         main {
             @include split-column-layout-container;
         }
+
+        #anchor {
+            align-self: flex-end;
+
+            svg {
+                color: currentColor;
+                height: convertRem(32px);
+            }
+        }
     }
 
     aside {
@@ -184,14 +193,6 @@
             height: convertRem(24px);
             width: auto;
             color: currentColor;
-        }
-
-        &#anchor {
-            align-self: flex-end;
-
-            svg {
-                height: convertRem(32px);
-            }
         }
     }
 

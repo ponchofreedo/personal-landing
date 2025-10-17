@@ -1,0 +1,34 @@
+@use "@scss/functions" as *;
+@use "@scss/vars" as *;
+
+/* support classes for tags */
+/* link styles here for now to be referenced globally */
+.link,
+.link:link,
+.link:active,
+.link:visited {
+    color: $primary__color--accent;
+}
+
+.link--inline {
+  display: inline-flex;
+  align-items: center;
+  gap: convertRem(4px);
+  font-weight: $text__font-weight--semibold;
+  text-decoration: underline solid convertRem(2px);
+  color: inherit;
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' $text__font-weight--semibold;
+  }
+
+  svg,
+  + svg {
+    display: inline-flex;
+    vertical-align: text-top;
+    height: convertRem(16px);
+    width: auto;
+    margin-top: convertRem(1px);
+    margin-right: convertRem(2px);
+  }
+}

@@ -73,31 +73,23 @@
   <!-- start nav -->
   <Navigation />
   <!-- end nav -->
-  <div v-if="project">
+  <section v-if="project" class="container__project">
     <!-- header start -->
-    <header>
-      <figure class="img--hero">
-        <img
-          :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
-          decoding="async"
-          loading="lazy"
-          sizes=""
-        />
-      </figure>
-      <article>
-        <h1>{{ project?.title }}</h1>
+    <header class="container__content">
+      <h1>{{ project?.title }}</h1>
+      <article class="container__content__inner">
         <aside>
-          <div>
-            <em>Company</em>
-            <div>{{ company }}</div>
+          <div class="content__meta">
+            <em class="content__meta__title">Company</em>
+            <div class="content__meta__value"><a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">{{ project?.company }}<icon type="icon" name="iconArrowSquareUpRight" /></a></div>
           </div>
-          <div>
-            <em>Year(s)</em>
-            <div>{{ project?.meta?.date }}</div>
+          <div class="content__meta">
+            <em class="content__meta__title">Year(s)</em>
+            <div class="content__meta__value">{{ project?.meta?.date }}</div>
           </div>
-          <div>
-            <em>Status</em>
-            <ul>
+          <div class="content__meta">
+            <em class="content__meta__title">Status</em>
+            <ul class="tag__snackbar snackbar__inline">
               <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
                 <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
                 <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
@@ -114,20 +106,28 @@
               </li>
             </ul>
           </div>
-          <div>
-            <em>Team</em>
-            <div v-html="project?.team"></div>
+          <div class="content__meta">
+            <em class="content__meta__title">Team</em>
+            <div class="content__meta__value" v-html="project?.team"></div>
           </div>
         </aside>
         <section>
-          <p>{{ project.copy.sections.intro.p1 }}</p>
+          <p class="text--big">{{ project.copy.sections.intro.p1 }}</p>
         </section>
       </article>
     </header>
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
     <!-- header end -->
     <!-- context start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.context?.title }}</h2>
         </aside>
@@ -140,42 +140,42 @@
     <!-- context end -->
     <!-- 3-col image start -->
     <section class="container__feature-images">
-        <figure class="img--feature">
-          <img
-            :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`" 
-            decoding="async"
-            loading="lazy"
-            sizes=""
-          />
-        </figure>
-        <figure class="img--feature">
-          <video autoplay muted loop>
-             <source :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" type="video/mp4">
-          </video>
-          <!-- <img
-            :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" 
-            decoding="async"
-            loading="lazy"
-            sizes=""
-          /> -->
-        </figure>
-        <figure class="img--feature">
-          <video autoplay muted loop>
-             <source :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`" type="video/mp4">
-          </video>
-        </figure>
+      <figure class="media__img--feature">
+        <img
+          :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`" 
+          decoding="async"
+          loading="lazy"
+          sizes=""
+        />
+      </figure>
+      <figure class="media__img--feature">
+        <video autoplay muted loop>
+           <source :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" type="video/mp4">
+        </video>
+        <!-- <img
+          :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" 
+          decoding="async"
+          loading="lazy"
+          sizes=""
+        /> -->
+      </figure>
+      <figure class="media__img--feature">
+        <video autoplay muted loop>
+           <source :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`" type="video/mp4">
+        </video>
+      </figure>
     </section>
     <!-- 3-col image end -->
     <!-- opportunity start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.opportunity?.title }}</h2>
         </aside>
         <section>
           <p>{{ project?.copy?.sections?.opportunity?.p1 }}</p>
-          <ul>
-            <li v-for="goal in project?.copy?.sections?.goals">
+          <ul class="content__goals">
+            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
               <div>
                 <em>Goal</em>
                 <span v-html="goal.goal"></span>
@@ -187,8 +187,8 @@
     </section>
     <!-- opportunity end -->
     <!-- creation part 1 start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
         </aside>
@@ -199,7 +199,7 @@
     </section>
     <!-- creation part 1 end -->
     <!-- hero image start -->
-    <section>
+    <section class="media__img--hero">
       <main>
         <figure>
           <img decoding="async" loading="lazy" sizes="" />
@@ -208,8 +208,8 @@
     </section>
     <!-- hero image end -->
     <!-- creation part 2 start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
         </aside>
@@ -220,7 +220,7 @@
     </section>
     <!-- creation part 2 end -->
     <!-- hero image start -->
-    <section>
+    <section class="media__img--hero">
       <main>
         <figure>
           <img decoding="async" loading="lazy" sizes="" />
@@ -229,8 +229,8 @@
     </section>
     <!-- hero image end -->
     <!-- creation part 3 start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
         </aside>
@@ -241,8 +241,8 @@
     </section>
     <!-- creation part 3 end -->
     <!-- manage start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.manage?.title }}</h2>
         </aside>
@@ -264,18 +264,21 @@
     </section>
     <!-- manage end -->
     <!-- retro start -->
-    <section>
-      <article>
+    <section class="container__content">
+      <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.retro?.title }}</h2>
         </aside>
         <section>
           <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
-          <ul>
-            <li v-for="goal in project?.copy?.sections?.goals">
+          <ul class="content__goals">
+            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
               <div>
                 <em>Goal</em>
                 <span v-html="goal.goal"></span>
+              </div>
+              <div>
+                <em>Result</em>
                 <span v-html="goal.result"></span>
               </div>
             </li>
@@ -286,35 +289,154 @@
       </article>
     </section>
     <!-- retro end -->
-  </div>
-  <div v-else>
+  </section>
+  <section v-else>
     <header>
       <div>project not found</div>
     </header>
-  </div>
+  </section>
+
+  <!-- start footer -->
+  <Footer />
+  <!-- end footer -->
 </template>
 
 <style lang="scss" scoped>
 
-  .container__feature-images {
-    display: grid;
-    place-items: start;
-    grid-template-columns: repeat(3, minmax(convertRem(240px), 1fr));
-    column-gap: convertRem(40px);
+  .container {
 
-    main {
+    &__project {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      align-self: center;
+
+      aside {
+        @include split-column-layout-side(left);
+
+        p {
+          @include text-style(p, medium, base);
+        }
+      }
+    }
+    
+    &__content {
+      @include inner-flex-container;
+      margin: convertRem(80px) 0;
+
+      &__inner {
+        @include split-column-layout-container;
+
+        article:first-of-type {
+        }
+      }
     }
 
-    figure {
-      display: inherit;
-      flex: 1;
+    &__feature-images {
+      display: grid;
+      place-items: start;
+      grid-template-columns: repeat(3, minmax(convertRem(240px), 1fr));
+      column-gap: convertRem(40px);
+      margin: convertRem(80px) 0;
     }
+  }
+
+  .content {
+
+    &__meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: left;
+      margin-bottom: convertRem(16px);
+      gap: convertRem(16px);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &__title {
+        min-width: convertRem(80px);
+        color: $primary__color--text--darker;
+      }
+
+      &__value {
+        text-transform: capitalize;
+      }
+
+      .tag {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &__goals {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+      align-self: center;
+      margin-top: convertRem(32px);
+      row-gap: convertRem(8px);
+
+      + p {
+        margin-top: convertRem(32px);
+      }
+    }
+
+    &__goal {
+      padding: convertRem(24px);
+      background-color: $primary__color--background--alt;
+      border-radius: convertRem(16px);
+      @include text-style(p, book, base);
+
+      div {
+        display: flex;
+        flex-flow: row;
+        column-gap: convertRem(16px);
+        place-items: center;
+
+        &:nth-of-type(2) {
+          margin-top: convertRem(16px);
+          border-top: convertRem(2px) solid $primary__color--background;
+          padding-top: convertRem(16px);
+
+          em { 
+            color: $primary__color--accent;
+          }
+        }
+      }
+
+      em {
+        min-width: convertRem(64px);
+        text-transform: capitalize;
+        color: $primary__color--text--darker;
+      }
+
+      span {
+        text-transform: none;
+      }
+    }
+  }
+
+  header {
+    margin: convertRem(80px) 0 0!important;
+    font-size: convertRem(16px);
+    gap: convertRem(32px);
+
+    p {
+      color: $primary__color--text--darker;
+    }
+  }
+
+  h2,
+  aside p {
+    color: $primary__color--text--darker;
   }
 
   figure {
     
     &:not(figure svg) { // this is just a test
-      background-color: $primary__color--background--alt;
+      background-color: transparent;
     }
 
     img {
@@ -330,23 +452,39 @@
       height: 100%;
       width: 100%;
     }
+
+    figcaption {
+      margin-top: convertRem(8px);
+      @include text-style(small, book, base);
+      color: $primary__color--text--muted;
+    }
   }
 
-  .img {
+  .media {
 
-    &--hero,
-    &--feature {
-      border-radius: convertRem(16px);
+    &__img {
+
+      &--hero,
+      &--feature {
+        border-radius: convertRem(16px);
+      }
+
+      &--hero {
+        margin: convertRem(80px) 0;
+        aspect-ratio: 2.6667 / 1; // 1280x480
+      }
+
+      &--feature {
+        aspect-ratio: 5 / 3;
+      }
     }
+  }
 
-    &--hero {
-       aspect-ratio: 2.6667 / 1; // 1280x480
+  p {
+    
+    + p {
+      margin-top: convertRem(16px);
     }
-
-    &--feature {
-      aspect-ratio: 5 / 3;
-    }
-
   }
 
   ul {
@@ -364,11 +502,15 @@
     }
   }
 
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+  #footer {
+    @include inner-flex-container;
   }
-}
+
+  @media (min-width: 1024px) {
+    .about {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+  }
 </style>

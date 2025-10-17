@@ -169,11 +169,6 @@
                 margin-top: convertRem(16px);
             }
         }
-
-        svg {
-            height: convertRem(16px);
-            width: auto;
-        }
     }
 
     @media (max-width: 720px) {

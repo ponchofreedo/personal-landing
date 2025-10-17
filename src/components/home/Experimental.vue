@@ -110,24 +110,8 @@
         }
     }
 
-    footer a {
-        display: inline-flex;
-        align-items: center;
-        gap: convertRem(4px);
-        color: inherit;
-    }
-
     footer p + p {
         margin-top: convertRem(16px);
-    }
-
-    footer svg {
-        display: inline-flex;
-        vertical-align: text-top;
-        height: convertRem(16px);
-        width: auto;
-        margin-top: convertRem(1px);
-        margin-right: convertRem(2px);
     }
 
     @media (max-width: 720px) {
