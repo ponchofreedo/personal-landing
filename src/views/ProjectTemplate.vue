@@ -35,6 +35,7 @@
       alt?: string;
       [key: string]: any;
     }
+    company: string;
     team: string;
   }
 
