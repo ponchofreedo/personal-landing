@@ -208,7 +208,9 @@
       <vue-image-zoomer 
         :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
         :zoom="`/img/works/${company}/${slug}/${project.img[5].fileName}`"
-        img-class="media__image--zoom" />
+        img-width="1280"
+        img-height="100%"
+        img-class="media__img--zoom" />
       <!-- <img
         :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
         decoding="async"
@@ -497,6 +499,9 @@
       }
 
       &--zoom {
+        height: 100%;
+        width: 100%;
+        max-width: convertRem(1280px);
       }
     }
   }

@@ -54,4 +54,14 @@
     }
   }
 
+  // style overrides for the image zoom component
+  .media__img--hero {
+    .vh--holder {
+        height: 100%;
+        width: 100%;
+        max-width: convertRem(1280px)!important;
+        border-radius: convertRem(16px)!important;
+    }
+  }
+
 </style>
