@@ -76,7 +76,8 @@
           { "fileName": "feature__1--mini.jpg", "alt": "Status and badge indicators for the new sidebar nav" },
           { "fileName": "feature__2--mini.mp4", "alt": "Smooth transition for adding more options to multi-option properties" },
           { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" },
-          { "fileName": "hero__2.jpg", "alt": "Example of the old, rigid flow with some audit commentary" }
+          { "fileName": "hero__2.jpg", "alt": "Example of the old, rigid flow with some audit commentary" },
+          { "fileName": "hero__2--zoom.jpg", "alt": "Example of the old, rigid flow with some audit commentary" }
         ]
       },
       "date-time-props": {

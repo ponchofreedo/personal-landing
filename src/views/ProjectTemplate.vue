@@ -2,6 +2,8 @@
   import { ref } from 'vue'
   import Navigation from '@global/Navigation.vue'
   import Footer from '@global/Footer.vue'
+  import { VueImageZoomer } from 'vue-image-zoomer'
+  import 'vue-image-zoomer/dist/style.css'
 
   defineOptions({
     inheritAttrs: false
@@ -202,12 +204,16 @@
     <!-- creation part 1 end -->
     <!-- hero image start -->
     <figure class="media__img--hero">
-      <img
+      <vue-image-zoomer 
+        :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
+        :zoom="`/img/works/${company}/${slug}/${project.img[5].fileName}`"
+        img-class="media__image--zoom" />
+      <!-- <img
         :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
         decoding="async"
         loading="lazy"
         sizes=""
-      />
+      /> -->
     </figure>
     <!-- hero image end -->
     <!-- creation part 2 start -->
@@ -443,6 +449,13 @@
       background-color: transparent;
     }
 
+    picture {
+
+      img {
+        border-radius: convertRem(16px);
+      }
+    }
+
     img {
       height: 100%;
       width: 100%;
@@ -451,6 +464,7 @@
       border-radius: inherit;
     }
 
+    picture,
     video {
       border-radius: convertRem(16px);
       height: 100%;
@@ -469,7 +483,8 @@
     &__img {
 
       &--hero,
-      &--feature {
+      &--feature,
+      &--zoom {
         border-radius: convertRem(16px);
       }
 
@@ -478,6 +493,9 @@
       }
 
       &--feature {
+      }
+
+      &--zoom {
       }
     }
   }
