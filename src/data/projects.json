@@ -40,11 +40,15 @@
             },
             "creation": {
               "title": "Creation: reducing rigidity.",
-              "p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
-              "p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for users.",
-              "p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
-              "p4": "Going back meant needing to go all the way back. This became a regular headache for most users.",
-              "p5": "By changing the flow to be non-linear, we could improve several things related to this problem."
+              "//p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
+              "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for users.",
+              "p2": "If a user had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
+              "p3": "Going back meant needing to go all the way back. This problem in itself almost became a battle cry based on the number of times it was shared in feedback.",
+              "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
+              "p4": "Sadly, this was even more painful for more complex property types where maybe a user had spent several minutes trying to create and test a custom formula.",
+              "//p4": "Going back meant needing to go all the way back. This became a regular headache for most users.",
+              "p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem."
             },
             "manage": {
               "title": "Manage: removing friction by unifying experiences.",

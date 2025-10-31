@@ -191,18 +191,6 @@
       </article>
     </section>
     <!-- opportunity end -->
-    <!-- creation part 1 start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
-        </section>
-      </article>
-    </section>
-    <!-- creation part 1 end -->
     <!-- hero image start -->
     <figure class="media__img--hero">
       <vue-image-zoomer 
@@ -219,19 +207,54 @@
       /> -->
     </figure>
     <!-- hero image end -->
+    <!-- creation part 1 start -->
+    <section class="container__content">
+      <article class="container__content__inner">
+        <aside>
+          <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
+        </aside>
+        <section>
+          <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
+        </section>
+      </article>
+    </section>
+    <!-- creation part 1 end -->
     <!-- creation part 2 start -->
     <section class="container__content">
       <article class="container__content__inner">
         <aside>
           <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
+          <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
+          <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
         </aside>
         <section>
-          <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
+          <figure class="media__img--feature">
+            <video autoplay muted loop>
+              <source
+                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
+                type="video/mp4">
+            </video>
+          </figure>
+          <figure class="media__img--feature">
+            <video autoplay muted loop>
+              <source
+                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
+                type="video/mp4">
+            </video>
+          </figure>
+          <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
+          <figure class="media__img--feature">
+            <video autoplay muted loop>
+              <source
+                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
+                type="video/mp4">
+            </video>
+          </figure>
         </section>
       </article>
     </section>
     <!-- creation part 2 end -->
-    <!-- hero image start -->
+    <!-- hero image start
     <section class="media__img--hero">
       <main>
         <figure>
@@ -239,7 +262,7 @@
         </figure>
       </main>
     </section>
-    <!-- hero image end -->
+    hero image end -->
     <!-- creation part 3 start -->
     <section class="container__content">
       <article class="container__content__inner">
