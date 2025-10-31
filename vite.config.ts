@@ -4,7 +4,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import VueImageZoomer from 'vue-image-zoomer'
 import svgLoader from 'vite-svg-loader'
 
 // https://vite.dev/config/
@@ -13,7 +12,6 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
-    VueImageZoomer,
     svgLoader({
       defaultImport: 'component'
     }),

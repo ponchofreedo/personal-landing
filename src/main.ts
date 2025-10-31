@@ -3,6 +3,7 @@ import '@data/constants.ts'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+// @ts-expect-error:next-line
 import VueImageZoomer from 'vue-image-zoomer'
 import 'vue-image-zoomer/dist/style.css'
 import router from './router'

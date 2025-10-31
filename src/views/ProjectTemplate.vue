@@ -2,6 +2,7 @@
   import { ref } from 'vue'
   import Navigation from '@global/Navigation.vue'
   import Footer from '@global/Footer.vue'
+  // @ts-expect-error:next-line
   import { VueImageZoomer } from 'vue-image-zoomer'
   import 'vue-image-zoomer/dist/style.css'
 
