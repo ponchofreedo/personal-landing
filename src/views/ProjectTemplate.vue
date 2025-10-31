@@ -201,13 +201,14 @@
     </section>
     <!-- creation part 1 end -->
     <!-- hero image start -->
-    <section class="media__img--hero">
-      <main>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
-        </figure>
-      </main>
-    </section>
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
     <!-- hero image end -->
     <!-- creation part 2 start -->
     <section class="container__content">
@@ -426,6 +427,7 @@
     gap: convertRem(32px);
 
     p {
+      margin-top: convertRem(-8px); // optical adjustment
       color: $primary__color--text--darker;
     }
   }

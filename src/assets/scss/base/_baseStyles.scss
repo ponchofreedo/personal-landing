@@ -21,6 +21,8 @@ body {
 	writing-mode: horizontal-tb;
 	column-count: 1;
 	min-height: 100dvh;
+	font-optical-sizing: auto;
+	letter-spacing: normal;
 }
 
 @supports (font-variation-settings: normal) {

@@ -143,7 +143,6 @@
             border-radius: inherit;
             object-position: center;
             object-fit: cover;
-            aspect-ratio: 2 / 1;
         }
     }
 

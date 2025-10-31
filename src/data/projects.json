@@ -6,34 +6,41 @@
         "copy": {
           "sections": {
             "intro": {
-              "p1": "Rethinking the overall workflow of creating and editing properties in HubSpot’s CRM to reduce CS overhead and to prepare for a more integrated and scalable future."
+              "p1": "Reducing overhead costs by rethinking a core data management workflow in HubSpot's CRM."
             },
             "context": {
               "title": "Context.",
-              "p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
-              "p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. On top of this, when you factor in portal type, ie., SMB, enterprise, etc, this makes the offering even more complex. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property."
+              "//p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
+              "//p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. On top of this, when you factor in portal type, ie., SMB, enterprise, etc, this makes the offering even more complex. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property.",
+              "p1": "HubSpot's CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. To make that good first impression, our goal was to have a best-in-class onboarding data onboarding and integration experience.",
+              "p2": "The challenge with this particular workflow was trying to offer a robust data creation and management experience for customers of all sizes while still making it feel nimble. Based on internal and external sentiment, the current framework for creating and managing data properties was rigid, redundant, and limited; basically the antithesis of the original goal."
             },
             "opportunity": {
               "title": "Opportunity.",
-              "p1": "Between the customer support ticket and call volume related to creating and managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties."
+              "//p1": "Between the customer support contact volume related to managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties.",
+              "p1": "We had enough of a backlog to inform us that customer support was swamped and customers were clearly frustrated with both existing and new features in the workflow. The problem was that this was a serious commitment with potential to not move the needle as much as some other projects we had in our pipeline. With that in mind, our pitch centered on four key goals:"
             },
             "goals": {
               "1": {
-                "goal": "Rebuild flow with alternative to wizard and allow for flexibility",
-                "result": "New flow doesn’t require redundant actions and <span class='highlight'>is not linear</span>"
+                "goal": "Reduce redundancy by exploring a less rigid flow",
+                "result": "New flow doesn’t require redundant actions and <em><span class='highlight'>is not strictly linear</span></em>"
               },
               "2": {
-                "goal": "Reduce relevant support volume by at least 20% WoW (2wk lag)",
-                "result": "Support volume <span class='highlight'>reduced by ~35% WoW<span>"
+                "goal": "Reduce relevant support volume by a meaningful amount",
+                "result": "Support volume <em><span class='highlight'>reduced by ~35% WoW</span></em> (~20% expected)"
               },
               "3": {
+                "goal": "Improve visibility of new property types and additions",
+                "result": "New test and released property types saw <em><span class='highlight'>nearly doubled adoption rate in first week</span></em> compared to previous rate"
+              },
+              "4": {
                 "goal": "Improve UX flexibility for AI and KB helpers to help drive usage of them",
-                "result": "New framework includes content slots for AI/ML and KB inclusions to keep customers on task and doesn’t drive them away"
+                "result": "New framework includes content slots for AI/ML and KB inclusions to <em><span class='highlight'>keep customers on task</span></em> and doesn’t drive them away"
               }
             },
             "creation": {
-              "title": "Creation: linear vs. non-linear flow.",
-              "p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced properties, but even for some more simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "title": "Creation: reducing rigidity.",
+              "p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
               "p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for users.",
               "p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
               "p4": "Going back meant needing to go all the way back. This became a regular headache for most users.",
@@ -68,7 +75,8 @@
           { "fileName": "hero__1.jpg", "alt": "New designs for creating and editing properties in HubSpot" },
           { "fileName": "feature__1--mini.jpg", "alt": "Status and badge indicators for the new sidebar nav" },
           { "fileName": "feature__2--mini.mp4", "alt": "Smooth transition for adding more options to multi-option properties" },
-          { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" }
+          { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" },
+          { "fileName": "hero__2.jpg", "alt": "Example of the old, rigid flow with some audit commentary" }
         ]
       },
       "date-time-props": {
