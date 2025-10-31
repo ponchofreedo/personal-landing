@@ -227,23 +227,25 @@
           <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
           <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
         </aside>
-        <section>
-          <figure class="media__img--feature">
+        <section class="container--stacked">
+          <figure class="media__video--feature media__video--contained media__video--hasCaption">
             <video autoplay muted loop>
               <source
-                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
+                :src="`/img/works/${company}/${slug}/${project.img[6].fileName}`"
                 type="video/mp4">
             </video>
+            <figcaption class="caption--dark">{{ project?.img[6].alt }}</figcaption>
           </figure>
-          <figure class="media__img--feature">
+          <figure class="media__video--feature media__video--contained media__video--hasCaption">
             <video autoplay muted loop>
               <source
-                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
+                :src="`/img/works/${company}/${slug}/${project.img[7].fileName}`"
                 type="video/mp4">
             </video>
+            <figcaption class="caption--dark">{{ project?.img[7].alt }}</figcaption>
           </figure>
           <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
-          <figure class="media__img--feature">
+          <figure class="img--feature">
             <video autoplay muted loop>
               <source
                 :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
@@ -374,6 +376,12 @@
       column-gap: convertRem(40px);
       margin: convertRem(80px) 0;
     }
+
+    &--stacked {
+      display: flex;
+      flex-direction: column;
+      gap: convertRem(40px);
+    }
   }
 
   .content {
@@ -475,6 +483,9 @@
       background-color: transparent;
     }
 
+    &:has(video) + figure:has(video) { // temporary hack to address stacked content
+    }
+
     picture {
 
       img {
@@ -499,8 +510,19 @@
 
     figcaption {
       margin-top: convertRem(8px);
-      @include text-style(small, book, base);
-      color: $primary__color--text--muted;
+      @include text-style(small, normal, base);
+      text-align: center;
+
+      &.caption {
+
+        &--dark {
+          color: $primary__color--text--invert;
+        }
+
+        &--light {
+          color: $primary__color--text--darker;
+        }
+      }
     }
   }
 
@@ -525,6 +547,28 @@
         height: 100%;
         width: 100%;
         max-width: convertRem(1280px);
+      }
+    }
+
+    &__video {
+
+      &--feature {
+        padding: convertRem(40px);
+        background-color: #f5f5f5;
+        background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.2));
+        border-radius: convertRem(16px);
+
+        video {
+          max-height: convertRem(640px);
+        }
+      }
+
+      &--hasCaption {
+        padding-bottom: convertRem(32px);
+
+        figcaption {
+          margin-top: convertRem(32px);
+        }
       }
     }
   }

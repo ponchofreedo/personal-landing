@@ -81,7 +81,9 @@
           { "fileName": "feature__2--mini.mp4", "alt": "Smooth transition for adding more options to multi-option properties" },
           { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" },
           { "fileName": "hero__2.jpg", "alt": "Example of the old, rigid flow with some audit commentary" },
-          { "fileName": "hero__2--zoom.jpg", "alt": "Example of the old, rigid flow with some audit commentary" }
+          { "fileName": "hero__2--zoom.jpg", "alt": "Example of the old, rigid flow with some audit commentary" },
+          { "fileName": "issue__1.mp4", "alt": "A benign example of going back to change a property name and losing the field type" },
+          { "fileName": "issue__2.mp4", "alt": "Sadly, this was even more painful for more complex property types where maybe a user had spent several minutes trying to create and test a custom formula. This is a light example of what would occur." }
         ]
       },
       "date-time-props": {
