@@ -2,7 +2,7 @@
   "projects": {
     "hubspot": {
       "create-edit": {
-        "title": "Improving admin property creation and editing experiences",
+        "title": "Streamlining CRM data property management experiences",
         "copy": {
           "sections": {
             "intro": {
@@ -63,7 +63,7 @@
             },
             "retro": {
               "title": "Next steps and reflections.",
-              "p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 1,000 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
               "p2": "At the same time, there were two UX projects happening concurrently while engineering was in the middle of rebuilding the core tech stack for this product area: this framework delivery for creation and management and an encapsulated quick property creation experience for use outside of the admin space. The quick property creation project actually spawned the larger project, funny enough.",
               "p3": "The coalescing projects meant that a lot of planning was needed to deliver properly. One thing I would reflect on for this projects relates to communication. At one point I was on one track of work and unaware of what my engineering partners were working on. We discovered that we were working on opposite projects at one point and that syncing back up to get back on track was going to take at least a week. This all could’ve been alleviated by a one-line clarification in a Slack message. It taught me a lesson about properly setting the table and making sure that each partner in the pod is aligned at the right time."
             }
@@ -75,7 +75,7 @@
           "slug": "create-edit",
           "href": "/works/create-edit"
         },
-        "team": "1D&#128075;&#127996;, 1EM, 1PM, 1SWE",
+        "team": "1PD&#128075;&#127996;, 1EM, 1PM, 1SWE",
         "company": "HubSpot",
         "company_url": "https://www.hubspot.com/",
         "slug": "create-edit",
@@ -114,11 +114,11 @@
           },
           { 
             "fileName": "hero__3.jpg", 
-            "alt": "Familiar, flexible, and unified UIs for each workflow no matter where you access it from" 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
           },
           { 
             "fileName": "hero__3--zoom.jpg", 
-            "alt": "Familiar, flexible, and unified UIs for each workflow no matter where you access it from" 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
           }
         ]
       },

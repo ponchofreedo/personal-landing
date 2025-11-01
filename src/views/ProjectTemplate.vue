@@ -283,13 +283,14 @@
     </section>
     <!-- manage end -->
     <!-- hero image start -->
-    <figure class="media__img--hero">
+    <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
       <vue-image-zoomer 
         :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
         :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
         img-width="1280"
         img-height="100%"
         img-class="media__img--zoom" />
+      <p>{{ project?.img[8].alt }}</p>
       <!-- <img
         :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
         decoding="async"
@@ -510,17 +511,6 @@
       margin-top: convertRem(8px);
       @include text-style(small, normal, base);
       text-align: center;
-
-      &.caption {
-
-        &--dark {
-          color: $primary__color--text--invert;
-        }
-
-        &--light {
-          color: $primary__color--text--darker;
-        }
-      }
     }
   }
 
@@ -546,6 +536,13 @@
         width: 100%;
         max-width: convertRem(1280px);
       }
+
+      &--hasCaption {;
+
+        p {
+          margin-top: convertRem(32px);
+        }
+      }
     }
 
     &__video {
@@ -568,6 +565,25 @@
           margin-top: convertRem(32px);
         }
       }
+    }
+  }
+
+  .caption {
+
+    &--floating {
+
+      p {
+        @include text-style(small, normal, base);
+        text-align: center;
+      }
+    }
+
+    &--dark {
+      color: $primary__color--text--invert;
+    }
+
+    &--light {
+      color: $primary__color--text--darker;
     }
   }
 
