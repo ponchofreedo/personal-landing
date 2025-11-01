@@ -27,7 +27,7 @@ export const selectedWorks = [
 	{
         id: 1,
         title: 'Improving admin property creation and editing experiences',
-        preview: 'Reducing overhead costs by rethinking a core data management workflow in HubSpot\'s CRM.',
+        preview: 'Solving customer pains, driving adoption, and reducing overhead costs by rethinking a core data management workflow in HubSpot\'s CRM.',
         private: '',
         testing: '',
         inDev: '',

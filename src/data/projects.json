@@ -6,7 +6,7 @@
         "copy": {
           "sections": {
             "intro": {
-              "p1": "Reducing overhead costs by rethinking a core data management workflow in HubSpot's CRM."
+              "p1": "Solving customer pains, driving adoption, and reducing overhead costs by rethinking a core data management workflow in HubSpot's CRM."
             },
             "context": {
               "title": "Context.",
@@ -39,21 +39,25 @@
               }
             },
             "creation": {
-              "title": "Creation: reducing rigidity.",
+              "title": "Redundant, rigid, and in need of replacement.",
               "//p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
-              "p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
-              "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for users.",
-              "p2": "If a user had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
+              "//p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
+              "p1": "Even with a robust backlog, I wanted to get a better picture of customer pain by meeting with a cohort of beta customers. After a dozen or so conversations, the same themes kept coming up: the workflow is rigid and doesn't let them accomplish things in one shot, there are too many required hoops even to set up a simple property, and it doesn't drive adoption of new updates that are useful to them.",
+              "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for customers.",
+              "p2": "If a customer had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
               "p3": "Going back meant needing to go all the way back. This problem in itself almost became a battle cry based on the number of times it was shared in feedback.",
               "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
-              "p4": "Sadly, this was even more painful for more complex property types where maybe a user had spent several minutes trying to create and test a custom formula.",
-              "//p4": "Going back meant needing to go all the way back. This became a regular headache for most users.",
-              "p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem."
+              "p4": "Sadly, this was even more painful for more complex property types where maybe a customer had spent several minutes trying to create and test a custom formula.",
+              "//p4": "Going back meant needing to go all the way back. This became a regular headache for most customers.",
+              "//p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem.",
+              "p5": "The management flow was not so far different, but located in a different panel. Even with a change of space, the primary issue for management revolved around scalability and data density."
             },
             "manage": {
-              "title": "Manage: removing friction by unifying experiences.",
-              "p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
-              "p2": "There were other issues at play related to managing properties that fell out of scope for this project (things like core actions, ie, deleting, copying, etc), but by migrating the management experience to the same framework as the new creation experience, it allowed for more flexibility to perform a task and also allowed for more visibility and discovery for problem-solving tasks. It also allowed for down-the-road improvements like integrations, AI/ML augments, and KB helper injection so that customers would gain more clarity in the moment as opposed to being shepherded away for most of those moments.",
+              "title": "Fixing friction with flexibility.",
+              "//p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
+              "p1": "Creating and managing properties are, for the most part, admin tasks that have a need for efficiency. In talking to our beta customers, the top three terms that they conveyed for any new features were, \"make it efficient,\" \"make it flexible,\" and \"make it familiar.\"",
+              "p2": "Therefore, my primary objective was to strategize and craft toward a more unified experience with minimal trade-offs in current and future-looking functionality.",
+              "//p2": "There were other issues at play related to managing properties that fell out of scope for this project (things like core actions, ie, deleting, copying, etc), but by migrating the management experience to the same framework as the new creation experience, it allowed for more flexibility to perform a task and also allowed for more visibility and discovery for problem-solving tasks. It also allowed for down-the-road improvements like integrations, AI/ML augments, and KB helper injection so that customers would gain more clarity in the moment as opposed to being shepherded away for most of those moments.",
               "p3": "The old panel left a lot to be desired according to internal and external anecdotes. It was also starting to get crowded with information and began to feel cramped. With more content and features on the way, it needed to change so that it could scale.",
               "p4": "The updated experience allowed for more of the free-flow of information and flexibility that our admin customers were craving for some time."
             },
@@ -76,14 +80,46 @@
         "company_url": "https://www.hubspot.com/",
         "slug": "create-edit",
         "img": [
-          { "fileName": "hero__1.jpg", "alt": "New designs for creating and editing properties in HubSpot" },
-          { "fileName": "feature__1--mini.jpg", "alt": "Status and badge indicators for the new sidebar nav" },
-          { "fileName": "feature__2--mini.mp4", "alt": "Smooth transition for adding more options to multi-option properties" },
-          { "fileName": "feature__3--mini.mp4", "alt": "New, simpler field type selection" },
-          { "fileName": "hero__2.jpg", "alt": "Example of the old, rigid flow with some audit commentary" },
-          { "fileName": "hero__2--zoom.jpg", "alt": "Example of the old, rigid flow with some audit commentary" },
-          { "fileName": "issue__1.mp4", "alt": "A benign example of going back to change a property name and losing the field type" },
-          { "fileName": "issue__2.mp4", "alt": "Sadly, this was even more painful for more complex property types where maybe a user had spent several minutes trying to create and test a custom formula. This is a light example of what would occur." }
+          { 
+            "fileName": "hero__1.jpg", 
+            "alt": "New designs for creating and editing properties in HubSpot" 
+          },
+          { 
+            "fileName": "feature__1--mini.jpg", 
+            "alt": "Status and badge indicators for the new sidebar nav" 
+          },
+          { 
+            "fileName": "feature__2--mini.mp4", 
+            "alt": "Smooth transition for adding more options to multi-option properties" 
+          },
+          { 
+            "fileName": "feature__3--mini.mp4", 
+            "alt": "New, simpler field type selection" 
+          },
+          { 
+            "fileName": "hero__2.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "hero__2--zoom.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A benign example of going back to change a property name and losing the field type" 
+          },
+          { 
+            "fileName": "issue__2.mp4", 
+            "alt": "This is a light example of a customer building a calculated property formula, stepping back to check something, and then losing progress" 
+          },
+          { 
+            "fileName": "hero__3.jpg", 
+            "alt": "Familiar, flexible, and unified UIs for each workflow no matter where you access it from" 
+          },
+          { 
+            "fileName": "hero__3--zoom.jpg", 
+            "alt": "Familiar, flexible, and unified UIs for each workflow no matter where you access it from" 
+          }
         ]
       },
       "date-time-props": {

@@ -80,6 +80,15 @@
   <!-- end nav -->
   <section v-if="project" class="container__project">
     <!-- header start -->
+    
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
     <header class="container__content">
       <h1>{{ project?.title }}</h1>
       <article class="container__content__inner">
@@ -121,14 +130,6 @@
         </section>
       </article>
     </header>
-    <figure class="media__img--hero">
-      <img
-        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      />
-    </figure>
     <!-- header end -->
     <!-- context start -->
     <section class="container__content">
@@ -245,13 +246,6 @@
             <figcaption class="caption--dark">{{ project?.img[7].alt }}</figcaption>
           </figure>
           <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
-          <figure class="img--feature">
-            <video autoplay muted loop>
-              <source
-                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
-                type="video/mp4">
-            </video>
-          </figure>
         </section>
       </article>
     </section>
@@ -265,18 +259,6 @@
       </main>
     </section>
     hero image end -->
-    <!-- creation part 3 start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
-        </section>
-      </article>
-    </section>
-    <!-- creation part 3 end -->
     <!-- manage start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -286,7 +268,7 @@
         <section>
           <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
           <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
-          <div>
+          <!-- <div>
             <figure>
               <img decoding="async" loading="lazy" sizes="" />
               <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
@@ -295,11 +277,27 @@
               <img decoding="async" loading="lazy" sizes="" />
               <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
             </figure>
-          </div>
+          </div> -->
         </section>
       </article>
     </section>
     <!-- manage end -->
+    <!-- hero image start -->
+    <figure class="media__img--hero">
+      <vue-image-zoomer 
+        :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
+        :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
+        img-width="1280"
+        img-height="100%"
+        img-class="media__img--zoom" />
+      <!-- <img
+        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      /> -->
+    </figure>
+    <!-- hero image end -->
     <!-- retro start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -373,8 +371,8 @@
       display: grid;
       place-items: start;
       grid-template-columns: repeat(3, minmax(convertRem(240px), 1fr));
-      column-gap: convertRem(40px);
-      margin: convertRem(80px) 0;
+      column-gap: convertRem(16px);
+      margin: convertRem(40px) 0;
     }
 
     &--stacked {
@@ -462,13 +460,13 @@
   }
 
   header {
-    margin: convertRem(80px) 0 0!important;
+    margin: 0 0 convertRem(64px)!important;
     font-size: convertRem(16px);
-    gap: convertRem(32px);
+    gap: convertRem(40px);
 
     p {
       margin-top: convertRem(-8px); // optical adjustment
-      color: $primary__color--text--darker;
+      color: $primary__color--text--muted;
     }
   }
 
@@ -537,7 +535,7 @@
       }
 
       &--hero {
-        margin: convertRem(80px) 0;
+        margin: convertRem(40px) 0;
       }
 
       &--feature {
