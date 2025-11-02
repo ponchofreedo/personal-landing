@@ -53,7 +53,7 @@
               "p5": "The management flow was not so far different, but located in a different panel. Even with a change of space, the primary issue for management revolved around scalability and data density."
             },
             "manage": {
-              "title": "Fixing friction with flexibility.",
+              "title": "Fixing friction with unity.",
               "//p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
               "p1": "Creating and managing properties are, for the most part, admin tasks that have a need for efficiency. In talking to our beta customers, the top three terms that they conveyed for any new features were, \"make it efficient,\" \"make it flexible,\" and \"make it familiar.\"",
               "p2": "Therefore, my primary objective was to strategize and craft toward a more unified experience with minimal trade-offs in current and future-looking functionality.",
