@@ -196,21 +196,21 @@ export const resourceList = [
     },
     {
         id: 2,
-        name: 'Design Markup Library',
-        platform: 'Figma',
-        platformIcon: 'brandFigmaOutlined',
-        detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days?',
-        url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645',
-        state: ''
-    },
-    {
-        id: 3,
         name: 'The Lonely UXers Discord',
         platform: 'Discord',
         platformIcon: 'brandDiscord',
         detail: 'What started as a random COVID-era Zoom coffee meetup for solo designers at startups in various countries later became a community for those of us that have been on our own or are starting out in our careers.',
         url: 'https://discord.gg/AdqW5S8',
         state: ''
+    },
+    {
+        id: 3,
+        name: 'Design Markup Library',
+        platform: 'Figma',
+        platformIcon: 'brandFigmaOutlined',
+        detail: 'Cards, sections, labels, etc...hopefully all the utils you need to markup a doc for handoff or to start a conversation. Still in progress, but what project isn\'t these days?',
+        url: 'https://www.figma.com/design/nn4n2uUKNuucx5M5bga7Ky/Design-Markup-Helpers?node-id=76-3645',
+        state: 'wip'
     },
     {
         id: 4,
