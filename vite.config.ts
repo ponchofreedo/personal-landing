@@ -32,11 +32,11 @@ export default defineConfig({
       '@fonts': fileURLToPath(new URL('./src/assets/fonts', import.meta.url)),
       '@global': fileURLToPath(new URL('./src/components/global', import.meta.url)),
       '@img': fileURLToPath(new URL('./src/assets/img', import.meta.url)),
+      '@interfaces': fileURLToPath(new URL('./src/interfaces', import.meta.url)),
       '@layout': fileURLToPath(new URL('./src/components/layout', import.meta.url)),
       '@pdf': fileURLToPath(new URL('./src/assets/pdf', import.meta.url)),
       '@scss': fileURLToPath(new URL('./src/assets/scss', import.meta.url)),
       '@svg': fileURLToPath(new URL('./src/components/svg', import.meta.url)),
-      '@types': fileURLToPath(new URL('./src/types', import.meta.url)),
       '@util': fileURLToPath(new URL('./src/components/util', import.meta.url))
     }
   }

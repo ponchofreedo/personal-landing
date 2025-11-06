@@ -17,11 +17,11 @@
       "@fonts/*": ["./src/assets/fonts/*"],
       "@global/*": ["./src/components/global/*"],
       "@img/*": ["./src/assets/img/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@layout/*": ["./src/components/layout/*"],
       "@pdf/*": ["./src/assets/pdf*"],
       "@scss/*": ["./src/assets/scss/*"],
       "@svg/*": ["./src/components/svg*"],
-      "@types/*": ["./src/types/*"],
       "@util/*": ["./src/components/util/*"]
     }
   }
