@@ -11,7 +11,6 @@
 
 <script lang="ts">
   import json from '@data/projects.json'
-  import { defineAsyncComponent } from 'vue'
 
   interface Project {
     title: string;

@@ -3,8 +3,7 @@
   // @ts-expect-error:next-line
   import { VueImageZoomer } from 'vue-image-zoomer'
   import 'vue-image-zoomer/dist/style.css'
-  import type { Project } from '@types/project'
-
+  import { Project } from '@types/project'
 </script>
 
 <script lang="ts">
