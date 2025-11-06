@@ -72,21 +72,23 @@ export const selectedWorks = [
     //     target: '_self',
     //     team: 'HubSpot'
     // },
-    // {
-    //     id: 4,
-    //     title: 'Building the foundations for Buoy',
-    //     preview: 'Starting from square one and architecting a system to solve issues related to platform scalability, velocity, communication, and consistency for the distributed product development team at Whalar.',
-    //     private: 'true',
-    //     testing: '',
-    //     inDev: 'true',
-    //     beta: '',
-    //     shipped: '',  
-    //     freelance:'',
-    //     date: '2025',
-    //     staticHref:'',
-    //     target: '_self',
-    //     team: 'Whalar'
-    // }
+    {
+        id: 4,
+        title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
+        preview: 'Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
+        private: '',
+        testing: '',
+        inDev: 'true',
+        beta: '',
+        shipped: '',  
+        freelance:'true',
+        date: '2025',
+        slug: 'buoy-foundations',
+        staticHref:'/works/whalar/buoy-foundations',
+        heroImg: 'hero__list.jpg',
+        target: '_self',
+        team: 'Whalar'
+    }
 ];
 
 export const experienceList = [

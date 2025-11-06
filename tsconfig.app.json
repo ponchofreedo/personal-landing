@@ -21,6 +21,7 @@
       "@pdf/*": ["./src/assets/pdf*"],
       "@scss/*": ["./src/assets/scss/*"],
       "@svg/*": ["./src/components/svg*"],
+      "@types/*": ["./src/types/*"],
       "@util/*": ["./src/components/util/*"]
     }
   }
