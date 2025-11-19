@@ -1,9 +1,9 @@
 <script setup lang="ts">
   import { ref } from 'vue'
+  import type { Project } from '@interfaces/project.ts'
   // @ts-expect-error:next-line
   import { VueImageZoomer } from 'vue-image-zoomer'
   import 'vue-image-zoomer/dist/style.css'
-  import type { Project } from '@interfaces/project.ts'
 </script>
 
 <script lang="ts">
@@ -43,14 +43,6 @@
 
   <section v-if="project" class="container__project">
     <!-- header start -->
-    <figure class="media__img--hero">
-      <img
-        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      />
-    </figure>
     <header class="container__content">
       <h1>{{ project?.title }}</h1>
       <article class="container__content__inner">
@@ -93,6 +85,14 @@
         </section>
       </article>
     </header>
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`" 
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
     <!-- header end -->
     <!-- context start -->
     <section class="container__content">
@@ -457,7 +457,7 @@
   }
 
   header {
-    margin: 0 0 convertRem(64px)!important;
+    margin: convertRem(24px) 0 convertRem(64px)!important;
     font-size: convertRem(16px);
     gap: convertRem(40px);
 

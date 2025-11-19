@@ -41,6 +41,22 @@ export const selectedWorks = [
         target: '_self',
         team: 'HubSpot'
     },
+    {
+        id: 2,
+        title: 'Improving retention and trust with a new calculated formula tester',
+        preview: 'Customers couldn\'t validate their work and were going elsewhere, even leaving the platform, so I introduced a solution to build their confidence.',
+        private: '',
+        testing: '',
+        inDev: '',
+        beta: '',
+        shipped: 'true',  
+        freelance:'',
+        date: '2023',
+        slug: 'formula-tester',
+        staticHref:'/works/hubspot/formula-tester',
+        target: '_self',
+        team: 'HubSpot'
+    },
     // {
     //     id: 2,
     //     title: 'Introducing a custom formular editor for calculated properties',

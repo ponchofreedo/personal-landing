@@ -38,16 +38,6 @@
             <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
         </ul>
     </nav>
-    <!-- <nav v-else :layout="$route.name">
-        <ul>
-            <li>
-                <RouterLink to="/" class=""><icon type="icon" name="iconArrowLeft" /><span>Back</span></RouterLink>
-            </li>
-        </ul>
-        <ul>
-            <li><button>mode<icon type="icon" name="iconMoon" /></button></li>
-        </ul>
-    </nav> -->
 </template>
 
 <style lang="scss" scoped>

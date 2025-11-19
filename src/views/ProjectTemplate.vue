@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ref, defineAsyncComponent } from 'vue'
+  import { useRouter } from 'vue-router'
   // import { projectMap } from '@data/constants'
   import Navigation from '@global/Navigation.vue'
   import Footer from '@global/Footer.vue'
@@ -7,6 +8,12 @@
   defineOptions({
     inheritAttrs: false
   })
+
+  const router = useRouter();
+
+  const goBack = () => {
+    router.back();
+  };
 </script>
 
 <script lang="ts">
@@ -70,6 +77,7 @@
         // Map route to component using defineAsyncComponent
         const componentMap: Record<string, any> = {
           'hubspot-create-edit': defineAsyncComponent(() => import('@components/works/projects/HubspotCreateEdit.vue')),
+          'hubspot-formula-tester': defineAsyncComponent(() => import('@components/works/projects/HubspotFormulaTester.vue')),
           'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
         };
         
@@ -85,6 +93,18 @@
   <!-- start nav -->
   <Navigation />
   <!-- end nav -->
+  
+  <!-- back link start -->
+  <header>
+    <RouterLink 
+      @click="goBack"
+      to=""
+      class="link">
+      <icon type="icon" name="iconArrowLeft" />
+      <span>Back</span>
+    </RouterLink>
+  </header>
+  <!-- back link end -->
 
   <component
     v-if="currentComponent"
@@ -96,6 +116,26 @@
 </template>
 
 <style lang="scss" scoped>
+
+  a {
+    display: flex;
+    flex-direction: row;
+    gap: convertRem(4px);
+    place-items: center;
+    text-decoration: none;
+    font-size: convertRem(16px);
+
+    svg {
+      height: convertRem(20px);
+      width: auto;
+    }
+  }
+
+  header {
+    @include inner-flex-container;
+    margin-top: convertRem(16px);
+    margin-bottom: convertRem(16px);
+  }
 
   #footer {
     @include inner-flex-container;

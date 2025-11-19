@@ -66,9 +66,7 @@
                 <p>This site is meant to be a playground for experimentation. Designed in <a href="https://figma.com" target="_blank">Figma</a>, built with <a href="https://vuejs.org" target="_blank">Vue</a>, authored in <a href="https://sublimetext.com" target="_blank">Sublime Text</a> (yes, I'm a VS Code holdout...for now), and shipped with <a href="https://vercel.com" target="_blank">Vercel</a>. Type set in <a href="https://pangrampangram.com/products/neue-montreal" target="_blank">Neue Montreal</a> by Mats Desjardins from <a href="https://pangrampangram.com/" target="_blank">Pangram Pangram Foundry</a>. Built with controlled chaos and my take on Thomas Keller's <a href="https://www.youtube.com/watch?v=EWLt6G85zC4" target="_blank">roast chicken</a> recipe (yes, that roast chicken from the season 3 finale of The Bear that Carmy later cooks for his mom in season 4). Also built with <a href="https://instagram.com/obi_dog__kenobi_/" target="_blank">my dog</a> at my feet.</p>
             </aside>
             <section>
-                <RouterLink to="" v-on:click.native="scrollToTop()" id="anchor">
-                    <icon type="icon" name="iconArrowSquareUp" />
-                </RouterLink>
+                <icon id="anchor" type="icon" name="iconArrowSquareUp" v-on:click.native="scrollToTop()" />
                 <p>&copy; 2025 Zach Freed &mdash; <span>{{ randomCatchphrase }}</span></p>
             </section>
         </main>
@@ -76,10 +74,8 @@
     <footer id="footer" v-else :layout="$route.name">
         <article>
             <ul>
-                <li id="anchor">
-                    <RouterLink to="" v-on:click.native="scrollToTop()">
-                        <icon type="icon" name="iconArrowSquareUp" />
-                    </RouterLink>
+                <li>
+                    <icon id="anchor" type="icon" name="iconArrowSquareUp" v-on:click.native="scrollToTop()" />
                 </li>
                 <li>
                     <a href="https://linkedin.com/in/zpfreed" target="_blank">
@@ -135,13 +131,15 @@
             @include split-column-layout-container;
         }
 
-        #anchor {
-            align-self: flex-end;
+        #anchor,
+        svg#anchor {
+            height: convertRem(32px)!important;
+            width: auto;
+            cursor: pointer;
+        }
 
-            svg {
-                color: currentColor;
-                height: convertRem(32px);
-            }
+        svg#anchor {
+            color: currentColor;
         }
     }
 
@@ -190,9 +188,12 @@
         color: $primary__color--accent;
 
         svg {
-            height: convertRem(24px);
-            width: auto;
-            color: currentColor;
+
+            &:not(#anchor) {
+                height: convertRem(24px);
+                width: auto;
+                color: currentColor;
+            }
         }
     }
 

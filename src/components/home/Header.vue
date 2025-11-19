@@ -43,7 +43,7 @@
                 <p class="text--big">Navigator of complex problems and a friend to PMs, EMs, and all levels of the ladder. I help to deliver results by crafting solutions to real problems for startups, unicorns, and mature teams alike. Previously <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>, <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>, <a href="https://priceline.com" target="_blank" class="link link--inline">@priceline</a>.</p>
                 <footer>
                     <small>NY born and bred. Based in Stamford, CT. Go Birds.</small>
-                    <RouterLink to="" v-on:click.native="scrollToWorks()"><icon type="icon" name="iconArrowSquareDown" /></RouterLink>
+                    <icon type="icon" name="iconArrowSquareDown" v-on:click.native="scrollToWorks()" />
                 </footer>
             </section>
         </article>
@@ -106,11 +106,9 @@
             color: $primary__color--text--darker;
         }        
 
-        a {
-            width: fit-content;
-        }
-
         svg {
+            cursor: pointer;
+            color: $primary__color--accent;
             height: convertRem(32px);
             width: auto;
         }
