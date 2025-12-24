@@ -121,12 +121,6 @@
         <video autoplay muted loop>
            <source :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" type="video/mp4">
         </video>
-        <!-- <img
-          :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`" 
-          decoding="async"
-          loading="lazy"
-          sizes=""
-        /> -->
       </figure>
       <figure class="media__img--feature">
         <video autoplay muted loop>
@@ -163,12 +157,6 @@
         img-width="1280"
         img-height="100%"
         img-class="media__img--zoom" />
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
     </figure>
     <!-- hero image end -->
     <!-- creation part 1 start -->
@@ -212,16 +200,6 @@
         </section>
       </article>
     </section>
-    <!-- creation part 2 end -->
-    <!-- hero image start
-    <section class="media__img--hero">
-      <main>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
-        </figure>
-      </main>
-    </section>
-    hero image end -->
     <!-- manage start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -231,16 +209,6 @@
         <section>
           <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
           <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
-          <!-- <div>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
-            </figure>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
-            </figure>
-          </div> -->
         </section>
       </article>
     </section>
@@ -254,12 +222,6 @@
         img-height="100%"
         img-class="media__img--zoom" />
       <p>{{ project?.img[8].alt }}</p>
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`" 
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
     </figure>
     <!-- hero image end -->
     <!-- retro start -->

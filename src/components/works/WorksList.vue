@@ -116,7 +116,7 @@
             &:hover {
                 
                 figure {
-                    opacity: 1.0;
+                    opacity: 0.8;
                 }
             }
         }
@@ -131,7 +131,7 @@
         aspect-ratio: 2 / 1;
         border-radius: convertRem(16px);
         background-color: $ui__color--neutral;
-        opacity: 0.96;
+        opacity: 1.0;
         will-change: transform;
         transition: opacity 0.2s ease-in-out;
 

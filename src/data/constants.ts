@@ -88,23 +88,23 @@ export const selectedWorks = [
     //     target: '_self',
     //     team: 'HubSpot'
     // },
-    {
-        id: 4,
-        title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
-        preview: 'Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
-        private: '',
-        testing: '',
-        inDev: 'true',
-        beta: '',
-        shipped: '',  
-        freelance:'true',
-        date: '2025',
-        slug: 'buoy-foundations',
-        staticHref:'/works/whalar/buoy-foundations',
-        heroImg: 'hero__list.jpg',
-        target: '_self',
-        team: 'Whalar'
-    }
+    // {
+    //     id: 4,
+    //     title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
+    //     preview: 'Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
+    //     private: '',
+    //     testing: '',
+    //     inDev: 'true',
+    //     beta: '',
+    //     shipped: '',  
+    //     freelance:'true',
+    //     date: '2025',
+    //     slug: 'buoy-foundations',
+    //     staticHref:'/works/whalar/buoy-foundations',
+    //     heroImg: 'hero__list.jpg',
+    //     target: '_self',
+    //     team: 'Whalar'
+    // }
 ];
 
 export const experienceList = [
@@ -240,7 +240,7 @@ export const resourceList = [
     }
 ];
 
-// somethings not working correctly, so fix it later
+// leaving here for reference. this needs to be used in the component because its call at runtime, not build.
 // export const catchphrases = [
 //     { who: 'Stone Cold Steve Austin', phrase: 'Gimme a Hell Yeah!' },
 //     { who: 'Stone Cold Steve Austin', phrase: 'What?' },

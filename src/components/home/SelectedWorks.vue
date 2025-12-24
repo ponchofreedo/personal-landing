@@ -58,7 +58,7 @@
                     </a>
                 </article>
                 <footer>
-                    <p>See all available projects on <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">GitHub<icon type="svg" name="brandGithub" /><icon type="icon" name="iconArrowSquareUpRight" /></a> or <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop a messge</a> if you'd like to discuss anything that is labeled <icon class="link" type="icon" name="iconPrivate" /><span class="link">Private</span>.</p>
+                    <p>See all available projects on <a href="https://github.com/ponchofreedo/portfolio-projects/" target="_blank" class="link link--inline">GitHub<icon type="svg" name="brandGithub" /><icon type="icon" name="iconArrowSquareUpRight" /></a> or <a href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup." target="_blank" class="link link--inline">drop a messge</a> if you'd like to discuss anything that is labeled <icon class="link link--display" type="icon" name="iconPrivate" /><span class="link link--display">Private</span>.</p>
                 </footer>
             </section>
         </main>
@@ -112,7 +112,7 @@
             &:hover {
                 
                 figure {
-                    opacity: 1.0;
+                    opacity: 0.8;
                 }
             }
         }
@@ -127,7 +127,7 @@
         aspect-ratio: 2 / 1;
         border-radius: convertRem(16px);
         background-color: $ui__color--neutral;
-        opacity: 0.96;
+        opacity: 1.0;
         will-change: transform;
         transition: opacity 0.2s ease-in-out;
 

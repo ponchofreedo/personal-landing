@@ -8,6 +8,23 @@
 .link:active,
 .link:visited {
     color: $primary__color--accent;
+
+    &:not(.link--display) {
+      transition-property: opacity;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 0.1);
+      transition-duration: 0.16s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+}
+
+.link {
+
+  &--display {
+    cursor: default!important;
+  }
 }
 
 .link--inline {
@@ -30,5 +47,21 @@
     width: auto;
     margin-top: convertRem(1px);
     margin-right: convertRem(2px);
+  }
+}
+
+// small optical adjustments for back anchor links
+.link--back {
+
+  display: flex;
+  flex-direction: row;
+  gap: convertRem(4px);
+  place-items: center;
+  text-decoration: none;
+  font-size: convertRem(16px);
+
+  svg {
+    height: convertRem(16px);
+    width: auto;
   }
 }

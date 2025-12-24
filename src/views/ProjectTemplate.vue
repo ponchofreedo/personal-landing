@@ -78,7 +78,7 @@
         const componentMap: Record<string, any> = {
           'hubspot-create-edit': defineAsyncComponent(() => import('@components/works/projects/HubspotCreateEdit.vue')),
           'hubspot-formula-tester': defineAsyncComponent(() => import('@components/works/projects/HubspotFormulaTester.vue')),
-          'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
+          // 'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
         };
         
         const key = `${company}-${slug}`;
@@ -99,9 +99,9 @@
     <RouterLink 
       @click="goBack"
       to=""
-      class="link">
+      class="link link--back">
       <icon type="icon" name="iconArrowLeft" />
-      <span>Back</span>
+      <span>Go back</span>
     </RouterLink>
   </header>
   <!-- back link end -->
@@ -116,20 +116,6 @@
 </template>
 
 <style lang="scss" scoped>
-
-  a {
-    display: flex;
-    flex-direction: row;
-    gap: convertRem(4px);
-    place-items: center;
-    text-decoration: none;
-    font-size: convertRem(16px);
-
-    svg {
-      height: convertRem(20px);
-      width: auto;
-    }
-  }
 
   header {
     @include inner-flex-container;
