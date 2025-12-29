@@ -65,7 +65,7 @@
     }
 
     small {
-        @include text-style(small, book, base);
+        @include text-style(small, regular, base);
         color: $primary__color--text--muted;
     }
 
@@ -88,7 +88,7 @@
     }
 
     em {
-        @include text-style(p, semibold, fixed);
+        @include text-style(p, bold, fixed);
         color: $primary__color--text--darker; 
     }
 

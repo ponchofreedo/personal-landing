@@ -5,11 +5,11 @@
 $base__multiple: 8;
 
 // font-family vars
-$base__font-family--non-variable: 'PP Neue Montreal';
-$base__font-family--variable: 'PP Neue Montreal V';
-$base__font-family--system: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
-$base__font-family: $base__font-family--non-variable, 'Inter', sans-serif, $base__font-family--system;
-$base__font-family--v: $base__font-family--variable, $base__font-family;
+$base__font-family--variable: 'PP Radio Grotesk V';
+$base__font-family--system:
+  BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+  'Droid Sans', 'Helvetica Neue', sans-sans;
+$base__font-family: $base__font-family--variable, 'Inter', sans-serif, $base__font-family--system;
 
 // font accessory vars
 $base__font-weight: normal; // will override with text vars
@@ -22,37 +22,38 @@ $base__color--aplha-value: 0.4; // use with rgba()
 // color theme vars
 // in the future, will probably move these to a separate theme partial
 // neutrals
-$base__color--neutral--50: #F5F5F5;
-$base__color--neutral--250: #C8CBD4;
-$base__color--neutral--450: #82858F;
-$base__color--neutral--650: #2B3038;
-$base__color--neutral--800: #15181D;
-$base__color--neutral--960: #090B0F;
+$base__color--neutral--50: #f6f5f3;
+$base__color--neutral--250: #c8cbd4;
+$base__color--neutral--450: #82858f;
+$base__color--neutral--650: #323d4e;
+$base__color--neutral--800: #111926;
+$base__color--neutral--960: #070b11;
+$base__color--neutral--980: #04060a;
 
 // accents
-$base__color--accent--slowpoke: #D189D8;
-$base__color--accent--magikarp: #E4A464;
+$base__color--accent--gengar: #8371d9;
+$base__color--accent--charizard: #f58e40;
+$base__color--accent--venesaur: #c8ff64;
+$base__color--accent--blastoise: #3d94f8;
 
 // themes
 // will use sass lighten() and darken() mixins for variations
-$theme__color--scyther: #B0FF42;
-$theme__color--slowpoke: #D189D8;
-$theme__color--magikarp: #E4A464;
+// and will populate these later once i have a use for them
 
 // consumables
 $primary__color: initial; // agnostic and globally overridden
 $primary__color--background: $base__color--neutral--960;
-$primary__color--background--alt: $base__color--neutral--800;
-$primary__color--border: $primary__color--background--alt;
+$primary__color--background--darker: $base__color--neutral--980;
+$primary__color--background--lighter: $base__color--neutral--800;
+$primary__color--border: $base__color--neutral--650;
 $primary__color--text: $base__color--neutral--50;
 $primary__color--text--muted: $base__color--neutral--250;
 $primary__color--text--darker: $base__color--neutral--450;
 $primary__color--text--invert: $base__color--neutral--800;
-$primary__color--accent: $theme__color--scyther;
-$accent__color--1: $theme__color--scyther;
-$accent__color--2: $theme__color--slowpoke;
-$accent__color--3: $theme__color--magikarp;
-$accent__color--4: $primary__color--text--darker;
+$primary__color--accent: $base__color--accent--gengar;
+$secondary__color--accent--1: $base__color--accent--venesaur;
+$secondary__color--accent--2: $base__color--accent--blastoise;
+$secondary__color--accent--3: $base__color--accent--charizard;
 $ui__color--neutral: $base__color--neutral--650;
 
 // text vars
@@ -60,10 +61,12 @@ $ui__color--neutral: $base__color--neutral--650;
 
 // font sizes should be used with the convertRem() function
 $text__font-size--h1: 64;
-$text__font-size--h2: 32;
-$text__font-size--h3: 24;
-$text__font-size--h4: 16; // change to 16 when updating the design
-$text__font-size--p: 16;
+$text__font-size--h2: 48;
+$text__font-size--h3: 32;
+$text__font-size--h4: 24;
+$text__font-size--h5: 16; // change to 16 when updating the design
+$text__font-size--p: 18;
+$text__font-size--super: 80;
 $text__font-size--big: 24;
 $text__font-size--small: 14;
 
@@ -71,37 +74,45 @@ $text__font-size--small: 14;
 $text__line-height--base: 1.6;
 $text__line-height--display: 1.2; // makes large text more manageable
 $text__line-height--ui: 1.4; // for misc ui copy (not components)
-$text__line-height--fixed: 1.0!important; // short copy directive
+$text__line-height--fixed: 1 !important; // short copy directive
 
 // font weights
-$text__font-weight--book: 375; // default
-$text__font-weight--normal: 450;
-$text__font-weight--medium: 530;
-$text__font-weight--semibold: 700; // should be the boldest value used
-$text__font-weight--bold: 800;
+$text__font-weight--thin: 100;
+$text__font-weight--ultralight: 200;
+$text__font-weight--light: 300;
+$text__font-weight--regular: 400; // default
+$text__font-weight--medium: 500;
+$text__font-weight--bold: 700;
+$text__font-weight--ultrabold: 800;
+$text__font-weight--black: 900;
 
 // map for use with dynamic classes and objects
 $type-vars: (
-	sizes: (
-		h1: $text__font-size--h1,
-		h2: $text__font-size--h2,
-		h3: $text__font-size--h3,
-		h4: $text__font-size--h4,
-		p: $text__font-size--p,
-		big: $text__font-size--big,
-		small: $text__font-size--small,
-	),
-	line-heights: (
-		base: $text__line-height--base,
-		ui: $text__line-height--ui,
-		display: $text__line-height--display,
-		fixed: $text__line-height--fixed,
-	),
-	weights: (
-		book: $text__font-weight--book,
-		normal: $text__font-weight--normal,
-		medium: $text__font-weight--medium,
-		semibold: $text__font-weight--semibold,
-		bold: $text__font-weight--bold,
-	),
+  sizes: (
+    h1: $text__font-size--h1,
+    h2: $text__font-size--h2,
+    h3: $text__font-size--h3,
+    h4: $text__font-size--h4,
+    h5: $text__font-size--h5,
+    p: $text__font-size--p,
+    super: $text__font-size--super,
+    big: $text__font-size--big,
+    small: $text__font-size--small,
+  ),
+  line-heights: (
+    base: $text__line-height--base,
+    ui: $text__line-height--ui,
+    display: $text__line-height--display,
+    fixed: $text__line-height--fixed,
+  ),
+  weights: (
+    thin: $text__font-weight--thin,
+    ultralight: $text__font-weight--ultralight,
+    light: $text__font-weight--light,
+    regular: $text__font-weight--regular,
+    medium: $text__font-weight--medium,
+    bold: $text__font-weight--bold,
+    ultrabold: $text__font-weight--ultrabold,
+    black: $text__font-weight--black,
+  ),
 );

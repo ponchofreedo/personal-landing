@@ -29,7 +29,7 @@
         }
 
         p {
-            @include text-style(h3, book, ui);
+            @include text-style(h3, regular, ui);
             color: $primary__color--text--muted;
             width: clamp(convertRem(480px), 72%, 100%);
 

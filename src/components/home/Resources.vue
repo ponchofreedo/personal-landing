@@ -50,7 +50,7 @@
     }
 
     small {
-        @include text-style(small, book, base);
+        @include text-style(small, regular, base);
         color: $primary__color--text--muted;
     }
 

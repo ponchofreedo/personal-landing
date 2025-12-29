@@ -1,67 +1,71 @@
 <script setup lang="ts">
-  import { onMounted } from 'vue'
+import { onMounted } from 'vue'
 
-    onMounted(() => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'auto'
-        })
-    })
+onMounted(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'auto',
+  })
+})
 </script>
 
 <script lang="ts">
-    export default {
-        methods: {
-            scrollToWorks() {
-                const id = "works"!;
-                if (id !== null) {
-                    const offsetValue = -160;
-                    const section = document.getElementById(id)!;
-                    const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue;
-                    window.scrollTo({
-                        top: sectionWithOffset,
-                        behavior: 'smooth'
-                    });
-                    console.log('scrolling to ' + id);
-                } else {
-                    console.log('works section doesnt exist');
-                }
-            }
-        }
-    };
+export default {
+  methods: {
+    scrollToWorks() {
+      const id = 'works'!
+      if (id !== null) {
+        const offsetValue = -160
+        const section = document.getElementById(id)!
+        const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue
+        window.scrollTo({
+          top: sectionWithOffset,
+          behavior: 'smooth',
+        })
+        console.log('scrolling to ' + id)
+      } else {
+        console.log('works section doesnt exist')
+      }
+    },
+  },
+}
 </script>
 
 <template>
-  <!-- <Navigation /> -->
   <RouterView />
 </template>
 
 <style lang="scss">
+main#app {
+  display: flex;
+  flex-direction: column;
+  height: initial;
+  width: 100%;
+  width: max-content;
+  padding: 0 convertRem(80px);
+  margin: auto;
 
+  @media (min-width: 1920px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 960px) {
   main#app {
-    display: flex;
-    flex-direction: column;
-    height: initial;
-    max-width: convertRem(1280px);
-    margin: auto;
+    width: 100%;
+    padding: 0 convertRem(24px);
   }
+}
 
-  @media (max-width: 960px) {
-    main#app {
-      width: 100%;
-      padding: 0 convertRem(24px);
-    }
+// style overrides for the image zoom component
+.media__img--hero {
+  .vh--holder {
+    height: 100%;
+    width: 100%;
+    max-width: convertRem(1280px) !important;
+    border-radius: convertRem(16px) !important;
   }
-
-  // style overrides for the image zoom component
-  .media__img--hero {
-    .vh--holder {
-        height: 100%;
-        width: 100%;
-        max-width: convertRem(1280px)!important;
-        border-radius: convertRem(16px)!important;
-    }
-  }
-
+}
 </style>

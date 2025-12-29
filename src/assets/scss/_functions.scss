@@ -1,37 +1,36 @@
 // helper functions
-@use "sass:map";
-@use "sass:math";
-@use "vars" as *;
+@use 'sass:map';
+@use 'sass:math';
+@use 'vars' as *;
 
 // functions
 $default-font-size: 16px;
 
 @function stripUnit($value) {
-    @return math.div($value , ($value * 0 + 1));
+  @return math.div($value, ($value * 0 + 1));
 }
 @function convertRem($pxValue) {
-    @return #{math.div(stripUnit($pxValue) , stripUnit($default-font-size))}rem;
+  @return #{math.div(stripUnit($pxValue), stripUnit($default-font-size))}rem;
 }
 
 // mixins
 @mixin text-style($size, $weight, $line-height) {
-  
-  @if $size != "inherit" {
-  	font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
+  @if $size != 'inherit' {
+    font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
   } @else {
-  	font-size: inherit;
+    font-size: inherit;
   }
 
-  @if $weight != "inherit" {
-  	font-weight: map.get(map.get($type-vars, weights), $weight);
+  @if $weight != 'inherit' {
+    font-weight: map.get(map.get($type-vars, weights), $weight);
   } @else {
-  	font-weight: inherit;
+    font-weight: inherit;
   }
 
-  @if $line-height != "inherit" {
-  	line-height:  map.get(map.get($type-vars, line-heights), $line-height);
+  @if $line-height != 'inherit' {
+    line-height: map.get(map.get($type-vars, line-heights), $line-height);
   } @else {
-  	line-height: inherit;
+    line-height: inherit;
   }
 
   @supports (font-variation-settings: normal) {
@@ -40,26 +39,23 @@ $default-font-size: 16px;
 }
 
 @mixin container-width($value) {
-	@if $value == "padded" {
-		padding-left: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
-		padding-right: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
-	} @else if $value > 0 {
-		padding-left: convertRem($value);
-		padding-right: convertRem($value);
-	} @else {
-		padding-left: 0;
-		padding-right: 0;
-	}
+  @if $value == 'padded' {
+    padding-left: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
+    padding-right: convertRem(110px); // equal to 1 col + 1 gutter @ 1060px max container
+  } @else if $value > 0 {
+    padding-left: convertRem($value);
+    padding-right: convertRem($value);
+  } @else {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @mixin inner-flex-container {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-  align-self: center;
-  max-width: convertRem(1060px);
-  margin-top: convertRem(120px);
-  margin-bottom: convertRem(120px);
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: convertRem(32px);
+  max-width: convertRem(1440px);
 }
 
 @mixin split-column-layout-container {
@@ -70,11 +66,39 @@ $default-font-size: 16px;
 }
 
 @mixin split-column-layout-side($side) {
-  @if $side == "left" {
+  @if $side == 'left' {
     grid-column-start: 1;
     grid-column-end: 2;
-  } @else if $side == "right" {
+  } @else if $side == 'right' {
     grid-column-start: 2;
     grid-column-end: 3;
   }
+}
+
+@mixin text-hover-effect($type, $timing) {
+  @if $type == 'strike' {
+    text-decoration-line: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: convertRem(4px);
+    transition: $timing all ease-in-out;
+
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  } @else if $type == 'underline' {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: convertRem(4px);
+    transition: $timing all ease-in-out;
+
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  }
+
+  // this is an experiment that doesn't currently work outside of firefox
+  // text-decoration-line: underline;
+  // text-decoration-thickness: convertRem(4px);
+  // text-decoration-skip: none;
+  // text-decoration-inset: -2px;
 }

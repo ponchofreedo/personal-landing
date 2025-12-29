@@ -1,137 +1,104 @@
 <script setup lang="ts">
-  import { ref, defineAsyncComponent } from 'vue'
-  import { useRouter } from 'vue-router'
-  // import { projectMap } from '@data/constants'
-  import Navigation from '@global/Navigation.vue'
-  import Footer from '@global/Footer.vue'
+import { defineAsyncComponent, type Component } from 'vue'
+import { useRouter } from 'vue-router'
+import GlobalNavigation from '@global/GlobalNavigation.vue'
+import GlobalFooter from '@global/GlobalFooter.vue'
 
-  defineOptions({
-    inheritAttrs: false
-  })
+defineOptions({
+  inheritAttrs: false,
+})
 
-  const router = useRouter();
+const router = useRouter()
 
-  const goBack = () => {
-    router.back();
-  };
+const goBack = () => {
+  router.back()
+}
 </script>
 
 <script lang="ts">
-  import json from '@data/projects.json'
+import json from '@data/projects.json'
 
-  interface Project {
-    title: string;
-    copy: {
-      intro?: string;
-      context?: string;
-      opportunity?: string;
-      goals?: string;
-      creation?: string;
-      manage?: string;
-      retro?: string;
-      [key: string]: any;
-    };
-    meta: {
-      tags?: Record<string, string>;
-      date?: string;
-      slug?: string;
-      href?: string;
-      [key: string]: any;
-    };
-    img: {
-      fileName?: string;
-      alt?: string;
-      [key: string]: any;
+export default {
+  data() {
+    return {
+      projects: json.projects,
+      company: this.$route.params.company,
+      slug: this.$route.params.slug,
     }
-    company: string;
-    company_url: string;
-    team: string;
-  }
+  },
+  computed: {
+    projectExists(): boolean {
+      const company = typeof this.company === 'string' ? this.company : this.company?.[0]
+      const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0]
 
-  export default {
-    data() {
-      return {
-        projects: json.projects,
-        company: this.$route.params.company,
-        slug: this.$route.params.slug
-      };
+      if (!company || !slug) return false
+
+      const companyProjects = this.projects[company as keyof typeof this.projects]
+      if (!companyProjects) return false
+
+      return !!companyProjects[slug as keyof typeof companyProjects]
     },
-    computed: {
-      projectExists(): boolean {
-        const company = typeof this.company === 'string' ? this.company : this.company?.[0];
-        const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0];
-        
-        if (!company || !slug) return false;
-        
-        const companyProjects = this.projects[company as keyof typeof this.projects];
-        if (!companyProjects) return false;
-        
-        return !!companyProjects[slug as keyof typeof companyProjects];
-      },
-      currentComponent() {
-        const company = typeof this.company === 'string' ? this.company : this.company?.[0];
-        const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0];
-        
-        if (!company || !slug) return null;
-        
-        // Map route to component using defineAsyncComponent
-        const componentMap: Record<string, any> = {
-          'hubspot-create-edit': defineAsyncComponent(() => import('@components/works/projects/HubspotCreateEdit.vue')),
-          'hubspot-formula-tester': defineAsyncComponent(() => import('@components/works/projects/HubspotFormulaTester.vue')),
-          // 'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
-        };
-        
-        const key = `${company}-${slug}`;
-        return componentMap[key] || null;
+    currentComponent() {
+      const company = typeof this.company === 'string' ? this.company : this.company?.[0]
+      const slug = typeof this.slug === 'string' ? this.slug : this.slug?.[0]
+
+      if (!company || !slug) return null
+
+      // Map route to component using defineAsyncComponent
+      const componentMap: Record<string, Component> = {
+        'hubspot-create-edit': defineAsyncComponent(
+          () => import('@components/works/projects/HubspotCreateEdit.vue'),
+        ),
+        'hubspot-formula-tester': defineAsyncComponent(
+          () => import('@components/works/projects/HubspotFormulaTester.vue'),
+        ),
+        // 'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
       }
-    }
-  };
+
+      const key = `${company}-${slug}`
+      return componentMap[key] || null
+    },
+  },
+}
 </script>
 
 <template>
-
   <!-- start nav -->
-  <Navigation />
+  <GlobalNavigation />
   <!-- end nav -->
-  
+
   <!-- back link start -->
   <header>
-    <RouterLink 
-      @click="goBack"
-      to=""
-      class="link link--back">
+    <RouterLink @click="goBack" to="" class="link link--back">
       <icon type="icon" name="iconArrowLeft" />
       <span>Go back</span>
     </RouterLink>
   </header>
   <!-- back link end -->
 
-  <component
-    v-if="currentComponent"
-    :is="currentComponent" />
+  <component v-if="currentComponent" :is="currentComponent" />
 
   <!-- start footer -->
-  <Footer />
+  <GlobalFooter />
   <!-- end footer -->
 </template>
 
 <style lang="scss" scoped>
+header {
+  @include inner-flex-container;
+  margin-top: convertRem(16px);
+  margin-bottom: convertRem(16px);
+}
 
-  header {
-    @include inner-flex-container;
-    margin-top: convertRem(16px);
-    margin-bottom: convertRem(16px);
-  }
+#footer {
+  @include inner-flex-container;
+}
 
-  #footer {
-    @include inner-flex-container;
+@media (min-width: 1024px) {
+  .about {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
   }
-
-  @media (min-width: 1024px) {
-    .about {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-  }
+}
 </style>

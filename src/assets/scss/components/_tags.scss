@@ -154,14 +154,14 @@ ul.tag__snackbar {
   span:not(li span) {
     position: relative;
     font-size: convertRem($text__font-size--p);
-    font-weight: $text__font-weight--normal;
+    font-weight: $text__font-weight--regular;
     line-height: $text__line-height--fixed;
     padding: convertRem(8px) 0;
     flex-wrap: inherit;
     color: $primary__color--text--darker;
 
     &:first-of-type {
-      font-weight: $text__font-weight--semibold;
+      font-weight: $text__font-weight--bold;
 
       &:has(+ ul) {
         margin-right: 32px;

@@ -1,5 +1,5 @@
-@use "@scss/functions" as *;
-@use "@scss/vars" as *;
+@use '@scss/functions' as *;
+@use '@scss/vars' as *;
 
 /* support classes for tags */
 /* link styles here for now to be referenced globally */
@@ -7,23 +7,16 @@
 .link:link,
 .link:active,
 .link:visited {
-    color: $primary__color--accent;
+  color: $primary__color--accent;
 
-    &:not(.link--display) {
-      transition-property: opacity;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 0.1);
-      transition-duration: 0.16s;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
+  &:not(.link--display) {
+    @include text-hover-effect(strike, 0s);
+  }
 }
 
 .link {
-
   &--display {
-    cursor: default!important;
+    cursor: default !important;
   }
 }
 
@@ -31,12 +24,12 @@
   display: inline-flex;
   align-items: center;
   gap: convertRem(4px);
-  font-weight: $text__font-weight--semibold;
+  font-weight: $text__font-weight--bold;
   text-decoration: underline solid convertRem(2px);
   color: inherit;
 
   @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--semibold;
+    font-variation-settings: 'wght' $text__font-weight--bold;
   }
 
   svg,
@@ -52,7 +45,6 @@
 
 // small optical adjustments for back anchor links
 .link--back {
-
   display: flex;
   flex-direction: row;
   gap: convertRem(4px);
