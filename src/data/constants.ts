@@ -17,6 +17,39 @@ export const navLinks = [
   }
 ];
 
+export const socialLinks = [
+  {
+    id: 1,
+    platform: 'LinkedIn',
+    url: 'https://linkedin.com/in/zpfreed',
+  },
+  {
+    id: 2,
+    platform: 'Figma',
+    url: 'https://figma.com/@ponchofreedo',
+  },
+  {
+    id: 3,
+    platform: 'GitHub',
+    url: 'https://github.com/ponchofreedo',
+  },
+  {
+    id: 4,
+    platform: 'Dribbble',
+    url: 'https://dribbble.com/ponchofreedo',
+  },
+  {
+    id: 5,
+    platform: 'Instagram',
+    url: 'https://instagram.com/ponchofreedo',
+  },
+  // {
+  //   id: 6,
+  //   platform: 'Bluesky',
+  //   url: 'https://bsky.app/profile/ponchofreedo.bsky.social',
+  // },
+];
+
 export const selectedWorks = [
 	{
     id: 1,

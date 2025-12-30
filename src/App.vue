@@ -42,7 +42,6 @@ main#app {
   flex-direction: column;
   height: initial;
   width: 100%;
-  width: max-content;
   padding: 0 convertRem(80px);
   margin: auto;
 
@@ -50,11 +49,8 @@ main#app {
     margin-left: auto;
     margin-right: auto;
   }
-}
 
-@media (max-width: 960px) {
-  main#app {
-    width: 100%;
+  @media (max-width: 980px) {
     padding: 0 convertRem(24px);
   }
 }

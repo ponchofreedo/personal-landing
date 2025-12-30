@@ -51,11 +51,31 @@ $default-font-size: 16px;
   }
 }
 
+@mixin container-max-width {
+  width: 100%;
+  max-width: convertRem(1600px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @mixin inner-flex-container {
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
-  gap: convertRem(32px);
-  max-width: convertRem(1440px);
+  gap: convertRem(40px);
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(8, [col-start] 1fr);
+    gap: convertRem(32px);
+  }
+
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(8, [col-start] 1fr);
+    gap: convertRem(24px);
+  }
+
+  @media (max-width: 620px) {
+    grid-template-columns: repeat(4, [col-start] 1fr);
+  }
 }
 
 @mixin split-column-layout-container {

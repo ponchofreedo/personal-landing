@@ -70,54 +70,83 @@ export default {
 @use 'sass:math';
 
 header {
+  @include container-max-width;
   @include inner-flex-container;
+}
 
-  article {
-    display: grid;
-    grid-column: col-start / span 8;
-    grid-template-rows: 1fr;
-    row-gap: convertRem(48px);
-    grid-template-columns: subgrid;
+article {
+  display: grid;
+  grid-column: col-start / span 8;
+  grid-template-rows: 1fr;
+  row-gap: convertRem(48px);
+  grid-template-columns: subgrid;
+  height: 100%;
+  padding-top: convertRem(80px);
+  padding-bottom: convertRem(120px);
+
+  @media (min-height: 880px) {
     height: calc(100dvh - 120px);
-    padding-bottom: convertRem(120px);
   }
 
-  section {
-    grid-column: inherit;
-
-    &.header__welcome {
-      display: flex;
-      flex-direction: column;
-      gap: convertRem(32px);
-      justify-content: flex-end;
-    }
-
-    &.header__intro {
-      grid-column: col-start / span 6;
-    }
+  @media (max-width: 1280px) {
+    grid-column: col-start / span 7;
   }
 
-  footer {
+  @media (max-width: 980px) {
+    padding-bottom: convertRem(80px);
+  }
+
+  @media (max-width: 620px) {
+    height: calc(100dvh - 200px);
+    grid-column: span 4;
+    row-gap: convertRem(24px);
+  }
+}
+
+section {
+  grid-column: inherit;
+
+  &.header__welcome {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: convertRem(32px);
     justify-content: flex-end;
-    grid-column: inherit;
-    margin-top: convertRem(40px);
+  }
 
-    small {
-      display: inherit;
-      margin-bottom: convertRem(16px);
-      @include text-style(p, medium, ui);
-      color: $primary__color--text--darker;
+  &.header__intro {
+    grid-column: col-start / span 6;
+
+    @media (max-width: 1280px) {
+      grid-column: col-start / span 5;
     }
 
-    svg {
-      cursor: pointer;
-      color: $primary__color--accent;
-      height: convertRem(32px);
-      width: auto;
+    @media (max-width: 980px) {
+      grid-column: col-start / span 5;
     }
+
+    @media (max-width: 620px) {
+      grid-column: span 4;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  grid-column: inherit;
+  margin-top: convertRem(40px);
+
+  @media (max-width: 620px) {
+    margin-top: convertRem(24px);
+  }
+
+  svg {
+    cursor: pointer;
+    color: $primary__color--accent;
+    height: convertRem(32px);
+    width: auto;
   }
 }
 
@@ -127,21 +156,16 @@ header {
 //   width: convertRem(160px);
 // }
 
-// article {
-//   display: flex;
-//   flex-direction: column;
-//   gap: convertRem(40px);
-//   margin-top: convertRem(-24px);
-// }
-
 .tag {
   display: inline-flex;
   width: min-content;
   background-color: $secondary__color--accent--3;
 }
 
-aside {
-  @include split-column-layout-side(left);
+small {
+  display: inherit;
+  margin-bottom: convertRem(16px);
+  color: $primary__color--text--darker;
 }
 
 h1 {
@@ -150,31 +174,25 @@ h1 {
   @supports (font-variation-settings: normal) {
     font-variation-settings: 'wght' $text__font-weight--medium;
   }
+}
 
-  .highlight {
-    &--1 {
-      color: $primary__color--accent;
-    }
-    &--2 {
-      color: $primary__color--text;
-    }
-    &--3 {
-      color: $primary__color--text--muted;
-    }
-    &--4 {
-      color: $primary__color--text--darker;
-    }
+.highlight {
+  &--1 {
+    color: $primary__color--accent;
+  }
+  &--2 {
+    color: $primary__color--text;
+  }
+  &--3 {
+    color: $primary__color--text--muted;
+  }
+  &--4 {
+    color: $primary__color--text--darker;
   }
 }
 
 p {
-  grid-column: col-start / span 6;
-  @include text-style(big, regular, ui);
   color: $primary__color--text--muted;
-}
-
-h1 {
-  color: $primary__color--text;
 }
 
 a {

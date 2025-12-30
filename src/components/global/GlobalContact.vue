@@ -1,39 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-// i should probably convert this to some kind of db entry with an api call, but for now its small enough to just include in the component.
-const links = ref([
-  {
-    id: 1,
-    platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/zpfreed',
-  },
-  {
-    id: 2,
-    platform: 'Figma',
-    url: 'https://figma.com/@ponchofreedo',
-  },
-  {
-    id: 3,
-    platform: 'GitHub',
-    url: 'https://github.com/ponchofreedo',
-  },
-  {
-    id: 4,
-    platform: 'Dribbble',
-    url: 'https://dribbble.com/ponchofreedo',
-  },
-  {
-    id: 5,
-    platform: 'Instagram',
-    url: 'https://instagram.com/ponchofreedo',
-  },
-  {
-    id: 6,
-    platform: 'Bluesky',
-    url: 'https://bsky.app/profile/ponchofreedo.bsky.social',
-  },
-])
+import { socialLinks } from '@data/constants'
 </script>
 
 <script lang="ts"></script>
@@ -73,9 +39,9 @@ const links = ref([
         </article>
         <article>
           <ul>
-            <li v-for="link in links" :key="link.id">
-              <a :href="link.url" target="_blank" class="link">
-                <span>{{ link.platform }}</span>
+            <li v-for="socialLink in socialLinks" :key="socialLink.id">
+              <a :href="socialLink.url" target="_blank" class="link">
+                <span>{{ socialLink.platform }}</span>
                 <icon type="icon" name="iconArrowSquareUpRight" />
               </a>
             </li>

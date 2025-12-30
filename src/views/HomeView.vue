@@ -57,12 +57,11 @@ export default {
 #resources,
 #fun-section,
 #footer {
+  @include container-max-width;
   @include inner-flex-container;
 }
 
 @media (max-width: 800px) {
-  nav,
-  header,
   #works,
   #experience,
   #resources,

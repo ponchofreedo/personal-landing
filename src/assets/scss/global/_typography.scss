@@ -113,22 +113,42 @@ h4,
   @include text-style(big, regular, ui);
 
   @media (max-width: 800px) {
-    font-size: convertRem($text__font-size--big * 0.96);
+    font-size: convertRem($text__font-size--big * 0.9);
+  }
+}
+
+.text--super {
+  @include text-style(h2, bold, ui);
+
+  @media (max-width: 800px) {
+    font-size: convertRem($text__font-size--h2 * 0.9);
   }
 }
 
 small,
 caption {
   @include text-style(small, regular, base);
+
+  @media (max-width: 800px) {
+    font-size: convertRem($text__font-size--small * 0.96);
+  }
 }
 
 b,
 em,
 .text--emphasis {
-  @include text-style(inherit, bold, inherit);
+  font-weight: $text__font-weight--bold;
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' $text__font-weight--bold;
+  }
 
   &.soft {
-    @include text-style(inherit, medium, inherit);
+    font-weight: $text__font-weight--medium;
+
+    @supports (font-variation-settings: normal) {
+      font-variation-settings: 'wght' $text__font-weight--medium;
+    }
   }
 }
 
@@ -139,4 +159,29 @@ em,
 
 .highlight {
   color: $primary__color--accent;
+}
+
+/* font-weight override classes */
+.text--ultrabold {
+  font-weight: $text__font-weight--ultrabold;
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' $text__font-weight--ultrabold;
+  }
+}
+
+.text--bold {
+  font-weight: $text__font-weight--bold;
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' $text__font-weight--bold;
+  }
+}
+
+.text--regular {
+  font-weight: $text__font-weight--regular;
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' $text__font-weight--regular;
+  }
 }
