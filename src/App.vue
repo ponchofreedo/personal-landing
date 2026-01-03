@@ -42,17 +42,6 @@ main#app {
   flex-direction: column;
   height: initial;
   width: 100%;
-  padding: 0 convertRem(80px);
-  margin: auto;
-
-  @media (min-width: 1920px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (max-width: 980px) {
-    padding: 0 convertRem(24px);
-  }
 }
 
 // style overrides for the image zoom component

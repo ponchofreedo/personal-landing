@@ -1,6 +1,4 @@
-// need to explore importing helpers here instead of in every partial
-
 // parent partial imports
-@forward "global";
-@forward "base";
-@forward "components";
+@forward 'global';
+@forward 'base';
+@forward 'components';

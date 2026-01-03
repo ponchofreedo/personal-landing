@@ -1,6 +1,6 @@
 // import functions
-@use '@scss/functions' as *;
 @use '@scss/vars' as *;
+@use '@scss/helpers' as *;
 
 // declare the variable font first, for priority
 @supports (font-variation-settings: normal) {
@@ -87,10 +87,18 @@ h2,
   letter-spacing: convertRem($value); // should render -1px
 }
 
+h3,
+h4,
+.text--as-h3,
+.text--as-h4 {
+  $value: ((($base__multiple * -0.0000125) * 62.5) * $base__font-size) * 1px;
+  letter-spacing: convertRem($value); // should render -0.1px
+}
+
 /* h3-h4 and em should pair with --text__line-height--display--mod */
 h3,
 .text--as-h3 {
-  @include text-style(h3, bold, ui);
+  @include text-style(h3, ultrabold, ui);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h3 * 0.8);
@@ -99,10 +107,7 @@ h3,
 
 h4,
 .text--as-h4 {
-  @include text-style(h4, ultrabold, ui);
-
-  $value: ((($base__multiple * -0.0000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -0.1px
+  @include text-style(h4, medium, ui);
 
   @media (max-width: 800px) {
     font-size: convertRem($text__font-size--h4 * 0.96);

@@ -1,5 +1,5 @@
-@use "@scss/functions" as *;
-@use "@scss/vars" as *;
+@use '@scss/vars' as *;
+@use '@scss/helpers' as *;
 
 /* support classes for tags */
 .tag {
@@ -10,7 +10,7 @@
   font-weight: $text__font-weight--medium;
   line-height: $text__line-height--fixed;
   padding: convertRem(8px) 0;
-  background-color: $primary__color--background;
+  background-color: inherit;
   color: inherit;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .tag svg {
-  height: convertRem($base__font-size);
+  height: convertRem(8px);
   margin-right: convertRem(8px);
   width: auto;
   color: inherit;
@@ -36,7 +36,7 @@
 
 .tag--testing {
   gap: convertRem(4px); /* occular adjusment */
-  color: #DEB94A;
+  color: #deb94a;
 
   svg {
     margin-right: convertRem(2px);
@@ -44,15 +44,15 @@
 }
 
 .tag--in-dev {
-  color: #E4A464;
+  color: $secondary__color--accent--1;
 }
 
 .tag--beta {
-  color: #D189D8;
+  color: $primary__color--accent;
 }
 
 .tag--shipped {
-  color: $primary__color--accent;
+  color: $secondary__color--accent--1;
 }
 
 .tag--freelance {
@@ -76,8 +76,6 @@
 .tag--availability svg {
   height: convertRem(20px);
 }
-
-
 
 .tag__snackbar,
 ul.tag__snackbar {
@@ -104,33 +102,32 @@ ul.tag__snackbar {
     padding-right: convertRem(12px);
 
     &:first-child {
-        padding-left: 0;
+      padding-left: 0;
     }
 
     &:last-child {
-        padding-right: 0;
+      padding-right: 0;
 
-        &::after {
-            display: none;
-        }
+      &::after {
+        display: none;
+      }
     }
 
     &::after {
-        position: absolute;
-        content: '';
-        top: convertRem(14px);
-        right: convertRem(-7px);
-        display: inline-block;
-        vertical-align: middle;
-        height: convertRem(4px);
-        width: convertRem(4px);
-        border-radius: convertRem(999px);
-        background-color: $ui__color--neutral;
+      position: absolute;
+      content: '';
+      top: convertRem(15px);
+      right: convertRem(-7px);
+      display: inline-block;
+      vertical-align: middle;
+      height: convertRem(4px);
+      width: convertRem(4px);
+      border-radius: convertRem(999px);
+      background-color: $ui__color--neutral;
     }
   }
 
   &.snackbar__inline {
-
     li {
       padding-top: 0;
       padding-right: convertRem(8px);
@@ -149,6 +146,16 @@ ul.tag__snackbar {
 
   &.snackbar--no-gap {
     gap: 0;
+  }
+
+  &.snackbar--always-wrap {
+    flex-wrap: wrap;
+
+    li:last-child {
+      flex-basis: initial;
+      margin-top: initial;
+      margin-left: initial;
+    }
   }
 
   span:not(li span) {

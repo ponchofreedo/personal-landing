@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { navLinks, socialLinks } from '@data/constants'
+import { navLinks, socialLinks, resumeLink } from '@data/constants'
 
 const isMenuOpen = ref(false)
 
@@ -47,10 +47,8 @@ const toggleMenu = () => {
         </RouterLink>
       </li>
       <li>
-        <a
-          href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing"
-          target="_blank"
-          ><span class="text--big">R&eacute;sum&eacute;</span>
+        <a :href="resumeLink" target="_blank">
+          <span class="text--big">R&eacute;sum&eacute;</span>
         </a>
       </li>
       <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
@@ -86,10 +84,9 @@ const toggleMenu = () => {
           </RouterLink>
         </li>
         <li>
-          <a
-            href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing"
-            target="_blank"
+          <a :href="resumeLink" target="_blank"
             ><span>R&eacute;sum&eacute;</span>
+            <icon type="icon" name="iconDownload" />
           </a>
         </li>
       </ul>
@@ -108,14 +105,16 @@ const toggleMenu = () => {
 
 <style lang="scss" scoped>
 nav {
+  @include container-max-width;
+  @include container-responsive-padding;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: row;
   flex: 0 0 100%;
   justify-content: space-between;
-  @include container-max-width;
-  padding: convertRem(40px) 0;
+  padding-top: convertRem(40px);
+  padding-bottom: convertRem(40px);
   line-height: unset;
   background-color: rgba($primary__color--background, 0.9);
   z-index: 999;
@@ -138,7 +137,10 @@ nav {
 
   &__responsive {
     display: none;
-    position: relative;
+    position: sticky;
+    top: 0;
+    padding-left: convertRem(24px);
+    padding-right: convertRem(24px);
 
     button {
       background-color: $primary__color--background--lighter;
@@ -149,6 +151,7 @@ nav {
       border-radius: convertRem(8px);
       line-height: 0;
       margin-left: convertRem(16px);
+      cursor: pointer;
 
       svg {
         height: convertRem(32px);
@@ -265,7 +268,7 @@ ul {
   span {
     display: flex;
     color: $primary__color--text--darker !important;
-    @include text-hover-effect(strike, 0s);
+    @include text-hover-effect(strike, 0.1s);
   }
 }
 

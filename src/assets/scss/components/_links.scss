@@ -1,5 +1,5 @@
-@use '@scss/functions' as *;
 @use '@scss/vars' as *;
+@use '@scss/helpers' as *;
 
 /* support classes for tags */
 /* link styles here for now to be referenced globally */
@@ -10,7 +10,7 @@
   color: $primary__color--accent;
 
   &:not(.link--display) {
-    @include text-hover-effect(strike, 0s);
+    @include text-hover-effect(strike, 0.1s);
   }
 }
 

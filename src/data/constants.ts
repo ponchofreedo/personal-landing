@@ -50,10 +50,12 @@ export const socialLinks = [
   // },
 ];
 
+export const resumeLink = 'https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing';
+
 export const selectedWorks = [
 	{
     id: 1,
-    title: 'Streamlining CRM data property management experiences',
+    title: 'Streamlining CRM data management experiences',
     preview: 'Solving customer pains, driving adoption, and reducing overhead costs by rethinking a core data management workflow in HubSpot\'s CRM.',
     private: '',
     testing: '',

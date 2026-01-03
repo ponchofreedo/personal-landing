@@ -16,7 +16,7 @@ export default {
     scrollToWorks() {
       const id = 'works'!
       if (id !== null) {
-        const offsetValue = -160
+        const offsetValue = 0 // new layout kinda removes the need for this, but maybe i experiment later
         const section = document.getElementById(id)!
         const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue
         window.scrollTo({
@@ -71,7 +71,8 @@ export default {
 
 header {
   @include container-max-width;
-  @include inner-flex-container;
+  @include container-inner-grid;
+  @include container-responsive-padding;
 }
 
 article {
@@ -193,10 +194,5 @@ h1 {
 
 p {
   color: $primary__color--text--muted;
-}
-
-a {
-  color: $primary__color--accent;
-  text-decoration: underline solid convertRem(4px);
 }
 </style>
