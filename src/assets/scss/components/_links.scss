@@ -7,6 +7,7 @@
 .link:link,
 .link:active,
 .link:visited {
+  font-size: inherit;
   color: $primary__color--accent;
 
   &:not(.link--display) {
@@ -15,31 +16,34 @@
 }
 
 .link {
+  &--inline {
+    @include text-style(inherit, bold, inherit);
+    text-decoration: underline solid convertRem(2px);
+    color: inherit;
+  }
+
   &--display {
     cursor: default !important;
-  }
-}
-
-.link--inline {
-  display: inline-flex;
-  align-items: center;
-  gap: convertRem(4px);
-  font-weight: $text__font-weight--bold;
-  text-decoration: underline solid convertRem(2px);
-  color: inherit;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--bold;
+    color: $primary__color--accent;
+    margin-bottom: convertRem(-2px);
   }
 
-  svg,
-  + svg {
+  &--inline,
+  &--display {
     display: inline-flex;
-    vertical-align: text-top;
-    height: convertRem(16px);
-    width: auto;
-    margin-top: convertRem(1px);
-    margin-right: convertRem(2px);
+    align-items: baseline;
+    gap: convertRem(4px);
+
+    svg,
+    + svg {
+      display: inline-flex;
+      vertical-align: text-top;
+      align-self: center;
+      height: convertRem(16px);
+      width: auto;
+      margin-top: 0;
+      margin-right: convertRem(2px);
+    }
   }
 }
 

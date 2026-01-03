@@ -96,7 +96,7 @@ import { selectedWorks } from '@data/constants'
         </li>
       </menu>
     </article>
-    <!-- <footer>
+    <footer>
       <p>
         See all available projects on
         <a
@@ -115,12 +115,10 @@ import { selectedWorks } from '@data/constants'
           >drop a messge</a
         >
         if you'd like to discuss anything that is labeled
-        <icon class="link link--display" type="icon" name="iconPrivate" /><span
-          class="link link--display"
-          >Private</span
-        >.
+        <span class="link--display"><icon type="icon" name="iconPrivate" />Private</span>, drop a
+        message to talk.
       </p>
-    </footer> -->
+    </footer>
   </section>
 </template>
 
@@ -160,15 +158,15 @@ footer {
       }
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: convertRem(-42px); // +2px to account for extra gap
-      bottom: 0;
-      height: 2px;
-      background-color: $primary__color--border;
-    }
-    @include psuedo-before-full-width-padding-fix;
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: convertRem(-42px); // +2px to account for extra gap
+    //   bottom: 0;
+    //   height: 2px;
+    //   background-color: $primary__color--border;
+    // }
+    // @include psuedo-before-full-width-padding-fix;
 
     a {
       display: flex;
@@ -265,6 +263,7 @@ footer {
       display: flex;
       flex-direction: row;
       gap: convertRem(8px);
+      margin-top: convertRem(32px);
       color: $primary__color--text--muted;
 
       span {
@@ -315,11 +314,7 @@ menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: convertRem(82px);
-}
-
-section {
-  width: 100%;
+  gap: convertRem(80px);
 }
 
 figure {
@@ -356,7 +351,7 @@ p {
 footer {
   display: flex;
   flex-direction: column;
-  margin-top: convertRem(32px);
+  margin-top: convertRem(80px);
 
   p {
     color: $primary__color--text;
