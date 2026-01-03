@@ -65,7 +65,7 @@ export default {
   }
 
   &__content {
-    @include inner-flex-container;
+    @include container-inner-grid;
     margin: convertRem(80px) 0;
 
     &__inner {

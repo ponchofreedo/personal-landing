@@ -34,6 +34,6 @@ export default {
 
 #works__list,
 #footer {
-  @include inner-flex-container;
+  @include container-inner-grid;
 }
 </style>

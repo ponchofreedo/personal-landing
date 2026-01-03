@@ -85,13 +85,13 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  @include inner-flex-container;
+  @include container-inner-grid;
   margin-top: convertRem(16px);
   margin-bottom: convertRem(16px);
 }
 
 #footer {
-  @include inner-flex-container;
+  @include container-inner-grid;
 }
 
 @media (min-width: 1024px) {
