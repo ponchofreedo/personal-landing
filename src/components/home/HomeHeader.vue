@@ -73,6 +73,34 @@ header {
   @include container-max-width;
   @include container-inner-grid;
   @include container-responsive-padding;
+
+  height: 100dvh;
+  margin-top: convertRem(-120px);
+  place-items: flex-end;
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px) and (orientation: landscape) {
+    margin-top: inherit;
+  }
+
+  @media (max-width: 680px) {
+    margin-top: convertRem(-96px);
+  }
+
+  @media (max-width: 480px) {
+    place-items: center;
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    place-items: center;
+    margin-top: convertRem(40px);
+  }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 400px) and (orientation: portrait) {
+    height: 100%;
+    place-items: center;
+    margin-top: convertRem(40px);
+    padding-bottom: convertRem(40px);
+  }
 }
 
 article {
@@ -81,13 +109,8 @@ article {
   grid-template-rows: 1fr;
   row-gap: convertRem(48px);
   grid-template-columns: subgrid;
-  height: 100%;
-  padding-top: convertRem(80px);
+  height: fit-content;
   padding-bottom: convertRem(120px);
-
-  @media (min-height: 880px) {
-    height: calc(100dvh - 120px);
-  }
 
   @media (max-width: 1280px) {
     grid-column: col-start / span 7;
@@ -97,10 +120,14 @@ article {
     padding-bottom: convertRem(80px);
   }
 
-  @media (max-width: 620px) {
-    height: 100%;
+  @media (max-width: 680px) {
     grid-column: 1 / -1;
     row-gap: convertRem(24px);
+  }
+
+  @media (max-width: 480px) {
+    height: min-content;
+    padding-bottom: 0;
   }
 }
 
@@ -125,7 +152,7 @@ section {
       grid-column: col-start / span 5;
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 680px) {
       grid-column: 1 / -1;
     }
   }
@@ -139,7 +166,7 @@ footer {
   grid-column: inherit;
   margin-top: convertRem(40px);
 
-  @media (max-width: 620px) {
+  @media (max-width: 680px) {
     margin-top: convertRem(24px);
   }
 

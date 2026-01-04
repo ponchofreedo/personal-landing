@@ -84,7 +84,7 @@ article {
     padding-bottom: convertRem(80px);
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 680px) {
     height: calc(100dvh - 200px);
     grid-column: span 4;
     row-gap: convertRem(24px);

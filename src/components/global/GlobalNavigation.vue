@@ -110,7 +110,7 @@ nav {
   background-color: rgba($primary__color--background, 0.9);
   z-index: 999;
 
-  @media (max-width: 620px) {
+  @media (max-width: 680px) {
     justify-items: flex-start;
     gap: convertRem(24px);
     padding: convertRem(24px) 0;
@@ -120,8 +120,9 @@ nav {
 .nav {
   &__fixed {
     display: flex;
+    min-height: convertRem(120px) !important;
 
-    @media (max-width: 620px) {
+    @media (max-width: 680px) {
       display: none;
     }
   }
@@ -133,7 +134,7 @@ nav {
     padding-left: convertRem(24px);
     padding-right: convertRem(24px);
 
-    @media (max-width: 620px) {
+    @media (max-width: 680px) {
       display: flex;
       align-items: center;
     }
@@ -236,7 +237,7 @@ ul {
   align-items: center;
   line-height: $text__line-height--fixed;
 
-  @media (max-width: 620px) {
+  @media (max-width: 680px) {
     align-items: flex-start;
   }
 }
@@ -257,7 +258,7 @@ ul {
   gap: convertRem(24px);
   flex-wrap: wrap;
 
-  @media (max-width: 620px) {
+  @media (max-width: 680px) {
     justify-items: flex-start;
     width: 100%;
     gap: convertRem(8px);
@@ -270,7 +271,7 @@ ul {
   li {
     font-weight: $text__font-weight--regular;
 
-    @media (max-width: 620px) {
+    @media (max-width: 680px) {
       flex-basis: 100%;
     }
   }

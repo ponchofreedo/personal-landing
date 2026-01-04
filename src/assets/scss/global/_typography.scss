@@ -44,7 +44,7 @@ p,
 .text--body {
   @include text-style(p, regular, base);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--p * 1.125);
   }
 }
@@ -57,11 +57,11 @@ h1,
   $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
   letter-spacing: convertRem($value); // should render -1px
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h1 * 0.64);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 480px) {
     font-size: convertRem($text__font-size--h1 * 0.56);
   }
 }
@@ -70,11 +70,11 @@ h2,
 .text--as-h2 {
   @include text-style(h2, ultrabold, display);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h2 * 0.72);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 480px) {
     font-size: convertRem($text__font-size--h2 * 0.64);
   }
 }
@@ -100,8 +100,12 @@ h3,
 .text--as-h3 {
   @include text-style(h3, ultrabold, ui);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h3 * 0.8);
+  }
+
+  @media (max-width: 480px) {
+    font-size: convertRem($text__font-size--h3 * 0.72);
   }
 }
 
@@ -109,15 +113,19 @@ h4,
 .text--as-h4 {
   @include text-style(h4, medium, ui);
 
-  @media (max-width: 800px) {
-    font-size: convertRem($text__font-size--h4 * 0.96);
+  @media (max-width: 680px) {
+    font-size: convertRem($text__font-size--h4 * 0.8);
+  }
+
+  @media (max-width: 480px) {
+    font-size: convertRem($text__font-size--h4 * 0.72);
   }
 }
 
 .text--big {
   @include text-style(big, regular, ui);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--big * 0.9);
   }
 }
@@ -125,7 +133,7 @@ h4,
 .text--super {
   @include text-style(h2, bold, ui);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h2 * 0.9);
   }
 }
@@ -134,7 +142,7 @@ small,
 caption {
   @include text-style(small, regular, base);
 
-  @media (max-width: 800px) {
+  @media (max-width: 680px) {
     font-size: convertRem($text__font-size--small * 0.96);
   }
 }
