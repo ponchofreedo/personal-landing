@@ -115,8 +115,7 @@ import { selectedWorks } from '@data/constants'
           >drop a messge</a
         >
         if you'd like to discuss anything that is labeled
-        <span class="link--display"><icon type="icon" name="iconPrivate" />Private</span>, drop a
-        message to talk.
+        <span class="link--display"><icon type="icon" name="iconPrivate" />Private</span>.
       </p>
     </footer>
   </section>
@@ -188,18 +187,18 @@ footer {
         position: absolute;
         top: -#{convertRem(40px)};
         bottom: -#{convertRem(40px)};
-        left: -#{convertRem(40px)};
-        right: -#{convertRem(40px)};
+        left: -#{convertRem(80px)};
+        right: -#{convertRem(80px)};
         z-index: -1;
         background-color: $primary__color--background--lighter;
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
-        border-radius: convertRem(64px);
         // 16px image radius + 40px padding
         // see...i follow the rules
 
         @media (max-width: 980px) {
-          border-radius: 0;
+          left: -#{convertRem(24px)};
+          right: -#{convertRem(24px)};
         }
 
         @media (max-width: 620px) {
@@ -296,9 +295,8 @@ footer {
   }
 }
 
-header {
-  display: flex;
-  flex-direction: column;
+header,
+footer:not(menu footer) {
   @include container-responsive-padding;
 }
 
@@ -348,9 +346,7 @@ p {
   color: $primary__color--text--muted;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
+footer:not(menu footer) {
   margin-top: convertRem(80px);
 
   p {
@@ -358,24 +354,9 @@ footer {
   }
 }
 
-footer p + p {
-  margin-top: convertRem(16px);
-}
-
 @media (max-width: 720px) {
   h4 {
     margin-bottom: convertRem(24px);
-  }
-
-  li:last-child {
-    flex-basis: 100%;
-    margin-top: convertRem(8px);
-    margin-left: 0;
-  }
-
-  li:last-child::before {
-    display: none;
-    margin: 0;
   }
 }
 </style>

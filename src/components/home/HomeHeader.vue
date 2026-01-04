@@ -98,8 +98,8 @@ article {
   }
 
   @media (max-width: 620px) {
-    height: calc(100dvh - 200px);
-    grid-column: span 4;
+    height: 100%;
+    grid-column: 1 / -1;
     row-gap: convertRem(24px);
   }
 }
@@ -126,7 +126,7 @@ section {
     }
 
     @media (max-width: 620px) {
-      grid-column: span 4;
+      grid-column: 1 / -1;
     }
   }
 }

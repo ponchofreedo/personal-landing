@@ -1,7 +1,4 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-import { selectedWorks } from '@data/constants'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <header>

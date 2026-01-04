@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import GlobalNavigation from '@global/GlobalNavigation.vue'
 import HomeHeader from '@components/home/HomeHeader.vue'
-import SelectedWorks from '@components/home/SelectedWorks.vue'
-import Experience from '@components/home/Experience.vue'
-import Resources from '@components/home/Resources.vue'
-import Experimental from '@components/home/Experimental.vue'
+import HomeSelectedWorks from '@components/home/HomeSelectedWorks.vue'
+import HomeExperience from '@components/home/HomeExperience.vue'
+// import Resources from '@components/home/Resources.vue'
+// import Experimental from '@components/home/Experimental.vue'
 import GlobalContact from '@global/GlobalContact.vue'
 import GlobalFooter from '@global/GlobalFooter.vue'
 </script>
@@ -25,19 +25,19 @@ export default {
   <!-- header end -->
 
   <!-- works start -->
-  <SelectedWorks />
+  <HomeSelectedWorks />
   <!-- works end -->
 
   <!-- experience start -->
-  <Experience />
+  <HomeExperience />
   <!-- experience end -->
 
   <!-- resources start -->
-  <Resources />
+  <!-- <Resources /> -->
   <!-- resources end -->
 
   <!-- fun start -->
-  <Experimental />
+  <!-- <Experimental /> -->
   <!-- fun end -->
 
   <!-- contact start -->

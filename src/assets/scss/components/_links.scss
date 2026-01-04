@@ -34,17 +34,19 @@
     align-items: baseline;
     gap: convertRem(4px);
 
-    svg,
-    + svg {
+    svg {
       display: inline-flex;
       vertical-align: text-top;
       align-self: center;
       height: convertRem(16px);
       width: auto;
       margin-top: 0;
-      margin-right: convertRem(2px);
     }
   }
+}
+
+.link--external-or-jump {
+  margin-left: convertRem(2px);
 }
 
 // small optical adjustments for back anchor links

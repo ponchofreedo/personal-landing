@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { navLinks, socialLinks, resumeLink } from '@data/constants'
+import { navLinks, resumeLink } from '@data/constants'
 
 const isMenuOpen = ref(false)
 
@@ -61,45 +61,36 @@ const toggleMenu = () => {
     <button @click="toggleMenu" aria-label="Toggle Responsive Menu">
       <icon type="icon" name="iconMenu" />
     </button>
-    <div v-if="isMenuOpen" class="container__responsive-nav">
-      <header>
-        <span class="text--big text--bold">Whattup.</span>
-        <button @click="toggleMenu" aria-label="Close Responsive Menu">
-          <icon type="icon" name="iconClose" />
-        </button>
-      </header>
-      <ul class="nav__links__site">
-        <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
-          <RouterLink
-            :to="navLink.href"
-            :class="
-              navLink.name == $route.name || ($route.name == 'project' && navLink.name == 'works')
-                ? 'active'
-                : ''
-            "
-            @click="toggleMenu"
-          >
-            <span>{{ navLink.label }}</span>
-            <icon type="icon" name="iconArrowUpRight" />
-          </RouterLink>
-        </li>
-        <li>
-          <a :href="resumeLink" target="_blank"
-            ><span>R&eacute;sum&eacute;</span>
-            <icon type="icon" name="iconDownload" />
-          </a>
-        </li>
-      </ul>
-      <ul class="nav__links__social">
-        <h4>Find me.</h4>
-        <li v-for="socialLink in socialLinks" :key="socialLink.platform">
-          <a href="">
-            <span>{{ socialLink.platform }}</span>
-            <icon type="icon" name="iconArrowSquareUpRight" />
-          </a>
-        </li>
-      </ul>
-    </div>
+  </nav>
+  <nav v-if="isMenuOpen" class="nav__responsive--is-open">
+    <header>
+      <span class="text--big text--bold">Whattup.</span>
+      <button @click="toggleMenu" aria-label="Close Responsive Menu">
+        <icon type="icon" name="iconClose" />
+      </button>
+    </header>
+    <ul class="nav__links__site">
+      <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
+        <RouterLink
+          :to="navLink.href"
+          :class="
+            navLink.name == $route.name || ($route.name == 'project' && navLink.name == 'works')
+              ? 'active'
+              : ''
+          "
+          @click="toggleMenu"
+        >
+          <span>{{ navLink.label }}</span>
+          <icon type="icon" name="iconArrowUpRight" />
+        </RouterLink>
+      </li>
+      <li>
+        <a :href="resumeLink" target="_blank"
+          ><span>R&eacute;sum&eacute;</span>
+          <icon type="icon" name="iconDownload" />
+        </a>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -142,8 +133,15 @@ nav {
     padding-left: convertRem(24px);
     padding-right: convertRem(24px);
 
+    @media (max-width: 620px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__responsive,
+  &__responsive--is-open {
     button {
-      background-color: $primary__color--background--lighter;
       border: none;
       height: min-content;
       width: min-content;
@@ -151,6 +149,7 @@ nav {
       border-radius: convertRem(8px);
       line-height: 0;
       margin-left: convertRem(16px);
+      background-color: $primary__color--background--lighter;
       cursor: pointer;
 
       svg {
@@ -158,28 +157,40 @@ nav {
         width: convertRem(32px);
       }
     }
+  }
 
-    @media (max-width: 620px) {
-      display: flex;
-      align-items: center;
-
-      div {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100dvh;
-        width: 100dvw;
-        z-index: 9999;
-      }
+  &__responsive--is-open {
+    button {
+      outline: convertRem(2px) solid $primary__color--accent;
+      outline-offset: convertRem(-2px); // optical correction for outline
     }
   }
 }
 
-.container__responsive-nav {
+.nav__responsive--is-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
-  background-color: $primary__color--background;
+  justify-content: flex-start;
+  gap: 0;
+  background-color: $primary__color--background--lighter;
   padding: convertRem(24px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+    background-color: $primary__color--background--darker;
+    opacity: 0.8;
+  }
 
   header {
     display: flex;
@@ -276,7 +287,7 @@ ul {
   &__site {
     li {
       padding: convertRem(16px) 0;
-      @include text-style(h2, bold, inherit);
+      @include text-style(h3, bold, inherit);
       border-bottom: convertRem(1px) solid $primary__color--border;
       align-items: center;
 
@@ -303,7 +314,7 @@ ul {
     li {
       display: inline-flex;
       padding: convertRem(8px) 0;
-      @include text-style(h4, medium, inherit);
+      @include text-style(h5, medium, inherit);
       align-items: center;
 
       a {
