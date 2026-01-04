@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
 import { experienceList, resourceList } from '@data/constants'
 </script>
 
@@ -6,6 +7,9 @@ import { experienceList, resourceList } from '@data/constants'
   <section id="experience">
     <article>
       <section class="container__experience">
+        <header>
+          <h4>Experience.</h4>
+        </header>
         <ol>
           <li v-for="experience in experienceList" :key="experience.id" :team="experience.team">
             <figure>
@@ -13,20 +17,39 @@ import { experienceList, resourceList } from '@data/constants'
             </figure>
             <div class="experience__details">
               <header>
-                <h3>{{ experience.title }}</h3>
+                <h5>{{ experience.title }}</h5>
                 <span>{{ experience.date }}</span>
               </header>
-              <ul>
+              <menu>
                 <li class="experience__team">{{ experience.team }}</li>
                 <li>{{ experience.location }}</li>
-                <li v-if="experience.freelance">Freelance</li>
+                <li v-if="experience.freelance">Contract</li>
                 <li v-if="experience.extra">{{ experience.extra }}</li>
-              </ul>
+              </menu>
             </div>
           </li>
         </ol>
+        <footer>
+          <p>
+            Grab a copy of
+            <a
+              href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing"
+              target="_blank"
+              class="link link--inline"
+              >my r&eacute;sum&eacute;<icon type="icon" name="iconDownload"
+            /></a>
+            or, for the rest of the boring bits, check out my
+            <RouterLink to="/cv" class="link link--inline"
+              >full CV<icon type="icon" name="iconArrowUpRight" />
+            </RouterLink>
+          </p>
+        </footer>
       </section>
       <section class="container__resources">
+        <header>
+          <h4>Projects and resources.</h4>
+          <small>Free community things are cool.</small>
+        </header>
         <ul>
           <li
             v-for="resource in resourceList"
@@ -48,17 +71,6 @@ import { experienceList, resourceList } from '@data/constants'
         </ul>
       </section>
     </article>
-    <footer>
-      <p>
-        Grab a copy of
-        <a
-          href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing"
-          target="_blank"
-          class="link link--inline"
-          >my r&eacute;sum&eacute;<icon type="icon" name="iconDownload"
-        /></a>
-      </p>
-    </footer>
   </section>
 </template>
 
@@ -85,7 +97,6 @@ article {
   }
 
   @media (max-width: 680px) {
-    height: calc(100dvh - 200px);
     grid-column: span 4;
     row-gap: convertRem(24px);
   }
@@ -98,16 +109,58 @@ article {
   order: 1;
   grid-column: span 6;
   padding-right: convertRem(20px);
+
+  @media (max-width: 1280px) {
+    grid-column: span 4;
+  }
+
+  @media (max-width: 980px) {
+    grid-column: 1 / -1;
+    padding-right: 0;
+    padding-bottom: convertRem(80px);
+  }
 }
 
 .container__resources {
   order: 2;
   grid-column: span 6;
   padding-left: convertRem(20px);
+
+  @media (max-width: 1280px) {
+    grid-column: span 4;
+  }
+
+  @media (max-width: 980px) {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    padding-bottom: convertRem(80px);
+  }
 }
 
-h2 {
+header {
+  position: relative;
+
+  h4 {
+    color: $primary__color--text--darker;
+    padding-bottom: convertRem(40px);
+    border-bottom: convertRem(2px) solid $primary__color--border;
+    margin-bottom: convertRem(40px);
+    position: relative;
+  }
+
+  small {
+    position: absolute;
+    top: convertRem(44px);
+    left: 0;
+    color: $primary__color--text--darker;
+  }
+}
+
+h4 {
   color: $primary__color--text--darker;
+  padding-bottom: convertRem(40px);
+  border-bottom: convertRem(2px) solid $primary__color--border;
+  margin-bottom: convertRem(40px);
 }
 
 figure {
@@ -115,7 +168,7 @@ figure {
   height: convertRem(64px);
   width: convertRem(64px);
   padding: convertRem(16px);
-  background-color: $primary__color--background--darker;
+  background-color: $primary__color--background--lighter;
   border-radius: convertRem(12px);
   justify-content: space-around;
   align-items: center;
@@ -126,33 +179,88 @@ figure {
     fill: $primary__color--accent;
     color: $primary__color--accent;
   }
-}
 
-.experience__details {
-  display: flex;
-  flex-direction: column;
-  flex: auto;
-  gap: convertRem(8px);
-  place-self: center;
-}
-
-header {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  span {
-    font-size: convertRem($text__font-size--p);
-    font-weight: $text__font-weight--medium;
-    color: $primary__color--text--muted;
+  @media (max-width: 680px) {
+    height: convertRem(48px);
+    width: convertRem(48px);
+    padding: convertRem(8px);
   }
 }
 
-ul {
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: convertRem(32px);
+
+  li {
+    display: inline-flex;
+    flex-direction: row;
+    gap: convertRem(16px);
+
+    &[team='priceline'] {
+      position: relative;
+      z-index: 1;
+
+      &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: convertRem(32px);
+        width: convertRem(2px);
+        height: 100%;
+        background-color: $primary__color--background--lighter;
+        z-index: -1;
+
+        @media (max-width: 480px) {
+          left: convertRem(24px);
+        }
+      }
+
+      &:nth-child(8) {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .experience__details {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    gap: convertRem(8px);
+    place-self: center;
+  }
+
+  header {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: convertRem(4px);
+    }
+
+    h5 {
+      padding-right: convertRem(16px);
+    }
+
+    span {
+      font-size: convertRem($text__font-size--p);
+      font-weight: $text__font-weight--medium;
+      color: $primary__color--text--muted;
+      text-align: right;
+    }
+  }
+}
+
+menu {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: convertRem(20px);
 
   li {
     position: relative;
@@ -161,7 +269,7 @@ ul {
     color: $primary__color--text--darker;
 
     &:first-child {
-      color: $primary__color--text;
+      color: $primary__color--text--muted;
     }
 
     &:last-child {
@@ -192,29 +300,10 @@ h3 {
 footer {
   display: flex;
   flex-direction: column;
-  margin-top: convertRem(40px);
-  color: var(--base__color--neutral-50);
-
-  a {
-    display: inline-flex;
-    align-items: center;
-    gap: convertRem(4px);
-    color: inherit;
-  }
-
-  p {
-    line-height: var(--text__line-height--fixed);
-
-    + p {
-      margin-top: convertRem(16px);
-    }
-  }
+  margin-top: convertRem(48px);
+  color: $primary__color--text--muted;
 }
 
 @media (max-width: 720px) {
-  footer {
-    margin-top: 16px;
-    margin-top: 1rem;
-  }
 }
 </style>

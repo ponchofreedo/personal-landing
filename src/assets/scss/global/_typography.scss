@@ -122,6 +122,15 @@ h4,
   }
 }
 
+h5,
+.text--as-h5 {
+  @include text-style(h5, bold, ui);
+
+  @media (max-width: 680px) {
+    font-size: convertRem($text__font-size--h5 * 0.9);
+  }
+}
+
 .text--big {
   @include text-style(big, regular, ui);
 

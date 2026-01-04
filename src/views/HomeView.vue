@@ -59,12 +59,4 @@ export default {
 #footer {
   @include container-max-width;
 }
-
-@media (max-width: 800px) {
-  #experience,
-  #resources,
-  footer {
-    padding: 0;
-  }
-}
 </style>

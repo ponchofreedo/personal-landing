@@ -117,12 +117,12 @@ article {
   }
 
   @media (max-width: 980px) {
+    row-gap: convertRem(32px);
     padding-bottom: convertRem(80px);
   }
 
   @media (max-width: 680px) {
     grid-column: 1 / -1;
-    row-gap: convertRem(24px);
   }
 
   @media (max-width: 480px) {
@@ -164,11 +164,7 @@ footer {
   align-items: flex-start;
   justify-content: flex-end;
   grid-column: inherit;
-  margin-top: convertRem(40px);
-
-  @media (max-width: 680px) {
-    margin-top: convertRem(24px);
-  }
+  margin-top: convertRem(24px);
 
   svg {
     cursor: pointer;

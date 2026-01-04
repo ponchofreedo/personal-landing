@@ -334,8 +334,8 @@ p {
 footer:not(menu footer) {
   margin-top: convertRem(80px);
 
-  p {
-    color: $primary__color--text;
+  @media (max-width: 980px) {
+    margin-top: convertRem(40px);
   }
 }
 </style>

@@ -128,7 +128,6 @@ export const experienceList = [
       date: '2025',
       location:'Remote',
       freelance: 'true',
-      extra: '',
       logoFile: 'logo__whalar'
   },
   {
@@ -137,8 +136,6 @@ export const experienceList = [
       title: 'Senior Product Designer',
       date: '2023 - 2024',
       location:'Remote',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__hubspot'
   },
   {
@@ -147,8 +144,6 @@ export const experienceList = [
       title: 'Senior Product Designer',
       date: '2021 - 2023',
       location:'Remote',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__klaviyo'
   },
   {
@@ -157,8 +152,6 @@ export const experienceList = [
       title: 'Senior Product Designer',
       date: '2020 - 2021',
       location:'NYC + remote',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__order'
   },
   {
@@ -167,7 +160,6 @@ export const experienceList = [
       title: 'Senior Designer',
       date: '2018 - 2020',
       location:'NYC',
-      freelance: '',
       extra: 'OOB, 2023',
       logoFile: 'logo__tentrr'
   },
@@ -177,8 +169,6 @@ export const experienceList = [
       title: 'Designer',
       date: '2015 - 2017',
       location:'NYC + Norwalk, CT',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__priceline'
   },
   {
@@ -187,8 +177,6 @@ export const experienceList = [
       title: 'Associate Designer',
       date: '2013 - 2015',
       location:'NYC + Norwalk, CT',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__priceline'
   },
   {
@@ -197,8 +185,6 @@ export const experienceList = [
       title: 'Design Intern',
       date: 'Summer 2013',
       location:'Norwalk, CT',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__priceline'
   },
   {
@@ -207,8 +193,6 @@ export const experienceList = [
       title: 'Design Intern',
       date: 'Summer 2012',
       location:'New Haven, CT',
-      freelance: '',
-      extra: '',
       logoFile: 'logo__ds'
   }
 ];
