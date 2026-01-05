@@ -1,0 +1,142 @@
+@use '@scss/vars' as *;
+@use '@scss/helpers' as *;
+
+/* button styles here for now to be referenced globally */
+button,
+.button {
+  all: unset;
+  cursor: pointer;
+}
+
+.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-radius: convertRem(8px);
+  overflow: hidden; // this fixes icon container from ignoring border radius
+  width: fit-content;
+  transform: scale(1);
+
+  &:hover {
+    @include text-hover-effect(strike, 0.1s);
+    opacity: 0.9;
+  }
+
+  span {
+    width: max-content;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  &--primary {
+    padding: convertRem(20px) convertRem(24px);
+    background-color: $primary__color--accent;
+    @include text-style(h5, medium, fixed);
+    color: $primary__color--background;
+
+    &.button {
+      &--is-square {
+        padding: convertRem(16px);
+      }
+
+      &--has-icon {
+        gap: 0;
+      }
+    }
+
+    .button {
+      &__icon-container {
+        background-color: inherit;
+        padding: convertRem(15px); // subtract 1 from padding to account for border
+      }
+    }
+  }
+
+  &--secondary {
+    padding: convertRem(16px) convertRem(20px);
+    background-color: $primary__color--background;
+    border-width: convertRem(2px);
+    border-style: solid;
+    border-color: $primary__color--background--lighter;
+    @include text-style(p, medium, fixed);
+    color: $primary__color--text--muted;
+
+    // // hover fill effect setup
+    // // this will swipe the background color in from left to right
+    // background-image: linear-gradient(
+    //   $primary__color--background--lighter,
+    //   $primary__color--background--lighter
+    // ); // change gradient colors as needed
+    // background-repeat: no-repeat;
+    // background-position: left; // starting position
+    // background-size: 0 100%; // initially 0% width, 100% height
+    // transition: background-size 0.1s ease;
+
+    &.button {
+      &--is-square {
+        padding: convertRem(8px);
+      }
+
+      &--has-icon {
+        gap: convertRem(16px);
+      }
+    }
+
+    &:hover {
+      // background-size: 100% 100%; /* Full width, 100% height */
+      background-color: $primary__color--background--lighter;
+    }
+
+    .button {
+      &__icon-container {
+        background-color: $primary__color--background--lighter;
+        padding: convertRem(10px) convertRem(10px) convertRem(10px) convertRem(12px); // subtract 1 from all but left side to account for border
+        color: $primary__color--accent;
+      }
+    }
+  }
+
+  &--has-icon {
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: space-between;
+    gap: convertRem(8px);
+  }
+
+  &__icon-container {
+    display: inline-flex;
+
+    svg {
+      color: inherit;
+    }
+  }
+
+  &--icon-right {
+    padding-right: 0;
+  }
+
+  svg {
+    height: convertRem(24px);
+    width: auto;
+  }
+}
+
+// .link,
+// .link:link,
+// .link:active,
+// .link:visited {
+//   font-size: inherit;
+//   color: $primary__color--accent;
+
+//   &:not(.link--display) {
+//     @include text-hover-effect(strike, 0.1s);
+//   }
+// }

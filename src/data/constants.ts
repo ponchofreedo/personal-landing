@@ -237,6 +237,10 @@ export const resourceList = [
   }
 ];
 
+export const goToExternalLink = (url: string, target: string) => {
+  window.open(url, target)
+}
+
 // save these for a rainy day
 // export const projectImages = import.meta.glob('@img/projects/**/*', { eager: true, import: 'default' })
 

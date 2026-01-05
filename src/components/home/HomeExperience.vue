@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import { experienceList, resourceList } from '@data/constants'
+import { experienceList, goToExternalLink, resourceList, resumeLink } from '@data/constants'
 </script>
 
 <template>
@@ -31,18 +31,19 @@ import { experienceList, resourceList } from '@data/constants'
         </ol>
         <footer>
           <p>
-            Grab a copy of
-            <a
-              href="https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing"
-              target="_blank"
-              class="link link--inline"
-              >my r&eacute;sum&eacute;<icon type="icon" name="iconDownload"
-            /></a>
-            or, for the rest of the boring bits, check out my
+            For the rest of the boring bits, check out my
             <RouterLink to="/cv" class="link link--inline"
-              >full CV<icon type="icon" name="iconArrowUpRight" />
-            </RouterLink>
+              >full CV<icon type="icon" name="iconArrowUpRight" /> </RouterLink
+            >.
           </p>
+          <button
+            type="button"
+            class="button button--secondary button--has-icon button--icon-right"
+            @click="goToExternalLink(resumeLink, '_blank')"
+          >
+            <span>Grab my r&eacute;sum&eacute;</span>
+            <span class="button__icon-container"><icon type="icon" name="iconDownload" /></span>
+          </button>
         </footer>
       </section>
       <section class="container__resources">
@@ -302,8 +303,9 @@ footer {
   flex-direction: column;
   margin-top: convertRem(48px);
   color: $primary__color--text--muted;
-}
 
-@media (max-width: 720px) {
+  p {
+    margin-bottom: convertRem(24px);
+  }
 }
 </style>

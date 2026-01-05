@@ -306,10 +306,10 @@ figure {
   overflow: hidden;
   position: relative;
   aspect-ratio: 2 / 1;
-  border-radius: convertRem(24px);
+  border-radius: convertRem(16px);
   background-color: $ui__color--neutral;
   opacity: 1;
-  will-change: transform;
+  will-change: opacity;
   transition: opacity 0.2s ease-in-out;
 
   img {
@@ -335,7 +335,7 @@ footer:not(menu footer) {
   margin-top: convertRem(80px);
 
   @media (max-width: 980px) {
-    margin-top: convertRem(40px);
+    margin-top: convertRem(64px);
   }
 }
 </style>

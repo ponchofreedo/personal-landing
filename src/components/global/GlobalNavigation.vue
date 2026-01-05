@@ -21,8 +21,13 @@ const toggleMenu = () => {
 <template>
   <nav :layout="$route.name" class="nav__fixed">
     <div>
-      <RouterLink to="/" data-route="home" :class="$route.name == 'home' ? 'active' : ''">
-        <span class="text--big text--bold">&lsquo;Sup</span><span class="indicator">.</span>
+      <RouterLink
+        to="/"
+        data-route="home"
+        :class="$route.name == 'home' ? 'active' : ''"
+        class="nav__anchor"
+      >
+        <span class="text--big text--bold">&lsquo;Sup.</span>
       </RouterLink>
     </div>
     <ul>
@@ -118,6 +123,10 @@ nav {
 }
 
 .nav {
+  &__anchor {
+    cursor: grab !important;
+  }
+
   &__fixed {
     display: flex;
     min-height: convertRem(120px) !important;
