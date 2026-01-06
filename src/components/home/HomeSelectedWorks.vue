@@ -169,8 +169,11 @@ footer {
       z-index: 1;
 
       h3 {
-        @include text-hover-effect(strike, 0s);
-        @include text-hover-effect(color, 0.1s);
+        @include text-hover-effect(strike, 0.24s);
+        @include text-hover-effect(color, 0.24s);
+        transition:
+          color 0.24s ease-in-out,
+          text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
       }
 
       &::before {

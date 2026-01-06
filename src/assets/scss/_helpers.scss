@@ -111,12 +111,13 @@ $default-font-size: 16px;
   }
 }
 
-@mixin text-hover-effect($type, $timing, $color: inherit) {
+// use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
+@mixin text-hover-effect($type, $timing, $delay: 0s, $color: inherit) {
   @if $type == 'strike' {
     text-decoration-line: line-through;
     text-decoration-color: transparent;
     text-decoration-thickness: convertRem(4px);
-    transition: $timing all ease-in-out;
+    transition: text-decoration-color $timing ease-in-out $delay;
 
     &:hover {
       text-decoration-color: inherit;
@@ -125,14 +126,14 @@ $default-font-size: 16px;
     text-decoration-line: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: convertRem(4px);
-    transition: $timing all ease-in-out;
+    transition: text-decoration-color $timing ease-in-out $delay;
 
     &:hover {
       text-decoration-color: inherit;
     }
   } @else if $type == 'color' {
     color: inherit;
-    transition: $timing all ease-in-out;
+    transition: color $timing ease-in-out $delay;
 
     &:hover {
       @if $color {

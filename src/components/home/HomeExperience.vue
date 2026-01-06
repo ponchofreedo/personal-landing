@@ -41,8 +41,9 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
             class="button button--secondary button--has-icon button--icon-right"
             @click="goToExternalLink(resumeLink, '_blank')"
           >
-            <span>Grab my r&eacute;sum&eacute;</span>
-            <span class="button__icon-container"><icon type="icon" name="iconDownload" /></span>
+            Grab my r&eacute;sum&eacute;<span class="button__icon-container"
+              ><icon type="icon" name="iconDownload"
+            /></span>
           </button>
         </footer>
       </section>
@@ -55,7 +56,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
           <li
             v-for="resource in resourceList"
             :key="resource.id"
-            :class="resource.state ? 'resource__wip' : ''"
+            :state="resource.state === 'wip' ? 'wip' : 'public'"
           >
             <a :href="resource.url" target="_blank">
               <header>
@@ -63,8 +64,9 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
                   <icon type="svg" :name="resource.platformIcon" />
                   <figcaption>{{ resource.platform }}</figcaption>
                 </figure>
-                <h3>{{ resource.name }}</h3>
-                <icon type="icon" name="iconArrowSquareUpRight" />
+                <h5>{{ resource.name }}</h5>
+                <icon v-if="resource.state !== 'wip'" type="icon" name="iconArrowSquareUpRight" />
+                <span v-else>WIP</span>
               </header>
               <p>{{ resource.detail }}</p>
             </a>
@@ -136,6 +138,38 @@ article {
     padding-left: 0;
     padding-bottom: convertRem(80px);
   }
+
+  [state='wip'] {
+    transition: none !important;
+
+    &:hover {
+      background-color: initial !important;
+    }
+
+    a {
+      pointer-events: none;
+    }
+
+    header,
+    p,
+    svg {
+      color: $primary__color--text--darker !important;
+    }
+
+    h5 {
+      text-decoration: none !important;
+    }
+
+    figure {
+      svg {
+        fill: $primary__color--text--darker !important;
+      }
+    }
+
+    span {
+      @include text-style(p, medium, fixed);
+    }
+  }
 }
 
 header {
@@ -179,6 +213,10 @@ figure {
     max-width: convertRem(32px);
     fill: $primary__color--accent;
     color: $primary__color--accent;
+  }
+
+  figcaption {
+    display: none;
   }
 
   @media (max-width: 680px) {
@@ -254,6 +292,83 @@ ol {
       font-weight: $text__font-weight--medium;
       color: $primary__color--text--muted;
       text-align: right;
+    }
+  }
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: convertRem(16px);
+
+  a {
+    display: inherit;
+    flex-direction: inherit;
+    gap: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: convertRem(8px);
+    background-color: $primary__color--background;
+    border-radius: convertRem(16px);
+    border-color: $primary__color--background--lighter;
+    border-width: convertRem(2px);
+    border-style: solid;
+    transition:
+      background-color 0.2s ease-in-out,
+      text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
+
+    &:hover {
+      background-color: $primary__color--background--lighter;
+
+      h5 {
+        text-decoration-color: $primary__color--accent;
+      }
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: convertRem(16px) convertRem(24px) 0 convertRem(16px);
+    justify-content: space-between;
+    gap: convertRem(8px);
+    color: $primary__color--accent;
+
+    h5 {
+      flex-grow: 1;
+      @include text-hover-effect(strike, 0.24s);
+
+      + svg {
+        height: convertRem(24px);
+        width: convertRem(24px);
+        color: inherit;
+      }
+    }
+
+    + p {
+      padding-left: convertRem(72px);
+      padding-right: convertRem(24px);
+      padding-bottom: convertRem(24px);
+      color: $primary__color--text--muted;
+    }
+  }
+
+  figure {
+    height: convertRem(48px);
+    width: convertRem(48px);
+    padding: convertRem(8px);
+    background-color: transparent;
+    border-radius: 0;
+
+    svg {
+      max-height: convertRem(24px);
+      max-width: convertRem(24px);
     }
   }
 }
