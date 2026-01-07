@@ -6,13 +6,13 @@ import { socialLinks } from '@data/constants'
 
 <template>
   <section id="contact">
-    <main>
-      <aside>
-        <h2>Talk too me, Goose.</h2>
-      </aside>
-      <section>
-        <article>
-          <section>
+    <article>
+      <main>
+        <header>
+          <h2>Talk to me, Goose.</h2>
+        </header>
+        <section class="contact__inner-container">
+          <article>
             <p class="text--big">
               You've come this far on these here interwebs to find me. Unfortunately the IKEA
               instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden
@@ -32,23 +32,23 @@ import { socialLinks } from '@data/constants'
                 >drop me a line</a
               >.
             </p>
+          </article>
+          <article>
             <p class="text--big">
               Or, technical issues aside, you can find/follow me at all of these places.
             </p>
-          </section>
-        </article>
-        <article>
-          <ul>
-            <li v-for="socialLink in socialLinks" :key="socialLink.id">
-              <a :href="socialLink.url" target="_blank" class="link">
-                <span>{{ socialLink.platform }}</span>
-                <icon type="icon" name="iconArrowSquareUpRight" />
-              </a>
-            </li>
-          </ul>
-        </article>
-      </section>
-    </main>
+            <ul>
+              <li v-for="socialLink in socialLinks" :key="socialLink.id">
+                <a :href="socialLink.url" target="_blank" class="link">
+                  <span>{{ socialLink.platform }}</span>
+                  <icon type="icon" name="iconArrowSquareUpRight" />
+                </a>
+              </li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </article>
   </section>
 </template>
 
@@ -56,69 +56,134 @@ import { socialLinks } from '@data/constants'
 @use 'sass:math';
 
 #contact {
-  background-color: $primary__color--background--darker;
-  padding: convertRem(120px) 0;
-  border-radius: convertRem(24px);
-  margin-top: 0;
-  margin-bottom: 0;
-  place-items: center;
-}
+  display: flex;
+  flex-direction: column;
+  padding-top: convertRem(120px);
+  padding-bottom: convertRem(120px);
 
-section {
-  main {
-    @include split-column-layout-container;
-    max-width: convertRem(1060px);
+  @media (max-width: 980px) {
+    padding-left: convertRem(24px);
+    padding-right: convertRem(24px);
   }
 }
 
-aside {
-  @include split-column-layout-side(left);
-}
-
-h2 {
-  color: $primary__color--text--darker;
-  margin-bottom: convertRem(8px);
-}
-
-section {
-  width: 100%;
-  @include split-column-layout-side(right);
-}
-
-article {
+article:not(.contact__inner-container article) {
   display: flex;
   flex-direction: column;
-  gap: convertRem(16px);
-  margin-bottom: convertRem(32px);
+  position: relative;
+  background-color: $primary__color--background--darker;
+  border-radius: convertRem(48px);
+  @include container-responsive-padding;
+}
 
-  &:last-of-type {
-    margin-bottom: 0;
+main {
+  @include container-inner-grid;
+  position: relative;
+  padding-top: convertRem(80px);
+  padding-bottom: convertRem(80px);
+  row-gap: convertRem(40px);
+
+  @media (max-width: 980px) {
+    padding: convertRem(40px) convertRem(16px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -#{convertRem(80px)};
+    right: -#{convertRem(80px)};
+    z-index: -1;
+    background-color: $primary__color--background--darker;
+    border-radius: convertRem(48px);
+
+    @media (max-width: 980px) {
+      left: -#{convertRem(24px)};
+      right: -#{convertRem(24px)};
+    }
+
+    @media (max-width: 680px) {
+      display: none;
+    }
+  }
+
+  .contact__inner-container {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+
+    & > :first-child {
+      order: 1;
+    }
+
+    & > :last-child {
+      order: 2;
+    }
+
+    @media (max-width: 1280px) {
+      gap: convertRem(24px);
+    }
+
+    article {
+      grid-column: span 6;
+
+      @media (max-width: 1280px) {
+        grid-column: span 4;
+      }
+
+      @media (max-width: 980px) {
+        grid-column: col-start / col-end;
+      }
+
+      &:first-child {
+        padding-right: convertRem(24px);
+
+        @media (max-width: 980px) {
+          padding-right: 0;
+        }
+      }
+
+      &:last-child {
+        padding-left: convertRem(24px);
+
+        @media (max-width: 980px) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+
+  h2 {
+    color: $primary__color--text;
   }
 }
 
 p {
   color: $primary__color--text--muted;
-  font-weight: 400;
-
-  + p {
-    margin-top: convertRem(24px);
-    margin-bottom: convertRem(32px);
-  }
 }
 
 ul {
   display: flex;
   flex-direction: column;
   gap: convertRem(8px);
+  margin-top: convertRem(16px);
 }
 
 li {
+  @include text-style(h4, bold, ui);
+
   a {
     display: inline-flex;
     align-items: center;
     color: inherit;
     text-decoration: none;
-    @include text-style(h2, regular, ui);
     gap: convertRem(4px);
   }
 

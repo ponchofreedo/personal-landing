@@ -222,15 +222,7 @@ footer {
     height: 100%;
 
     @media (max-width: 1280px) {
-      grid-column: col-start / span 8;
-    }
-
-    @media (max-width: 980px) {
-      grid-column: col-start / span 7;
-    }
-
-    @media (max-width: 680px) {
-      grid-column: 1 / -1;
+      grid-column: col-start / col-end;
     }
   }
 
@@ -290,9 +282,9 @@ footer:not(menu footer) {
 
 h4 {
   color: $primary__color--text--darker;
-  padding-bottom: convertRem(40px);
-  border-bottom: convertRem(2px) solid $primary__color--border;
-  margin-bottom: convertRem(40px);
+  padding-bottom: convertRem(32px);
+  border-bottom: convertRem(2px) solid $primary__color--background--lighter;
+  margin-bottom: convertRem(48px);
 }
 
 menu {

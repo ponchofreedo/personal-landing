@@ -3,8 +3,6 @@ import GlobalNavigation from '@global/GlobalNavigation.vue'
 import HomeHeader from '@components/home/HomeHeader.vue'
 import HomeSelectedWorks from '@components/home/HomeSelectedWorks.vue'
 import HomeExperience from '@components/home/HomeExperience.vue'
-// import Resources from '@components/home/Resources.vue'
-// import Experimental from '@components/home/Experimental.vue'
 import GlobalContact from '@global/GlobalContact.vue'
 import GlobalFooter from '@global/GlobalFooter.vue'
 </script>
@@ -32,14 +30,6 @@ export default {
   <HomeExperience />
   <!-- experience end -->
 
-  <!-- resources start -->
-  <!-- <Resources /> -->
-  <!-- resources end -->
-
-  <!-- fun start -->
-  <!-- <Experimental /> -->
-  <!-- fun end -->
-
   <!-- contact start -->
   <GlobalContact />
   <!-- contact end -->
@@ -54,8 +44,7 @@ export default {
 
 #works,
 #experience,
-#resources,
-#fun-section,
+#contact,
 #footer {
   @include container-max-width;
 }

@@ -88,6 +88,7 @@ header {
 
   @media (max-width: 480px) {
     place-items: center;
+    padding-top: convertRem(40px);
   }
 
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
@@ -98,7 +99,7 @@ header {
   @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 400px) and (orientation: portrait) {
     height: 100%;
     place-items: center;
-    margin-top: convertRem(40px);
+    margin-top: convertRem(48px);
     padding-bottom: convertRem(40px);
   }
 }

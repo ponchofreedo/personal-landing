@@ -177,9 +177,9 @@ header {
 
   h4 {
     color: $primary__color--text--darker;
-    padding-bottom: convertRem(40px);
-    border-bottom: convertRem(2px) solid $primary__color--border;
-    margin-bottom: convertRem(40px);
+    padding-bottom: convertRem(32px);
+    border-bottom: convertRem(2px) solid $primary__color--background--lighter;
+    margin-bottom: convertRem(48px);
     position: relative;
   }
 
