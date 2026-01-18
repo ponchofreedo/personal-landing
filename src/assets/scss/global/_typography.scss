@@ -140,10 +140,10 @@ h5,
 }
 
 .text--super {
-  @include text-style(h2, bold, ui);
+  @include text-style(super, medium, ui);
 
   @media (max-width: 680px) {
-    font-size: convertRem($text__font-size--h2 * 0.9);
+    font-size: convertRem($text__font-size--super * 0.9);
   }
 }
 

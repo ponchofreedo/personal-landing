@@ -10,7 +10,7 @@
   font-size: inherit;
   color: $primary__color--accent;
 
-  &:not(.link--display) {
+  &:not(.link--display):not(.link--simple) {
     @include text-hover-effect(strike, 0.1s);
   }
 }
@@ -38,28 +38,50 @@
       display: inline-flex;
       vertical-align: text-top;
       align-self: center;
-      height: convertRem(16px);
-      width: auto;
-      margin-top: 0;
+      @include svgProps($scale: 1, $stroke: 3, $color: $primary__color--accent);
+      margin-top: convertRem(-1px);
+
+      &.icon--bigger {
+        @include svgProps(
+          $scale: 1,
+          $height: convertRem(20px),
+          $width: convertRem(20px),
+          $stroke: 3,
+          $color: $primary__color--accent
+        );
+        margin-top: 0;
+        margin-left: convertRem(2px);
+      }
     }
   }
-}
 
-.link--external-or-jump {
-  margin-left: convertRem(2px);
-}
+  &--simple {
+    @include text-style(inherit, bold, inherit);
+    color: unset !important;
+    text-decoration: underline;
+    text-decoration-thickness: convertRem(2px);
+    transition: opacity 0.1s ease-in-out;
 
-// small optical adjustments for back anchor links
-.link--back {
-  display: flex;
-  flex-direction: row;
-  gap: convertRem(4px);
-  place-items: center;
-  text-decoration: none;
-  font-size: convertRem(16px);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
 
-  svg {
-    height: convertRem(16px);
-    width: auto;
+  &--external-or-jump {
+    margin-left: convertRem(2px);
+  }
+
+  // small optical adjustments for back anchor links
+  &--back {
+    display: flex;
+    flex-direction: row;
+    gap: convertRem(4px);
+    place-items: center;
+    text-decoration: none;
+    font-size: convertRem(16px);
+
+    svg {
+      @include svgProps($scale: 1, $stroke: 3, $color: $primary__color--accent);
+    }
   }
 }

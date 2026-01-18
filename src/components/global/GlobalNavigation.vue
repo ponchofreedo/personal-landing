@@ -10,7 +10,7 @@ const toggleMenu = () => {
 
   if (isMenuOpen.value) {
     document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
+    document.body.style.position = 'static'
   } else {
     document.body.style.overflow = ''
     document.body.style.position = ''
@@ -56,7 +56,7 @@ const toggleMenu = () => {
           <span class="text--big">R&eacute;sum&eacute;</span>
         </a>
       </li>
-      <!-- <li><button>mode<icon type="icon" name="iconMoon" /></button></li> -->
+      <!-- <li><button>mode<icon type="svg" name="iconMoon" /></button></li> -->
     </ul>
   </nav>
   <nav :layout="$route.name" class="nav__responsive">
@@ -64,38 +64,40 @@ const toggleMenu = () => {
       <span class="text--big text--bold">&lsquo;Sup</span><span class="indicator">.</span>
     </RouterLink>
     <button @click="toggleMenu" aria-label="Toggle Responsive Menu">
-      <icon type="icon" name="iconMenu" />
+      <icon type="svg" name="iconMenu" />
     </button>
-  </nav>
-  <nav v-if="isMenuOpen" class="nav__responsive--is-open">
-    <header>
-      <span class="text--big text--bold">Whattup.</span>
-      <button @click="toggleMenu" aria-label="Close Responsive Menu">
-        <icon type="icon" name="iconClose" />
-      </button>
-    </header>
-    <ul class="nav__links__site">
-      <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
-        <RouterLink
-          :to="navLink.href"
-          :class="
-            navLink.name == $route.name || ($route.name == 'project' && navLink.name == 'works')
-              ? 'active'
-              : ''
-          "
-          @click="toggleMenu"
-        >
-          <span>{{ navLink.label }}</span>
-          <icon type="icon" name="iconArrowUpRight" />
-        </RouterLink>
-      </li>
-      <li>
-        <a :href="resumeLink" target="_blank"
-          ><span>R&eacute;sum&eacute;</span>
-          <icon type="icon" name="iconDownload" />
-        </a>
-      </li>
-    </ul>
+    <Transition name="appear">
+      <nav v-if="isMenuOpen" class="nav__responsive--is-open">
+        <header>
+          <span class="text--big text--bold">Whattup.</span>
+          <button @click="toggleMenu" aria-label="Close Responsive Menu">
+            <icon type="svg" name="iconClose" />
+          </button>
+        </header>
+        <ul class="nav__links__site">
+          <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
+            <RouterLink
+              :to="navLink.href"
+              :class="
+                navLink.name == $route.name || ($route.name == 'project' && navLink.name == 'works')
+                  ? 'active'
+                  : ''
+              "
+              @click="toggleMenu"
+            >
+              <span>{{ navLink.label }}</span>
+              <icon type="svg" name="iconArrowUpRight" />
+            </RouterLink>
+          </li>
+          <li id="download">
+            <a :href="resumeLink" target="_blank"
+              ><span>R&eacute;sum&eacute;</span>
+              <icon type="svg" name="iconDownload" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </Transition>
   </nav>
 </template>
 
@@ -163,8 +165,13 @@ nav {
       cursor: pointer;
 
       svg {
-        height: convertRem(32px);
-        width: convertRem(32px);
+        @include svgProps(
+          $height: convertRem(32px),
+          $width: convertRem(32px),
+          $scale: 1,
+          $stroke: 3,
+          $color: $primary__color--accent
+        );
       }
     }
   }
@@ -181,6 +188,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  height: 100dvh;
   width: 100dvw;
   z-index: 9999;
   display: flex;
@@ -189,18 +197,6 @@ nav {
   gap: 0;
   background-color: $primary__color--background--lighter;
   padding: convertRem(24px);
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -9999;
-    background-color: $primary__color--background--darker;
-    opacity: 0.8;
-  }
 
   header {
     display: flex;
@@ -307,8 +303,24 @@ ul {
       }
 
       svg {
-        height: convertRem(32px);
-        width: convertRem(32px);
+        @include svgProps(
+          $height: convertRem(32px),
+          $width: convertRem(32px),
+          $scale: 1,
+          $stroke: 3,
+          $color: inherit
+        );
+      }
+
+      &#download {
+        svg {
+          @include svgProps(
+            $height: convertRem(24px),
+            $width: convertRem(24px),
+            $scale: 1,
+            $stroke: 0
+          );
+        }
       }
 
       &:first-child {
@@ -372,5 +384,15 @@ nav:first-child ul:first-child li a svg {
   height: convertRem(24px);
   width: auto;
   color: $primary__color--accent;
+}
+
+.appear-enter-active,
+.appear-leave-active {
+  transition: all 0.2s ease;
+}
+
+.appear-enter-from,
+.appear-leave-to {
+  opacity: 0;
 }
 </style>

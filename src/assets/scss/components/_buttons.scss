@@ -121,7 +121,13 @@ button,
   }
 
   svg {
-    height: convertRem(24px);
-    width: auto;
+    // optical adjust scale down to 0.9
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 0.9,
+      $stroke: 3,
+      $color: inherit
+    );
   }
 }

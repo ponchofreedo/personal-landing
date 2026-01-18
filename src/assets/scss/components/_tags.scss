@@ -12,6 +12,7 @@
   padding: convertRem(8px) 0;
   background-color: inherit;
   color: inherit;
+  gap: convertRem(8px);
 }
 
 .tag span {
@@ -19,10 +20,13 @@
 }
 
 .tag svg {
-  height: convertRem(8px);
-  margin-right: convertRem(8px);
-  width: auto;
-  color: inherit;
+  @include svgProps(
+    $height: convertRem(8px),
+    $width: convertRem(8px),
+    $scale: 1,
+    $stroke: 3,
+    $color: inherit
+  );
 }
 
 .tag--private {
@@ -74,7 +78,13 @@
 }
 
 .tag--availability svg {
-  height: convertRem(20px);
+  @include svgProps(
+    $height: convertRem(20px),
+    $width: convertRem(20px),
+    $scale: 1,
+    $stroke: 3,
+    $color: inherit
+  );
 }
 
 .tag__snackbar,

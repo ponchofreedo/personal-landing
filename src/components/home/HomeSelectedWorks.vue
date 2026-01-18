@@ -103,9 +103,9 @@ import { selectedWorks } from '@data/constants'
           href="https://github.com/ponchofreedo/portfolio-projects/"
           target="_blank"
           class="link link--inline"
-          >GitHub<icon type="svg" name="brandGithub" /><icon
-            type="icon"
-            name="iconArrowSquareUpRight"
+          >GitHub
+          <icon type="icon" name="logoGitHub" />
+          <icon type="icon" name="iconArrowSquareUpRight"
         /></a>
         or
         <a
@@ -127,8 +127,12 @@ import { selectedWorks } from '@data/constants'
 #works {
   display: flex;
   flex-direction: column;
-  padding-top: convertRem(120px);
+  padding-top: convertRem(120px); // do not change this value at any breakpoint
   padding-bottom: convertRem(120px);
+
+  @media (max-width: 980px) {
+    padding-bottom: convertRem(80px);
+  }
 }
 
 article,
@@ -222,7 +226,7 @@ footer {
     height: 100%;
 
     @media (max-width: 1280px) {
-      grid-column: col-start / col-end;
+      grid-column: 1 / -1;
     }
   }
 

@@ -150,3 +150,39 @@ $default-font-size: 16px;
   // text-decoration-skip: none;
   // text-decoration-inset: -2px;
 }
+
+@mixin svgProps(
+  $height: convertRem(16px),
+  $width: convertRem(16px),
+  $scale: 1,
+  $stroke: null,
+  $color: inherit,
+  $fill: null
+) {
+  height: $height;
+  width: $width;
+
+  @if $scale >= 0 {
+    transform: scale($scale);
+  }
+
+  @if $stroke and $stroke >= 0 {
+    stroke-width: $stroke;
+  }
+
+  @if $color == 'inherit' {
+    color: inherit;
+  } @else if $color == 'none' {
+    color: unset;
+  } @else {
+    color: $color;
+  }
+
+  @if $fill == 'transparent' {
+    fill: transparent;
+  } @else if $fill == 'none' {
+    fill: unset;
+  } @else {
+    fill: $fill;
+  }
+}

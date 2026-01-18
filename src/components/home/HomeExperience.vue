@@ -33,7 +33,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
           <p>
             For the rest of the boring bits, check out my
             <RouterLink to="/cv" class="link link--inline"
-              >full CV<icon type="icon" name="iconArrowUpRight" /> </RouterLink
+              >full CV<icon type="svg" name="iconArrowUpRight" /> </RouterLink
             >.
           </p>
           <button
@@ -42,7 +42,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
             @click="goToExternalLink(resumeLink, '_blank')"
           >
             Grab my r&eacute;sum&eacute;<span class="button__icon-container"
-              ><icon type="icon" name="iconDownload"
+              ><icon type="svg" name="iconDownload"
             /></span>
           </button>
         </footer>
@@ -50,7 +50,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
       <section class="container__resources">
         <header>
           <h4>Projects and resources.</h4>
-          <small>Free community things are cool.</small>
+          <small>Becasue free community things are cool.</small>
         </header>
         <ul>
           <li
@@ -65,7 +65,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
                   <figcaption>{{ resource.platform }}</figcaption>
                 </figure>
                 <h5>{{ resource.name }}</h5>
-                <icon v-if="resource.state !== 'wip'" type="icon" name="iconArrowSquareUpRight" />
+                <icon v-if="resource.state !== 'wip'" type="svg" name="iconArrowSquareUpRight" />
                 <span v-else>WIP</span>
               </header>
               <p>{{ resource.detail }}</p>
@@ -92,17 +92,15 @@ article {
   padding-top: convertRem(120px);
   padding-bottom: convertRem(120px);
 
-  @media (max-width: 1280px) {
-  }
-
   @media (max-width: 980px) {
-    padding-bottom: convertRem(80px);
+    padding: convertRem(80px) 0;
   }
 
   @media (max-width: 680px) {
     grid-column: span 4;
     row-gap: convertRem(24px);
   }
+
   section {
     grid-column: inherit;
   }
@@ -177,7 +175,7 @@ header {
 
   h4 {
     color: $primary__color--text--darker;
-    padding-bottom: convertRem(32px);
+    padding-bottom: convertRem(40px);
     border-bottom: convertRem(2px) solid $primary__color--background--lighter;
     margin-bottom: convertRem(48px);
     position: relative;
@@ -185,17 +183,14 @@ header {
 
   small {
     position: absolute;
-    top: convertRem(44px);
+    top: convertRem(48px);
     left: 0;
     color: $primary__color--text--darker;
-  }
-}
 
-h4 {
-  color: $primary__color--text--darker;
-  padding-bottom: convertRem(40px);
-  border-bottom: convertRem(2px) solid $primary__color--border;
-  margin-bottom: convertRem(40px);
+    @media (max-width: 680px) {
+      top: convertRem(40px);
+    }
+  }
 }
 
 figure {
@@ -209,10 +204,13 @@ figure {
   align-items: center;
 
   svg {
-    height: auto;
-    max-width: convertRem(32px);
-    fill: $primary__color--accent;
-    color: $primary__color--accent;
+    @include svgProps(
+      $height: convertRem(32px),
+      $width: convertRem(32px),
+      $scale: 1,
+      $stroke: 0,
+      $color: $primary__color--accent
+    );
   }
 
   figcaption {
@@ -345,9 +343,13 @@ ul {
       @include text-hover-effect(strike, 0.24s);
 
       + svg {
-        height: convertRem(24px);
-        width: convertRem(24px);
-        color: inherit;
+        @include svgProps(
+          $height: convertRem(24px),
+          $width: convertRem(24px),
+          $scale: 1,
+          $stroke: 3,
+          $color: inherit
+        );
       }
     }
 
@@ -367,8 +369,13 @@ ul {
     border-radius: 0;
 
     svg {
-      max-height: convertRem(24px);
-      max-width: convertRem(24px);
+      @include svgProps(
+        $height: convertRem(24px),
+        $width: convertRem(24px),
+        $scale: 1,
+        $stroke: 0,
+        $color: inherit
+      );
     }
   }
 }

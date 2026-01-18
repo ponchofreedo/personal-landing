@@ -38,7 +38,7 @@ export default {
       <section class="header__welcome">
         <!-- <img src="@img/it-me.png" alt="it's a photo of me" /> -->
         <div class="tag tag--availability">
-          <icon type="icon" name="iconMegaphone" />
+          <icon type="svg" name="iconMegaphone" />
           <span>Available for hire</span>
         </div>
         <h1>
@@ -60,7 +60,7 @@ export default {
       </section>
       <footer>
         <small>NY born and bred. Based in Stamford, CT. Go Birds.</small>
-        <icon type="icon" name="iconArrowSquareDown" v-on:click="scrollToWorks()" />
+        <icon type="svg" name="iconArrowSquareDown" v-on:click="scrollToWorks()" />
       </footer>
     </article>
   </header>
@@ -114,15 +114,12 @@ article {
   padding-bottom: convertRem(120px);
 
   @media (max-width: 1280px) {
-    grid-column: col-start / span 7;
+    grid-column: span 7;
   }
 
   @media (max-width: 980px) {
     row-gap: convertRem(32px);
     padding-bottom: convertRem(80px);
-  }
-
-  @media (max-width: 680px) {
     grid-column: 1 / -1;
   }
 
@@ -145,14 +142,6 @@ section {
   &.header__intro {
     grid-column: col-start / span 6;
 
-    @media (max-width: 1280px) {
-      grid-column: col-start / span 5;
-    }
-
-    @media (max-width: 980px) {
-      grid-column: col-start / span 5;
-    }
-
     @media (max-width: 680px) {
       grid-column: 1 / -1;
     }
@@ -169,9 +158,13 @@ footer {
 
   svg {
     cursor: pointer;
-    color: $primary__color--accent;
-    height: convertRem(32px);
-    width: auto;
+    @include svgProps(
+      $height: convertRem(32px),
+      $width: convertRem(32px),
+      $scale: 1,
+      $stroke: 3,
+      $color: $primary__color--accent
+    );
   }
 }
 

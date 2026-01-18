@@ -17,13 +17,13 @@ import { socialLinks } from '@data/constants'
               You've come this far on these here interwebs to find me. Unfortunately the IKEA
               instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden
               peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out,"
-              so yeah...feel free to take a gander at my
+              so yeah...feel free to
               <a
                 href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25"
                 target="_blank"
                 class="link link--inline"
-                >résumé</a
-              >
+                >grab my résumé<icon class="icon--bigger" type="icon" name="iconDownload"
+              /></a>
               or just
               <a
                 href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup."
@@ -41,7 +41,7 @@ import { socialLinks } from '@data/constants'
               <li v-for="socialLink in socialLinks" :key="socialLink.id">
                 <a :href="socialLink.url" target="_blank" class="link">
                   <span>{{ socialLink.platform }}</span>
-                  <icon type="icon" name="iconArrowSquareUpRight" />
+                  <icon type="svg" name="iconArrowSquareUpRight" />
                 </a>
               </li>
             </ul>
@@ -62,6 +62,8 @@ import { socialLinks } from '@data/constants'
   padding-bottom: convertRem(120px);
 
   @media (max-width: 980px) {
+    padding-top: 0;
+    padding-bottom: convertRem(40px);
     padding-left: convertRem(24px);
     padding-right: convertRem(24px);
   }
@@ -133,7 +135,7 @@ main {
       }
 
       @media (max-width: 980px) {
-        grid-column: col-start / col-end;
+        grid-column: 1 / -1;
       }
 
       &:first-child {
@@ -184,12 +186,17 @@ li {
     align-items: center;
     color: inherit;
     text-decoration: none;
-    gap: convertRem(4px);
+    gap: convertRem(8px);
   }
 
   svg {
-    height: convertRem(24px);
-    width: auto;
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
   }
 }
 </style>
