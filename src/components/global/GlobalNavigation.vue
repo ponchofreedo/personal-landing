@@ -300,11 +300,11 @@ ul {
   &__site {
     li {
       padding: convertRem(16px) 0;
-      @include text-style(h3, bold, inherit);
       border-bottom: convertRem(1px) solid $primary__color--border;
       align-items: center;
 
       a {
+        @include text-style(h3, bold, inherit);
         align-items: center;
         gap: convertRem(8px);
       }
@@ -365,6 +365,7 @@ ul {
 
 .active {
   &:not([data-route='home']) {
+    cursor: default;
     gap: convertRem(2px);
     text-decoration: none !important;
 
@@ -378,6 +379,7 @@ ul {
       text-decoration-thickness: convertRem(4px);
     }
 
+    svg,
     .indicator {
       color: $primary__color--accent !important;
     }
