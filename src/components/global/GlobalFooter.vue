@@ -145,18 +145,12 @@ footer {
   @include container-max-width;
   @include container-responsive-padding;
   color: $primary__color--text--darker;
-
-  @media (max-width: 680px) {
-  }
-
-  @media (max-width: 480px) {
-  }
 }
 
 article {
   display: flex;
   flex-direction: column;
-  padding: convertRem(120px) 0;
+  padding: convertRem(120px) 0 convertRem(80px);
 
   @media (max-width: 980px) {
     padding-top: convertRem(80px);
