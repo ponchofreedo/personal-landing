@@ -40,28 +40,28 @@ const toggleMenu = () => {
               : ''
           "
         >
-          <span class="text--big">{{ navLink.label }}</span>
+          <span>{{ navLink.label }}</span>
           <span
             v-if="
               ($route.name == navLink.name && $route.name != 'home') ||
               ($route.name == 'project' && navLink.name == 'works')
             "
             class="indicator"
-            >.
-          </span>
+            >.</span
+          >
         </RouterLink>
       </li>
       <li>
         <a :href="resumeLink" target="_blank">
-          <span class="text--big">R&eacute;sum&eacute;</span>
+          <span>R&eacute;sum&eacute;</span>
         </a>
       </li>
       <!-- <li><button>mode<icon type="svg" name="iconMoon" /></button></li> -->
     </ul>
   </nav>
   <nav :layout="$route.name" class="nav__responsive">
-    <RouterLink to="/" data-route="home" :class="$route.name == 'home' ? 'active' : ''">
-      <span class="text--big text--bold">&lsquo;Sup</span><span class="indicator">.</span>
+    <RouterLink to="/" data-route="home">
+      <span class="text--big text--bold">&lsquo;Sup.</span>
     </RouterLink>
     <button @click="toggleMenu" aria-label="Toggle Responsive Menu">
       <icon type="svg" name="iconMenu" />
@@ -274,8 +274,6 @@ ul {
   }
 
   li {
-    font-weight: $text__font-weight--regular;
-
     @media (max-width: 680px) {
       flex-basis: 100%;
     }
@@ -284,8 +282,17 @@ ul {
   a,
   span {
     display: flex;
-    color: $primary__color--text--darker !important;
+    flex-direction: row;
+    color: $primary__color--text--darker;
+  }
+
+  a {
+    @include text-style(big, regular, ui);
     @include text-hover-effect(strike, 0.1s);
+
+    &.active {
+      @include text-style(big, bold, ui);
+    }
   }
 }
 
@@ -358,19 +365,22 @@ ul {
 
 .active {
   &:not([data-route='home']) {
-    @include text-style(inherit, bold, inherit);
-    color: $primary__color--text;
+    gap: convertRem(2px);
     text-decoration: none !important;
+
+    span {
+      color: $primary__color--text;
+    }
 
     span:first-child {
       text-decoration-line: line-through;
       text-decoration-color: inherit;
       text-decoration-thickness: convertRem(4px);
     }
-  }
 
-  .indicator {
-    color: $primary__color--accent;
+    .indicator {
+      color: $primary__color--accent !important;
+    }
   }
 }
 

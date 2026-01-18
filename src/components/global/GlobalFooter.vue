@@ -151,10 +151,6 @@ footer {
 
   @media (max-width: 480px) {
   }
-
-  &:not([layout='home']) {
-    margin: convertRem(40px) 0 !important;
-  }
 }
 
 article {

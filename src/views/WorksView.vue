@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import GlobalNavigation from '@global/GlobalNavigation.vue'
-import Header from '@components/works/Header.vue'
+import WorksHeader from '@/components/works/WorksHeader.vue'
 import WorksList from '@components/works/WorksList.vue'
 import GlobalFooter from '@global/GlobalFooter.vue'
 </script>
@@ -17,7 +17,7 @@ export default {
   <GlobalNavigation />
 
   <!-- header start -->
-  <Header />
+  <WorksHeader />
   <!-- header end -->
 
   <!-- works list start -->
@@ -32,8 +32,8 @@ export default {
 <style lang="scss" scoped>
 @use 'sass:math';
 
-#works__list,
+#works,
 #footer {
-  @include container-inner-grid;
+  @include container-max-width;
 }
 </style>
