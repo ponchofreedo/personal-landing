@@ -71,7 +71,7 @@ section {
   &.header__intro {
     display: flex;
     flex-direction: column;
-    grid-column: col-start / span 6;
+    grid-column: col-start / span 8;
 
     @media (max-width: 680px) {
       grid-column: 1 / -1;

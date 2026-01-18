@@ -8,13 +8,13 @@ const isMenuOpen = ref(false)
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 
-  if (isMenuOpen.value) {
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'static'
-  } else {
-    document.body.style.overflow = ''
-    document.body.style.position = ''
-  }
+  // if (isMenuOpen.value) {
+  //   document.body.style.overflow = 'hidden'
+  //   document.body.style.position = 'static'
+  // } else {
+  //   document.body.style.overflow = ''
+  //   document.body.style.position = ''
+  // }
 }
 </script>
 
@@ -47,8 +47,8 @@ const toggleMenu = () => {
               ($route.name == 'project' && navLink.name == 'works')
             "
             class="indicator"
-            >.</span
-          >
+            >.
+          </span>
         </RouterLink>
       </li>
       <li>
@@ -63,18 +63,24 @@ const toggleMenu = () => {
     <RouterLink to="/" data-route="home">
       <span class="text--big text--bold">&lsquo;Sup.</span>
     </RouterLink>
-    <button @click="toggleMenu" aria-label="Toggle Responsive Menu">
+    <button @click="toggleMenu" aria-label="Open Menu">
       <icon type="svg" name="iconMenu" />
     </button>
     <Transition name="appear">
       <nav v-if="isMenuOpen" class="nav__responsive--is-open">
         <header>
-          <span class="text--big text--bold">Whattup.</span>
-          <button @click="toggleMenu" aria-label="Close Responsive Menu">
+          <span class="text--big text--bold">&lsquo;Sup, I'm Zach.</span>
+          <button @click="toggleMenu" aria-label="Close Menu">
             <icon type="svg" name="iconClose" />
           </button>
         </header>
         <ul class="nav__links__site">
+          <li v-if="$route.name != 'home'">
+            <RouterLink to="/" data-route="home">
+              <span>Home</span>
+              <!-- <icon type="svg" name="iconArrowUpRight" /> -->
+            </RouterLink>
+          </li>
           <li v-for="navLink in navLinks" :key="navLink.name" :data-route="navLink.name">
             <RouterLink
               :to="navLink.href"
@@ -86,7 +92,15 @@ const toggleMenu = () => {
               @click="toggleMenu"
             >
               <span>{{ navLink.label }}</span>
-              <icon type="svg" name="iconArrowUpRight" />
+              <span
+                v-if="
+                  (navLink.name == $route.name && $route.name != 'home') ||
+                  ($route.name == 'project' && navLink.name == 'works')
+                "
+                class="indicator"
+                >.
+              </span>
+              <!-- <icon v-if="navLink.name != $route.name" type="svg" name="iconArrowUpRight" /> -->
             </RouterLink>
           </li>
           <li id="download">
@@ -96,6 +110,16 @@ const toggleMenu = () => {
             </a>
           </li>
         </ul>
+        <div class="nav__responsive__footer">
+          <span>Go Birds.</span>
+          <span>Stamford, CT.</span>
+          <a
+            href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup."
+            target="_blank"
+            class="link link--inline"
+            >zach.freed@gmail.com</a
+          >
+        </div>
       </nav>
     </Transition>
   </nav>
@@ -166,8 +190,8 @@ nav {
 
       svg {
         @include svgProps(
-          $height: convertRem(32px),
-          $width: convertRem(32px),
+          $height: convertRem(24px),
+          $width: convertRem(24px),
           $scale: 1,
           $stroke: 3,
           $color: $primary__color--accent
@@ -178,7 +202,7 @@ nav {
 
   &__responsive--is-open {
     button {
-      outline: convertRem(2px) solid $primary__color--accent;
+      outline: convertRem(2px) solid $primary__color--background;
       outline-offset: convertRem(-2px); // optical correction for outline
     }
   }
@@ -196,6 +220,7 @@ nav {
   justify-content: flex-start;
   gap: 0;
   background-color: $primary__color--background--lighter;
+  border-top: convertRem(4px) solid $primary__color--accent;
   padding: convertRem(24px);
 
   header {
@@ -204,8 +229,8 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    border-bottom: convertRem(2px) solid $primary__color--border;
     padding-bottom: convertRem(24px);
+    margin-top: convertRem(-4px);
 
     span {
       display: flex;
@@ -217,6 +242,19 @@ nav {
   img {
     height: convertRem(64px);
     width: convertRem(64px);
+  }
+}
+
+.nav__responsive__footer {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: convertRem(8px);
+  @include text-style(p, regular, ui);
+
+  span {
+    color: $primary__color--text--muted;
   }
 }
 
@@ -269,7 +307,7 @@ ul {
     gap: convertRem(8px);
 
     &:first-of-type {
-      padding: convertRem(48px) 0;
+      padding: convertRem(24px) 0;
     }
   }
 
@@ -298,13 +336,18 @@ ul {
 
 .nav__links {
   &__site {
+    gap: convertRem(24px);
+
     li {
-      padding: convertRem(16px) 0;
-      border-bottom: convertRem(1px) solid $primary__color--border;
       align-items: center;
 
+      a,
+      span {
+        color: $primary__color--text--muted;
+      }
+
       a {
-        @include text-style(h3, bold, inherit);
+        @include text-style(h3, inherit, inherit);
         align-items: center;
         gap: convertRem(8px);
       }
