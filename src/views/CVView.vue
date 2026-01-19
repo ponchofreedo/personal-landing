@@ -283,15 +283,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-nav,
-header,
-#experience,
-#education,
-footer {
-  padding: 0 64px;
-  padding: 0 4rem;
-}
-
 #education,
 footer {
   margin-top: 120px;

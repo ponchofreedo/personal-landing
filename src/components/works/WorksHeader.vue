@@ -8,9 +8,10 @@
       </section>
       <section class="header__intro">
         <p class="text--big">
-          I’ve worked with some great teams to improve complex data management experiences, expose
-          valuable insights by simplifying how admins and support interact with data, and built
-          systems to improve product design and development velocity and communication.
+          I&apos;ve worked with some great teams to improve complex data management experiences,
+          expose valuable insights by simplifying how admins and support interact with their data,
+          and built systems that foster better product design and development alignment, velocity,
+          and communication.
         </p>
         <p class="text--big">
           Interested in hearing more?

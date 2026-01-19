@@ -50,8 +50,9 @@ export default {
       </section>
       <section class="header__intro">
         <p class="text--big">
-          &#128075;&#127996;, I&rsquo;m Zach, a designer crafting thoughtful and usable interfaces
-          and experiences for people, products, and platforms. Previously
+          &#128075;&#127996;, I&rsquo;m Zach, a designer and CSS enjoyer crafting thoughtful and
+          usable interfaces and experiences (laced with AI) for people, products, and platforms.
+          Previously
           <a href="https://hubspot.com" target="_blank" class="link link--inline">@HubSpot</a>,
           <a href="https://klaviyo.com" target="_blank" class="link link--inline">@Klaviyo</a>,
           <a href="https://order.co" target="_blank" class="link link--inline">@Order</a>, and

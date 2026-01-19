@@ -269,11 +269,6 @@ button {
   }
 }
 
-[layout='cv'] {
-  margin-bottom: convertRem(40px);
-  padding-top: convertRem(6px); /* optical placement to match while there's no mode switch button */
-}
-
 div,
 ul {
   display: inline-flex;
