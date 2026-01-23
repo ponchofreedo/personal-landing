@@ -75,8 +75,8 @@ onMounted(() => {
       </p>
       <p>
         If it exists on these interwebs, in your pocket as an app, or has interesting typography, I
-        want to know how it works. Trying to solve puzzles and engage with emotions are what makes
-        me want to constantly learn and improve.
+        want to know how it works. Trying to solve puzzles and engage with emotions are what drives
+        me to constantly learn and improve.
       </p>
     </article>
   </header>
