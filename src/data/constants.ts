@@ -7,11 +7,11 @@ export const navLinks = [
       label: 'Works',
       href: '/works'
   },
-  // {
-  //     name: 'about',
-  //     label: 'About',
-  //     href: '/about'
-  // },
+  {
+      name: 'about',
+      label: 'About',
+      href: '/about'
+  },
   {
       name: 'cv',
       label: 'CV',

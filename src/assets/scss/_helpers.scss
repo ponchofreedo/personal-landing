@@ -14,7 +14,7 @@ $default-font-size: 16px;
 }
 
 // mixins
-@mixin text-style($size, $weight, $line-height) {
+@mixin text-style($size, $weight, $line-height, $letter-spacing: null) {
   @if $size != 'inherit' {
     font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
   } @else {
@@ -31,6 +31,10 @@ $default-font-size: 16px;
     line-height: map.get(map.get($type-vars, line-heights), $line-height);
   } @else {
     line-height: inherit;
+  }
+
+  @if $letter-spacing != null {
+    letter-spacing: map.get(map.get($type-vars, letter-spacing), $letter-spacing);
   }
 
   @supports (font-variation-settings: normal) {
@@ -112,7 +116,7 @@ $default-font-size: 16px;
 }
 
 // use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
-@mixin text-hover-effect($type, $timing, $delay: 0s, $color: inherit) {
+@mixin text-hover-effect($type, $timing, $delay: 0s, $color: inherit, $size: null) {
   @if $type == 'strike' {
     text-decoration-line: line-through;
     text-decoration-color: transparent;
@@ -142,6 +146,8 @@ $default-font-size: 16px;
         color: inherit;
       }
     }
+  } @else if $size != null {
+    text-decoration-thickness: convertRem($size);
   }
 
   // this is an experiment that doesn't currently work outside of firefox

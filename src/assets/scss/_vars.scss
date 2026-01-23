@@ -115,4 +115,9 @@ $type-vars: (
     ultrabold: $text__font-weight--ultrabold,
     black: $text__font-weight--black,
   ),
+  letter-spacing: (
+    display: -1px,
+    header: -0.1px,
+    normal: normal,
+  ),
 );

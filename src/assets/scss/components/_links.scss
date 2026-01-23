@@ -67,6 +67,10 @@
     }
   }
 
+  &--super {
+    text-decoration-thickness: convertRem(8px) !important;
+  }
+
   &--external-or-jump {
     margin-left: convertRem(2px);
   }

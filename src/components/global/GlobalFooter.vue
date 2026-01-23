@@ -162,13 +162,11 @@ article {
 }
 
 header {
-  @include text-style(super, medium, display);
-  letter-spacing: convertRem(-1px);
+  @include text-style(super, medium, display, display);
   color: $primary__color--accent;
 
   @media (max-width: 980px) {
-    @include text-style(h2, inherit, inherit);
-    letter-spacing: revert;
+    @include text-style(h2, inherit, inherit, header);
   }
 }
 

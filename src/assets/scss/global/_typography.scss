@@ -52,10 +52,7 @@ p,
 /* h1-h2 should pair with --text__line-height--display */
 h1,
 .text--as-h1 {
-  @include text-style(h1, ultrabold, display);
-
-  $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -1px
+  @include text-style(h1, ultrabold, display, display);
 
   @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h1 * 0.64);
@@ -68,7 +65,7 @@ h1,
 
 h2,
 .text--as-h2 {
-  @include text-style(h2, ultrabold, display);
+  @include text-style(h2, ultrabold, display, display);
 
   @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h2 * 0.72);
@@ -79,26 +76,10 @@ h2,
   }
 }
 
-h1,
-h2,
-.text--as-h1,
-.text--as-h2 {
-  $value: ((($base__multiple * -0.000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -1px
-}
-
-h3,
-h4,
-.text--as-h3,
-.text--as-h4 {
-  $value: ((($base__multiple * -0.0000125) * 62.5) * $base__font-size) * 1px;
-  letter-spacing: convertRem($value); // should render -0.1px
-}
-
 /* h3-h4 and em should pair with --text__line-height--display--mod */
 h3,
 .text--as-h3 {
-  @include text-style(h3, ultrabold, ui);
+  @include text-style(h3, ultrabold, ui, header);
 
   @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h3 * 0.8);
@@ -111,7 +92,7 @@ h3,
 
 h4,
 .text--as-h4 {
-  @include text-style(h4, medium, ui);
+  @include text-style(h4, medium, ui, header);
 
   @media (max-width: 680px) {
     font-size: convertRem($text__font-size--h4 * 0.8);
@@ -140,7 +121,7 @@ h5,
 }
 
 .text--super {
-  @include text-style(super, medium, ui);
+  @include text-style(super, medium, ui, display);
 
   @media (max-width: 680px) {
     font-size: convertRem($text__font-size--super * 0.9);
