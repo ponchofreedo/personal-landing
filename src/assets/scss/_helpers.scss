@@ -17,6 +17,32 @@ $default-font-size: 16px;
 @mixin text-style($size, $weight, $line-height, $letter-spacing: null) {
   @if $size != 'inherit' {
     font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
+
+    @if $size == 'h1' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h1 * 0.64);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h1 * 0.56);
+      }
+    } @else if $size == 'h2' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h2 * 0.72);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h2 * 0.64);
+      }
+    } @else if $size == 'h3' or $size == 'h4' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h3 * 0.8);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h3 * 0.72);
+      }
+    }
   } @else {
     font-size: inherit;
   }

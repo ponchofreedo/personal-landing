@@ -81,11 +81,7 @@ section {
 }
 
 h2 {
-  font-weight: $text__font-weight--medium;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
+  @include text-style(h2, medium, display, display);
 }
 
 p {

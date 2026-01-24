@@ -13,20 +13,42 @@
   background-color: inherit;
   color: inherit;
   gap: convertRem(8px);
+
+  span {
+    white-space: nowrap;
+  }
+
+  svg {
+    @include svgProps(
+      $height: convertRem(8px),
+      $width: convertRem(8px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
 }
 
-.tag span {
-  white-space: nowrap;
-}
+.tag--accent {
+  padding: convertRem(8px) convertRem(12px);
+  width: min-content; // this is a fix for grid layout
+  border-radius: convertRem(8px);
+  background-color: $primary__color--accent;
+  color: $primary__color--background;
 
-.tag svg {
-  @include svgProps(
-    $height: convertRem(8px),
-    $width: convertRem(8px),
-    $scale: 1,
-    $stroke: 3,
-    $color: inherit
-  );
+  span {
+    @include text-style(p, medium, fixed, inherit);
+  }
+
+  svg {
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
 }
 
 .tag--private {
@@ -65,26 +87,24 @@
 
 .tag--availability {
   padding: convertRem(8px) convertRem(12px);
+  width: min-content; // this is a fix for grid layout
   border-radius: convertRem(8px);
-  background-color: $primary__color--accent;
+  background-color: $secondary__color--accent--3;
   color: $primary__color--background;
-}
 
-.tag--availability span {
-  font-size: convertRem(20px);
-  line-height: $text__line-height--fixed;
-  font-weight: $text__font-weight--medium;
-  color: inherit;
-}
+  span {
+    @include text-style(big, medium, fixed, inherit);
+  }
 
-.tag--availability svg {
-  @include svgProps(
-    $height: convertRem(20px),
-    $width: convertRem(20px),
-    $scale: 1,
-    $stroke: 3,
-    $color: inherit
-  );
+  svg {
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
 }
 
 .tag__snackbar,

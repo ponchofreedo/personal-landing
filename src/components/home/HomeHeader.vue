@@ -175,12 +175,6 @@ footer {
 //   width: convertRem(160px);
 // }
 
-.tag {
-  display: inline-flex;
-  width: min-content;
-  background-color: $secondary__color--accent--3;
-}
-
 small {
   display: inherit;
   margin-bottom: convertRem(16px);
@@ -188,11 +182,7 @@ small {
 }
 
 h1 {
-  font-weight: $text__font-weight--medium;
-
-  @supports (font-variation-settings: normal) {
-    font-variation-settings: 'wght' $text__font-weight--medium;
-  }
+  @include text-style(h1, medium, display, display);
 }
 
 .highlight {

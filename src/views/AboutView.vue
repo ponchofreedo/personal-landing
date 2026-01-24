@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import GlobalNavigation from '@global/GlobalNavigation.vue'
 import AboutHeader from '@components/about/AboutHeader.vue'
+import AboutProcess from '@components/about/AboutProcess.vue'
 import GlobalFooter from '@global/GlobalFooter.vue'
 
 onMounted(() => {
@@ -17,10 +18,9 @@ onMounted(() => {
   <GlobalNavigation />
 
   <AboutHeader />
+  <AboutProcess />
 
   <GlobalFooter />
 </template>
 
-<style lang="scss" scoped>
-@use 'sass:math';
-</style>
+<style lang="scss" scoped></style>
