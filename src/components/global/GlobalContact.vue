@@ -139,7 +139,7 @@ main {
       }
 
       &:first-child {
-        padding-right: convertRem(24px);
+        @include multi-column-extra-padding(left);
 
         @media (max-width: 980px) {
           padding-right: 0;
@@ -147,7 +147,7 @@ main {
       }
 
       &:last-child {
-        padding-left: convertRem(24px);
+        @include multi-column-extra-padding(right);
 
         @media (max-width: 980px) {
           padding-left: 0;

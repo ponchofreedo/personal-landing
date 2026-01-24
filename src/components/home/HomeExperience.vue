@@ -107,9 +107,9 @@ article {
 }
 
 .container__experience {
+  @include multi-column-extra-padding(left);
   order: 1;
   grid-column: span 6;
-  padding-right: convertRem(20px);
 
   @media (max-width: 1280px) {
     grid-column: span 4;
@@ -123,9 +123,9 @@ article {
 }
 
 .container__resources {
+  @include multi-column-extra-padding(right);
   order: 2;
   grid-column: span 6;
-  padding-left: convertRem(20px);
 
   @media (max-width: 1280px) {
     grid-column: span 4;

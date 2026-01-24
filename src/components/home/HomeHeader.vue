@@ -97,7 +97,7 @@ header {
     margin-top: convertRem(40px);
   }
 
-  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 400px) and (orientation: portrait) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 480px) and (orientation: portrait) {
     height: 100%;
     place-items: center;
     margin-top: convertRem(48px);

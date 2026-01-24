@@ -96,7 +96,7 @@ import { selectedWorks } from '@data/constants'
         </li>
       </menu>
     </article>
-    <footer>
+    <footer class="disclaimer">
       <p>
         See all available projects on
         <a
@@ -115,7 +115,7 @@ import { selectedWorks } from '@data/constants'
           >drop a messge</a
         >
         if you'd like to discuss anything that is labeled
-        <span class="link--display"><icon type="icon" name="iconPrivate" />Private</span>.
+        <span><icon type="icon" name="iconPrivate" />Private</span>.
       </p>
     </footer>
   </section>
@@ -332,6 +332,21 @@ p {
 
 footer:not(menu footer) {
   margin-top: convertRem(80px);
+
+  span {
+    display: inline-flex;
+    align-items: baseline;
+    gap: convertRem(4px);
+    color: $primary__color--accent;
+    margin-bottom: convertRem(-2px);
+
+    svg {
+      display: inherit;
+      align-self: center;
+      @include svgProps($scale: 1, $stroke: 3, $color: inherit);
+      margin-top: convertRem(-1px);
+    }
+  }
 
   @media (max-width: 980px) {
     margin-top: convertRem(64px);

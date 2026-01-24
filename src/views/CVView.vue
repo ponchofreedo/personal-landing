@@ -411,7 +411,7 @@ div {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 980px) {
   nav,
   header,
   section,
@@ -427,7 +427,7 @@ div {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 680px) {
   article[name] {
     flex-direction: column;
     gap: 16px;

@@ -9,6 +9,7 @@
 .link:visited {
   font-size: inherit;
   color: $primary__color--accent;
+  text-wrap: balance;
 
   &:not(.link--display):not(.link--simple) {
     @include text-hover-effect(strike, 0.1s);
@@ -16,6 +17,8 @@
 }
 
 .link {
+  display: inline;
+
   &--inline {
     @include text-style(inherit, bold, inherit);
     text-decoration: underline solid convertRem(2px);
@@ -28,8 +31,7 @@
     margin-bottom: convertRem(-2px);
   }
 
-  &--inline,
-  &--display {
+  &--inline {
     display: inline-flex;
     align-items: baseline;
     gap: convertRem(4px);
@@ -69,6 +71,7 @@
 
   &--super {
     text-decoration-thickness: convertRem(8px) !important;
+    display: inline;
   }
 
   &--external-or-jump {

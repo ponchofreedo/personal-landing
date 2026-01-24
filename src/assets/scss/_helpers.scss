@@ -115,6 +115,14 @@ $default-font-size: 16px;
   }
 }
 
+@mixin multi-column-extra-padding($side) {
+  @if $side == 'left' {
+    padding-right: convertRem(20px); // when combined with right side, makes the center gutter 80px
+  } @else if $side == 'right' {
+    padding-left: convertRem(20px); // when combined with left side, makes the center gutter 80px
+  }
+}
+
 // use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
 @mixin text-hover-effect($type, $timing, $delay: 0s, $color: inherit, $size: null) {
   @if $type == 'strike' {

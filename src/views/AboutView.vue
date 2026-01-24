@@ -25,7 +25,7 @@ onMounted(() => {
             href="https://www.youtube.com/watch?v=Dcv-MD6_4DA"
             target="_blank"
             class="link link--inline link--super"
-            >noodles</a
+            >XFF noodles</a
           >, and the
           <a
             href="https://www.youtube.com/shorts/u0_fGhIZ1-Y"
@@ -79,6 +79,26 @@ onMounted(() => {
         me to constantly learn and improve.
       </p>
     </article>
+    <div class="prof-pic__action-container--responsive">
+      <button
+        type="button"
+        class="button button--secondary button--has-icon button--icon-right"
+        @click="goToExternalLink(resumeLink, '_blank')"
+      >
+        Grab my r&eacute;sum&eacute;<span class="button__icon-container"
+          ><icon type="svg" name="iconDownload"
+        /></span>
+      </button>
+      <button
+        type="button"
+        class="button button--secondary button--has-icon button--icon-right"
+        @click="$router.push('/cv')"
+      >
+        View my CV<span class="button__icon-container"
+          ><icon type="svg" name="iconArrowUpRight"
+        /></span>
+      </button>
+    </div>
   </header>
 
   <GlobalFooter />
@@ -93,11 +113,14 @@ header {
   @include container-responsive-padding;
   place-items: flex-start;
   padding-top: convertRem(120px);
+  padding-bottom: convertRem(120px);
 
   @media (max-width: 1280px) {
   }
 
   @media (max-width: 680px) {
+    padding-top: convertRem(80px);
+    padding-bottom: convertRem(80px);
   }
 
   @media (max-width: 480px) {
@@ -110,7 +133,6 @@ header {
     grid-template-columns: subgrid;
 
     @media (max-width: 980px) {
-      padding-bottom: convertRem(80px);
     }
 
     @media (max-width: 480px) {
@@ -129,6 +151,11 @@ header {
     @media (max-width: 1280px) {
       grid-column: span 5;
     }
+
+    @media (max-width: 680px) {
+      grid-column: 1 / -1;
+      order: 2;
+    }
   }
 
   aside {
@@ -142,6 +169,12 @@ header {
       grid-column: span 3;
       justify-content: flex-start;
     }
+
+    @media (max-width: 680px) {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      order: 1;
+    }
   }
 
   em {
@@ -151,6 +184,10 @@ header {
     @media (max-width: 1280px) {
       @include text-style(h1, medium, display, display);
     }
+
+    @media (max-width: 980px) {
+      @include text-style(h2, medium, display, display);
+    }
   }
 }
 
@@ -158,16 +195,28 @@ header {
   &__header {
     display: inherit;
     justify-content: flex-end;
+
+    @media (max-width: 680px) {
+      row-gap: convertRem(24px);
+    }
   }
 
   &__intro {
     grid-column: col-start / span 6;
     row-gap: convertRem(24px);
 
+    @media (max-width: 680px) {
+      grid-column: 1 / -1;
+    }
+
     p {
       grid-column: 1 / -1;
       @include text-style(big, regular, body);
       color: $primary__color--text--muted;
+
+      @media (max-width: 680px) {
+        @include text-style(p, regular, body);
+      }
     }
   }
 
@@ -192,6 +241,11 @@ header {
     align-self: center;
     position: relative;
 
+    @media (max-width: 680px) {
+      place-items: flex-start;
+      align-self: flex-start;
+    }
+
     img {
       height: auto;
       width: auto;
@@ -204,6 +258,10 @@ header {
 
         @media (max-width: 1280px) {
           max-width: convertRem(240px);
+        }
+
+        @media (max-width: 680px) {
+          max-width: convertRem(200px);
         }
       }
 
@@ -232,6 +290,23 @@ header {
     gap: convertRem(8px);
     margin-top: convertRem(8px);
     justify-content: center;
+
+    @media (max-width: 980px) {
+      display: none;
+    }
+
+    &--responsive {
+      display: none;
+
+      @media (max-width: 980px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        place-self: flex-start;
+        gap: convertRem(8px);
+        grid-column: 1 / -1;
+      }
+    }
   }
 }
 </style>
