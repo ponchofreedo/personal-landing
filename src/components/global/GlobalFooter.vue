@@ -227,6 +227,10 @@ section {
           }
         }
       }
+
+      ul {
+        flex-wrap: wrap;
+      }
     }
   }
 

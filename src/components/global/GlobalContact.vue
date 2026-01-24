@@ -74,8 +74,12 @@ article:not(.contact__inner-container article) {
   flex-direction: column;
   position: relative;
   background-color: $primary__color--background--darker;
-  border-radius: convertRem(48px);
+  border-radius: convertRem(32px);
   @include container-responsive-padding;
+
+  @media (max-width: 680px) {
+    border-radius: convertRem(16px);
+  }
 }
 
 main {
