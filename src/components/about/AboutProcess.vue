@@ -3,7 +3,7 @@
 <template>
   <section class="process__container">
     <div class="tag tag--accent">
-      <span>Available for hire</span>
+      <span>How I work</span>
     </div>
   </section>
 </template>

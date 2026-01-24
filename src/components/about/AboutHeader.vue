@@ -9,7 +9,7 @@ import { goToExternalLink, resumeLink } from '@data/constants'
         <em>
           I live by the pixels I manipulate, the data I generate, and seek solace in The Force,
           <a
-            href="https://www.youtube.com/watch?v=Dcv-MD6_4DA"
+            href="https://www.xianfoods.com/"
             target="_blank"
             class="link link--inline link--super"
             >XFF noodles</a
