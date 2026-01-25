@@ -43,10 +43,6 @@
 p,
 .text--body {
   @include text-style(p, regular, base);
-
-  @media (max-width: 680px) {
-    font-size: convertRem($text__font-size--p * 1.125);
-  }
 }
 
 /* h1-h2 should pair with --text__line-height--display */

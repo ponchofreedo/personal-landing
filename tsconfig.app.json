@@ -12,7 +12,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@css/*": ["./src/assets/css/*"],
+      "@css/*": ["./src/css/*"],
       "@data/*": ["./src/data/*"],
       "@fonts/*": ["./src/assets/fonts/*"],
       "@global/*": ["./src/components/global/*"],
@@ -20,7 +20,7 @@
       "@interfaces/*": ["./src/interfaces/*"],
       "@layout/*": ["./src/components/layout/*"],
       "@pdf/*": ["./src/assets/pdf*"],
-      "@scss/*": ["./src/assets/scss/*"],
+      "@scss/*": ["./src/scss/*"],
       "@svg/*": ["./src/components/svg*"],
       "@util/*": ["./src/components/util/*"]
     }
