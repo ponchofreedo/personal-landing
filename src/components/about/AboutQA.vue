@@ -3,7 +3,7 @@
 <template>
   <section class="qa__container">
     <div class="qa__tag tag tag--accent">
-      <span>How I work</span>
+      <span>Some Q & A</span>
     </div>
     <aside class="qa__aside">
       <p>
