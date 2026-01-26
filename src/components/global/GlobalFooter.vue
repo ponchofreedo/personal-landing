@@ -123,7 +123,7 @@ export default {
             <li>
               <icon id="anchor" type="svg" name="iconArrowSquareUp" v-on:click="scrollToTop()" />
             </li>
-            <li v-for="socialLink in socialLinks" :key="socialLink.id">
+            <li v-for="socialLink in socialLinks" :key="socialLink.platform">
               <a :href="socialLink.url" target="_blank">
                 <icon type="svg" :name="'logo' + socialLink.platform" />
               </a>

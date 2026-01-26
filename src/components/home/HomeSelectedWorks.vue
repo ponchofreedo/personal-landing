@@ -11,7 +11,7 @@ import { selectedWorks } from '@data/constants'
       <menu>
         <li
           v-for="selectedWork in selectedWorks"
-          :key="selectedWork.id"
+          :key="selectedWork.slug"
           :team="selectedWork.team"
           class="selected-work__container"
         >

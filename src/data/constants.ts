@@ -21,32 +21,26 @@ export const navLinks = [
 
 export const socialLinks = [
   {
-    id: 1,
     platform: 'LinkedIn',
     url: 'https://linkedin.com/in/zpfreed',
   },
   {
-    id: 2,
     platform: 'Figma',
     url: 'https://figma.com/@ponchofreedo',
   },
   {
-    id: 3,
     platform: 'GitHub',
     url: 'https://github.com/ponchofreedo',
   },
   {
-    id: 4,
     platform: 'Dribbble',
     url: 'https://dribbble.com/ponchofreedo',
   },
   {
-    id: 5,
     platform: 'Instagram',
     url: 'https://instagram.com/ponchofreedo',
   },
   {
-    id: 6,
     platform: 'Bluesky',
     url: 'https://bsky.app/profile/ponchofreedo.bsky.social',
   }
@@ -56,7 +50,6 @@ export const resumeLink = 'https://drive.google.com/file/d/1YlQuSK1BZZnbJGpKC6yQ
 
 export const selectedWorks = [
 	{
-    id: 1,
     title: 'Streamlining CRM data management experiences',
     preview: 'Solving customer pains, driving adoption, and reducing overhead costs by rethinking a core data management workflow in HubSpot\'s CRM.',
     private: '',
@@ -73,7 +66,6 @@ export const selectedWorks = [
     team: 'HubSpot'
 },
 // {
-//     id: 2,
 //     title: 'Remedying the pain of managing custom properties',
 //     preview: 'Fixing some long-standing, low-risk issues with high rewards on both sides and planning for a future backlog of opportunities with greater rewards.',
 //     private: '',
@@ -88,7 +80,6 @@ export const selectedWorks = [
 //     team: 'HubSpot'
 // },
 // {
-//     id: 3,
 //     title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
 //     preview: 'Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
 //     private: '',
@@ -105,7 +96,6 @@ export const selectedWorks = [
 //     team: 'Whalar'
 // },
 // {
-//     id: 4,
 //     title: 'Improving retention and trust with a new calculated formula tester',
 //     preview: 'Customers couldn\'t validate their work and were going elsewhere, even leaving the platform, so I introduced a solution to build their confidence.',
 //     private: '',
@@ -124,7 +114,6 @@ export const selectedWorks = [
 
 export const experienceList = [
   {
-      id: 1,
       team: 'Whalar',
       title: 'Lead Product Designer',
       date: '2025',
@@ -133,7 +122,6 @@ export const experienceList = [
       logoFile: 'logoWhalar'
   },
   {
-      id: 2,
       team: 'HubSpot',
       title: 'Senior Product Designer',
       date: '2023 - 2024',
@@ -141,7 +129,6 @@ export const experienceList = [
       logoFile: 'logoHubSpot'
   },
   {
-      id: 3,
       team: 'Klaviyo',
       title: 'Senior Product Designer',
       date: '2021 - 2023',
@@ -149,7 +136,6 @@ export const experienceList = [
       logoFile: 'logoKlaviyo'
   },
   {
-      id: 4,
       team: 'Order.co',
       title: 'Senior Product Designer',
       date: '2020 - 2021',
@@ -157,7 +143,6 @@ export const experienceList = [
       logoFile: 'logoOrder'
   },
   {
-      id: 5,
       team: 'Tentrr',
       title: 'Senior Designer',
       date: '2018 - 2020',
@@ -166,7 +151,6 @@ export const experienceList = [
       logoFile: 'logoTentrr'
   },
   {
-      id: 6,
       team: 'priceline',
       title: 'Designer',
       date: '2015 - 2017',
@@ -174,7 +158,6 @@ export const experienceList = [
       logoFile: 'logoPriceline'
   },
   {
-      id: 7,
       team: 'priceline',
       title: 'Associate Designer',
       date: '2013 - 2015',
@@ -182,7 +165,6 @@ export const experienceList = [
       logoFile: 'logoPriceline'
   },
   {
-      id: 8,
       team: 'priceline',
       title: 'Design Intern',
       date: 'Summer 2013',
@@ -190,7 +172,6 @@ export const experienceList = [
       logoFile: 'logoPriceline'
   },
   {
-      id: 9,
       team: 'Digital Surgeons',
       title: 'Design Intern',
       date: 'Summer 2012',
@@ -201,7 +182,6 @@ export const experienceList = [
 
 export const resourceList = [
   {
-      id: 1,
       name: 'The UX Gesture Kit',
       platform: 'Figma',
       platformIcon: 'logoFigma',
@@ -210,7 +190,6 @@ export const resourceList = [
       state: ''
   },
   {
-      id: 2,
       name: 'The Lonely UXers Discord',
       platform: 'Discord',
       platformIcon: 'logoDiscord',
@@ -219,7 +198,6 @@ export const resourceList = [
       state: ''
   },
   {
-      id: 3,
       name: 'Design Markup Library',
       platform: 'Figma',
       platformIcon: 'logoFigma',
@@ -228,7 +206,6 @@ export const resourceList = [
       state: 'wip'
   },
   {
-      id: 4,
       name: 'Design Operating System',
       platform: 'Figma',
       platformIcon: 'logoFigma',

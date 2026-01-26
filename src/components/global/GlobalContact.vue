@@ -35,7 +35,7 @@ import { resumeLink, socialLinks } from '@data/constants'
               Or, technical issues aside, you can find/follow me at all of these places.
             </p>
             <ul>
-              <li v-for="socialLink in socialLinks" :key="socialLink.id">
+              <li v-for="socialLink in socialLinks" :key="socialLink.platform">
                 <a :href="socialLink.url" target="_blank" class="link">
                   <span>{{ socialLink.platform }}</span>
                   <icon type="svg" name="iconArrowSquareUpRight" />

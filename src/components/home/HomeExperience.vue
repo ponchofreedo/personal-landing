@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+// import { RouterLink } from 'vue-router'
 import { experienceList, goToExternalLink, resourceList, resumeLink } from '@data/constants'
 </script>
 
@@ -11,7 +11,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
           <h4>Experience.</h4>
         </header>
         <ol>
-          <li v-for="experience in experienceList" :key="experience.id" :team="experience.team">
+          <li v-for="experience in experienceList" :key="experience.team">
             <figure>
               <icon type="svg" :name="experience.logoFile" />
             </figure>
@@ -55,7 +55,7 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
         <ul>
           <li
             v-for="resource in resourceList"
-            :key="resource.id"
+            :key="resource.name"
             :state="resource.state === 'wip' ? 'wip' : 'public'"
           >
             <a :href="resource.url" target="_blank">
