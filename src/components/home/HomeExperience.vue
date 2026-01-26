@@ -30,19 +30,19 @@ import { experienceList, goToExternalLink, resourceList, resumeLink } from '@dat
           </li>
         </ol>
         <footer>
-          <p>
+          <!-- <p>
             For the rest of the boring bits, check out my
             <RouterLink to="/cv" class="link link--inline"
               >full CV<icon type="svg" name="iconArrowUpRight" /> </RouterLink
             >.
-          </p>
+          </p> -->
           <button
             type="button"
             class="button button--secondary button--has-icon button--icon-right"
             @click="goToExternalLink(resumeLink, '_blank')"
           >
             Grab my r&eacute;sum&eacute;<span class="button__icon-container"
-              ><icon type="svg" name="iconDownload"
+              ><icon type="svg" name="iconArrowSquareUpRight"
             /></span>
           </button>
         </footer>

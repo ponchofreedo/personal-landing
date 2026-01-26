@@ -24,9 +24,7 @@
     <main class="process__cards-container">
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>01</span>
         </header>
         <h3>Discover.</h3>
@@ -38,9 +36,7 @@
       </article>
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>02</span>
         </header>
         <h3>Prioritize.</h3>
@@ -51,9 +47,7 @@
       </article>
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>03</span>
         </header>
         <h3>Re/Build.</h3>
@@ -65,9 +59,7 @@
       </article>
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>04</span>
         </header>
         <h3>Share.</h3>
@@ -84,9 +76,7 @@
       </article>
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>05</span>
         </header>
         <h3>Analyze.</h3>
@@ -98,9 +88,7 @@
       </article>
       <article class="process__card">
         <header>
-          <figure>
-            <icon type="svg" name="iconDownload" />
-          </figure>
+          <figure></figure>
           <span>06</span>
         </header>
         <h3>Party time.</h3>
@@ -217,9 +205,12 @@
     row-gap: convertRem(32px);
     margin-top: convertRem(80px);
 
+    @media (max-width: 680px) {
+      margin-top: convertRem(32px);
+    }
+
     @media (max-width: 480px) {
       row-gap: convertRem(16px);
-      margin-top: convertRem(40px);
     }
   }
 
@@ -240,7 +231,8 @@
       color 0.1s ease-in-out 0s;
 
     @media (max-width: 680px) {
-      min-height: convertRem(320px);
+      min-height: convertRem(240px);
+      justify-content: flex-start;
     }
 
     &:hover {
@@ -256,28 +248,19 @@
 
       figure {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        overflow: hidden;
+        visibility: hidden;
         width: convertRem(64px);
         height: convertRem(64px);
-        background-color: $primary__color--border;
+        background-color: transparent;
 
-        @media (max-width: 680px) {
+        @media (max-width: 980px) {
           width: convertRem(48px);
           height: convertRem(48px);
         }
-      }
 
-      svg {
-        @include svgProps(
-          $height: convertRem(24px),
-          $width: convertRem(24px),
-          $scale: 1,
-          $stroke: 3,
-          $color: $primary__color--background
-        );
+        @media (max-width: 680px) {
+          display: none;
+        }
       }
 
       span {
@@ -296,6 +279,10 @@
 
     h3 {
       color: $primary__color--accent;
+
+      @media (max-width: 680px) {
+        margin-top: convertRem(-16px);
+      }
     }
 
     p {

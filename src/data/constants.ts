@@ -12,11 +12,11 @@ export const navLinks = [
       label: 'About',
       href: '/about'
   },
-  {
-      name: 'cv',
-      label: 'CV',
-      href: '/cv'
-  }
+  // {
+  //     name: 'cv',
+  //     label: 'CV',
+  //     href: '/cv'
+  // }
 ];
 
 export const socialLinks = [

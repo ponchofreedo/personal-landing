@@ -41,10 +41,10 @@ import { goToExternalLink, resumeLink } from '@data/constants'
             @click="goToExternalLink(resumeLink, '_blank')"
           >
             Grab my r&eacute;sum&eacute;<span class="button__icon-container"
-              ><icon type="svg" name="iconDownload"
+              ><icon type="svg" name="iconArrowSquareUpRight"
             /></span>
           </button>
-          <button
+          <!-- <button
             type="button"
             class="button button--secondary button--has-icon button--icon-right"
             @click="$router.push('/cv')"
@@ -52,7 +52,7 @@ import { goToExternalLink, resumeLink } from '@data/constants'
             View my CV<span class="button__icon-container"
               ><icon type="svg" name="iconArrowUpRight"
             /></span>
-          </button>
+          </button> -->
         </div>
       </aside>
     </article>
@@ -76,10 +76,10 @@ import { goToExternalLink, resumeLink } from '@data/constants'
         @click="goToExternalLink(resumeLink, '_blank')"
       >
         Grab my r&eacute;sum&eacute;<span class="button__icon-container"
-          ><icon type="svg" name="iconDownload"
+          ><icon type="svg" name="iconArrowSquareUpRight"
         /></span>
       </button>
-      <button
+      <!-- <button
         type="button"
         class="button button--secondary button--has-icon button--icon-right"
         @click="$router.push('/cv')"
@@ -87,7 +87,7 @@ import { goToExternalLink, resumeLink } from '@data/constants'
         View my CV<span class="button__icon-container"
           ><icon type="svg" name="iconArrowUpRight"
         /></span>
-      </button>
+      </button> -->
     </div>
   </header>
 </template>

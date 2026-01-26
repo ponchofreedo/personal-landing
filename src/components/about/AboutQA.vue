@@ -43,10 +43,10 @@
           </figure>
         </summary>
         <p>
-          <b class="text--accent--3">Hell yeah, brother!</b> I'm actively looking for new
-          full-time/contract roles or freelance opportunities to challenge myself and really push
-          myself through good, user-centered, and data-driven design. Especially interested in
-          opportunities that allow flexing of AI-driven and assisted work.
+          <b class="text--accent--3">Hell yeah, brother!</b> I'm actively looking for new full-time
+          roles or freelance opportunities to challenge myself and really push myself through good,
+          user-centered, and data-driven design. Especially interested in opportunities that allow
+          flexing of AI-driven and assisted work.
         </p>
       </details>
       <details name="details">
@@ -307,7 +307,7 @@
     row-gap: convertRem(16px);
 
     @media (max-width: 1280px) {
-      grid-column: span 2;
+      grid-column: span 3;
       @include multi-column-extra-padding(left);
     }
 
@@ -335,17 +335,13 @@
     justify-self: stretch;
 
     @media (max-width: 1280px) {
-      grid-column: 3 / span 6;
+      grid-column: 4 / span 5;
       @include multi-column-extra-padding(right);
     }
 
     @media (max-width: 980px) {
       grid-column: 1 / -1;
       padding-left: 0;
-    }
-
-    @media (max-width: 480px) {
-      row-gap: convertRem(16px);
     }
   }
 }
