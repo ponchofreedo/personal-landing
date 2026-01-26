@@ -1,14 +1,20 @@
-import "./assets/main.css";
+import '@scss/main.scss'
+import '@data/constants.ts'
 
-import { createApp } from "vue";
-import { createPinia } from "pinia";
+import { createApp } from 'vue'
+import App from './App.vue'
+// @ts-expect-error:next-line
+import VueImageZoomer from 'vue-image-zoomer'
+import 'vue-image-zoomer/dist/style.css'
+import router from './router'
 
-import App from "./App.vue";
-import router from "./router";
+// experimental things...
+import icon from '@util/Icon.vue'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(createPinia());
-app.use(router);
+app.use(router)
+app.use(VueImageZoomer)
+app.component('icon', icon)
 
-app.mount("#app");
+app.mount('#app')

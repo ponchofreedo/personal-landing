@@ -1,3 +1,4 @@
+# /
 # My personal landing page
 
 This project is built with Vue.
@@ -12,27 +13,38 @@ The plan is to build this in phases as I have time.
 * Phase 4 - Add CV to SPA
 * Phase 5 - Move project content to individual pages in the app instead of linking out
 
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Type Support for `.vue` Imports in TS
+
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
 ## Dev logistics
 ### Project Setup
 
 ```sh
-npm install
+yarn
 ```
 
 #### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 #### Type-Check, Compile and Minify for Production
 
 ```sh
-npm run build
+yarn build
 ```
 
 #### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+yarn lint
 ```
