@@ -393,7 +393,12 @@ details {
     align-items: center;
     list-style: none;
     padding-right: convertRem(8px);
+    transition: opacity 0.1s ease-in-out;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
 
     @media (max-width: 680px) {
       gap: convertRem(8px);
