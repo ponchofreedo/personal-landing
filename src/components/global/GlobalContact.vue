@@ -22,7 +22,7 @@ import { socialLinks } from '@data/constants'
                 href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25"
                 target="_blank"
                 class="link link--inline"
-                >grab my résumé<icon class="icon--bigger" type="icon" name="iconDownload"
+                >grab my résumé<icon class="icon--bigger" type="icon" name="iconArrowSquareUpRight"
               /></a>
               or just
               <a
