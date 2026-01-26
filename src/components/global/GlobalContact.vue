@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { socialLinks } from '@data/constants'
+import { resumeLink, socialLinks } from '@data/constants'
 </script>
 
 <script lang="ts"></script>
@@ -18,10 +18,7 @@ import { socialLinks } from '@data/constants'
               instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden
               peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out,"
               so yeah...feel free to
-              <a
-                href="https://1drv.ms/b/s!AiXwFLoNRqBCifMJqJtyZbbOOAROcA?e=PPKF25"
-                target="_blank"
-                class="link link--inline"
+              <a :href="resumeLink" target="_blank" class="link link--inline"
                 >grab my résumé<icon class="icon--bigger" type="icon" name="iconArrowSquareUpRight"
               /></a>
               or just

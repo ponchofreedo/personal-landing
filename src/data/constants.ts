@@ -52,7 +52,7 @@ export const socialLinks = [
   }
 ];
 
-export const resumeLink = 'https://drive.google.com/file/d/1Ib9gDFZmR5loB7iczbViQZr49_o_fgfY/view?usp=sharing';
+export const resumeLink = 'https://drive.google.com/file/d/1YlQuSK1BZZnbJGpKC6yQGI5LBU_1TJxa/view?usp=sharing';
 
 export const selectedWorks = [
 	{
