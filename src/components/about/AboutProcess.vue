@@ -13,11 +13,11 @@
       </div>
       <div class="process__intro">
         <p>
-          My role is not to dominate or intimidate...it's to be a partner with my cross-functional
-          peers. I do this by advocating for the best possible outcomes that will deliver the most
-          possible impact for customers and businesses. Sometimes that means shooting from the hip;
-          sometimes that means being methodical and incremental; and sometimes it means compromising
-          to stay grounded.
+          My role is not to intimidate or dominate...it's to be a partner with my cross-functional
+          peers. I advocate for the best possible outcomes that will deliver the most possible
+          impact for customers and businesses. Sometimes that means shooting from the hip; sometimes
+          that means being methodical and incremental; and sometimes that means compromising to stay
+          grounded.
         </p>
       </div>
     </header>
@@ -272,17 +272,12 @@
 
       svg {
         @include svgProps(
-          $height: convertRem(32px),
-          $width: convertRem(32px),
+          $height: convertRem(24px),
+          $width: convertRem(24px),
           $scale: 1,
           $stroke: 3,
           $color: $primary__color--background
         );
-
-        @media (max-width: 680px) {
-          height: convertRem(24px);
-          width: convertRem(24px);
-        }
       }
 
       span {

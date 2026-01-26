@@ -7,11 +7,14 @@ import { goToExternalLink, resumeLink } from '@data/constants'
     <article class="about__header">
       <section>
         <em>
-          I live by the pixels I manipulate, the data I generate, and seek solace in The Force,
+          I live by the pixels I manipulate, the data I generate, and seek solace in
           <a
-            href="https://www.xianfoods.com/"
+            href="https://www.starwars.com/video/for-my-ally-is-the-force"
             target="_blank"
             class="link link--inline link--super"
+            >the Force</a
+          >,
+          <a href="https://www.xianfoods.com/" target="_blank" class="link link--inline link--super"
             >XFF noodles</a
           >, and the
           <a

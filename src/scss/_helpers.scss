@@ -42,6 +42,14 @@ $default-font-size: 16px;
       @media (max-width: 480px) {
         font-size: convertRem($text__font-size--h3 * 0.72);
       }
+    } @else if $size == 'h5' or $size == 'big' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h5 * 0.9);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h5 * 0.8);
+      }
     }
   } @else {
     font-size: inherit;

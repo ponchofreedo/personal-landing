@@ -184,3 +184,30 @@ em,
     font-variation-settings: 'wght' $text__font-weight--regular;
   }
 }
+
+.text {
+  &--accent {
+    color: $primary__color--accent;
+  }
+
+  &--accent--1 {
+    color: $secondary__color--accent--1;
+  }
+
+  &--accent--2 {
+    color: $secondary__color--accent--2;
+  }
+
+  &--accent--3 {
+    color: $secondary__color--accent--3;
+  }
+}
+
+code {
+  font-family: monospace;
+  font-weight: $text__font-weight--regular;
+  color: #78cee9;
+  background-color: #273136;
+  padding: convertRem(2px) convertRem(4px);
+  border-radius: convertRem(4px);
+}
