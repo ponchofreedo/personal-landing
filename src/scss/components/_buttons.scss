@@ -62,7 +62,7 @@ button,
     background-color: $primary__color--background;
     border-width: convertRem(2px);
     border-style: solid;
-    border-color: $primary__color--background--lighter;
+    border-color: $primary__color--border;
     @include text-style(p, medium, fixed);
     color: $primary__color--text--muted;
 
@@ -94,8 +94,8 @@ button,
 
     .button {
       &__icon-container {
-        background-color: $primary__color--background--lighter;
-        padding: convertRem(10px) convertRem(10px) convertRem(10px) convertRem(12px); // subtract 1 from all but left side to account for border
+        border-left: convertRem(2px) solid $primary__color--background--lighter;
+        padding: convertRem(10px); // subtract 1 from all but left side to account for border
         color: $primary__color--accent;
       }
     }

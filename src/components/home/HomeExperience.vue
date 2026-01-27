@@ -313,7 +313,7 @@ ul {
     gap: convertRem(8px);
     background-color: $primary__color--background;
     border-radius: convertRem(16px);
-    border-color: $primary__color--background--lighter;
+    border-color: $primary__color--border;
     border-width: convertRem(2px);
     border-style: solid;
     transition:
