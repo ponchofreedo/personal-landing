@@ -1,30 +1,16 @@
-# /
-# My personal landing page
+# This is my portfolio and playground
 
-This project is built with Vue.
+All my current work, or at least as much as I can put up, exists inside this site. As I've been writing in this readme for a few years now, it's finally written in Vue. I've also migrated this version from npm to yarn just to change things up a bit.
 
-## Follow along with the progress
-[Figma 2024-2025 project](https://www.figma.com/design/PmxHjTSPd169MTszaWe6ql/Site?node-id=0-1&t=FVnq9c7RyTfQZ1Mc-1)
+[Figma project - 2026](https://www.figma.com/design/PmxHjTSPd169MTszaWe6ql/Site?node-id=482-733)
 <br>
-The plan is to build this in phases as I have time.
-* Phase 1 - New landing page skeleton
-* Phase 2 - Introduce some extra content
-* Phase 3 - Add project blocks
-* Phase 4 - Add CV to SPA
-* Phase 5 - Move project content to individual pages in the app instead of linking out
+The plan is to build this in phases to better organize thoughts and work stream.
+* ~Phase 1 - New landing page skeleton~
+* ~Phase 2 - Introduce some extra content~
+* ~Phase 3 - Add project blocks~
+* Phase 4 - Rebuild /works templates to expose all project content in individual routes
+* Phase 5 - Add CV view to SPA
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-## Dev logistics
 ### Project Setup
 
 ```sh
@@ -48,3 +34,16 @@ yarn build
 ```sh
 yarn lint
 ```
+
+### Tools used
+* Figma
+* Google Antigravity
+* Hyper Terminal
+* Git
+* Vercel
+
+### Languages/Frameworks
+* Vue
+* Typescript
+* SCSS
+* JSON
