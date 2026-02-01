@@ -18,7 +18,7 @@ import { selectedWorks } from '@data/constants'
           <RouterLink
             :to="
               selectedWork.private
-                ? undefined
+                ? ''
                 : '/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug
             "
             :target="selectedWork.target"
