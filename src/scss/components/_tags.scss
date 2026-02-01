@@ -56,7 +56,14 @@
   color: $primary__color--accent;
 
   svg {
-    margin-right: convertRem(4px);
+    margin-right: convertRem(2px);
+    @include svgProps(
+      $height: convertRem(18px),
+      $width: convertRem(18px),
+      $scale: 1,
+      $stroke: 2,
+      $color: inherit
+    );
   }
 }
 

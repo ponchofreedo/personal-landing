@@ -15,18 +15,19 @@ import { selectedWorks } from '@data/constants'
           :team="selectedWork.team"
           class="selected-work__container"
         >
-          <a
-            :href="'/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug"
+          <RouterLink
+            :to="
+              selectedWork.private
+                ? undefined
+                : '/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug
+            "
             :target="selectedWork.target"
+            :class="selectedWork.private ? 'is-private' : ''"
           >
             <main class="selected-work__inner-container">
               <section class="selected-work__details">
                 <h3>{{ selectedWork.title }}</h3>
                 <ul class="tag__snackbar snackbar--always-wrap">
-                  <li class="tag tag--private" v-if="selectedWork.private">
-                    <icon type="icon" name="iconPrivate" />
-                    <span>Private</span>
-                  </li>
                   <li class="tag tag--testing" v-if="selectedWork.testing">
                     <icon type="icon" name="iconLightning" />
                     <span>Testing</span>
@@ -76,6 +77,10 @@ import { selectedWorks } from '@data/constants'
                     <span>Shipped</span>
                   </li>
                   <li class="tag tag--freelance" v-if="selectedWork.freelance">Freelance</li>
+                  <li class="tag tag--private" v-if="selectedWork.private">
+                    <icon type="icon" name="iconPrivate" />
+                    <span>Private</span>
+                  </li>
                 </ul>
                 <p>{{ selectedWork.preview }}</p>
                 <footer>
@@ -92,7 +97,7 @@ import { selectedWorks } from '@data/constants'
                 />
               </figure>
             </main>
-          </a>
+          </RouterLink>
         </li>
       </menu>
     </article>
@@ -172,6 +177,10 @@ footer {
       transition: background-color 0.2s ease-in-out;
       z-index: 1;
 
+      &.is-private {
+        cursor: default !important;
+      }
+
       h3 {
         @include text-hover-effect(strike, 0.24s);
         @include text-hover-effect(color, 0.24s);
@@ -225,7 +234,7 @@ footer {
     }
 
     &[team='Whalar'] figure {
-      background-color: #60c7cc;
+      background-color: #918eeb;
     }
   }
 
