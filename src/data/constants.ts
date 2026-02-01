@@ -46,7 +46,7 @@ export const socialLinks = [
   }
 ];
 
-export const resumeLink = 'https://drive.google.com/file/d/1YlQuSK1BZZnbJGpKC6yQGI5LBU_1TJxa/view?usp=sharing';
+export const resumeLink = 'https://drive.google.com/file/d/1beVtWDtcU1Ltf3YxEQkUtg4Bz2HgocNL/view?usp=sharing';
 
 export const selectedWorks = [
 	{
