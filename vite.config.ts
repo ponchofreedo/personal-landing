@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import svgLoader from 'vite-svg-loader'
 
 // https://vite.dev/config/
@@ -15,6 +16,18 @@ export default defineConfig({
     svgLoader({
       defaultImport: 'component'
     }),
+    ViteImageOptimizer({
+      includePublic: true, // just as a precaution although I think it's on by default
+      jpeg: {
+        quality: 75
+      },
+      png: {
+        quality: 75
+      },
+      webp: {
+        quality: 75
+      }
+    })
   ],
   css: {
     preprocessorOptions: {

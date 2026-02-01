@@ -50,8 +50,8 @@ export const resumeLink = 'https://drive.google.com/file/d/1YlQuSK1BZZnbJGpKC6yQ
 
 export const selectedWorks = [
 	{
-    title: 'Streamlining CRM data management experiences',
-    preview: 'Solving customer pains, driving adoption, and reducing overhead costs by rethinking a core data management workflow in HubSpot\'s CRM.',
+    title: 'Improving the most core data management flows in HubSpot\'s CRM',
+    preview: 'Solving customer pain points, driving adoption, and reducing overhead costs by rethinking the way customers create and manage their custom data properties.',
     private: '',
     testing: '',
     inDev: '',
@@ -61,7 +61,7 @@ export const selectedWorks = [
     date: '2024',
     slug: 'create-edit',
     staticHref:'/works/hubspot/create-edit',
-    heroImg: 'hero__list.jpg',
+    heroImg: 'list__hero.png',
     target: '_self',
     team: 'HubSpot'
 },
@@ -75,10 +75,26 @@ export const selectedWorks = [
 //     shipped: '',
 //     freelance:'',
 //     date: '2024',
-//     staticHref:'',
+//     staticHref:'/works/hubspot/property-cleanup',
+//     heroImg: 'list__hero.png',
 //     target: '_self',
 //     team: 'HubSpot'
 // },
+{
+    title: 'Negotiating trade-offs to improve retention and help customers keep their HubSpot data cleaner',
+    preview: 'Finding ways to fix long-standing gaping holes in the property managment experience while trying to nudge customers with some new features starting with low-risk, high-reward opportunities.',
+    private: '',
+    testing: '',
+    inDev: 'true',
+    beta: 'true',
+    shipped: '',
+    freelance:'',
+    date: '2024',
+    staticHref:'/works/hubspot/property-cleanup',
+    heroImg: 'list__hero.png',
+    target: '_self',
+    team: 'HubSpot'
+},
 // {
 //     title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
 //     preview: 'Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
@@ -185,7 +201,7 @@ export const resourceList = [
       name: 'The UX Gesture Kit',
       platform: 'Figma',
       platformIcon: 'logoFigma',
-      detail: 'A simple community library for pointer and touch gestures.',
+      detail: 'A simple Figma community library for pointer and touch gestures.',
       url: 'https://www.figma.com/community/file/1098810879785324342',
       state: ''
   },

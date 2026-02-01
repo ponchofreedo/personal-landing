@@ -219,6 +219,14 @@ footer {
         }
       }
     }
+
+    &[team='HubSpot'] figure {
+      background-color: #ff8f59;
+    }
+
+    &[team='Whalar'] figure {
+      background-color: #60c7cc;
+    }
   }
 
   &__inner-container {
@@ -306,7 +314,7 @@ figure {
   position: relative;
   aspect-ratio: 2 / 1;
   border-radius: convertRem(16px);
-  background-color: $ui__color--neutral;
+  background-color: $primary__color--background--lighter;
   opacity: 1;
   will-change: opacity;
   transition: opacity 0.2s ease-in-out;

@@ -18,6 +18,9 @@
         to ask more.
       </p>
     </aside>
+
+    <!-- to-do: turn these into a linked component-->
+
     <article class="qa__details-container">
       <details name="details">
         <summary>
@@ -228,7 +231,7 @@
       </details>
       <details name="details">
         <summary>
-          <h5>Proper Star Wars order?</h5>
+          <h5>Proper Star Wars watch order?</h5>
           <figure>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="none">
               <g id="cross">
@@ -304,11 +307,11 @@
     display: flex;
     flex-direction: column;
     grid-column: span 4;
+    @include multi-column-extra-padding(left);
     row-gap: convertRem(16px);
 
     @media (max-width: 1280px) {
       grid-column: span 3;
-      @include multi-column-extra-padding(left);
     }
 
     @media (max-width: 980px) {
@@ -330,13 +333,13 @@
   &__details-container {
     display: flex;
     flex-direction: column;
-    grid-column: 6 / span 7;
+    grid-column: span 8;
+    @include multi-column-extra-padding(right);
     row-gap: convertRem(24px);
     justify-self: stretch;
 
     @media (max-width: 1280px) {
       grid-column: 4 / span 5;
-      @include multi-column-extra-padding(right);
     }
 
     @media (max-width: 980px) {
@@ -356,7 +359,9 @@ details {
   overflow: hidden;
 
   &:first-of-type {
-    margin-top: convertRem(-8px);
+    @media (max-width: 1280px) {
+      margin-top: convertRem(-8px);
+    }
 
     @media (max-width: 980px) {
       margin-top: 0;
