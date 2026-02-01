@@ -50,7 +50,7 @@ export const resumeLink = 'https://drive.google.com/file/d/1YlQuSK1BZZnbJGpKC6yQ
 
 export const selectedWorks = [
 	{
-    title: 'Improving the most core data management flows in HubSpot\'s CRM',
+    title: 'Improving the most core data management flow in HubSpot\'s CRM',
     preview: 'Solving customer pain points, driving adoption, and reducing overhead costs by rethinking the way customers create and manage their custom data properties.',
     private: '',
     testing: '',
