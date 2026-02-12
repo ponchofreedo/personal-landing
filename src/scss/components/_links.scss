@@ -31,7 +31,8 @@
     margin-bottom: convertRem(-2px);
   }
 
-  &--inline {
+  &--inline,
+  &--breadcrumb {
     display: inline-flex;
     align-items: baseline;
     gap: convertRem(4px);
@@ -55,6 +56,11 @@
         margin-left: convertRem(2px);
       }
     }
+  }
+
+  &--breadcrumb {
+    gap: convertRem(8px);
+    align-items: center;
   }
 
   &--simple {
@@ -85,7 +91,7 @@
     gap: convertRem(4px);
     place-items: center;
     text-decoration: none;
-    font-size: convertRem(16px);
+    @include text-style(p, medium, ui);
 
     svg {
       @include svgProps($scale: 1, $stroke: 3, $color: $primary__color--accent);

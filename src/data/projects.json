@@ -10,9 +10,9 @@
             },
             "context": {
               "title": "Context.",
-              "//p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
+              "//p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it's where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer's experience or not until they have a need for those tools later down the road.",
               "//p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. On top of this, when you factor in portal type, ie., SMB, enterprise, etc, this makes the offering even more complex. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property.",
-              "p1": "HubSpot's CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. To make that good first impression, our goal was to have a best-in-class onboarding data onboarding and integration experience.",
+              "p1": "HubSpot's CRM sits at the core of their product offering and it's where customers first set up the infrastructure of their HubSpot experience. To make that good first impression, our goal was to have a best-in-class onboarding data onboarding and integration experience.",
               "p2": "The challenge with this particular workflow was trying to offer a robust data creation and management experience for customers of all sizes while still making it feel nimble. Based on internal and external sentiment, the current framework for creating and managing data properties was rigid, redundant, and limited; basically the antithesis of the original goal."
             },
             "opportunity": {
@@ -23,7 +23,7 @@
             "goals": {
               "1": {
                 "goal": "Reduce redundancy by exploring a less rigid flow",
-                "result": "New flow doesn’t require redundant actions and <em><span class='highlight'>is not strictly linear</span></em>"
+                "result": "New flow doesn't require redundant actions and <em><span class='highlight'>is not strictly linear</span></em>"
               },
               "2": {
                 "goal": "Reduce relevant support volume by a meaningful amount",
@@ -35,18 +35,18 @@
               },
               "4": {
                 "goal": "Improve UX flexibility for AI and KB helpers to help drive usage of them",
-                "result": "New framework includes content slots for AI/ML and KB inclusions to <em><span class='highlight'>keep customers on task</span></em> and doesn’t drive them away"
+                "result": "New framework includes content slots for AI/ML and KB inclusions to <em><span class='highlight'>keep customers on task</span></em> and doesn't drive them away"
               }
             },
             "creation": {
               "title": "Redundant, rigid, and in need of replacement.",
-              "//p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "//p1": "One of the biggest issues with creating properties was the customer's desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
               "//p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
               "p1": "Even with a robust backlog, I wanted to get a better picture of customer pain by meeting with a cohort of beta customers. After a dozen or so conversations, the same themes kept coming up: the workflow is rigid and doesn't let them accomplish things in one shot, there are too many required hoops even to set up a simple property, and it doesn't drive adoption of new updates that are useful to them.",
               "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for customers.",
               "p2": "If a customer had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
               "p3": "Going back meant needing to go all the way back. This problem in itself almost became a battle cry based on the number of times it was shared in feedback.",
-              "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
+              "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn't translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
               "p4": "Sadly, this was even more painful for more complex property types where maybe a customer had spent several minutes trying to create and test a custom formula.",
               "//p4": "Going back meant needing to go all the way back. This became a regular headache for most customers.",
               "//p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem.",
@@ -63,7 +63,7 @@
             },
             "retro": {
               "title": "Next steps and reflections.",
-              "//p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "//p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn't increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
               "p1": "My team launched the new create and management experiences into alpha just shortly before Christmas with the goal of launching private beta in the first two weeks of Jan 2024. I had scheduled some interviews in advance with our alpha customers and CSMs for those customers to get preliminary qualitative feedback to present with the quantitative data we collected. Those conversations and dives resulted in no increase in support contact over commonly flagged issues we were trying to solve and pointed to positive sentiment toward our goals of reduced redundancy and increased flexibility.",
               "p2": "One of the goals was to keep customers within the HubSpot app to complete their task without having to contact support, so we wanted to foster a bit more self-service into the flow. I emphasized this in the new experiences by both working with our content designers to simplify helper copy within each step and by creating new content slots to highlight KB articles or [in the future] inject an AI tooltip/card to assist with a task.",
               "//p2": "At the same time, there were two UX projects happening concurrently while engineering was in the middle of rebuilding the core tech stack for this product area: this framework delivery for creation and management and an encapsulated quick property creation experience for use outside of the admin space. The quick property creation project actually spawned the larger project, funny enough.",
@@ -76,11 +76,13 @@
         },
         "meta": {
           "tags": ["beta", "shipped"],
-          "date": "2024",
+          "year": "2024",
+          "dateStart": "April",
+          "dateEnd": "June",
           "slug": "create-edit",
           "href": "/works/create-edit"
         },
-        "team": "1PD&#128075;&#127996;, 1EM, 1PM, 1SWE",
+        "team": "1 PD&#128075;&#127996;, 1 PM, 2 EM, 3 SWE",
         "company": "HubSpot",
         "company_url": "https://www.hubspot.com/",
         "slug": "create-edit",

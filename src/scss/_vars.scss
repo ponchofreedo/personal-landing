@@ -68,7 +68,8 @@ $text__font-size--h5: 24; // change to 16 when updating the design
 $text__font-size--p: 18;
 $text__font-size--super: 80;
 $text__font-size--big: 24;
-$text__font-size--small: 14;
+$text__font-size--small: 16;
+$text__font-size--xsmall: 14;
 
 // line heights
 $text__line-height--base: 1.6;
@@ -98,6 +99,7 @@ $type-vars: (
     super: $text__font-size--super,
     big: $text__font-size--big,
     small: $text__font-size--small,
+    xsmall: $text__font-size--xsmall,
   ),
   line-heights: (
     base: $text__line-height--base,

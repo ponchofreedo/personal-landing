@@ -6,9 +6,7 @@
   height: unset;
   display: inline-flex;
   align-items: center;
-  font-size: convertRem($text__font-size--p);
-  font-weight: $text__font-weight--medium;
-  line-height: $text__line-height--fixed;
+  @include text-style(p, medium, ui);
   padding: convertRem(8px) 0;
   background-color: inherit;
   color: inherit;
@@ -85,7 +83,7 @@
 }
 
 .tag--shipped {
-  color: $secondary__color--accent--1;
+  color: $secondary__color--accent--3;
 }
 
 .tag--freelance {
@@ -133,10 +131,8 @@ ul.tag__snackbar {
     height: unset;
     display: inline-flex;
     align-items: center;
-    font-size: convertRem($text__font-size--p);
-    line-height: $text__line-height--fixed;
-    padding-left: convertRem(12px);
-    padding-right: convertRem(12px);
+    @include text-style(p, inherit, ui);
+    padding-inline: convertRem(12px);
 
     &:first-child {
       padding-left: 0;
@@ -153,7 +149,7 @@ ul.tag__snackbar {
     &::after {
       position: absolute;
       content: '';
-      top: convertRem(15px);
+      margin: auto 0;
       right: convertRem(-7px);
       display: inline-block;
       vertical-align: middle;
@@ -166,18 +162,8 @@ ul.tag__snackbar {
 
   &.snackbar__inline {
     li {
-      padding-top: 0;
-      padding-right: convertRem(8px);
-      padding-bottom: 0;
-      padding-left: convertRem(8px);
-
-      &:first-child {
-        padding-left: 0;
-      }
-
-      &::after {
-        top: convertRem(7px);
-      }
+      padding-block: 0;
+      padding-inline: convertRem(8px);
     }
   }
 
@@ -197,9 +183,7 @@ ul.tag__snackbar {
 
   span:not(li span) {
     position: relative;
-    font-size: convertRem($text__font-size--p);
-    font-weight: $text__font-weight--regular;
-    line-height: $text__line-height--fixed;
+    @include text-style(p, inherit, ui);
     padding: convertRem(8px) 0;
     flex-wrap: inherit;
     color: $primary__color--text--darker;

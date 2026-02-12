@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 // @ts-expect-error:next-line
 import { VueImageZoomer } from 'vue-image-zoomer'
 import 'vue-image-zoomer/dist/style.css'
@@ -33,8 +32,27 @@ export default {
   },
   created() {
     if (this.project) {
-      console.log('I am a project')
+      console.log('project loaded successfully. excelsior!')
+    } else {
+      console.log('project not found. booooooo.')
     }
+  },
+  methods: {
+    scrollToResults() {
+      const id = 'results'!
+      if (id !== null) {
+        const offsetValue = 0 // new layout kinda removes the need for this, but maybe i experiment later
+        const section = document.getElementById(id)!
+        const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue
+        window.scrollTo({
+          top: sectionWithOffset,
+          behavior: 'smooth',
+        })
+        console.log('scrolling to ' + id)
+      } else {
+        console.log(id + ' section does not exist or did not load. my bad.')
+      }
+    },
   },
 }
 </script>
@@ -42,19 +60,11 @@ export default {
 <template>
   <section v-if="project" class="container__project">
     <!-- header start -->
-    <figure class="media__img--hero">
-      <img
-        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      />
-    </figure>
     <header class="container__content">
       <h1>{{ project?.title }}</h1>
       <article class="container__content__inner">
-        <aside>
-          <div class="content__meta">
+        <section class="content__meta">
+          <div class="content__meta__item">
             <em class="content__meta__title">Company</em>
             <div class="content__meta__value">
               <a :href="project?.company_url" target="_blank" class="link link--inline"
@@ -62,11 +72,14 @@ export default {
               /></a>
             </div>
           </div>
-          <div class="content__meta">
-            <em class="content__meta__title">Year(s)</em>
-            <div class="content__meta__value">{{ project?.meta?.date }}</div>
+          <div class="content__meta__item">
+            <em class="content__meta__title">Timeline</em>
+            <div class="content__timeline__dates">
+              {{ project?.meta?.dateStart }} &mdash; {{ project?.meta?.dateEnd }}
+              {{ project?.meta?.year }}
+            </div>
           </div>
-          <div class="content__meta">
+          <div class="content__meta__item">
             <em class="content__meta__title">Status</em>
             <ul class="tag__snackbar snackbar__inline">
               <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
@@ -115,17 +128,38 @@ export default {
               </li>
             </ul>
           </div>
-          <div class="content__meta">
+          <div class="content__meta__item">
             <em class="content__meta__title">Team</em>
             <div class="content__meta__value" v-html="project?.team"></div>
           </div>
-        </aside>
+        </section>
         <section>
+          <div class="content__meta__action">
+            <button
+              type="button"
+              class="button button--secondary button--has-icon button--icon-right"
+              @click="scrollToResults()"
+            >
+              Jump to results<span class="button__icon-container"
+                ><icon type="svg" name="iconArrowDown"
+              /></span>
+            </button>
+          </div>
           <p class="text--big">{{ project.copy.sections.intro.p1 }}</p>
         </section>
       </article>
     </header>
     <!-- header end -->
+    <!-- hero start -->
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
+    <!-- hero end -->
     <!-- context start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -254,15 +288,6 @@ export default {
       </article>
     </section>
     <!-- creation part 2 end -->
-    <!-- hero image start
-    <section class="media__img--hero">
-      <main>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
-        </figure>
-      </main>
-    </section>
-    hero image end -->
     <!-- manage start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -305,7 +330,7 @@ export default {
     </figure>
     <!-- hero image end -->
     <!-- retro start -->
-    <section class="container__content">
+    <section id="results" class="container__content">
       <article class="container__content__inner">
         <aside>
           <h2>{{ project?.copy?.sections?.retro?.title }}</h2>
@@ -379,26 +404,34 @@ export default {
   &__project {
     display: flex;
     flex-flow: column;
-    width: 100%;
-    align-self: center;
-
-    aside {
-      @include split-column-layout-side(left);
-
-      p {
-        @include text-style(p, medium, base);
-      }
-    }
+    padding-top: convertRem(120px); // do not change this value at any breakpoint
+    padding-bottom: convertRem(80px);
   }
 
   &__content {
-    @include container-inner-grid;
-    margin: convertRem(80px) 0;
+    @include container-max-width;
+    @include container-responsive-padding;
+    display: inherit;
+    flex-flow: inherit;
+    row-gap: convertRem(40px);
+
+    h1 {
+      display: flex;
+      flex-flow: column;
+    }
 
     &__inner {
-      @include split-column-layout-container;
+      @include container-inner-grid;
 
-      article:first-of-type {
+      section {
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: subgrid;
+
+        &:last-of-type {
+          padding-top: convertRem(40px);
+          align-items: end;
+        }
       }
     }
   }
@@ -420,15 +453,18 @@ export default {
 
 .content {
   &__meta {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
     margin-bottom: convertRem(16px);
-    gap: convertRem(16px);
+    @include text-style(p, regular, ui);
 
-    &:last-child {
-      margin-bottom: 0;
+    &__item {
+      display: flex;
+      flex-flow: column;
+      row-gap: convertRem(8px);
+      grid-column: span 3;
+
+      > :nth-child(2) {
+        padding-block: convertRem(4px);
+      }
     }
 
     &__title {
@@ -443,6 +479,18 @@ export default {
     .tag {
       padding-top: 0;
       padding-bottom: 0;
+    }
+
+    &__action {
+      grid-column: span 3;
+
+      + p {
+        grid-column: span 9;
+      }
+    }
+
+    em {
+      @include text-style(small, bold, ui);
     }
   }
 
@@ -496,7 +544,6 @@ export default {
 
 header {
   margin: 0 0 convertRem(64px) !important;
-  font-size: convertRem(16px);
   gap: convertRem(40px);
 
   p {

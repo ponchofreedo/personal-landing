@@ -13,6 +13,8 @@ export interface Project {
   meta: {
     tags?: Record<string, string>;
     date?: string;
+    dateStart?: string;
+    dateEnd?: string;
     slug?: string;
     href?: string;
     [key: string]: any;
