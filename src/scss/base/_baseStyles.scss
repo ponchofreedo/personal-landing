@@ -37,6 +37,12 @@ body {
   color: $primary__color--text;
 }
 
+:focus-visible {
+  outline: convertRem(2px) solid $secondary__color--accent--2;
+  outline-offset: convertRem(4px);
+  border-radius: convertRem(4px);
+}
+
 ::selection {
   color: $primary__color--background;
   background-color: $primary__color--accent;
