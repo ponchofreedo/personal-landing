@@ -3,6 +3,8 @@
 import { VueImageZoomer } from 'vue-image-zoomer'
 import 'vue-image-zoomer/dist/style.css'
 import type { Project } from '@interfaces/project.ts'
+import { RouterLink } from 'vue-router'
+import { goToExternalLink } from '@data/constants'
 </script>
 
 <script lang="ts">
@@ -38,49 +40,52 @@ export default {
     }
   },
   methods: {
-    scrollToResults() {
-      const id = 'results'!
-      if (id !== null) {
-        const offsetValue = 0 // new layout kinda removes the need for this, but maybe i experiment later
-        const section = document.getElementById(id)!
-        const sectionWithOffset = section.getBoundingClientRect().top + window.scrollY + offsetValue
+    scrollToId(id: string) {
+      const element = document.getElementById(id)
+      if (element) {
+        const yOffset = element.offsetTop - 40
         window.scrollTo({
-          top: sectionWithOffset,
+          top: yOffset,
           behavior: 'smooth',
         })
         console.log('scrolling to ' + id)
-      } else {
-        console.log(id + ' section does not exist or did not load. my bad.')
       }
+    },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+      console.log('scrolling back to top')
     },
   },
 }
 </script>
 
 <template>
-  <section v-if="project" class="container__project">
+  <article v-if="project" class="container__project">
     <!-- header start -->
-    <header class="container__content">
+    <header id="header" class="container__header">
       <h1>{{ project?.title }}</h1>
-      <article class="container__content__inner">
-        <section class="content__meta">
-          <div class="content__meta__item">
-            <em class="content__meta__title">Company</em>
-            <div class="content__meta__value">
+      <section class="container__header__inner">
+        <section class="header__meta">
+          <div class="header__meta__item">
+            <em class="header__meta__title">Company</em>
+            <div class="header__meta__value">
               <a :href="project?.company_url" target="_blank" class="link link--inline"
                 >{{ project?.company }}<icon type="icon" name="iconArrowSquareUpRight"
               /></a>
             </div>
           </div>
-          <div class="content__meta__item">
-            <em class="content__meta__title">Timeline</em>
+          <div class="header__meta__item">
+            <em class="header__meta__title">Timeline</em>
             <div class="content__timeline__dates">
               {{ project?.meta?.dateStart }} &mdash; {{ project?.meta?.dateEnd }}
               {{ project?.meta?.year }}
             </div>
           </div>
-          <div class="content__meta__item">
-            <em class="content__meta__title">Status</em>
+          <div class="header__meta__item">
+            <em class="header__meta__title">Status</em>
             <ul class="tag__snackbar snackbar__inline">
               <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
                 <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
@@ -128,300 +133,363 @@ export default {
               </li>
             </ul>
           </div>
-          <div class="content__meta__item">
-            <em class="content__meta__title">Team</em>
-            <div class="content__meta__value" v-html="project?.team"></div>
+          <div class="header__meta__item">
+            <em class="header__meta__title">Team</em>
+            <div class="header__meta__value" v-html="project?.team"></div>
           </div>
         </section>
         <section>
-          <div class="content__meta__action">
+          <div class="header__meta__action">
             <button
               type="button"
               class="button button--secondary button--has-icon button--icon-right"
-              @click="scrollToResults()"
+              @click="scrollToId('results')"
             >
               Jump to results<span class="button__icon-container"
                 ><icon type="svg" name="iconArrowDown"
               /></span>
             </button>
           </div>
-          <p class="text--big">{{ project.copy.sections.intro.p1 }}</p>
+          <p>{{ project.copy.sections.intro.p1 }}</p>
         </section>
-      </article>
+      </section>
+      <section class="container__media container__media--hero">
+        <figure class="media__img--hero">
+          <img
+            :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
+            decoding="async"
+            loading="lazy"
+            sizes=""
+          />
+          <button
+            type="button"
+            class="button button--secondary button--has-icon button--icon-right"
+            @click="goToExternalLink('https://google.com', '_blank')"
+          >
+            Explore Figma<span class="button__icon-container"
+              ><icon type="svg" name="logoFigma"
+            /></span>
+          </button>
+        </figure>
+      </section>
     </header>
     <!-- header end -->
     <!-- hero start -->
-    <figure class="media__img--hero">
-      <img
-        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      />
-    </figure>
     <!-- hero end -->
-    <!-- context start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.context?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.context?.p1 }}</p>
-          <p>{{ project?.copy?.sections?.context?.p2 }}</p>
-        </section>
-      </article>
-    </section>
-    <!-- context end -->
-    <!-- 3-col image start -->
-    <section class="container__feature-images">
-      <figure class="media__img--feature">
-        <img
-          :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`"
-          decoding="async"
-          loading="lazy"
-          sizes=""
-        />
-      </figure>
-      <figure class="media__img--feature">
-        <video autoplay muted loop>
-          <source
-            :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-            type="video/mp4"
-          />
-        </video>
-        <!-- <img
-          :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-          decoding="async"
-          loading="lazy"
-          sizes=""
-        /> -->
-      </figure>
-      <figure class="media__img--feature">
-        <video autoplay muted loop>
-          <source
-            :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
-            type="video/mp4"
-          />
-        </video>
-      </figure>
-    </section>
-    <!-- 3-col image end -->
-    <!-- opportunity start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.opportunity?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.opportunity?.p1 }}</p>
-          <ul class="content__goals">
-            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
-              <div>
-                <em>Goal</em>
-                <span v-html="goal.goal"></span>
-              </div>
+    <!-- main content start -->
+    <main class="container__main-content">
+      <aside class="main-content__nav">
+        <nav>
+          <ul>
+            <li>
+              <RouterLink @click="scrollToId('context')" class="link link--subtle is-active"
+                >Context<span class="indicator">.</span></RouterLink
+              >
+            </li>
+            <li>
+              <RouterLink to="" @click="scrollToId('problem')" class="link link--subtle"
+                >Problem<span class="indicator">.</span></RouterLink
+              >
+            </li>
+            <li>
+              <RouterLink to="" @click="scrollToId('challenges')" class="link link--subtle"
+                >Challenges<span class="indicator">.</span></RouterLink
+              >
+            </li>
+            <li>
+              <RouterLink to="" @click="scrollToId('problem-solving')" class="link link--subtle"
+                >Problem-solving<span class="indicator">.</span></RouterLink
+              >
+            </li>
+            <li>
+              <RouterLink to="" @click="scrollToId('results')" class="link link--subtle"
+                >Results<span class="indicator">.</span></RouterLink
+              >
+            </li>
+            <li>
+              <RouterLink to="" @click="scrollToId('retro')" class="link link--subtle"
+                >Retro<span class="indicator">.</span></RouterLink
+              >
             </li>
           </ul>
+          <div class="nav__action">
+            <button
+              type="button"
+              class="button button--tertiary button--has-icon button--icon-left"
+              @click="scrollToTop()"
+            >
+              <span class="button__icon-container"><icon type="svg" name="iconArrowUp" /></span>
+              Back to top
+            </button>
+          </div>
+        </nav>
+      </aside>
+      <div class="main-content__inner">
+        <!-- context start -->
+        <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h2>{{ project?.copy?.sections?.context?.title }}</h2>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.context?.p1 }}</p>
+              <p>{{ project?.copy?.sections?.context?.p2 }}</p>
+            </section>
+          </article>
         </section>
-      </article>
-    </section>
-    <!-- opportunity end -->
-    <!-- hero image start -->
-    <figure class="media__img--hero">
-      <vue-image-zoomer
-        :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-        :zoom="`/img/works/${company}/${slug}/${project.img[5].fileName}`"
-        img-width="1280"
-        img-height="100%"
-        img-class="media__img--zoom"
-      />
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
-    </figure>
-    <!-- hero image end -->
-    <!-- creation part 1 start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
-        </section>
-      </article>
-    </section>
-    <!-- creation part 1 end -->
-    <!-- creation part 2 start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
-          <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
-          <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
-        </aside>
-        <section class="container--stacked">
-          <figure class="media__video--feature media__video--contained media__video--hasCaption">
+        <!-- context end -->
+        <!-- 3-col image start -->
+        <section class="container__feature-images">
+          <figure class="media__img--feature">
+            <img
+              :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`"
+              decoding="async"
+              loading="lazy"
+              sizes=""
+            />
+          </figure>
+          <figure class="media__img--feature">
             <video autoplay muted loop>
               <source
-                :src="`/img/works/${company}/${slug}/${project.img[6].fileName}`"
+                :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
                 type="video/mp4"
               />
             </video>
-            <figcaption class="caption--dark">{{ project?.img[6].alt }}</figcaption>
+            <!-- <img
+              :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
+              decoding="async"
+              loading="lazy"
+              sizes=""
+            /> -->
           </figure>
-          <figure class="media__video--feature media__video--contained media__video--hasCaption">
+          <figure class="media__img--feature">
             <video autoplay muted loop>
               <source
-                :src="`/img/works/${company}/${slug}/${project.img[7].fileName}`"
+                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
                 type="video/mp4"
               />
             </video>
-            <figcaption class="caption--dark">{{ project?.img[7].alt }}</figcaption>
           </figure>
-          <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
         </section>
-      </article>
-    </section>
-    <!-- creation part 2 end -->
-    <!-- manage start -->
-    <section class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.manage?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
-          <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
-          <!-- <div>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
-            </figure>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
-            </figure>
-          </div> -->
+        <!-- 3-col image end -->
+        <!-- opportunity start -->
+        <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h2>{{ project?.copy?.sections?.opportunity?.title }}</h2>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.opportunity?.p1 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="goal.goal"></span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </article>
         </section>
-      </article>
-    </section>
-    <!-- manage end -->
-    <!-- hero image start -->
-    <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
-      <vue-image-zoomer
-        :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
-        :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
-        img-width="1280"
-        img-height="100%"
-        img-class="media__img--zoom"
-      />
-      <p>{{ project?.img[8].alt }}</p>
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
-    </figure>
-    <!-- hero image end -->
-    <!-- retro start -->
-    <section id="results" class="container__content">
-      <article class="container__content__inner">
-        <aside>
-          <h2>{{ project?.copy?.sections?.retro?.title }}</h2>
-        </aside>
-        <section>
-          <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
-          <ul class="content__goals">
-            <li class="content__goal">
-              <div>
-                <em>Goal</em>
-                <span v-html="project?.copy?.sections?.goals[1].goal"></span>
-              </div>
-              <div>
-                <em>Result</em>
-                <span v-html="project?.copy?.sections?.goals[1].result"></span>
-              </div>
-            </li>
-            <li class="content__goal">
-              <div>
-                <em>Goal</em>
-                <span v-html="project?.copy?.sections?.goals[2].goal"></span>
-              </div>
-              <div>
-                <em>Result</em>
-                <span v-html="project?.copy?.sections?.goals[2].result"></span>
-              </div>
-            </li>
-          </ul>
-          <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
-          <ul class="content__goals">
-            <li class="content__goal">
-              <div>
-                <em>Goal</em>
-                <span v-html="project?.copy?.sections?.goals[4].goal"></span>
-              </div>
-              <div>
-                <em>Result</em>
-                <span v-html="project?.copy?.sections?.goals[4].result"></span>
-              </div>
-            </li>
-          </ul>
-          <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
-          <ul class="content__goals">
-            <li class="content__goal">
-              <div>
-                <em>Goal</em>
-                <span v-html="project?.copy?.sections?.goals[3].goal"></span>
-              </div>
-              <div>
-                <em>Result</em>
-                <span v-html="project?.copy?.sections?.goals[3].result"></span>
-              </div>
-            </li>
-          </ul>
-          <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
-          <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
+        <!-- opportunity end -->
+        <!-- hero image start -->
+        <figure class="media__img--hero">
+          <vue-image-zoomer
+            :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
+            :zoom="`/img/works/${company}/${slug}/${project.img[5].fileName}`"
+            img-width="1280"
+            img-height="100%"
+            img-class="media__img--zoom"
+          />
+          <!-- <img
+            :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
+            decoding="async"
+            loading="lazy"
+            sizes=""
+          /> -->
+        </figure>
+        <!-- hero image end -->
+        <!-- creation part 1 start -->
+        <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
+            </section>
+          </article>
         </section>
-      </article>
-    </section>
-    <!-- retro end -->
-  </section>
-  <section v-else>
+        <!-- creation part 1 end -->
+        <!-- creation part 2 start -->
+        <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
+              <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
+              <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
+            </aside>
+            <section class="container--stacked">
+              <figure
+                class="media__video--feature media__video--contained media__video--hasCaption"
+              >
+                <video autoplay muted loop>
+                  <source
+                    :src="`/img/works/${company}/${slug}/${project.img[6].fileName}`"
+                    type="video/mp4"
+                  />
+                </video>
+                <figcaption class="caption--dark">{{ project?.img[6].alt }}</figcaption>
+              </figure>
+              <figure
+                class="media__video--feature media__video--contained media__video--hasCaption"
+              >
+                <video autoplay muted loop>
+                  <source
+                    :src="`/img/works/${company}/${slug}/${project.img[7].fileName}`"
+                    type="video/mp4"
+                  />
+                </video>
+                <figcaption class="caption--dark">{{ project?.img[7].alt }}</figcaption>
+              </figure>
+              <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
+            </section>
+          </article>
+        </section>
+        <!-- creation part 2 end -->
+        <!-- manage start -->
+        <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h2>{{ project?.copy?.sections?.manage?.title }}</h2>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
+              <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
+              <!-- <div>
+                <figure>
+                  <img decoding="async" loading="lazy" sizes="" />
+                  <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
+                </figure>
+                <figure>
+                  <img decoding="async" loading="lazy" sizes="" />
+                  <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
+                </figure>
+              </div> -->
+            </section>
+          </article>
+        </section>
+        <!-- manage end -->
+        <!-- hero image start -->
+        <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
+          <vue-image-zoomer
+            :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
+            :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
+            img-width="1280"
+            img-height="100%"
+            img-class="media__img--zoom"
+          />
+          <p>{{ project?.img[8].alt }}</p>
+          <!-- <img
+            :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
+            decoding="async"
+            loading="lazy"
+            sizes=""
+          /> -->
+        </figure>
+        <!-- hero image end -->
+        <!-- retro start -->
+        <section id="results" class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h2>{{ project?.copy?.sections?.retro?.title }}</h2>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[1].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[1].result"></span>
+                  </div>
+                </li>
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[2].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[2].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[4].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[4].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[3].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[3].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
+              <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
+            </section>
+          </article>
+        </section>
+        <!-- retro end -->
+      </div>
+    </main>
+  </article>
+  <article v-else>
     <header>
       <div>project not found</div>
     </header>
-  </section>
+  </article>
 </template>
 
 <style lang="scss" scoped>
 .container {
   &__project {
-    display: flex;
-    flex-flow: column;
-    padding-top: convertRem(120px); // do not change this value at any breakpoint
-    padding-bottom: convertRem(80px);
-  }
-
-  &__content {
     @include container-max-width;
     @include container-responsive-padding;
+    display: flex;
+    flex-flow: column;
+    padding-top: convertRem(80px); // do not change this value at any breakpoint
+    padding-bottom: convertRem(80px);
+    row-gap: convertRem(80px);
+  }
+
+  &__header {
     display: inherit;
     flex-flow: inherit;
-    row-gap: convertRem(40px);
-
-    h1 {
-      display: flex;
-      flex-flow: column;
-    }
+    row-gap: convertRem(80px);
 
     &__inner {
       @include container-inner-grid;
+      row-gap: convertRem(40px);
 
       section {
         display: grid;
@@ -429,10 +497,29 @@ export default {
         grid-template-columns: subgrid;
 
         &:last-of-type {
-          padding-top: convertRem(40px);
           align-items: end;
         }
       }
+    }
+
+    p {
+      @include text-style(big, regular, normal);
+      color: $primary__color--text--muted;
+      grid-column: span 9;
+    }
+  }
+
+  &__main-content {
+    @include container-inner-grid;
+    grid-template-areas: 'nav main-content';
+  }
+
+  &__media {
+    display: unset;
+
+    &--hero {
+      display: flex;
+      flex-flow: column;
     }
   }
 
@@ -451,9 +538,8 @@ export default {
   }
 }
 
-.content {
+.header {
   &__meta {
-    margin-bottom: convertRem(16px);
     @include text-style(p, regular, ui);
 
     &__item {
@@ -483,10 +569,6 @@ export default {
 
     &__action {
       grid-column: span 3;
-
-      + p {
-        grid-column: span 9;
-      }
     }
 
     em {
@@ -542,24 +624,64 @@ export default {
   }
 }
 
-header {
-  margin: 0 0 convertRem(64px) !important;
-  gap: convertRem(40px);
+.main-content {
+  &__nav {
+    display: flex;
+    flex-flow: column;
+    grid-area: nav;
+    grid-column: span 3;
 
-  p {
-    margin-top: convertRem(-8px); // optical adjustment
-    color: $primary__color--text--muted;
+    nav {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      min-height: convertRem(240px);
+      height: 100%;
+      position: relative;
+      @include text-style(p, medium, ui);
+      color: $primary__color--text--darker;
+      z-index: 1;
+    }
+
+    ul {
+      display: flex;
+      flex-flow: column;
+      row-gap: convertRem(8px);
+      list-style: none;
+      width: 100%;
+      position: sticky;
+      top: convertRem(40px);
+    }
+
+    li {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      text-transform: none;
+    }
+  }
+
+  &__inner {
+    grid-area: main-content;
+    display: flex;
+    flex-flow: column;
+    grid-column: span 9;
+    row-gap: convertRem(80px);
   }
 }
 
-h2,
-aside p {
-  color: $primary__color--text--darker;
+.nav {
+  &__action {
+    position: sticky;
+    padding-top: convertRem(240px);
+    bottom: convertRem(40px);
+    z-index: -1;
+  }
 }
 
 figure {
   &:not(figure svg) {
-    // this is just a test
     background-color: transparent;
   }
 
@@ -573,19 +695,22 @@ figure {
     }
   }
 
-  img {
+  img,
+  img:not(picture img) {
+    display: block;
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center center;
     border-radius: inherit;
+    background-color: $base__color--neutral--250;
   }
 
   picture,
   video {
-    border-radius: convertRem(16px);
     height: 100%;
     width: 100%;
+    border-radius: inherit;
   }
 
   figcaption {
@@ -601,10 +726,18 @@ figure {
     &--feature,
     &--zoom {
       border-radius: convertRem(16px);
+      position: relative;
+
+      button {
+        position: absolute;
+        bottom: convertRem(40px);
+        right: convertRem(40px);
+      }
     }
 
     &--hero {
-      margin: convertRem(40px) 0;
+      display: flex;
+      flex-flow: column;
     }
 
     &--feature {
@@ -674,18 +807,14 @@ ul {
 li {
   text-transform: lowercase;
 
+  &:first-letter {
+    text-transform: uppercase;
+  }
+
   span {
     &:first-letter {
       text-transform: uppercase;
     }
-  }
-}
-
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
   }
 }
 </style>

@@ -4,7 +4,7 @@ import { RouterLink, useRouter } from 'vue-router'
 const router = useRouter()
 
 const goBack = () => {
-  router.back()
+  router.go(-1)
 }
 </script>
 

@@ -15,7 +15,7 @@ button,
   // because im using the all property up top, it breaks the global focus-visible styles, so i need to redefine it here
   &:focus-visible {
     outline: convertRem(2px) solid $secondary__color--accent--2;
-    outline-offset: convertRem(4px);
+    outline-offset: convertRem(8px);
   }
 }
 
@@ -39,6 +39,17 @@ button,
 
   &:hover {
     opacity: 0.9;
+  }
+
+  svg {
+    // optical adjust scale down to 0.9
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 0.9,
+      $stroke: 3,
+      $color: inherit
+    );
   }
 
   &--primary {
@@ -111,6 +122,31 @@ button,
     }
   }
 
+  &--tertiary {
+    background-color: unset;
+    border: none;
+    @include text-style(p, medium, fixed);
+    color: $primary__color--accent;
+    transition-duration: 0.1s, 0.2s, 0.24s;
+
+    &.button {
+      &--has-icon {
+        gap: convertRem(4px);
+      }
+    }
+
+    svg {
+      // optical adjust scale down to 0.9
+      @include svgProps(
+        $height: convertRem(20px),
+        $width: convertRem(20px),
+        $scale: 1,
+        $stroke: 2,
+        $color: inherit
+      );
+    }
+  }
+
   &--has-icon {
     padding-top: 0;
     padding-bottom: 0;
@@ -126,19 +162,12 @@ button,
     }
   }
 
-  &--icon-right {
-    padding-right: 0;
+  &--icon-left {
+    padding-left: 0;
   }
 
-  svg {
-    // optical adjust scale down to 0.9
-    @include svgProps(
-      $height: convertRem(24px),
-      $width: convertRem(24px),
-      $scale: 0.9,
-      $stroke: 3,
-      $color: inherit
-    );
+  &--icon-right {
+    padding-right: 0;
   }
 }
 
