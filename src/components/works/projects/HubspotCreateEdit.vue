@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    scrollToId(id) {
+    scrollToId(id: any) {
       const element = document.getElementById(id)
       if (element) {
         const yOffset = element.offsetTop - 40
