@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    scrollToId(id: string) {
+    scrollToId(id) {
       const element = document.getElementById(id)
       if (element) {
         const yOffset = element.offsetTop - 40
@@ -182,7 +182,7 @@ export default {
         <nav>
           <ul>
             <li>
-              <RouterLink @click="scrollToId('context')" class="link link--subtle is-active"
+              <RouterLink to="" @click="scrollToId('context')" class="link link--subtle is-active"
                 >Context<span class="indicator">.</span></RouterLink
               >
             </li>
