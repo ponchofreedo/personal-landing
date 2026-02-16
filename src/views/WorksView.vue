@@ -32,8 +32,7 @@ export default {
 <style lang="scss" scoped>
 @use 'sass:math';
 
-#works,
-#footer {
+#works {
   @include container-max-width;
 }
 </style>

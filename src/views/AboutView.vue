@@ -25,4 +25,8 @@ onMounted(() => {
   <GlobalFooter />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#footer {
+  margin-top: convertRem(40px);
+}
+</style>

@@ -109,7 +109,7 @@ import { selectedWorks } from '@data/constants'
   display: flex;
   flex-direction: column;
   padding-top: convertRem(120px); // do not change this value at any breakpoint
-  padding-bottom: convertRem(80px);
+  padding-bottom: convertRem(120px);
 
   @media (max-width: 980px) {
     padding-bottom: convertRem(80px);

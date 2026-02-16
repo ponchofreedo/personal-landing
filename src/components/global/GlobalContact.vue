@@ -6,7 +6,7 @@ import { resumeLink, socialLinks } from '@data/constants'
 
 <template>
   <section id="contact">
-    <article>
+    <div>
       <main>
         <header>
           <h2>Talk to me, Goose.</h2>
@@ -45,7 +45,7 @@ import { resumeLink, socialLinks } from '@data/constants'
           </article>
         </section>
       </main>
-    </article>
+    </div>
   </section>
 </template>
 
@@ -55,23 +55,23 @@ import { resumeLink, socialLinks } from '@data/constants'
 #contact {
   display: flex;
   flex-direction: column;
-  padding-top: convertRem(120px);
-  padding-bottom: convertRem(120px);
+  width: 100%;
+  max-width: unset;
+  background-color: $primary__color--background--darker;
+  padding-block: convertRem(40px);
+  border-bottom: convertRem(2px) solid $primary__color--background;
 
   @media (max-width: 980px) {
-    padding-top: 0;
-    padding-bottom: convertRem(40px);
-    padding-left: convertRem(24px);
-    padding-right: convertRem(24px);
+    padding-inline: convertRem(24px);
   }
 }
 
-article:not(.contact__inner-container article) {
+div {
+  @include container-max-width;
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: $primary__color--background--darker;
-  @include container-responsive-padding;
+  margin-inline: auto;
 
   @media (max-width: 680px) {
     border-radius: convertRem(16px);
@@ -81,34 +81,36 @@ article:not(.contact__inner-container article) {
 main {
   @include container-inner-grid;
   position: relative;
-  padding-top: convertRem(80px);
-  padding-bottom: convertRem(80px);
+  padding-block: convertRem(80px);
   row-gap: convertRem(40px);
+  @include container-responsive-padding;
 
   @media (max-width: 980px) {
-    padding: convertRem(40px) convertRem(16px);
+    row-gap: convertRem(24px);
+    padding-block: convertRem(40px);
+    padding-inline: 0;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: -#{convertRem(80px)};
-    right: -#{convertRem(80px)};
-    z-index: -1;
-    background-color: $primary__color--background--darker;
-    border-radius: convertRem(48px);
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: -#{convertRem(80px)};
+  //   right: -#{convertRem(80px)};
+  //   z-index: -1;
+  //   background-color: $primary__color--background--darker;
+  //   border-radius: convertRem(48px);
 
-    @media (max-width: 980px) {
-      left: -#{convertRem(24px)};
-      right: -#{convertRem(24px)};
-    }
+  //   @media (max-width: 980px) {
+  //     left: -#{convertRem(24px)};
+  //     right: -#{convertRem(24px)};
+  //   }
 
-    @media (max-width: 680px) {
-      display: none;
-    }
-  }
+  //   @media (max-width: 680px) {
+  //     display: none;
+  //   }
+  // }
 
   .contact__inner-container {
     display: grid;
@@ -121,10 +123,6 @@ main {
 
     & > :last-child {
       order: 2;
-    }
-
-    @media (max-width: 1280px) {
-      gap: convertRem(24px);
     }
 
     article {
