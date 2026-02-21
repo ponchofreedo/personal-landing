@@ -19,13 +19,13 @@ export default defineConfig({
     ViteImageOptimizer({
       includePublic: true, // just as a precaution although I think it's on by default
       jpeg: {
-        quality: 75
+        quality: 85
       },
       png: {
-        quality: 75
+        quality: 85
       },
       webp: {
-        quality: 75
+        quality: 85
       }
     })
   ],
