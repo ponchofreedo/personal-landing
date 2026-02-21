@@ -97,7 +97,6 @@ article {
   }
 
   @media (max-width: 680px) {
-    grid-column: span 4;
     row-gap: convertRem(24px);
   }
 
@@ -134,7 +133,7 @@ article {
   @media (max-width: 980px) {
     grid-column: 1 / -1;
     padding-left: 0;
-    padding-bottom: convertRem(80px);
+    padding-bottom: convertRem(40px);
   }
 
   [state='wip'] {

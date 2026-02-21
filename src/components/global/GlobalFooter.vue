@@ -143,7 +143,6 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: $primary__color--background--darker;
   color: $primary__color--text--darker;
 }
 
@@ -155,11 +154,7 @@ article {
   padding-block: convertRem(120px) convertRem(80px);
 
   @media (max-width: 980px) {
-    padding-top: convertRem(80px);
     padding-bottom: convertRem(40px);
-  }
-
-  @media (max-width: 680px) {
   }
 }
 

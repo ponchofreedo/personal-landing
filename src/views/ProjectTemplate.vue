@@ -80,8 +80,4 @@ export default {
   <!-- end footer -->
 </template>
 
-<style lang="scss" scoped>
-#footer {
-  margin-top: convertRem(40px);
-}
-</style>
+<style lang="scss" scoped></style>

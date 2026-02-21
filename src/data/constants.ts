@@ -51,7 +51,7 @@ export const resumeLink = 'https://drive.google.com/file/d/1beVtWDtcU1Ltf3YxEQkU
 export const selectedWorks = [
 	{
     title: 'Improving the most core data management flow in HubSpot\'s CRM',
-    preview: 'Solving customer pain points, driving adoption, and reducing overhead costs by rethinking the way customers create and manage their custom data properties.',
+    preview: 'Solving customer pain points, driving adoption, and reducing overhead costs by rethinking the way customers create and edit their custom data properties.',
     private: '',
     testing: '',
     inDev: '',
@@ -81,8 +81,8 @@ export const selectedWorks = [
 //     team: 'HubSpot'
 // },
 {
-    title: 'Negotiating trade-offs to improve retention and help customers keep their HubSpot data cleaner',
-    preview: 'Finding ways to fix long-standing gaping holes in the property managment experience while trying to nudge customers with some new features starting with low-risk, high-reward opportunities.',
+    title: 'Negotiating trade-offs to improve retention by helping customers keep their HubSpot data cleaner',
+    preview: 'Iterating on some long-standing issues in the property managment experience, starting with a new take on a neglected feature with a lot of upside.',
     private: '',
     testing: '',
     inDev: 'true',

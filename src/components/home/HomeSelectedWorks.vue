@@ -151,21 +151,11 @@ footer {
     @include container-responsive-padding;
     position: relative;
 
-    &:first-of-type {
-      &::before {
-        display: none;
-      }
-    }
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: convertRem(-42px); // +2px to account for extra gap
-    //   bottom: 0;
-    //   height: 2px;
-    //   background-color: $primary__color--border;
+    // &:first-of-type {
+    //   &::before {
+    //     display: none;
+    //   }
     // }
-    // @include psuedo-before-full-width-padding-fix;
 
     a {
       display: flex;
@@ -174,11 +164,15 @@ footer {
       text-decoration: none;
       color: inherit;
       position: relative;
-      transition: background-color 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
       z-index: 1;
 
       &.is-private {
         cursor: default !important;
+      }
+
+      &:not(a figure):hover {
+        transition: opacity 0.2s ease-in-out;
       }
 
       h3 {
@@ -189,26 +183,49 @@ footer {
           text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
       }
 
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   top: -#{convertRem(40px)};
+      //   bottom: -#{convertRem(40px)};
+      //   left: -#{convertRem(80px)};
+      //   right: -#{convertRem(80px)};
+      //   z-index: -1;
+      //   background-color: $primary__color--background--lighter;
+      //   opacity: 0;
+      //   transition: opacity 0.2s ease-in-out;
+      //   // 16px image radius + 40px padding
+      //   // see...i follow the rules
+
+      //   @media (max-width: 980px) {
+      //     left: -#{convertRem(24px)};
+      //     right: -#{convertRem(24px)};
+      //   }
+
+      //   @media (max-width: 680px) {
+      //     display: none;
+      //   }
+      // }
+
       &::before {
         content: '';
         position: absolute;
         top: -#{convertRem(40px)};
         bottom: -#{convertRem(40px)};
-        left: -#{convertRem(80px)};
-        right: -#{convertRem(80px)};
+        left: -#{convertRem(64px)}; // 80 + 24 (margin)
+        right: -#{convertRem(64px)}; // 80 + 24 (margin)
         z-index: -1;
         background-color: $primary__color--background--lighter;
         opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-        // 16px image radius + 40px padding
-        // see...i follow the rules
+        border-radius: convertRem(48px);
+        margin-inline: convertRem(24px);
+        transition: inherit;
 
-        @media (max-width: 980px) {
-          left: -#{convertRem(24px)};
-          right: -#{convertRem(24px)};
+        @media (max-width: 1280px) {
+          margin-inline: convertRem(24px);
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 980px) {
           display: none;
         }
       }
@@ -313,7 +330,7 @@ menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: convertRem(80px);
+  gap: convertRem(88px); // +8px for hover gap
 }
 
 figure {
