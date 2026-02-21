@@ -151,12 +151,6 @@ footer {
     @include container-responsive-padding;
     position: relative;
 
-    // &:first-of-type {
-    //   &::before {
-    //     display: none;
-    //   }
-    // }
-
     a {
       display: flex;
       flex-direction: inherit;
@@ -182,30 +176,6 @@ footer {
           color 0.24s ease-in-out,
           text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
       }
-
-      // &::before {
-      //   content: '';
-      //   position: absolute;
-      //   top: -#{convertRem(40px)};
-      //   bottom: -#{convertRem(40px)};
-      //   left: -#{convertRem(80px)};
-      //   right: -#{convertRem(80px)};
-      //   z-index: -1;
-      //   background-color: $primary__color--background--lighter;
-      //   opacity: 0;
-      //   transition: opacity 0.2s ease-in-out;
-      //   // 16px image radius + 40px padding
-      //   // see...i follow the rules
-
-      //   @media (max-width: 980px) {
-      //     left: -#{convertRem(24px)};
-      //     right: -#{convertRem(24px)};
-      //   }
-
-      //   @media (max-width: 680px) {
-      //     display: none;
-      //   }
-      // }
 
       &::before {
         content: '';
@@ -330,7 +300,11 @@ menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: convertRem(88px); // +8px for hover gap
+  row-gap: convertRem(88px); // +8px for hover gap
+
+  @media (max-width: 980px) {
+    row-gap: convertRem(80px);
+  }
 }
 
 figure {
