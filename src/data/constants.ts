@@ -81,8 +81,8 @@ export const selectedWorks = [
 //     team: 'HubSpot'
 // },
 {
-    title: 'Negotiating trade-offs to improve retention by helping customers keep their HubSpot data cleaner',
-    preview: 'Iterating on some long-standing issues in the property managment experience, starting with a new take on a neglected feature with a lot of upside.',
+    title: 'Negotiating trade-offs to help HubSpot customers keep their data cleaner',
+    preview: 'Iterating on some issues with property management that drove churn, starting with a new take on a neglected feature with a lot of upside.',
     private: '',
     testing: '',
     inDev: 'true',
