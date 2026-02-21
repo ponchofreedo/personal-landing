@@ -82,8 +82,8 @@ export const selectedWorks = [
 // },
 {
     title: 'Negotiating trade-offs to help HubSpot customers keep their data cleaner',
-    preview: 'Iterating on some issues with property management that drove churn, starting with a new take on a neglected feature with a lot of upside.',
-    private: '',
+    preview: 'Iterating on some issues with property management that drove customer churn, starting with a new take on a neglected feature with a lot of upside.',
+    private: 'true',
     testing: '',
     inDev: 'true',
     beta: 'true',
