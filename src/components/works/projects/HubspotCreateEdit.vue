@@ -652,6 +652,7 @@ export default {
       width: 100%;
       position: sticky;
       top: convertRem(40px);
+      padding-bottom: convertRem(80px);
     }
 
     li {
