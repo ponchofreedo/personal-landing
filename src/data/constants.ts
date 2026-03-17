@@ -81,7 +81,7 @@ export const selectedWorks = [
 //     team: 'HubSpot'
 // },
 {
-    title: 'Negotiating trade-offs to help HubSpot customers keep their data cleaner',
+    title: 'Negotiating trade-offs to help HubSpot customers maintain cleaner data',
     preview: 'Iterating on some issues with property management that drove customer churn, starting with a new take on a neglected feature with a lot of upside.',
     private: 'true',
     testing: '',
@@ -97,7 +97,7 @@ export const selectedWorks = [
     team: 'HubSpot'
 },
 {
-    title: 'Building the basics for Buoy, the design system behind Whalar\'s Foam platform',
+    title: 'Building Buoy, the design system for Whalar\'s Foam CRM platform',
     preview: 'Re-architecting a patchwork system in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team.',
     private: 'true',
     testing: '',
@@ -113,7 +113,7 @@ export const selectedWorks = [
     team: 'Whalar'
 },
 {
-    title: 'Helping bring a new AI product to life to help marketers make smarter content decisions and test with confidence',
+    title: 'Bringing Copley AI to life to give marketers more confidence',
     preview: 'Lorem ipsum..',
     private: 'true',
     testing: '',

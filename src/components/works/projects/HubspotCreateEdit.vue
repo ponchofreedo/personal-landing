@@ -164,7 +164,7 @@ export default {
           <button
             type="button"
             class="button button--secondary button--has-icon button--icon-right"
-            @click="goToExternalLink('https://google.com', '_blank')"
+            @click="goToExternalLink(project?.meta?.projectLink, '_blank')"
           >
             Explore Figma<span class="button__icon-container"
               ><icon type="svg" name="logoFigma"
@@ -182,13 +182,13 @@ export default {
         <nav>
           <ul>
             <li>
-              <RouterLink to="" @click="scrollToId('context')" class="link link--subtle is-active"
+              <RouterLink to="" @click="scrollToId('context')" class="link link--subtle"
                 >Context<span class="indicator">.</span></RouterLink
               >
             </li>
             <li>
               <RouterLink to="" @click="scrollToId('problem')" class="link link--subtle"
-                >Problem<span class="indicator">.</span></RouterLink
+                >The problem<span class="indicator">.</span></RouterLink
               >
             </li>
             <li>
@@ -203,7 +203,7 @@ export default {
             </li>
             <li>
               <RouterLink to="" @click="scrollToId('results')" class="link link--subtle"
-                >Results<span class="indicator">.</span></RouterLink
+                >Impact<span class="indicator">.</span></RouterLink
               >
             </li>
             <li>
@@ -224,12 +224,12 @@ export default {
           </div>
         </nav>
       </aside>
-      <div class="main-content__inner">
+      <section class="main-content__inner">
         <!-- context start -->
         <section class="container__content">
           <article class="container__content__inner">
             <aside>
-              <h2>{{ project?.copy?.sections?.context?.title }}</h2>
+              <h4>{{ project?.copy?.sections?.context?.title }}</h4>
             </aside>
             <section>
               <p>{{ project?.copy?.sections?.context?.p1 }}</p>
@@ -238,7 +238,7 @@ export default {
           </article>
         </section>
         <!-- context end -->
-        <!-- 3-col image start -->
+        <!-- 3-col image start
         <section class="container__feature-images">
           <figure class="media__img--feature">
             <img
@@ -255,12 +255,6 @@ export default {
                 type="video/mp4"
               />
             </video>
-            <!-- <img
-              :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-              decoding="async"
-              loading="lazy"
-              sizes=""
-            /> -->
           </figure>
           <figure class="media__img--feature">
             <video autoplay muted loop>
@@ -271,28 +265,29 @@ export default {
             </video>
           </figure>
         </section>
-        <!-- 3-col image end -->
-        <!-- opportunity start -->
+        3-col image end -->
+        <!-- problem start -->
         <section class="container__content">
           <article class="container__content__inner">
             <aside>
-              <h2>{{ project?.copy?.sections?.opportunity?.title }}</h2>
+              <h4>{{ project?.copy?.sections?.problem?.title }}</h4>
             </aside>
             <section>
-              <p>{{ project?.copy?.sections?.opportunity?.p1 }}</p>
+              <p>{{ project?.copy?.sections?.problem?.p1 }}</p>
               <ul class="content__goals">
                 <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
                   <div>
-                    <em>Goal</em>
-                    <span v-html="goal.goal"></span>
+                    <span>Goal</span>
+                    <em>{{ goal.goal }}</em>
+                    <span v-html="goal.goalDetail"></span>
                   </div>
                 </li>
               </ul>
             </section>
           </article>
         </section>
-        <!-- opportunity end -->
-        <!-- hero image start -->
+        <!-- problem end -->
+        <!-- hero image start
         <figure class="media__img--hero">
           <vue-image-zoomer
             :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
@@ -301,28 +296,22 @@ export default {
             img-height="100%"
             img-class="media__img--zoom"
           />
-          <!-- <img
-            :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-            decoding="async"
-            loading="lazy"
-            sizes=""
-          /> -->
         </figure>
-        <!-- hero image end -->
+        hero image end -->
         <!-- creation part 1 start -->
-        <section class="container__content">
+        <!-- <section class="container__content">
           <article class="container__content__inner">
             <aside>
-              <h2>{{ project?.copy?.sections?.creation?.title }}</h2>
+              <h4>{{ project?.copy?.sections?.creation?.title }}</h4>
             </aside>
             <section>
               <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
             </section>
           </article>
-        </section>
+        </section> -->
         <!-- creation part 1 end -->
         <!-- creation part 2 start -->
-        <section class="container__content">
+        <!-- <section class="container__content">
           <article class="container__content__inner">
             <aside>
               <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
@@ -355,33 +344,23 @@ export default {
               <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
             </section>
           </article>
-        </section>
+        </section> -->
         <!-- creation part 2 end -->
         <!-- manage start -->
-        <section class="container__content">
+        <!-- <section class="container__content">
           <article class="container__content__inner">
             <aside>
-              <h2>{{ project?.copy?.sections?.manage?.title }}</h2>
+              <h4>{{ project?.copy?.sections?.manage?.title }}</h4>
             </aside>
             <section>
               <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
               <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
-              <!-- <div>
-                <figure>
-                  <img decoding="async" loading="lazy" sizes="" />
-                  <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
-                </figure>
-                <figure>
-                  <img decoding="async" loading="lazy" sizes="" />
-                  <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
-                </figure>
-              </div> -->
             </section>
           </article>
-        </section>
+        </section> -->
         <!-- manage end -->
         <!-- hero image start -->
-        <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
+        <!-- <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
           <vue-image-zoomer
             :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
             :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
@@ -390,19 +369,13 @@ export default {
             img-class="media__img--zoom"
           />
           <p>{{ project?.img[8].alt }}</p>
-          <!-- <img
-            :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-            decoding="async"
-            loading="lazy"
-            sizes=""
-          /> -->
-        </figure>
+        </figure> -->
         <!-- hero image end -->
         <!-- retro start -->
-        <section id="results" class="container__content">
+        <!-- <section id="results" class="container__content">
           <article class="container__content__inner">
             <aside>
-              <h2>{{ project?.copy?.sections?.retro?.title }}</h2>
+              <h4>{{ project?.copy?.sections?.retro?.title }}</h4>
             </aside>
             <section>
               <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
@@ -458,14 +431,16 @@ export default {
               <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
             </section>
           </article>
-        </section>
+        </section> -->
         <!-- retro end -->
-      </div>
+      </section>
     </main>
+    <!-- main content end-->
   </article>
   <article v-else>
     <header>
-      <div>project not found</div>
+      <div>Sorry, project not found.</div>
+      <p>Check out some of my others...</p>
     </header>
   </article>
 </template>
@@ -512,6 +487,13 @@ export default {
   &__main-content {
     @include container-inner-grid;
     grid-template-areas: 'nav main-content';
+  }
+
+  &__content {
+    p {
+      @include text-style(p, regular, normal);
+      color: $primary__color--text--muted;
+    }
   }
 
   &__media {
@@ -795,7 +777,17 @@ figure {
   }
 }
 
+h4 {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: convertRem(24px);
+  color: $primary__color--text--darker;
+}
+
 p {
+  display: flex;
+  flex-flow: column;
+
   + p {
     margin-top: convertRem(16px);
   }
