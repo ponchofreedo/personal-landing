@@ -81,7 +81,6 @@ export default {
             <em class="header__meta__title">Timeline</em>
             <div class="content__timeline__dates">
               {{ project?.meta?.dateStart }} &mdash; {{ project?.meta?.dateEnd }}
-              {{ project?.meta?.year }}
             </div>
           </div>
           <div class="header__meta__item">
@@ -154,7 +153,7 @@ export default {
         </section>
       </section>
       <section class="container__media container__media--hero">
-        <figure class="media__img--hero">
+        <figure class="media__img--hero" team="hubspot">
           <img
             :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
             decoding="async"
@@ -226,16 +225,10 @@ export default {
       </aside>
       <section class="main-content__inner">
         <!-- context start -->
-        <section class="container__content">
-          <article class="container__content__inner">
-            <aside>
-              <h4>{{ project?.copy?.sections?.context?.title }}</h4>
-            </aside>
-            <section>
-              <p>{{ project?.copy?.sections?.context?.p1 }}</p>
-              <p>{{ project?.copy?.sections?.context?.p2 }}</p>
-            </section>
-          </article>
+        <section class="container__content" id="context">
+          <h4>{{ project?.copy?.sections?.context?.title }}</h4>
+          <p>{{ project?.copy?.sections?.context?.p1 }}</p>
+          <p>{{ project?.copy?.sections?.context?.p2 }}</p>
         </section>
         <!-- context end -->
         <!-- 3-col image start
@@ -267,24 +260,16 @@ export default {
         </section>
         3-col image end -->
         <!-- problem start -->
-        <section class="container__content">
-          <article class="container__content__inner">
-            <aside>
-              <h4>{{ project?.copy?.sections?.problem?.title }}</h4>
-            </aside>
-            <section>
-              <p>{{ project?.copy?.sections?.problem?.p1 }}</p>
-              <ul class="content__goals">
-                <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
-                  <div>
-                    <span>Goal</span>
-                    <em>{{ goal.goal }}</em>
-                    <span v-html="goal.goalDetail"></span>
-                  </div>
-                </li>
-              </ul>
-            </section>
-          </article>
+        <section class="container__content" id="problem">
+          <h4>{{ project?.copy?.sections?.problem?.title }}</h4>
+          <p>{{ project?.copy?.sections?.problem?.p1 }}</p>
+          <ul class="content__goals">
+            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
+              <span>Goal</span>
+              <em>{{ goal.goal }}</em>
+              <p v-html="goal.goalDetail"></p>
+            </li>
+          </ul>
         </section>
         <!-- problem end -->
         <!-- hero image start
@@ -471,6 +456,10 @@ export default {
         grid-column: 1 / -1;
         grid-template-columns: subgrid;
 
+        @media (max-width: 980px) {
+          row-gap: convertRem(40px);
+        }
+
         &:last-of-type {
           align-items: end;
         }
@@ -481,6 +470,11 @@ export default {
       @include text-style(big, regular, normal);
       color: $primary__color--text--muted;
       grid-column: span 9;
+
+      @media (max-width: 980px) {
+        order: 1;
+        grid-column: 1 / -1;
+      }
     }
   }
 
@@ -490,6 +484,9 @@ export default {
   }
 
   &__content {
+    display: flex;
+    flex-flow: column;
+
     p {
       @include text-style(p, regular, normal);
       color: $primary__color--text--muted;
@@ -530,6 +527,14 @@ export default {
       row-gap: convertRem(8px);
       grid-column: span 3;
 
+      @media (max-width: 1280px) {
+        grid-column: span 2;
+      }
+
+      @media (max-width: 980px) {
+        grid-column: span 4;
+      }
+
       > :nth-child(2) {
         padding-block: convertRem(4px);
       }
@@ -547,10 +552,21 @@ export default {
     .tag {
       padding-top: 0;
       padding-bottom: 0;
+
+      span {
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
     }
 
     &__action {
       grid-column: span 3;
+
+      @media (max-width: 980px) {
+        order: 2;
+        grid-column: 1 / -1;
+      }
     }
 
     em {
@@ -612,6 +628,11 @@ export default {
     flex-flow: column;
     grid-area: nav;
     grid-column: span 3;
+    margin-top: convertRem(4px); // optical adjustment
+
+    @media (max-width: 1280px) {
+      grid-column: span 2;
+    }
 
     nav {
       display: flex;
@@ -651,6 +672,10 @@ export default {
     flex-flow: column;
     grid-column: span 9;
     row-gap: convertRem(80px);
+
+    @media (max-width: 1280px) {
+      grid-column: span 6;
+    }
   }
 }
 
@@ -663,14 +688,68 @@ export default {
   }
 }
 
+.content {
+  &__goals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: convertRem(40px);
+    margin-top: convertRem(40px);
+
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: convertRem(32px);
+    }
+
+    @media (max-width: 980px) {
+      // grid-template-columns: 1fr;
+      gap: convertRem(24px);
+    }
+  }
+
+  &__goal {
+    display: flex;
+    flex-flow: column;
+    grid-column: span 1;
+    row-gap: convertRem(8px);
+    padding: convertRem(32px);
+    border: convertRem(2px) solid $primary__color--border--lighter;
+    border-radius: convertRem(16px);
+    min-height: convertRem(400px);
+
+    @media (max-width: 1280px) {
+      min-height: convertRem(320px);
+    }
+
+    @media (max-width: 980px) {
+    }
+
+    em {
+      @include text-style(h5, bold, ui);
+      color: $primary__color--text;
+    }
+
+    span {
+      &:first-of-type {
+        width: fit-content;
+        padding: convertRem(8px) convertRem(12px);
+        border: convertRem(2px) solid $primary__color--border--lighter;
+        border-radius: convertRem(8px);
+        @include text-style(p, medium, fixed);
+        color: $primary__color--text--darker;
+        margin-bottom: convertRem(24px);
+      }
+    }
+  }
+}
+
 figure {
   &:not(figure svg) {
     background-color: transparent;
   }
 
-  &:has(video) + figure:has(video) {
-    // temporary hack to address stacked content
-  }
+  // &:has(video) + figure:has(video) {
+  //   // temporary hack to address stacked content
+  // }
 
   picture {
     img {
@@ -701,6 +780,11 @@ figure {
     @include text-style(small, regular, base);
     text-align: center;
   }
+
+  // special classes reserved for teams. will move this to something else in the future.
+  &[team='hubspot'] {
+    background-color: #ff8f59;
+  }
 }
 
 .media {
@@ -708,7 +792,6 @@ figure {
     &--hero,
     &--feature,
     &--zoom {
-      border-radius: convertRem(16px);
       position: relative;
 
       button {
@@ -721,9 +804,20 @@ figure {
     &--hero {
       display: flex;
       flex-flow: column;
+      border-radius: convertRem(48px);
+
+      @media (max-width: 1280px) {
+        border-radius: convertRem(24px);
+      }
+
+      img {
+        background-color: transparent;
+      }
     }
 
-    &--feature {
+    &--feature,
+    &--zoom {
+      border-radius: convertRem(16px);
     }
 
     &--zoom {
@@ -791,23 +885,6 @@ p {
 
   + p {
     margin-top: convertRem(16px);
-  }
-}
-
-ul {
-}
-
-li {
-  text-transform: lowercase;
-
-  &:first-letter {
-    text-transform: uppercase;
-  }
-
-  span {
-    &:first-letter {
-      text-transform: uppercase;
-    }
   }
 }
 </style>

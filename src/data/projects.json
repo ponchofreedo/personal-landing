@@ -44,10 +44,8 @@
             "retro": {
               "title": "Retro.",
               "p1": "This project wasn't without turbulence. From initial discovery to final commit, the question of \"did this actually move the needle\" was always in the back of my mind. I was confident in the direction, but a few things stood out as areas for improvement.",
-              "p2": "First, as a senior IC, communication is critical. Autonomy can breed tunnel vision, and I sometimes got siloed. I responded by sharpening how I communicated decisions and writing more polished summaries rather than keeping things casual. It brought us closer as a team and helped keep the project on track.",
-              "p3": "Second, HubSpot was in the middle of both a brand and product refresh, which left my design systems partners largely unavailable outside of emergencies. Several systems-level decisions needed their approval or guidance, and the delays added time that wasn't built into the original timeline. Fortunately, it didn't seem to hurt the outcome.",
-              "p4": "Last, this was my first major feature at HubSpot, and navigating a larger stakeholder audience while still getting up to speed came with its own challenges. In hindsight, I would have built more time into the timeline to bring stakeholders in earlier rather than mid-flight. In my experience, projects with a broad stakeholder audience benefit from a bit more upfront discovery. Each project like this teaches me something new about how to handle them better.",
-              "p5": "Even with some lumps and bumps, I was still happy with how things ended with the minor exception of not being able to see some of the future plans I had cooked up through to production when they were ready."
+              "p2": "This was also my first major feature at HubSpot, and navigating a larger stakeholder audience while still getting up to speed came with its own challenges. In hindsight, I would have built more time into the timeline to bring stakeholders in earlier rather than mid-flight. In my experience, projects with a broad audience benefit from a bit more upfront discovery. Each project like this teaches me something new about how to handle them better.",
+              "p3": "Even with some lumps and bumps, I was still happy with how things ended with the minor exception of not being able to see some of the future plans I had cooked up through to production when they were ready. Most importantly, our customers were happy and appreciative of the changes we delivered and also excited for many of the forward-looking things we showed off during our interviews."
             },
             "goals": {
               "1": {
@@ -106,13 +104,13 @@
           "href": "/works/create-edit",
           "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
         },
-        "team": "1 PD&#128075;&#127996;, 1 SrPM, 2 EM, 3 SWE",
+        "team": "1 PD&#128075;&#127996;, 1 PM, 2 EM, 3 SWE",
         "company": "HubSpot",
         "company_url": "https://www.hubspot.com/",
         "slug": "create-edit",
         "img": [
           { 
-            "fileName": "hero__main.jpg", 
+            "fileName": "hero__main.png", 
             "alt": "New designs for creating and editing properties in HubSpot"
           },
           { 
