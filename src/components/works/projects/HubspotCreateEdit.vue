@@ -264,14 +264,37 @@ export default {
           <h4>{{ project?.copy?.sections?.problem?.title }}</h4>
           <p>{{ project?.copy?.sections?.problem?.p1 }}</p>
           <ul class="content__goals">
-            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
+            <li
+              class="content__goal"
+              v-for="goal in project?.copy?.sections?.goals"
+              :key="goal.goal"
+            >
               <span>Goal</span>
               <em>{{ goal.goal }}</em>
               <p v-html="goal.goalDetail"></p>
             </li>
           </ul>
+          <p>{{ project?.copy?.sections?.problem?.p2 }}</p>
         </section>
         <!-- problem end -->
+        <!-- challenges start -->
+        <section class="container__content" id="challenges">
+          <figure
+            class="media__container media__layout--right media__video media__video--feature media__video--contained hasCaption--top"
+          >
+            <video autoplay muted loop>
+              <source
+                :src="`/img/works/${company}/${slug}/${project.img[1].fileName}`"
+                :alt="project?.img[1].alt"
+                type="video/mp4"
+              />
+            </video>
+            <figcaption class="caption--light">{{ project?.img[1].caption[0] }}</figcaption>
+          </figure>
+          <h4>{{ project?.copy?.sections?.challenges?.title }}</h4>
+          <p>{{ project?.copy?.sections?.challenges?.p1 }}</p>
+        </section>
+        <!-- challenges end -->
         <!-- hero image start
         <figure class="media__img--hero">
           <vue-image-zoomer
@@ -671,10 +694,11 @@ export default {
     display: flex;
     flex-flow: column;
     grid-column: span 9;
-    row-gap: convertRem(80px);
+    row-gap: convertRem(160px);
 
     @media (max-width: 1280px) {
       grid-column: span 6;
+      row-gap: convertRem(80px);
     }
   }
 }
@@ -693,7 +717,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: convertRem(40px);
-    margin-top: convertRem(40px);
+    margin-block: convertRem(40px);
 
     @media (max-width: 1280px) {
       grid-template-columns: repeat(2, 1fr);
@@ -769,16 +793,17 @@ figure {
   }
 
   picture,
-  video {
+  video,
+  div {
+    grid-area: content;
     height: 100%;
     width: 100%;
     border-radius: inherit;
   }
 
   figcaption {
-    margin-top: convertRem(8px);
-    @include text-style(small, regular, base);
-    text-align: center;
+    grid-area: caption;
+    @include text-style(p, regular, base);
   }
 
   // special classes reserved for teams. will move this to something else in the future.
@@ -788,6 +813,72 @@ figure {
 }
 
 .media {
+  &__container {
+    display: grid;
+    gap: convertRem(40px);
+    margin-block: convertRem(40px);
+
+    @media (max-width: 1280px) {
+      gap: convertRem(32px);
+    }
+
+    @media (max-width: 980px) {
+      gap: convertRem(24px);
+    }
+
+    &.hasCaption {
+      &--top,
+      &--bottom,
+      &--center {
+        figcaption {
+          display: flex;
+          flex-flow: column;
+          grid-area: caption;
+          text-align: left;
+        }
+      }
+
+      &--top {
+        figcaption {
+          align-self: flex-start;
+          margin-top: convertRem(40px);
+        }
+      }
+
+      &--bottom {
+        figcaption {
+          align-self: flex-end;
+          margin-bottom: convertRem(40px);
+        }
+      }
+
+      &--center {
+        figcaption {
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  &__layout {
+    &--left,
+    &--right {
+      grid-template-columns: repeat(3, 1fr);
+
+      figcaption {
+        text-align: left;
+      }
+    }
+
+    &--left {
+      grid-template-areas: 'content content caption';
+    }
+
+    &--right {
+      grid-template-areas: 'caption content content';
+    }
+  }
+
   &__img {
     &--hero,
     &--feature,
@@ -834,22 +925,27 @@ figure {
   }
 
   &__video {
+    video {
+    }
+
+    figcaption {
+    }
+
     &--feature {
-      padding: convertRem(40px);
-      background-color: #f5f5f5;
-      background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.2));
-      border-radius: convertRem(16px);
+      // background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.2));
 
       video {
+        padding: convertRem(40px);
+        background-color: $primary__color--background--invert;
+        border-radius: convertRem(16px);
         max-height: convertRem(640px);
       }
     }
 
-    &--hasCaption {
-      padding-bottom: convertRem(32px);
-
-      figcaption {
-        margin-top: convertRem(32px);
+    &.caption {
+      &--topLeft {
+        align-items: flex-start;
+        justify-content: flex-start;
       }
     }
   }
