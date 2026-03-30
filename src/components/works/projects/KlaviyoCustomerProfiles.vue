@@ -1,4 +1,7 @@
 <script setup lang="ts">
+// @ts-expect-error:next-line
+import { VueImageZoomer } from 'vue-image-zoomer'
+import 'vue-image-zoomer/dist/style.css'
 import type { Project } from '@interfaces/project.ts'
 import { RouterLink } from 'vue-router'
 import { goToExternalLink } from '@data/constants'
@@ -139,9 +142,9 @@ export default {
             <button
               type="button"
               class="button button--secondary button--has-icon button--icon-right"
-              @click="scrollToId('impact')"
+              @click="scrollToId('results')"
             >
-              Jump to impact<span class="button__icon-container"
+              Jump to results<span class="button__icon-container"
                 ><icon type="svg" name="iconArrowDown"
               /></span>
             </button>
@@ -151,12 +154,12 @@ export default {
       </section>
       <section class="container__media container__media--hero">
         <figure class="media__img--hero" team="hubspot">
-          <img
+          <!-- <img
             :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
             decoding="async"
             loading="lazy"
             sizes=""
-          />
+          /> -->
           <button
             type="button"
             class="button button--secondary button--has-icon button--icon-right"
@@ -198,7 +201,7 @@ export default {
               >
             </li>
             <li>
-              <RouterLink to="" @click="scrollToId('impact')" class="link link--subtle"
+              <RouterLink to="" @click="scrollToId('results')" class="link link--subtle"
                 >Impact<span class="indicator">.</span></RouterLink
               >
             </li>
@@ -278,7 +281,7 @@ export default {
         <section class="container__content" id="challenges">
           <h4>{{ project?.copy?.sections?.challenges?.title }}</h4>
           <figure
-            class="media__container media__video media__video--feature media__video--contained layout--right hasCaption--top"
+            class="media__container media__layout--right media__video media__video--feature media__video--contained hasCaption--top"
           >
             <video autoplay muted loop>
               <source
@@ -287,171 +290,157 @@ export default {
                 type="video/mp4"
               />
             </video>
-            <figcaption class="caption--light">
-              <span v-for="(caption, index) in project?.img[1].caption" :key="index">{{
-                caption
-              }}</span>
-            </figcaption>
+            <figcaption class="caption--light">{{ project?.img[1].caption[0] }}</figcaption>
           </figure>
-          <article class="challenges__content layout--right">
-            <section class="challenges__item">
-              <div>
-                <em>{{ project?.copy?.sections?.challenges?.p1a }}</em>
-                <p>{{ project?.copy?.sections?.challenges?.p1b }}</p>
-              </div>
-              <div>
-                <em>{{ project?.copy?.sections?.challenges?.p2a }}</em>
-                <p>{{ project?.copy?.sections?.challenges?.p2b }}</p>
-              </div>
-              <div>
-                <article class="quote quote__card">
-                  <span class="quote__caption">
-                    {{ project?.copy?.sections?.quotes[0]?.quote }}
-                  </span>
-                  <span class="quote__attribution">
-                    &ndash; {{ project?.copy?.sections?.quotes[0]?.attribution }}
-                  </span>
-                </article>
-              </div>
-              <div>
-                <em>{{ project?.copy?.sections?.challenges?.p3a }}</em>
-                <p>{{ project?.copy?.sections?.challenges?.p3b }}</p>
-              </div>
-              <div>
-                <article class="quote quote__card">
-                  <span class="quote__caption">
-                    {{ project?.copy?.sections?.quotes[1]?.quote }}
-                  </span>
-                  <span class="quote__attribution">
-                    &ndash; {{ project?.copy?.sections?.quotes[1]?.attribution }}
-                  </span>
-                </article>
-              </div>
-              <div>
-                <em>{{ project?.copy?.sections?.challenges?.p4a }}</em>
-                <p>{{ project?.copy?.sections?.challenges?.p4b }}</p>
-              </div>
-            </section>
-          </article>
-          <figure class="media__container media__img--feature layout--left hasCaption--bottom">
-            <picture>
-              <source :srcset="`/img/works/${company}/${slug}/${project.img[2].fileName}`" />
-              <img
-                :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-                decoding="async"
-                loading="lazy"
-                sizes=""
-              />
-            </picture>
-            <!-- <vue-image-zoomer
-              :regular="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-              :zoom-amount="4"
-              :alt="project?.img[2].alt"
-              lazyload="true"
-              img-width="100%"
-              img-height="100%"
-              img-class="media__img--zoom"
-              style="grid-area: main"
-            /> -->
-            <figcaption class="caption--light">
-              <span v-for="(caption, index) in project?.img[2].caption" :key="index">{{
-                caption
-              }}</span>
-            </figcaption>
-          </figure>
+          <p>{{ project?.copy?.sections?.challenges?.p1 }}</p>
         </section>
         <!-- challenges end -->
-        <!-- solving start -->
-        <section class="container__content" id="problem-solving">
-          <h4>{{ project?.copy?.sections?.solving?.title }}</h4>
-          <p>{{ project?.copy?.sections?.solving?.p1 }}</p>
-          <figure
-            class="media__container media__img--hero layout--right block__element hasCaption--center"
-          >
-            <picture>
-              <source :srcset="`/img/works/${company}/${slug}/${project.img[3].fileName}`" />
-              <img
-                :src="`/img/works/${company}/${slug}/${project.img[3].fileName}`"
-                decoding="async"
-                loading="lazy"
-                sizes=""
-              />
-              <button
-                type="button"
-                class="button button--secondary button--has-icon button--icon-right"
-                @click="goToExternalLink(project?.meta?.projectLink, '_blank')"
+        <!-- hero image start
+        <figure class="media__img--hero">
+          <vue-image-zoomer
+            :regular="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
+            :zoom="`/img/works/${company}/${slug}/${project.img[5].fileName}`"
+            img-width="1280"
+            img-height="100%"
+            img-class="media__img--zoom"
+          />
+        </figure>
+        hero image end -->
+        <!-- creation part 1 start -->
+        <!-- <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h4>{{ project?.copy?.sections?.creation?.title }}</h4>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.creation?.p1 }}</p>
+            </section>
+          </article>
+        </section> -->
+        <!-- creation part 1 end -->
+        <!-- creation part 2 start -->
+        <!-- <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <p>{{ project?.copy?.sections?.creation?.p2 }}</p>
+              <p>{{ project?.copy?.sections?.creation?.p3 }}</p>
+              <p>{{ project?.copy?.sections?.creation?.p4 }}</p>
+            </aside>
+            <section class="container--stacked">
+              <figure
+                class="media__video--feature media__video--contained media__video--hasCaption"
               >
-                Explore Figma<span class="button__icon-container"
-                  ><icon type="svg" name="logoFigma"
-                /></span>
-              </button>
-            </picture>
-            <figcaption class="caption--light">
-              <span v-for="(caption, index) in project?.img[3].caption" :key="index">{{
-                caption
-              }}</span>
-            </figcaption>
-          </figure>
-          <p>{{ project?.copy?.sections?.solving?.p2 }}</p>
-          <p>{{ project?.copy?.sections?.solving?.p3 }}</p>
-          <figure
-            class="media__container media__img--feature layout--left block__element hasCaption--bottom"
-          >
-            <picture>
-              <source :srcset="`/img/works/${company}/${slug}/${project.img[4].fileName}`" />
-              <img
-                :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-                decoding="async"
-                loading="lazy"
-                sizes=""
-              />
-            </picture>
-            <!-- <vue-image-zoomer
-              :regular="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-              :zoom-amount="4"
-              :alt="project?.img[2].alt"
-              lazyload="true"
-              img-width="100%"
-              img-height="100%"
-              img-class="media__img--zoom"
-              style="grid-area: main"
-            /> -->
-            <figcaption class="caption--light">
-              <span v-for="(caption, index) in project?.img[4].caption" :key="index">{{
-                caption
-              }}</span>
-            </figcaption>
-          </figure>
-        </section>
-        <!-- solving end -->
-        <!-- impact start -->
-        <section class="container__content" id="impact">
-          <h4>{{ project?.copy?.sections?.impact?.title }}</h4>
-          <p>{{ project?.copy?.sections?.impact?.p1 }}</p>
-          <p>{{ project?.copy?.sections?.impact?.p2 }}</p>
-          <ul class="content__results">
-            <li
-              class="content__result"
-              v-for="result in project?.copy?.sections?.results"
-              :key="result.result"
-            >
-              <span>Result</span>
-              <em>{{ result.result }}</em>
-              <p v-html="result.resultDetail"></p>
-            </li>
-          </ul>
-          <p>{{ project?.copy?.sections?.impact?.p3 }}</p>
-        </section>
-        <!-- impact end -->
+                <video autoplay muted loop>
+                  <source
+                    :src="`/img/works/${company}/${slug}/${project.img[6].fileName}`"
+                    type="video/mp4"
+                  />
+                </video>
+                <figcaption class="caption--dark">{{ project?.img[6].alt }}</figcaption>
+              </figure>
+              <figure
+                class="media__video--feature media__video--contained media__video--hasCaption"
+              >
+                <video autoplay muted loop>
+                  <source
+                    :src="`/img/works/${company}/${slug}/${project.img[7].fileName}`"
+                    type="video/mp4"
+                  />
+                </video>
+                <figcaption class="caption--dark">{{ project?.img[7].alt }}</figcaption>
+              </figure>
+              <p>{{ project?.copy?.sections?.creation?.p5 }}</p>
+            </section>
+          </article>
+        </section> -->
+        <!-- creation part 2 end -->
+        <!-- manage start -->
+        <!-- <section class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h4>{{ project?.copy?.sections?.manage?.title }}</h4>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
+              <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
+            </section>
+          </article>
+        </section> -->
+        <!-- manage end -->
+        <!-- hero image start -->
+        <!-- <figure class="media__img--hero media__img--hasCaption caption--floating caption--light">
+          <vue-image-zoomer
+            :regular="`/img/works/${company}/${slug}/${project.img[8].fileName}`"
+            :zoom="`/img/works/${company}/${slug}/${project.img[9].fileName}`"
+            img-width="1280"
+            img-height="100%"
+            img-class="media__img--zoom"
+          />
+          <p>{{ project?.img[8].alt }}</p>
+        </figure> -->
+        <!-- hero image end -->
         <!-- retro start -->
-        <section class="container__content" id="retro">
-          <h4>{{ project?.copy?.sections?.retro?.title }}</h4>
-          <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
-          <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
-          <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
-          <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
-          <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
-        </section>
+        <!-- <section id="results" class="container__content">
+          <article class="container__content__inner">
+            <aside>
+              <h4>{{ project?.copy?.sections?.retro?.title }}</h4>
+            </aside>
+            <section>
+              <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[1].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[1].result"></span>
+                  </div>
+                </li>
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[2].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[2].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[4].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[4].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
+              <ul class="content__goals">
+                <li class="content__goal">
+                  <div>
+                    <em>Goal</em>
+                    <span v-html="project?.copy?.sections?.goals[3].goal"></span>
+                  </div>
+                  <div>
+                    <em>Result</em>
+                    <span v-html="project?.copy?.sections?.goals[3].result"></span>
+                  </div>
+                </li>
+              </ul>
+              <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
+              <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
+            </section>
+          </article>
+        </section> -->
+        <!-- retro end -->
       </section>
     </main>
     <!-- main content end-->
@@ -524,10 +513,6 @@ export default {
   &__content {
     display: flex;
     flex-flow: column;
-
-    &:first-child {
-      margin-top: 0 !important;
-    }
 
     p {
       @include text-style(p, regular, normal);
@@ -618,8 +603,7 @@ export default {
     }
   }
 
-  &__goals,
-  &__results {
+  &__goals {
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -632,8 +616,7 @@ export default {
     }
   }
 
-  &__goal,
-  &__result {
+  &__goal {
     padding: convertRem(24px);
     background-color: $primary__color--background--darker;
     border-radius: convertRem(16px);
@@ -736,8 +719,7 @@ export default {
 }
 
 .content {
-  &__goals,
-  &__results {
+  &__goals {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: convertRem(40px);
@@ -754,13 +736,13 @@ export default {
     }
   }
 
-  &__goal,
-  &__result {
+  &__goal {
     display: flex;
     flex-flow: column;
     grid-column: span 1;
     row-gap: convertRem(8px);
     padding: convertRem(32px);
+    border: convertRem(2px) solid $primary__color--border--lighter;
     border-radius: convertRem(16px);
     min-height: convertRem(400px);
 
@@ -773,73 +755,19 @@ export default {
 
     em {
       @include text-style(h5, bold, ui);
+      color: $primary__color--text;
     }
 
     span {
       &:first-of-type {
         width: fit-content;
         padding: convertRem(8px) convertRem(12px);
+        border: convertRem(2px) solid $primary__color--border--lighter;
         border-radius: convertRem(8px);
         @include text-style(p, medium, fixed);
+        color: $primary__color--text--darker;
         margin-bottom: convertRem(24px);
       }
-    }
-  }
-
-  &__goal {
-    border: convertRem(2px) solid $primary__color--border--lighter;
-
-    em {
-      color: $primary__color--text;
-    }
-
-    span {
-      &:first-of-type {
-        border: convertRem(2px) solid $primary__color--border--lighter;
-        color: $primary__color--text--darker;
-      }
-    }
-  }
-
-  &__result {
-    border: convertRem(2px) solid $secondary__color--accent--1;
-
-    em {
-      color: $secondary__color--accent--1;
-    }
-
-    span {
-      &:first-of-type {
-        border: convertRem(2px) solid $secondary__color--accent--1;
-        color: $secondary__color--accent--1;
-      }
-    }
-  }
-}
-
-.challenges {
-  &__content {
-    display: grid;
-    gap: convertRem(40px);
-    grid-template-areas: '. main main';
-    margin-block: convertRem(40px);
-  }
-
-  &__item {
-    grid-area: main;
-    display: flex;
-    flex-flow: column;
-    row-gap: convertRem(40px);
-
-    > div {
-      display: flex;
-      flex-flow: column;
-      row-gap: convertRem(8px);
-    }
-
-    em {
-      @include text-style(p, bold, normal);
-      color: $primary__color--text--darker;
     }
   }
 }
@@ -853,28 +781,16 @@ figure {
   //   // temporary hack to address stacked content
   // }
 
-  picture,
-  video,
-  div {
-    // grid-area: content;
-    min-height: convertRem(480px);
-    height: 100%;
-    width: 100%;
-    border-radius: inherit;
-  }
-
   picture {
-    display: flex;
-    flex-flow: column;
-    background-color: $base__color--neutral--250;
-    border-radius: convertRem(16px);
-    justify-content: center;
+    img {
+      border-radius: convertRem(16px);
+    }
   }
 
   img,
   img:not(picture img) {
     display: block;
-    height: auto;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center center;
@@ -882,16 +798,18 @@ figure {
     background-color: $base__color--neutral--250;
   }
 
+  picture,
+  video,
+  div {
+    grid-area: content;
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+  }
+
   figcaption {
+    grid-area: caption;
     @include text-style(p, regular, base);
-
-    span {
-      display: block;
-
-      & + span {
-        margin-top: convertRem(16px);
-      }
-    }
   }
 
   // special classes reserved for teams. will move this to something else in the future.
@@ -904,7 +822,7 @@ figure {
   &__container {
     display: grid;
     gap: convertRem(40px);
-    margin-block: convertRem(16px);
+    margin-block: convertRem(40px);
 
     @media (max-width: 1280px) {
       gap: convertRem(32px);
@@ -921,7 +839,7 @@ figure {
         figcaption {
           display: flex;
           flex-flow: column;
-          // grid-area: caption;
+          grid-area: caption;
           text-align: left;
         }
       }
@@ -941,13 +859,29 @@ figure {
       }
 
       &--center {
-        row-gap: convertRem(16px);
-
         figcaption {
           align-self: center;
-          text-align: center;
         }
       }
+    }
+  }
+
+  &__layout {
+    &--left,
+    &--right {
+      grid-template-columns: repeat(3, 1fr);
+
+      figcaption {
+        text-align: left;
+      }
+    }
+
+    &--left {
+      grid-template-areas: 'content content caption';
+    }
+
+    &--right {
+      grid-template-areas: 'caption content content';
     }
   }
 
@@ -956,10 +890,6 @@ figure {
     &--feature,
     &--zoom {
       position: relative;
-
-      picture {
-        position: relative;
-      }
 
       button {
         position: absolute;
@@ -1044,59 +974,6 @@ figure {
   }
 }
 
-.layout {
-  &--left,
-  &--right {
-    grid-template-columns: repeat(3, 1fr);
-
-    video,
-    picture {
-      grid-area: main;
-    }
-
-    figcaption {
-      grid-area: side;
-    }
-
-    figcaption {
-      text-align: left;
-    }
-  }
-
-  &--left {
-    grid-template-areas: 'main main side';
-  }
-
-  &--right {
-    grid-template-areas: 'side main main';
-  }
-}
-
-.quote {
-  display: flex;
-  flex-flow: column;
-  gap: convertRem(24px);
-
-  &__card {
-    background-color: $primary__color--background--lighter;
-    border: convertRem(2px) solid $primary__color--border;
-    padding-block: convertRem(32px);
-    padding-inline: convertRem(40px);
-    border-radius: convertRem(16px);
-  }
-
-  &__caption {
-    @include text-style(h5, regular, base);
-    font-style: italic;
-    color: $primary__color--text;
-  }
-
-  &__attribution {
-    @include text-style(small, medium, base);
-    color: $primary__color--text--darker;
-  }
-}
-
 h4 {
   display: flex;
   flex-flow: column;
@@ -1110,14 +987,6 @@ p {
 
   + p {
     margin-top: convertRem(16px);
-  }
-}
-
-.block {
-  &__element {
-    margin-block: convertRem(40px);
-  }
-  &__inline {
   }
 }
 </style>

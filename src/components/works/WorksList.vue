@@ -191,8 +191,16 @@ article {
       background-color: #ff8f59;
     }
 
+    &[team='Klaviyo'] figure {
+      background-color: #232426;
+    }
+
     &[team='Whalar'] figure {
       background-color: #918eeb;
+    }
+
+    &[team='Copley AI'] figure {
+      background-color: #0071c6;
     }
   }
 

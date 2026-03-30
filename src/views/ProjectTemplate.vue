@@ -47,6 +47,9 @@ export default {
         'hubspot-formula-tester': defineAsyncComponent(
           () => import('@components/works/projects/HubspotFormulaTester.vue'),
         ),
+        'klaviyo-customer-profiles': defineAsyncComponent(
+          () => import('@components/works/projects/KlaviyoCustomerProfiles.vue'),
+        ),
         // 'hubspot-property-cleanup': defineAsyncComponent(
         //   () => import('@components/works/projects/HubspotPropertyCleanup.vue'),
         // ),
