@@ -409,7 +409,7 @@
         "copy": {
           "sections": {
             "intro": {
-              "p1": "Solving customer pain points, driving adoption, and reducing internal and external overhead costs by rethinking the way customers create and edit their custom data properties."
+              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to modernize the experience and unlock how our customers actually use it for both support and discovery."
             },
             "context": {
               "title": "Context.",
@@ -512,6 +512,39 @@
         "company_url": "https://www.klaviyo.com/",
         "slug": "customer-profiles",
         "img": [
+          { 
+            "fileName": "hero__main.png", 
+            "alt": "New design framework for Klaviyo customer profile pages highlighting some of the updated components and features"
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A short video showing the frustration of going back and forth between stages of the existing create wizard and losing progress",
+            "caption": [
+              "Customers consistently complained about the existing wizard's rigidity and the fact that progress wasn't saved when they needed to go back and make changes."
+            ]
+          },
+          { 
+            "fileName": "challenge__2.png",
+            "alt": "An image depicting states of the current wizard flow with comment cards that target specific pain points based on feedback from user interviews.",
+            "caption": [
+              "After interviews, I summarized sentiments about certain parts of the existing create flow to help solidify the prioritization pitch to my team.",
+              "Feedback ranged from order of fields, stage clarity, jarring interactions, and, of course, lack of saved progress."
+            ]
+          },
+          { 
+            "fileName": "solving__1.png", 
+            "alt": "Side by side examples of the new quick create component on the left and the full-screen create app on the right",
+            "caption": [
+              "Quick create (left) was made to be deployable anywhere vs the full property management app (right) which was more tailored to advanced users"
+            ]
+          },
+          { 
+            "fileName": "solving__2.png", 
+            "alt": "Examples of the softer, but more functional, error-handling and messaging and validation in the new experiences.",
+            "caption": [
+              "The wizard tracked progress well, but little else. User testing and systems negotiations led to a softer indicator system using the side nav and collapsible containers, with clearer state communicated at each step."
+            ]
+          }
         ]
       }
     }

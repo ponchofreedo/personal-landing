@@ -68,7 +68,7 @@ export const selectedWorks = [
 {
     title: 'Rebuilding Klaviyo\'s profile view to scale with customer needs',
     preview: 'The most central view of the platform had become a hard-to-navigate data dump, so I set out to modernize the experience and unlock how our customers actually use it for both support and discovery.',
-    private: 'true',
+    private: '',
     testing: '',
     inDev: '',
     beta: '',

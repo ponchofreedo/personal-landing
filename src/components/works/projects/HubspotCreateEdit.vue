@@ -60,81 +60,23 @@ export default {
 </script>
 
 <template>
-  <article v-if="project" class="container__project">
+  <article v-if="project" class="container__project" :team="company">
     <!-- header start -->
     <header id="header" class="container__header">
+      <a :href="project?.company_url" target="_blank" class="header__meta__company">
+        <div>
+          <icon
+            type="svg"
+            :name="'logo' + project?.company"
+            :class="'logo logo--' + project?.company"
+          />
+        </div>
+        <em>{{ project?.company }}</em>
+      </a>
       <h1>{{ project?.title }}</h1>
       <section class="container__header__inner">
-        <section class="header__meta">
-          <div class="header__meta__item">
-            <em class="header__meta__title">Company</em>
-            <div class="header__meta__value">
-              <a :href="project?.company_url" target="_blank" class="link link--inline"
-                >{{ project?.company }}<icon type="icon" name="iconArrowSquareUpRight"
-              /></a>
-            </div>
-          </div>
-          <div class="header__meta__item">
-            <em class="header__meta__title">Timeline</em>
-            <div class="content__timeline__dates">
-              {{ project?.meta?.dateStart }} &mdash; {{ project?.meta?.dateEnd }}
-            </div>
-          </div>
-          <div class="header__meta__item">
-            <em class="header__meta__title">Status</em>
-            <ul class="tag__snackbar snackbar__inline">
-              <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
-                <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
-                <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
-                <svg
-                  v-if="tag == 'beta'"
-                  viewBox="0 0 18 18"
-                  height="16"
-                  width="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
-                </svg>
-                <svg
-                  v-if="tag == 'in-dev'"
-                  viewBox="0 0 18 18"
-                  height="16"
-                  width="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="9"
-                    cy="9"
-                    r="8"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-dasharray="4"
-                    stroke-linecap="square"
-                  />
-                </svg>
-                <svg
-                  v-if="tag == 'shipped'"
-                  viewBox="0 0 18 18"
-                  height="16"
-                  width="16"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="9" cy="9" r="8" />
-                </svg>
-                <span v-if="tag == 'in-dev'">In development</span>
-                <span v-else>{{ tag }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="header__meta__item">
-            <em class="header__meta__title">Team</em>
-            <div class="header__meta__value" v-html="project?.team"></div>
-          </div>
-        </section>
         <section>
+          <p>{{ project.copy.sections.intro.p1 }}</p>
           <div class="header__meta__action">
             <button
               type="button"
@@ -146,11 +88,10 @@ export default {
               /></span>
             </button>
           </div>
-          <p>{{ project.copy.sections.intro.p1 }}</p>
         </section>
       </section>
       <section class="container__media container__media--hero">
-        <figure class="media__img--hero" team="hubspot">
+        <figure class="media__img--hero" :team="company">
           <img
             :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
             decoding="async"
@@ -226,6 +167,67 @@ export default {
           <h4>{{ project?.copy?.sections?.context?.title }}</h4>
           <p>{{ project?.copy?.sections?.context?.p1 }}</p>
           <p>{{ project?.copy?.sections?.context?.p2 }}</p>
+          <article class="context__meta">
+            <div class="context__meta__item">
+              <em class="context__meta__title">Timeline</em>
+              <div class="context__timeline__dates">
+                {{ project?.meta?.dateStart }} &mdash; {{ project?.meta?.dateEnd }}
+              </div>
+            </div>
+            <div class="context__meta__item">
+              <em class="context__meta__title">Team</em>
+              <div class="context__meta__value" v-html="project?.team"></div>
+            </div>
+            <div class="context__meta__item">
+              <em class="context__meta__title">Status</em>
+              <ul class="tag__snackbar snackbar__inline">
+                <li v-for="tag in project.meta.tags" :class="'tag' + ' ' + 'tag--' + tag">
+                  <icon v-if="tag == 'private'" type="icon" name="iconPrivate" />
+                  <icon v-if="tag == 'testing'" type="icon" name="iconLightning" />
+                  <svg
+                    v-if="tag == 'beta'"
+                    viewBox="0 0 18 18"
+                    height="16"
+                    width="16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                  <svg
+                    v-if="tag == 'in-dev'"
+                    viewBox="0 0 18 18"
+                    height="16"
+                    width="16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="9"
+                      cy="9"
+                      r="8"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-dasharray="4"
+                      stroke-linecap="square"
+                    />
+                  </svg>
+                  <svg
+                    v-if="tag == 'shipped'"
+                    viewBox="0 0 18 18"
+                    height="16"
+                    width="16"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="9" cy="9" r="8" />
+                  </svg>
+                  <span v-if="tag == 'in-dev'">In development</span>
+                  <span v-else>{{ tag }}</span>
+                </li>
+              </ul>
+            </div>
+          </article>
         </section>
         <!-- context end -->
         <!-- 3-col image start
@@ -479,18 +481,18 @@ export default {
   &__header {
     display: inherit;
     flex-flow: inherit;
-    row-gap: convertRem(80px);
 
     &__inner {
       @include container-inner-grid;
       row-gap: convertRem(40px);
+      margin-block: convertRem(80px);
 
       section {
         display: grid;
         grid-column: 1 / -1;
         grid-template-columns: subgrid;
 
-        @media (max-width: 980px) {
+        @media (max-width: 1280px) {
           row-gap: convertRem(32px);
         }
 
@@ -563,58 +565,62 @@ export default {
   &__meta {
     @include text-style(p, regular, ui);
 
-    &__item {
-      display: flex;
-      flex-flow: column;
-      row-gap: convertRem(8px);
-      grid-column: span 3;
+    &__company {
+      display: inline-flex;
+      flex-flow: row;
+      width: fit-content;
+      align-items: center;
+      column-gap: convertRem(8px);
+      color: unset;
+      text-decoration: none;
+      margin-bottom: convertRem(40px);
 
-      @media (max-width: 1280px) {
-        grid-column: span 2;
+      &:visited,
+      &:link,
+      &:hover,
+      &:active {
+        color: unset;
+        text-decoration: none;
       }
 
-      @media (max-width: 980px) {
-        grid-column: span 4;
-        row-gap: convertRem(4px);
+      div {
+        padding: convertRem(4px);
+        background-color: inherit;
+        border-radius: convertRem(8px);
+        font-size: 0;
+        line-height: 0;
       }
 
-      > :nth-child(2) {
-        padding-block: convertRem(4px);
-      }
-    }
+      svg {
+        @include svgProps(
+          $height: convertRem(24px),
+          $width: convertRem(24px),
+          $scale: 1,
+          $color: inherit
+        );
 
-    &__title {
-      min-width: convertRem(80px);
-      color: $primary__color--text--darker;
-    }
-
-    &__value {
-      text-transform: capitalize;
-    }
-
-    .tag {
-      padding-top: 0;
-      padding-bottom: 0;
-
-      span {
-        &::first-letter {
-          text-transform: uppercase;
+        @media (max-width: 980px) {
+          @include svgProps($height: convertRem(20px), $width: convertRem(20px));
         }
+      }
+
+      em {
+        @include text-style(h4, medium, fixed);
+        color: inherit;
       }
     }
 
     &__action {
       grid-column: span 3;
       align-self: center;
+      justify-self: center;
 
-      @media (max-width: 980px) {
+      @media (max-width: 1280px) {
+        align-self: flex-start;
+        justify-self: flex-start;
         order: 2;
         grid-column: 1 / -1;
       }
-    }
-
-    em {
-      @include text-style(small, bold, ui);
     }
   }
 
@@ -813,6 +819,69 @@ export default {
         border: convertRem(2px) solid $secondary__color--accent--1;
         color: $secondary__color--accent--1;
       }
+    }
+  }
+}
+
+.context {
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: convertRem(40px);
+    margin-block: convertRem(40px) 0;
+    @include text-style(p, regular, ui);
+
+    &__item {
+      display: flex;
+      flex-flow: column;
+      row-gap: convertRem(8px);
+      grid-column: span 1;
+
+      @media (max-width: 980px) {
+        grid-column: 1 / -1;
+        row-gap: convertRem(4px);
+      }
+
+      > :nth-child(2) {
+        padding-block: convertRem(4px);
+      }
+    }
+
+    &__title {
+      min-width: convertRem(80px);
+      color: $primary__color--text--darker;
+    }
+
+    &__value {
+      text-transform: capitalize;
+    }
+
+    .tag {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      span {
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &__action {
+      grid-column: span 3;
+      align-self: center;
+      justify-self: center;
+
+      @media (max-width: 1280px) {
+        align-self: flex-start;
+        justify-self: flex-start;
+        order: 2;
+        grid-column: 1 / -1;
+      }
+    }
+
+    em {
+      @include text-style(small, bold, ui);
     }
   }
 }
@@ -1118,6 +1187,23 @@ p {
     margin-block: convertRem(40px);
   }
   &__inline {
+  }
+}
+
+[team='hubspot'] {
+  --brand-color: #ff8f59;
+  --secondary-color: #070b11;
+
+  .header__meta__company {
+    color: var(--brand-color);
+
+    div {
+      background-color: var(--brand-color);
+
+      svg {
+        color: var(--secondary-color);
+      }
+    }
   }
 }
 </style>
