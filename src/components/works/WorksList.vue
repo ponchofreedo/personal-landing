@@ -192,7 +192,7 @@ article {
     }
 
     &[team='Klaviyo'] figure {
-      background-color: #232426;
+      background-color: #f3f2f1;
     }
 
     &[team='Whalar'] figure {
@@ -201,6 +201,10 @@ article {
 
     &[team='Copley AI'] figure {
       background-color: #0071c6;
+    }
+
+    &[team='Order'] figure {
+      background-color: #067d5e;
     }
   }
 
@@ -232,7 +236,7 @@ article {
       display: flex;
       flex-direction: row;
       gap: convertRem(8px);
-      margin-top: convertRem(32px);
+      margin-top: convertRem(16px);
       color: $primary__color--text--muted;
 
       span {

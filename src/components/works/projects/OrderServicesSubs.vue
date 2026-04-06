@@ -98,15 +98,6 @@ export default {
             loading="lazy"
             sizes=""
           />
-          <!-- <button
-            type="button"
-            class="button button--secondary button--has-icon button--icon-right"
-            @click="goToExternalLink(project?.meta?.projectLink, '_blank')"
-          >
-            Explore Figma<span class="button__icon-container"
-              ><icon type="svg" name="logoFigma"
-            /></span>
-          </button> -->
         </figure>
       </section>
     </header>
@@ -163,7 +154,7 @@ export default {
       </aside>
       <section class="main-content__inner">
         <!-- context start -->
-        <!-- <section class="container__content" id="context">
+        <section class="container__content" id="context">
           <h4>{{ project?.copy?.sections?.context?.title }}</h4>
           <p>{{ project?.copy?.sections?.context?.p1 }}</p>
           <p>{{ project?.copy?.sections?.context?.p2 }}</p>
@@ -228,7 +219,7 @@ export default {
               </ul>
             </div>
           </article>
-        </section> -->
+        </section>
         <!-- context end -->
         <!-- 3-col image start
         <section class="container__feature-images">
@@ -259,7 +250,7 @@ export default {
         </section>
         3-col image end -->
         <!-- problem start -->
-        <!-- <section class="container__content" id="problem">
+        <section class="container__content" id="problem">
           <h4>{{ project?.copy?.sections?.problem?.title }}</h4>
           <p>{{ project?.copy?.sections?.problem?.p1 }}</p>
           <ul class="content__goals">
@@ -274,10 +265,10 @@ export default {
             </li>
           </ul>
           <p>{{ project?.copy?.sections?.problem?.p2 }}</p>
-        </section> -->
+        </section>
         <!-- problem end -->
         <!-- challenges start -->
-        <!-- <section class="container__content" id="challenges">
+        <section class="container__content" id="challenges">
           <h4>{{ project?.copy?.sections?.challenges?.title }}</h4>
           <figure
             class="media__container media__video media__video--feature media__video--contained layout--right hasCaption--top"
@@ -345,16 +336,26 @@ export default {
                 sizes=""
               />
             </picture>
+            <!-- <vue-image-zoomer
+              :regular="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
+              :zoom-amount="4"
+              :alt="project?.img[2].alt"
+              lazyload="true"
+              img-width="100%"
+              img-height="100%"
+              img-class="media__img--zoom"
+              style="grid-area: main"
+            /> -->
             <figcaption class="caption--light">
               <span v-for="(caption, index) in project?.img[2].caption" :key="index">{{
                 caption
               }}</span>
             </figcaption>
           </figure>
-        </section> -->
+        </section>
         <!-- challenges end -->
         <!-- solving start -->
-        <!-- <section class="container__content" id="problem-solving">
+        <section class="container__content" id="problem-solving">
           <h4>{{ project?.copy?.sections?.solving?.title }}</h4>
           <p>{{ project?.copy?.sections?.solving?.p1 }}</p>
           <figure
@@ -398,16 +399,26 @@ export default {
                 sizes=""
               />
             </picture>
+            <!-- <vue-image-zoomer
+              :regular="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
+              :zoom-amount="4"
+              :alt="project?.img[2].alt"
+              lazyload="true"
+              img-width="100%"
+              img-height="100%"
+              img-class="media__img--zoom"
+              style="grid-area: main"
+            /> -->
             <figcaption class="caption--light">
               <span v-for="(caption, index) in project?.img[4].caption" :key="index">{{
                 caption
               }}</span>
             </figcaption>
           </figure>
-        </section>-->
+        </section>
         <!-- solving end -->
         <!-- impact start -->
-        <!-- <section class="container__content" id="impact">
+        <section class="container__content" id="impact">
           <h4>{{ project?.copy?.sections?.impact?.title }}</h4>
           <p>{{ project?.copy?.sections?.impact?.p1 }}</p>
           <p>{{ project?.copy?.sections?.impact?.p2 }}</p>
@@ -423,17 +434,17 @@ export default {
             </li>
           </ul>
           <p>{{ project?.copy?.sections?.impact?.p3 }}</p>
-        </section> -->
+        </section>
         <!-- impact end -->
         <!-- retro start -->
-        <!-- <section class="container__content" id="retro">
+        <section class="container__content" id="retro">
           <h4>{{ project?.copy?.sections?.retro?.title }}</h4>
           <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
           <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
           <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
           <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
           <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
-        </section> -->
+        </section>
       </section>
     </main>
     <!-- main content end-->
@@ -887,7 +898,7 @@ export default {
     }
 
     em {
-      @include text-style(p, bold, normal);
+      @include text-style(p, bold, ui);
       color: $primary__color--text--darker;
     }
   }
@@ -944,8 +955,8 @@ figure {
   }
 
   // special classes reserved for teams. will move this to something else in the future.
-  &[team='klaviyo'] {
-    background-color: #f3f2f1;
+  &[team='order'] {
+    background-color: #067d5e;
   }
 }
 
@@ -1170,12 +1181,12 @@ p {
   }
 }
 
-[team='klaviyo'] {
-  --brand-color: #f96353;
-  --secondary-color: #f3f2f1;
+[team='order'] {
+  --brand-color: #067d5e;
+  --secondary-color: #f7f6f2;
 
   .header__meta__company {
-    color: var(--brand-color);
+    color: var(--secondary-color);
 
     div {
       background-color: var(--brand-color);

@@ -50,6 +50,9 @@ export default {
         'klaviyo-customer-profiles': defineAsyncComponent(
           () => import('@components/works/projects/KlaviyoCustomerProfiles.vue'),
         ),
+        'order-services-subs': defineAsyncComponent(
+          () => import('@components/works/projects/OrderServicesSubs.vue'),
+        ),
         // 'hubspot-property-cleanup': defineAsyncComponent(
         //   () => import('@components/works/projects/HubspotPropertyCleanup.vue'),
         // ),

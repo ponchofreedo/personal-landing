@@ -65,6 +65,21 @@ export const selectedWorks = [
     target: '_self',
     team: 'HubSpot'
 },
+// {
+//     title: 'Improving retention and trust with a new calculated formula tester',
+//     preview: 'Customers couldn\'t validate their work and were going elsewhere, even leaving the platform, so I introduced a solution to build their confidence.',
+//     private: '',
+//     testing: '',
+//     inDev: '',
+//     beta: '',
+//     shipped: 'true',
+//     freelance:'',
+//     date: '2023',
+//     slug: 'formula-tester',
+//     staticHref:'/works/hubspot/formula-tester',
+//     target: '_self',
+//     team: 'HubSpot'
+// }
 {
     title: 'Rebuilding Klaviyo\'s profile view to scale with customer needs',
     preview: 'The most central view of the platform had become a hard-to-navigate data dump, so I set out to modernize the experience and unlock how our customers actually use it for both support and discovery.',
@@ -81,22 +96,54 @@ export const selectedWorks = [
     target: '_self',
     team: 'Klaviyo'
 },
-{
-    title: 'Negotiating trade-offs to help HubSpot customers maintain cleaner data',
-    preview: 'Iterating on some issues with property management that drove customer churn, starting with a new take on a neglected feature with a lot of upside.',
-    private: 'true',
-    testing: '',
-    inDev: '',
-    beta: 'true',
-    shipped: '',
-    freelance:'',
-    date: '2024',
-    slug: 'property-cleanup',
-    staticHref:'/works/hubspot/property-cleanup',
-    heroImg: 'list__hero.png',
-    target: '_self',
-    team: 'HubSpot'
-},
+// {
+//     title: 'Bringing spend management full-circle at Order with a new B2B payment product',
+//     preview: 'Going from 0 → 1 on a new payment and invoice management product to give customers 360-degree control and visibility over their vendor spend both on and off-platform.',
+//     private: '',
+//     testing: '',
+//     inDev: '',
+//     beta: '',
+//     shipped: 'true',
+//     freelance:'',
+//     date: '2021',
+//     slug: 'bill-pay',
+//     staticHref:'/works/order/bill-pay',
+//     heroImg: 'list__hero.png',
+//     target: '_self',
+//     team: 'Order'
+// },
+// {
+//     title: 'Expanding Order\'s spend management platform with a new product for recurring charges',
+//     preview: 'Going from 0 → 1 on a new product and improving the platform ecosystem by giving customers control and visibility over their recurring services and subscriptions.',
+//     private: 'true',
+//     testing: '',
+//     inDev: '',
+//     beta: '',
+//     shipped: 'true',
+//     freelance:'',
+//     date: '2020',
+//     slug: 'services-subs',
+//     staticHref:'/works/order/services-subs',
+//     heroImg: 'list__hero.png',
+//     target: '_self',
+//     team: 'Order'
+// },
+// {
+//     title: 'Negotiating trade-offs to help HubSpot customers maintain cleaner data',
+//     preview: 'Iterating on some issues with property management that drove customer churn, starting with a new take on a neglected feature with a lot of upside.',
+//     private: 'true',
+//     testing: '',
+//     inDev: '',
+//     beta: 'true',
+//     shipped: '',
+//     freelance:'',
+//     date: '2024',
+//     slug: 'property-cleanup',
+//     staticHref:'/works/hubspot/property-cleanup',
+//     heroImg: 'list__hero.png',
+//     target: '_self',
+//     team: 'HubSpot'
+// },
 {
     title: 'Building Buoy, the design system for Whalar\'s Foam CRM platform',
     preview: 'Re-architecting a patchwork system in Figma and v0 to unify design standards, improve velocity, and foster better communication for a globally distributed product and engineering team.',
@@ -128,22 +175,7 @@ export const selectedWorks = [
     heroImg: 'list__hero.png',
     target: '_self',
     team: 'Copley AI'
-},
-// {
-//     title: 'Improving retention and trust with a new calculated formula tester',
-//     preview: 'Customers couldn\'t validate their work and were going elsewhere, even leaving the platform, so I introduced a solution to build their confidence.',
-//     private: '',
-//     testing: '',
-//     inDev: '',
-//     beta: '',
-//     shipped: 'true',
-//     freelance:'',
-//     date: '2023',
-//     slug: 'formula-tester',
-//     staticHref:'/works/hubspot/formula-tester',
-//     target: '_self',
-//     team: 'HubSpot'
-// }
+}
 ];
 
 export const experienceList = [

@@ -907,7 +907,7 @@ export default {
     }
 
     em {
-      @include text-style(p, bold, normal);
+      @include text-style(p, bold, ui);
       color: $primary__color--text--darker;
     }
   }

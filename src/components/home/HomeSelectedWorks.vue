@@ -221,7 +221,7 @@ footer {
     }
 
     &[team='Klaviyo'] figure {
-      background-color: #232426;
+      background-color: #f3f2f1;
     }
 
     &[team='Whalar'] figure {
@@ -230,6 +230,10 @@ footer {
 
     &[team='Copley AI'] figure {
       background-color: #0071c6;
+    }
+
+    &[team='Order'] figure {
+      background-color: #067d5e;
     }
   }
 
@@ -261,7 +265,7 @@ footer {
       display: flex;
       flex-direction: row;
       gap: convertRem(8px);
-      margin-top: convertRem(32px);
+      margin-top: convertRem(16px);
       color: $primary__color--text--muted;
 
       span {
@@ -299,8 +303,7 @@ footer:not(menu footer) {
 h4 {
   color: $primary__color--text--darker;
   padding-bottom: convertRem(32px);
-  border-bottom: convertRem(2px) solid $primary__color--background--lighter;
-  margin-bottom: convertRem(48px);
+  margin-bottom: convertRem(16px);
 }
 
 menu {
