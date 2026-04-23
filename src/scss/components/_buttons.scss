@@ -168,6 +168,17 @@ button,
 
   &--icon-right {
     padding-right: 0;
+    @include button-icon-hover-translation(convertRem(-8px), 0.2s);
+
+    // svg {
+    //   translate: 0;
+    // }
+
+    // &:hover {
+    //   svg {
+    //     translate: convertRem(-8px);
+    //   }
+    // }
   }
 
   &--icon-only {

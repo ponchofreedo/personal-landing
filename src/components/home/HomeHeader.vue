@@ -69,7 +69,7 @@ export default {
             @click="scrollToWorks()"
           >
             Selected works<span class="button__icon-container"
-              ><icon type="svg" name="iconArrowDown"
+              ><icon type="svg" name="iconArrowSquareDown"
             /></span>
           </button>
           <button
@@ -78,7 +78,7 @@ export default {
             @click="goToExternalLink(slidesLink, '_blank')"
           >
             My Figma Slides deck<span class="button__icon-container"
-              ><icon type="svg" name="iconArrowUpRight"
+              ><icon type="svg" name="iconArrowSquareUpRight"
             /></span>
           </button>
         </div>
