@@ -169,6 +169,10 @@ button,
   &--icon-right {
     padding-right: 0;
   }
+
+  &--icon-only {
+    padding: 0;
+  }
 }
 
 // special definition when using an anchor button (like jump to top, etc) without a button element

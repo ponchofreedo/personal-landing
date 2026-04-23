@@ -405,15 +405,15 @@
     },
     "klaviyo": {
       "customer-profiles": {
-        "title": "Rebuilding Klaviyo's profile view to scale with customer needs and improve how they understand and utilize their own custom data",
+        "title": "Rebuilding Klaviyo's profile view to scale with customer needs, build trust in self-service, and improve how they understand and utilize their own custom data",
         "copy": {
           "sections": {
             "intro": {
-              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to modernize the experience and unlock how our customers actually use it for both support and discovery."
+              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to improve the experience and unlock how our customers actually use it for both support and discovery."
             },
             "context": {
               "title": "Context.",
-              "p1": "HubSpot's CRM is the core of their product and where customers first build out their HubSpot experience. This made it critical to nail onboarding and data integration from the start.",
+              "p1": "The profile page is Klaviyo's core view for understanding how any individual customer has interacted with a brand. It's a dense data hub, but customer come to it for two primary reasons: troubleshooting and discovery.",
               "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
             },
             "problem": {
@@ -495,7 +495,15 @@
                 "quote": "If I have to click \"back\" one more time to change the name of this property because of a typo, I might throw my mouse at my door.",
                 "attribution": "a RevOps Manager from a partner agency during a testing session"
               }
-            }
+            },
+            "user-stories": [
+              { 
+                "story": "As support stagg, I need to quickly locate key customer data to troubleshoot or triage an issue"
+              },
+              { 
+                "story": "As a marketer, I want to explore a customer's profile to better understand their behavior and engagement"
+              }
+            ]
           }
         },
         "meta": {
