@@ -6,46 +6,44 @@ import { resumeLink, socialLinks } from '@data/constants'
 
 <template>
   <section id="contact">
-    <article>
-      <main>
-        <header>
-          <h2>Talk to me, Goose.</h2>
-        </header>
-        <section class="contact__inner-container">
-          <article>
-            <p class="text--big">
-              You've come this far on these here interwebs to find me. Unfortunately the IKEA
-              instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden
-              peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out,"
-              so yeah...feel free to
-              <a :href="resumeLink" target="_blank" class="link link--inline"
-                >grab my résumé<icon class="icon--bigger" type="icon" name="iconArrowSquareUpRight"
-              /></a>
-              or just
-              <a
-                href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup."
-                target="_blank"
-                class="link link--inline"
-                >drop me a line</a
-              >.
-            </p>
-          </article>
-          <article>
-            <p class="text--big">
-              Or, technical issues aside, you can find/follow me at all of these places.
-            </p>
-            <ul>
-              <li v-for="socialLink in socialLinks" :key="socialLink.platform">
-                <a :href="socialLink.url" target="_blank" class="link">
-                  <span>{{ socialLink.platform }}</span>
-                  <icon type="svg" name="iconArrowSquareUpRight" />
-                </a>
-              </li>
-            </ul>
-          </article>
-        </section>
-      </main>
-    </article>
+    <main>
+      <header>
+        <h2>Talk to me, Goose.</h2>
+      </header>
+      <section class="contact__inner-container">
+        <article>
+          <p class="text--big">
+            You've come this far on these here interwebs to find me. Unfortunately the IKEA
+            instructions for my Bätssignalen are pretty rough &mdash; definitely missing a wooden
+            peg &mdash; and my Rebel transponder code is a bit older and just barely "checks out,"
+            so yeah...feel free to
+            <a :href="resumeLink" target="_blank" class="link link--inline"
+              >grab my résumé<icon class="icon--bigger" type="icon" name="iconArrowSquareUpRight"
+            /></a>
+            or just
+            <a
+              href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup."
+              target="_blank"
+              class="link link--inline"
+              >drop me a line</a
+            >.
+          </p>
+        </article>
+        <article>
+          <p class="text--big">
+            Or, technical issues aside, you can find/follow me at all of these places.
+          </p>
+          <ul>
+            <li v-for="socialLink in socialLinks" :key="socialLink.platform">
+              <a :href="socialLink.url" target="_blank" class="link">
+                <span>{{ socialLink.platform }}</span>
+                <icon type="svg" name="iconArrowSquareUpRight" />
+              </a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
   </section>
 </template>
 
@@ -53,41 +51,29 @@ import { resumeLink, socialLinks } from '@data/constants'
 @use 'sass:math';
 
 #contact {
+  @include container-max-width;
+  @include container-responsive-padding;
   display: flex;
   flex-direction: column;
-  padding-top: convertRem(120px);
-  padding-bottom: convertRem(120px);
+  width: 100%;
+  padding-block: convertRem(40px);
 
   @media (max-width: 980px) {
-    padding-top: 0;
-    padding-bottom: convertRem(40px);
-    padding-left: convertRem(24px);
-    padding-right: convertRem(24px);
-  }
-}
-
-article:not(.contact__inner-container article) {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background-color: $primary__color--background--darker;
-  border-radius: convertRem(32px);
-  @include container-responsive-padding;
-
-  @media (max-width: 680px) {
-    border-radius: convertRem(16px);
+    background-color: $primary__color--background--darker;
+    padding-inline: convertRem(24px);
   }
 }
 
 main {
   @include container-inner-grid;
   position: relative;
-  padding-top: convertRem(80px);
-  padding-bottom: convertRem(80px);
+  padding-block: convertRem(80px);
   row-gap: convertRem(40px);
 
   @media (max-width: 980px) {
-    padding: convertRem(40px) convertRem(16px);
+    row-gap: convertRem(24px);
+    padding-block: 0;
+    padding-inline: 0;
   }
 
   &::before {
@@ -95,18 +81,25 @@ main {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -#{convertRem(80px)};
-    right: -#{convertRem(80px)};
+    left: -#{convertRem(80px)}; // 80 + 24 (margin)
+    right: -#{convertRem(80px)}; // 80 + 24 (margin)
     z-index: -1;
     background-color: $primary__color--background--darker;
     border-radius: convertRem(48px);
+    margin-inline: convertRem(24px);
 
-    @media (max-width: 980px) {
-      left: -#{convertRem(24px)};
-      right: -#{convertRem(24px)};
+    // special query to match max-width of content
+    @media (min-width: 1600px) {
+      left: -#{convertRem(104px)}; // 80 + 24 (margin)
+      right: -#{convertRem(104px)}; // 80 + 24 (margin)
+      margin-inline: convertRem(24px);
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 1280px) {
+      margin-inline: convertRem(24px);
+    }
+
+    @media (max-width: 980px) {
       display: none;
     }
   }
@@ -124,8 +117,8 @@ main {
       order: 2;
     }
 
-    @media (max-width: 1280px) {
-      gap: convertRem(24px);
+    @media (max-width: 980px) {
+      row-gap: convertRem(24px);
     }
 
     article {

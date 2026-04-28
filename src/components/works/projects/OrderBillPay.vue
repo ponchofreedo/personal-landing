@@ -1,47 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import GlobalNavigation from '@global/GlobalNavigation.vue'
-import GlobalFooter from '@global/GlobalFooter.vue'
+import type { Project } from '@interfaces/project.ts'
 // @ts-expect-error:next-line
 import { VueImageZoomer } from 'vue-image-zoomer'
 import 'vue-image-zoomer/dist/style.css'
-
-defineOptions({
-  inheritAttrs: false,
-})
 </script>
 
 <script lang="ts">
 import json from '@data/projects.json'
-
-interface Project {
-  title: string
-  copy: {
-    intro?: string
-    context?: string
-    opportunity?: string
-    goals?: string
-    creation?: string
-    manage?: string
-    retro?: string
-    [key: string]: any
-  }
-  meta: {
-    tags?: Record<string, string>
-    date?: string
-    slug?: string
-    href?: string
-    [key: string]: any
-  }
-  img: {
-    fileName?: string
-    alt?: string
-    [key: string]: any
-  }
-  company: string
-  company_url: string
-  team: string
-}
 
 export default {
   data() {
@@ -58,7 +24,7 @@ export default {
 
       if (!company || !slug) return null
 
-      const companyProjects = this.projects[company as keyof typeof this.projects]
+      const companyProjects = json.projects[company as keyof typeof json.projects]
       if (!companyProjects) return null
 
       const result = companyProjects[slug as keyof typeof companyProjects]
@@ -74,20 +40,8 @@ export default {
 </script>
 
 <template>
-  <!-- start nav -->
-  <GlobalNavigation />
-  <!-- end nav -->
   <section v-if="project" class="container__project">
     <!-- header start -->
-
-    <figure class="media__img--hero">
-      <img
-        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      />
-    </figure>
     <header class="container__content">
       <h1>{{ project?.title }}</h1>
       <article class="container__content__inner">
@@ -163,6 +117,14 @@ export default {
         </section>
       </article>
     </header>
+    <figure class="media__img--hero">
+      <img
+        :src="`/img/works/${company}/${slug}/${project.img[0].fileName}`"
+        decoding="async"
+        loading="lazy"
+        sizes=""
+      />
+    </figure>
     <!-- header end -->
     <!-- context start -->
     <section class="container__content">
@@ -194,12 +156,6 @@ export default {
             type="video/mp4"
           />
         </video>
-        <!-- <img
-          :src="`/img/works/${company}/${slug}/${project.img[2].fileName}`"
-          decoding="async"
-          loading="lazy"
-          sizes=""
-        /> -->
       </figure>
       <figure class="media__img--feature">
         <video autoplay muted loop>
@@ -240,12 +196,6 @@ export default {
         img-height="100%"
         img-class="media__img--zoom"
       />
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
     </figure>
     <!-- hero image end -->
     <!-- creation part 1 start -->
@@ -291,16 +241,6 @@ export default {
         </section>
       </article>
     </section>
-    <!-- creation part 2 end -->
-    <!-- hero image start
-    <section class="media__img--hero">
-      <main>
-        <figure>
-          <img decoding="async" loading="lazy" sizes="" />
-        </figure>
-      </main>
-    </section>
-    hero image end -->
     <!-- manage start -->
     <section class="container__content">
       <article class="container__content__inner">
@@ -310,16 +250,6 @@ export default {
         <section>
           <p>{{ project?.copy?.sections?.manage?.p1 }}</p>
           <p>{{ project?.copy?.sections?.manage?.p2 }}</p>
-          <!-- <div>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p3 }}</figcaption>
-            </figure>
-            <figure>
-              <img decoding="async" loading="lazy" sizes="" />
-              <figcaption>{{ project?.copy?.sections?.manage?.p4 }}</figcaption>
-            </figure>
-          </div> -->
         </section>
       </article>
     </section>
@@ -334,12 +264,6 @@ export default {
         img-class="media__img--zoom"
       />
       <p>{{ project?.img[8].alt }}</p>
-      <!-- <img
-        :src="`/img/works/${company}/${slug}/${project.img[4].fileName}`"
-        decoding="async"
-        loading="lazy"
-        sizes=""
-      /> -->
     </figure>
     <!-- hero image end -->
     <!-- retro start -->
@@ -351,19 +275,55 @@ export default {
         <section>
           <p>{{ project?.copy?.sections?.retro?.p1 }}</p>
           <ul class="content__goals">
-            <li class="content__goal" v-for="goal in project?.copy?.sections?.goals">
+            <li class="content__goal">
               <div>
                 <em>Goal</em>
-                <span v-html="goal.goal"></span>
+                <span v-html="project?.copy?.sections?.goals[1].goal"></span>
               </div>
               <div>
                 <em>Result</em>
-                <span v-html="goal.result"></span>
+                <span v-html="project?.copy?.sections?.goals[1].result"></span>
+              </div>
+            </li>
+            <li class="content__goal">
+              <div>
+                <em>Goal</em>
+                <span v-html="project?.copy?.sections?.goals[2].goal"></span>
+              </div>
+              <div>
+                <em>Result</em>
+                <span v-html="project?.copy?.sections?.goals[2].result"></span>
               </div>
             </li>
           </ul>
           <p>{{ project?.copy?.sections?.retro?.p2 }}</p>
+          <ul class="content__goals">
+            <li class="content__goal">
+              <div>
+                <em>Goal</em>
+                <span v-html="project?.copy?.sections?.goals[4].goal"></span>
+              </div>
+              <div>
+                <em>Result</em>
+                <span v-html="project?.copy?.sections?.goals[4].result"></span>
+              </div>
+            </li>
+          </ul>
           <p>{{ project?.copy?.sections?.retro?.p3 }}</p>
+          <ul class="content__goals">
+            <li class="content__goal">
+              <div>
+                <em>Goal</em>
+                <span v-html="project?.copy?.sections?.goals[3].goal"></span>
+              </div>
+              <div>
+                <em>Result</em>
+                <span v-html="project?.copy?.sections?.goals[3].result"></span>
+              </div>
+            </li>
+          </ul>
+          <p>{{ project?.copy?.sections?.retro?.p4 }}</p>
+          <p>{{ project?.copy?.sections?.retro?.p5 }}</p>
         </section>
       </article>
     </section>
@@ -374,10 +334,6 @@ export default {
       <div>project not found</div>
     </header>
   </section>
-
-  <!-- start footer -->
-  <GlobalFooter />
-  <!-- end footer -->
 </template>
 
 <style lang="scss" scoped>
@@ -469,7 +425,7 @@ export default {
     padding: convertRem(24px);
     background-color: $primary__color--background--darker;
     border-radius: convertRem(16px);
-    @include text-style(p, normal, base);
+    @include text-style(p, book, base);
 
     div {
       display: flex;
@@ -501,7 +457,7 @@ export default {
 }
 
 header {
-  margin: 0 0 convertRem(64px) !important;
+  margin: convertRem(24px) 0 convertRem(64px) !important;
   font-size: convertRem(16px);
   gap: convertRem(40px);
 
@@ -549,7 +505,7 @@ figure {
 
   figcaption {
     margin-top: convertRem(8px);
-    @include text-style(small, normal, base);
+    @include text-style(small, regular, base);
     text-align: center;
   }
 }
@@ -607,7 +563,7 @@ figure {
 .caption {
   &--floating {
     p {
-      @include text-style(small, normal, base);
+      @include text-style(small, regular, base);
       text-align: center;
     }
   }
@@ -638,10 +594,6 @@ li {
       text-transform: uppercase;
     }
   }
-}
-
-#footer {
-  @include container-inner-grid;
 }
 
 @media (min-width: 1024px) {

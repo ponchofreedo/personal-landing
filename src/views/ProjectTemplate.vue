@@ -1,18 +1,12 @@
 <script setup lang="ts">
 import { defineAsyncComponent, type Component } from 'vue'
-import { useRouter } from 'vue-router'
-import GlobalNavigation from '@global/GlobalNavigation.vue'
+import UtilityNavigation from '@util/UtilityNavigation.vue'
+// import UtilityFooter from '@util/UtilityFooter.vue'
 import GlobalFooter from '@global/GlobalFooter.vue'
 
 defineOptions({
   inheritAttrs: false,
 })
-
-const router = useRouter()
-
-const goBack = () => {
-  router.back()
-}
 </script>
 
 <script lang="ts">
@@ -44,6 +38,7 @@ export default {
 
       if (!company || !slug) return null
 
+      // to-do: convert this const to an array so i can traverse it with a next/back footer
       // Map route to component using defineAsyncComponent
       const componentMap: Record<string, Component> = {
         'hubspot-create-edit': defineAsyncComponent(
@@ -52,6 +47,18 @@ export default {
         'hubspot-formula-tester': defineAsyncComponent(
           () => import('@components/works/projects/HubspotFormulaTester.vue'),
         ),
+        'klaviyo-customer-profiles': defineAsyncComponent(
+          () => import('@components/works/projects/KlaviyoCustomerProfiles.vue'),
+        ),
+        'order-services-subs': defineAsyncComponent(
+          () => import('@components/works/projects/OrderServicesSubs.vue'),
+        ),
+        // 'hubspot-property-cleanup': defineAsyncComponent(
+        //   () => import('@components/works/projects/HubspotPropertyCleanup.vue'),
+        // ),
+        // 'tentrr-discovery': defineAsyncComponent(
+        //   () => import('@components/works/projects/TentrrDiscovery.vue'),
+        // ),
         // 'whalar-buoy-foundations': defineAsyncComponent(() => import('@components/works/projects/WhalarBuoyFoundations.vue')),
       }
 
@@ -63,42 +70,20 @@ export default {
 </script>
 
 <template>
-  <!-- start nav -->
-  <GlobalNavigation />
-  <!-- end nav -->
-
-  <!-- back link start -->
-  <header>
-    <RouterLink @click="goBack" to="" class="link link--back">
-      <icon type="icon" name="iconArrowLeft" />
-      <span>Go back</span>
-    </RouterLink>
-  </header>
-  <!-- back link end -->
+  <!-- start utility nav -->
+  <UtilityNavigation />
+  <!-- end utility nav -->
 
   <component v-if="currentComponent" :is="currentComponent" />
+
+  <!-- to-do: back and next project footer-->
+  <!-- start utility nav -->
+  <!-- <UtilityFooter /> -->
+  <!-- end utility nav -->
 
   <!-- start footer -->
   <GlobalFooter />
   <!-- end footer -->
 </template>
 
-<style lang="scss" scoped>
-header {
-  @include container-inner-grid;
-  margin-top: convertRem(16px);
-  margin-bottom: convertRem(16px);
-}
-
-#footer {
-  @include container-inner-grid;
-}
-
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

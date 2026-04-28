@@ -142,22 +142,19 @@ export default {
 footer {
   display: flex;
   flex-direction: column;
-  @include container-max-width;
-  @include container-responsive-padding;
+  width: 100%;
   color: $primary__color--text--darker;
 }
 
 article {
+  @include container-max-width;
+  @include container-responsive-padding;
   display: flex;
   flex-direction: column;
-  padding: convertRem(120px) 0 convertRem(80px);
+  padding-block: convertRem(120px) convertRem(80px);
 
   @media (max-width: 980px) {
-    padding-top: convertRem(80px);
     padding-bottom: convertRem(40px);
-  }
-
-  @media (max-width: 680px) {
   }
 }
 

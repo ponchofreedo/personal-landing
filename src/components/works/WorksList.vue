@@ -14,17 +14,18 @@ import { selectedWorks } from '@data/constants'
           class="selected-work__container"
         >
           <RouterLink
-            :to="'/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug"
+            :to="
+              selectedWork.private
+                ? ''
+                : '/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug
+            "
             :target="selectedWork.target"
+            :class="selectedWork.private ? 'is-private' : ''"
           >
             <main class="selected-work__inner-container">
               <section class="selected-work__details">
                 <h3>{{ selectedWork.title }}</h3>
                 <ul class="tag__snackbar snackbar--always-wrap">
-                  <li class="tag tag--private" v-if="selectedWork.private">
-                    <icon type="icon" name="iconPrivate" />
-                    <span>Private</span>
-                  </li>
                   <li class="tag tag--testing" v-if="selectedWork.testing">
                     <icon type="icon" name="iconLightning" />
                     <span>Testing</span>
@@ -74,6 +75,10 @@ import { selectedWorks } from '@data/constants'
                     <span>Shipped</span>
                   </li>
                   <li class="tag tag--freelance" v-if="selectedWork.freelance">Freelance</li>
+                  <li class="tag tag--private" v-if="selectedWork.private">
+                    <icon type="icon" name="iconPrivate" />
+                    <span>Private</span>
+                  </li>
                 </ul>
                 <p>{{ selectedWork.preview }}</p>
                 <footer>
@@ -104,7 +109,7 @@ import { selectedWorks } from '@data/constants'
   display: flex;
   flex-direction: column;
   padding-top: convertRem(120px); // do not change this value at any breakpoint
-  padding-bottom: convertRem(80px);
+  padding-bottom: convertRem(120px);
 
   @media (max-width: 980px) {
     padding-bottom: convertRem(80px);
@@ -121,22 +126,6 @@ article {
     @include container-responsive-padding;
     position: relative;
 
-    &:first-of-type {
-      &::before {
-        display: none;
-      }
-    }
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: convertRem(-42px); // +2px to account for extra gap
-    //   bottom: 0;
-    //   height: 2px;
-    //   background-color: $primary__color--border;
-    // }
-    // @include psuedo-before-full-width-padding-fix;
-
     a {
       display: flex;
       flex-direction: inherit;
@@ -144,15 +133,11 @@ article {
       text-decoration: none;
       color: inherit;
       position: relative;
-      transition: background-color 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
       z-index: 1;
 
-      h3 {
-        @include text-hover-effect(strike, 0.24s);
-        @include text-hover-effect(color, 0.24s);
-        transition:
-          color 0.24s ease-in-out,
-          text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
+      &.is-private {
+        cursor: default !important;
       }
 
       &::before {
@@ -160,21 +145,20 @@ article {
         position: absolute;
         top: -#{convertRem(40px)};
         bottom: -#{convertRem(40px)};
-        left: -#{convertRem(80px)};
-        right: -#{convertRem(80px)};
+        left: -#{convertRem(64px)}; // 80 + 24 (margin)
+        right: -#{convertRem(64px)}; // 80 + 24 (margin)
         z-index: -1;
         background-color: $primary__color--background--lighter;
         opacity: 0;
-        transition: opacity 0.2s ease-in-out;
-        // 16px image radius + 40px padding
-        // see...i follow the rules
+        border-radius: convertRem(48px);
+        margin-inline: convertRem(24px);
+        transition: inherit;
 
-        @media (max-width: 980px) {
-          left: -#{convertRem(24px)};
-          right: -#{convertRem(24px)};
+        @media (max-width: 1280px) {
+          margin-inline: convertRem(24px);
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 980px) {
           display: none;
         }
       }
@@ -193,6 +177,34 @@ article {
           opacity: 0.8;
         }
       }
+
+      h3 {
+        @include text-hover-effect(strike, 0.24s);
+        @include text-hover-effect(color, 0.24s);
+        transition:
+          color 0.24s ease-in-out,
+          text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
+      }
+    }
+
+    &[team='HubSpot'] figure {
+      background-color: #ff8f59;
+    }
+
+    &[team='Klaviyo'] figure {
+      background-color: #f3f2f1;
+    }
+
+    &[team='Whalar'] figure {
+      background-color: #918eeb;
+    }
+
+    &[team='Copley AI'] figure {
+      background-color: #0071c6;
+    }
+
+    &[team='Order'] figure {
+      background-color: #067d5e;
     }
   }
 
@@ -224,7 +236,7 @@ article {
       display: flex;
       flex-direction: row;
       gap: convertRem(8px);
-      margin-top: convertRem(32px);
+      margin-top: convertRem(16px);
       color: $primary__color--text--muted;
 
       span {
@@ -259,7 +271,11 @@ menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: convertRem(80px);
+  row-gap: convertRem(88px); // +8px for hover gap
+
+  @media (max-width: 980px) {
+    row-gap: convertRem(80px);
+  }
 }
 
 figure {

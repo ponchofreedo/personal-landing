@@ -43,9 +43,7 @@ export default {
 @use 'sass:math';
 
 #works,
-#experience,
-#contact,
-#footer {
+#experience {
   @include container-max-width;
 }
 </style>

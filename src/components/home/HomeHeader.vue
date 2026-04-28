@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { goToExternalLink, slidesLink } from '@/data/constants'
 
 onMounted(() => {
   window.scrollTo({
@@ -61,7 +62,26 @@ export default {
       </section>
       <footer>
         <small>NY born and bred. Based in Stamford, CT. Go Birds.</small>
-        <icon type="svg" name="iconArrowSquareDown" v-on:click="scrollToWorks()" />
+        <div>
+          <button
+            type="button"
+            class="button button--secondary button--has-icon button--icon-right"
+            @click="scrollToWorks()"
+          >
+            Selected works<span class="button__icon-container"
+              ><icon type="svg" name="iconArrowSquareDown"
+            /></span>
+          </button>
+          <button
+            type="button"
+            class="button button--secondary button--has-icon button--icon-right"
+            @click="goToExternalLink(slidesLink, '_blank')"
+          >
+            Figma Slides deck<span class="button__icon-container"
+              ><icon type="svg" name="iconArrowSquareUpRight"
+            /></span>
+          </button>
+        </div>
       </footer>
     </article>
   </header>
@@ -157,16 +177,35 @@ footer {
   grid-column: inherit;
   margin-top: convertRem(24px);
 
-  svg {
-    cursor: pointer;
-    @include svgProps(
-      $height: convertRem(32px),
-      $width: convertRem(32px),
-      $scale: 1,
-      $stroke: 3,
-      $color: $primary__color--accent
-    );
+  div {
+    display: flex;
+    gap: convertRem(8px);
+
+    @media (max-width: 680px) {
+      flex-direction: column;
+
+      button {
+        &:first-of-type {
+          order: 2;
+        }
+
+        &:last-of-type {
+          order: 1;
+        }
+      }
+    }
   }
+
+  // svg {
+  //   cursor: pointer;
+  //   @include svgProps(
+  //     $height: convertRem(32px),
+  //     $width: convertRem(32px),
+  //     $scale: 1,
+  //     $stroke: 3,
+  //     $color: $primary__color--accent
+  //   );
+  // }
 }
 
 // img {

@@ -98,15 +98,6 @@ export default {
             loading="lazy"
             sizes=""
           />
-          <button
-            type="button"
-            class="button button--secondary button--has-icon button--icon-right"
-            @click="goToExternalLink(project?.meta?.projectLink, '_blank')"
-          >
-            Explore Figma<span class="button__icon-container"
-              ><icon type="svg" name="logoFigma"
-            /></span>
-          </button>
         </figure>
       </section>
     </header>
@@ -964,8 +955,8 @@ figure {
   }
 
   // special classes reserved for teams. will move this to something else in the future.
-  &[team='hubspot'] {
-    background-color: #ff8f59;
+  &[team='order'] {
+    background-color: #067d5e;
   }
 }
 
@@ -1190,12 +1181,12 @@ p {
   }
 }
 
-[team='hubspot'] {
-  --brand-color: #ff8f59;
-  --secondary-color: #070b11;
+[team='order'] {
+  --brand-color: #067d5e;
+  --secondary-color: #f7f6f2;
 
   .header__meta__company {
-    color: var(--brand-color);
+    color: var(--secondary-color);
 
     div {
       background-color: var(--brand-color);

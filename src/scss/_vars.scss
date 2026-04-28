@@ -45,7 +45,9 @@ $primary__color: initial; // agnostic and globally overridden
 $primary__color--background: $base__color--neutral--960;
 $primary__color--background--darker: $base__color--neutral--980;
 $primary__color--background--lighter: $base__color--neutral--800;
+$primary__color--background--invert: $base__color--neutral--250;
 $primary__color--border: $base__color--neutral--650;
+$primary__color--border--lighter: $base__color--neutral--450;
 $primary__color--text: $base__color--neutral--50;
 $primary__color--text--muted: $base__color--neutral--250;
 $primary__color--text--darker: $base__color--neutral--450;
@@ -68,7 +70,8 @@ $text__font-size--h5: 24; // change to 16 when updating the design
 $text__font-size--p: 18;
 $text__font-size--super: 80;
 $text__font-size--big: 24;
-$text__font-size--small: 14;
+$text__font-size--small: 16;
+$text__font-size--xsmall: 14;
 
 // line heights
 $text__line-height--base: 1.6;
@@ -98,6 +101,7 @@ $type-vars: (
     super: $text__font-size--super,
     big: $text__font-size--big,
     small: $text__font-size--small,
+    xsmall: $text__font-size--xsmall,
   ),
   line-heights: (
     base: $text__line-height--base,

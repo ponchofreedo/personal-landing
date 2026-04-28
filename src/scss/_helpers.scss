@@ -191,13 +191,26 @@ $default-font-size: 16px;
   } @else if $size != null {
     text-decoration-thickness: convertRem($size);
   }
-
-  // this is an experiment that doesn't currently work outside of firefox
-  // text-decoration-line: underline;
-  // text-decoration-thickness: convertRem(4px);
-  // text-decoration-skip: none;
-  // text-decoration-inset: -2px;
 }
+
+// use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
+@mixin button-icon-hover-translation($distance, $timing, $delay: 0s) {
+  svg {
+    translate: 0;
+    transition: translate $timing ease-in-out $delay;
+  }
+  &:hover {
+    svg {
+      translate: $distance;
+    }
+  }
+}
+
+// this is an experiment that doesn't currently work outside of firefox
+// text-decoration-line: underline;
+// text-decoration-thickness: convertRem(4px);
+// text-decoration-skip: none;
+// text-decoration-inset: -2px;
 
 @mixin svgProps(
   $height: convertRem(16px),

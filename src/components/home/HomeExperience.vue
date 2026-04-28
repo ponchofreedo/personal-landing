@@ -97,7 +97,6 @@ article {
   }
 
   @media (max-width: 680px) {
-    grid-column: span 4;
     row-gap: convertRem(24px);
   }
 
@@ -134,7 +133,7 @@ article {
   @media (max-width: 980px) {
     grid-column: 1 / -1;
     padding-left: 0;
-    padding-bottom: convertRem(80px);
+    padding-bottom: convertRem(40px);
   }
 
   [state='wip'] {
@@ -176,8 +175,7 @@ header {
   h4 {
     color: $primary__color--text--darker;
     padding-bottom: convertRem(40px);
-    border-bottom: convertRem(2px) solid $primary__color--background--lighter;
-    margin-bottom: convertRem(48px);
+    margin-bottom: convertRem(16px);
     position: relative;
   }
 
@@ -313,7 +311,7 @@ ul {
     gap: convertRem(8px);
     background-color: $primary__color--background;
     border-radius: convertRem(16px);
-    border-color: $primary__color--background--lighter;
+    border-color: $primary__color--border;
     border-width: convertRem(2px);
     border-style: solid;
     transition:

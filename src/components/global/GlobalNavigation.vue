@@ -106,7 +106,7 @@ const toggleMenu = () => {
           <li id="download">
             <a :href="resumeLink" target="_blank"
               ><span>R&eacute;sum&eacute;</span>
-              <icon type="svg" name="iconDownload" />
+              <icon type="svg" name="iconArrowSquareUpRight" />
             </a>
           </li>
         </ul>
@@ -181,11 +181,13 @@ nav {
       border: none;
       height: min-content;
       width: min-content;
-      padding: convertRem(8px);
+      padding: convertRem(10px);
       border-radius: convertRem(8px);
       line-height: 0;
       margin-left: convertRem(16px);
-      background-color: $primary__color--background--lighter;
+      background-color: transparent;
+      outline: convertRem(2px) solid $primary__color--border;
+      outline-offset: convertRem(-2px); // optical correction for outline
       cursor: pointer;
 
       svg {
@@ -197,13 +199,6 @@ nav {
           $color: $primary__color--accent
         );
       }
-    }
-  }
-
-  &__responsive--is-open {
-    button {
-      outline: convertRem(2px) solid $primary__color--background;
-      outline-offset: convertRem(-2px); // optical correction for outline
     }
   }
 }
@@ -219,7 +214,7 @@ nav {
   flex-direction: column;
   justify-content: flex-start;
   gap: 0;
-  background-color: $primary__color--background--lighter;
+  background-color: $primary__color--background;
   border-top: convertRem(4px) solid $primary__color--accent;
   padding: convertRem(24px);
 
@@ -363,7 +358,7 @@ ul {
             $height: convertRem(24px),
             $width: convertRem(24px),
             $scale: 1,
-            $stroke: 0
+            $stroke: 3
           );
         }
       }
