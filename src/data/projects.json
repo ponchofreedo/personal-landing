@@ -409,12 +409,36 @@
         "copy": {
           "sections": {
             "intro": {
-              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to improve the experience and unlock how our customers actually use it for both support and discovery."
+              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to improve the experience and unlock how our customers actually use it for both support and discovery.",
+              "p2": "Profiles hadn't been meaningfully updated since it was first built over a decade ago, and it was showing its age. Poor data hierarchy, endless scrolling, unpaginated cards with reveal limits, and frequent crashes from API timeouts had turned a core workflow into a frustration. With my PM, I was also working to shift our GPS team's mission toward a stronger audience focus, so it made for the right moment to turn this page from a burden back into a useful tool."
             },
             "context": {
               "title": "Context.",
               "p1": "The profile page is Klaviyo's core view for understanding how any individual customer has interacted with a brand. It's a dense data hub, but customer come to it for two primary reasons: troubleshooting and discovery.",
               "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
+            },
+            "goals": {
+              "title": "Goals.",
+              "p1": "The core problem came down to three things: discovery, density, and scale. Rather than settling for a 1:1 rebuild, I pitched my team and product leaders to address these issues properly, especially given that Klaviyo was mid-stack overhaul and moving to React on the front end. It was the right moment to meaningfully fix things instead of kicking the can down the road.",
+              "goals": [
+                {
+                  "goal": "Promote self-service",
+                  "goalDetail": "Observe a shift away from regular support contact and toward customers using accessible features to solve certain issues"
+                },
+                {
+                  "goal": "Decrease churn risk",
+                  "goalDetail": "Recapture customers that are using multiple platforms to sift data due to performance and hierarchy issues that currently exist"
+                },
+                {
+                  "goal": "Prepare for scale",
+                  "goalDetail": "New UI should not only prepare for a heavier data load, but also for product shifts and new features"
+                }
+              ]
+            },
+            "audits": {
+              "title": "Audits and processes.",
+              "p1": "We were also looking at how to grow the GPS product area into its own ecosystem, extending its value beyond standalone tools into other parts of the platform. While we decided to audit the entire profiles area, we pursued fixing this foundational view as the first step toward making that ecosystem possible.",
+              "p2": "With a clearer picture of the product area, we moved into customer interviews to surface pain points and sharpen our approach. It also gave me a structured moment to align with key stakeholders on their concerns and expectations."
             },
             "problem": {
               "title": "The problem.",
@@ -450,24 +474,6 @@
               "p2": "This was also my first major feature at HubSpot, and navigating a larger stakeholder audience while still getting up to speed came with its own challenges. In hindsight, I would have built more time into the timeline to bring stakeholders in earlier rather than mid-flight. In my experience, projects with a broad audience benefit from a bit more upfront discovery. Each project like this teaches me something new about how to handle them better.",
               "p3": "Even with some lumps and bumps, I was still happy with how things ended with the minor exception of not being able to see some of the future plans I had cooked up through to production when they were ready. Most importantly, our customers were happy and appreciative of the changes we delivered and also excited for many of the forward-looking things we showed off during our interviews."
             },
-            "goals": {
-              "1": {
-                "goal": "Improve flexibility",
-                "goalDetail": "Rebuild flow with alternative to wizard structure to allow for more flexibility"
-              },
-              "2": {
-                "goal": "Promote self-service",
-                "goalDetail": "Increase opportunities for self-service and reduce relevant support incidence volume by up to 20% WoW"
-              },
-              "3": {
-                "goal": "Focus on scale",
-                "goalDetail": "New experience should be prepared for future AI/ML-friendly features and new core features "
-              },
-              "4": {
-                "goal": "Drive adoption",
-                "goalDetail": "Bring customers that rely on API or imports/exports for data management back to the table"
-              }
-            },
             "results": {
               "1": {
                 "result": "Redundancy reduced",
@@ -486,16 +492,7 @@
                 "resultDetail": "Based on CSAT improving from ~75% to ~78% and feedback from surveys, customers that adopted more complex workflows to create or manage their properties were starting to come back to the first-party experience"
               }
             },
-            "quotes": {
-              "1": {
-                "quote": "It's all muscle memory at this point.",
-                "attribution": "a VP of Ops from a retailer, when asked about their current workflow"
-              },
-              "2": {
-                "quote": "If I have to click \"back\" one more time to change the name of this property because of a typo, I might throw my mouse at my door.",
-                "attribution": "a RevOps Manager from a partner agency during a testing session"
-              }
-            },
+            "quotes": {},
             "user-stories": [
               { 
                 "story": "As support stagg, I need to quickly locate key customer data to troubleshoot or triage an issue"
@@ -509,13 +506,15 @@
         "meta": {
           "tags": ["shipped"],
           "year": 2023,
-          "dateStart": "October 2021",
-          "dateEnd": "June 2023",
+          "dateStart": "February 2022",
+          "dateEnd": "March 2023",
           "slug": "create-edit",
           "href": "/works/create-edit",
           "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
         },
-        "team": "1 PD&#128075;&#127996;, 1 PM, 1 EM, 4 SWE",
+        "team": "1 SrPD&#128075;&#127996;, 1 JrPD, 1 PM, 1 EM, 4 SWE",
+        "role": "Senior Product Designer",
+        "reach": "4 product teams, CS, Product Ops, Legal",
         "company": "Klaviyo",
         "company_url": "https://www.klaviyo.com/",
         "slug": "customer-profiles",

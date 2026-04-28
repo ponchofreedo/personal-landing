@@ -77,7 +77,7 @@ export default {
             class="button button--secondary button--has-icon button--icon-right"
             @click="goToExternalLink(slidesLink, '_blank')"
           >
-            My Figma Slides deck<span class="button__icon-container"
+            Figma Slides deck<span class="button__icon-container"
               ><icon type="svg" name="iconArrowSquareUpRight"
             /></span>
           </button>
