@@ -1,0 +1,374 @@
+<script setup lang="ts">
+import { selectedWorks } from '@data/constants'
+</script>
+
+<template>
+  <section id="works">
+    <article>
+      <header>
+        <h4>Selected works.</h4>
+      </header>
+      <menu>
+        <li
+          v-for="selectedWork in selectedWorks"
+          :key="selectedWork.slug"
+          :team="selectedWork.team"
+          class="selected-work__container"
+        >
+          <RouterLink
+            :to="
+              selectedWork.private
+                ? ''
+                : '/works/' + selectedWork.team.toLowerCase() + '/' + selectedWork.slug
+            "
+            :target="selectedWork.target"
+            :class="selectedWork.private ? 'is-private' : ''"
+          >
+            <main class="selected-work__inner-container">
+              <section class="selected-work__details">
+                <h3>{{ selectedWork.title }}</h3>
+                <ul class="tag__snackbar snackbar--always-wrap">
+                  <li class="tag tag--testing" v-if="selectedWork.testing">
+                    <icon type="icon" name="iconLightning" />
+                    <span>Testing</span>
+                  </li>
+                  <li class="tag tag--in-dev" v-if="selectedWork.inDev">
+                    <svg
+                      viewBox="0 0 18 18"
+                      height="16"
+                      width="16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="9"
+                        cy="9"
+                        r="8"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-dasharray="4"
+                        stroke-linecap="square"
+                      />
+                    </svg>
+                    <span>In development</span>
+                  </li>
+                  <li class="tag tag--beta" v-if="selectedWork.beta">
+                    <svg
+                      viewBox="0 0 18 18"
+                      height="16"
+                      width="16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    <span>Beta</span>
+                  </li>
+                  <li class="tag tag--shipped" v-if="selectedWork.shipped">
+                    <svg
+                      viewBox="0 0 18 18"
+                      height="16"
+                      width="16"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="9" cy="9" r="8" />
+                    </svg>
+                    <span>Shipped</span>
+                  </li>
+                  <li class="tag tag--freelance" v-if="selectedWork.freelance">Freelance</li>
+                  <li class="tag tag--private" v-if="selectedWork.private">
+                    <icon type="icon" name="iconPrivate" />
+                    <span>Private</span>
+                  </li>
+                </ul>
+                <p>{{ selectedWork.preview }}</p>
+                <footer>
+                  <span>{{ selectedWork.team }}</span>
+                  <span>{{ selectedWork.date }}</span>
+                </footer>
+              </section>
+              <figure class="selected-work__hero">
+                <img
+                  :src="`/img${selectedWork.staticHref}/${selectedWork.heroImg}`"
+                  decoding="async"
+                  loading="lazy"
+                  sizes=""
+                />
+              </figure>
+            </main>
+          </RouterLink>
+        </li>
+      </menu>
+    </article>
+    <footer class="disclaimer">
+      <p>
+        See all available projects on
+        <a
+          href="https://github.com/ponchofreedo/portfolio-projects/"
+          target="_blank"
+          class="link link--inline"
+          >GitHub
+          <icon type="icon" name="logoGitHub" />
+          <icon type="icon" name="iconArrowSquareUpRight"
+        /></a>
+        or
+        <a
+          href="mailto:zach.freed+inquiry@gmail.com?subject=%27Sup."
+          target="_blank"
+          class="link link--inline"
+          >drop a messge</a
+        >
+        if you'd like to discuss anything that is labeled
+        <span><icon type="icon" name="iconPrivate" />Private</span>.
+      </p>
+    </footer>
+  </section>
+</template>
+
+<style lang="scss" scoped>
+@use 'sass:math';
+
+#works {
+  display: flex;
+  flex-direction: column;
+  padding-top: convertRem(120px); // do not change this value at any breakpoint
+  padding-bottom: convertRem(120px);
+
+  @media (max-width: 980px) {
+    padding-bottom: convertRem(80px);
+  }
+}
+
+article,
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-work {
+  &__container {
+    @include container-responsive-padding;
+    position: relative;
+
+    a {
+      display: flex;
+      flex-direction: inherit;
+      gap: inherit;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+      z-index: 1;
+
+      &.is-private {
+        cursor: default !important;
+      }
+
+      &:not(a figure):hover {
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      h3 {
+        @include text-hover-effect(strike, 0.24s);
+        @include text-hover-effect(color, 0.24s);
+        transition:
+          color 0.24s ease-in-out,
+          text-decoration-color 0.24s ease-in-out; // eventually maybe replace this with a sass-map or something to make it more dynamic
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -#{convertRem(40px)};
+        bottom: -#{convertRem(40px)};
+        left: -#{convertRem(64px)}; // 80 + 24 (margin)
+        right: -#{convertRem(64px)}; // 80 + 24 (margin)
+        z-index: -1;
+        background-color: $primary__color--background--lighter;
+        opacity: 0;
+        border-radius: convertRem(48px);
+        margin-inline: convertRem(24px);
+        transition: inherit;
+
+        @media (max-width: 1280px) {
+          margin-inline: convertRem(24px);
+        }
+
+        @media (max-width: 980px) {
+          display: none;
+        }
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+
+        h3 {
+          text-decoration-color: inherit;
+          color: $primary__color--text--muted;
+        }
+
+        figure {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &[team='HubSpot'] figure {
+      background-color: #ff8f59;
+    }
+
+    &[team='Klaviyo'] figure {
+      background-color: #f3f2f1;
+    }
+
+    &[team='Whalar'] figure {
+      background-color: #918eeb;
+    }
+
+    &[team='Copley AI'] figure {
+      background-color: #0071c6;
+    }
+
+    &[team='Order'] figure {
+      background-color: #067d5e;
+    }
+  }
+
+  &__inner-container {
+    @include container-inner-grid;
+    height: 100%;
+
+    @media (max-width: 1280px) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: convertRem(8px);
+    align-self: center;
+    grid-column: col-start / span 4;
+
+    @media (max-width: 1280px) {
+    }
+
+    @media (max-width: 980px) {
+      grid-column: 1 / -1;
+      order: 2;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: row;
+      gap: convertRem(8px);
+      margin-top: convertRem(16px);
+      color: $primary__color--text--muted;
+
+      span {
+        &:first-child {
+          @include text-style(small, bold, fixed);
+        }
+        &:last-child {
+          @include text-style(small, regular, fixed);
+          color: $primary__color--text--darker;
+        }
+      }
+    }
+  }
+
+  &__hero {
+    grid-column: 6 / col-end;
+    align-self: center;
+
+    @media (max-width: 1280px) {
+      grid-column: 5 / col-end;
+    }
+
+    @media (max-width: 980px) {
+      grid-column: 1 / -1;
+      order: 1;
+    }
+  }
+}
+
+header,
+footer:not(menu footer) {
+  @include container-responsive-padding;
+}
+
+h4 {
+  color: $primary__color--text--darker;
+  padding-bottom: convertRem(32px);
+  margin-bottom: convertRem(16px);
+}
+
+menu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: convertRem(88px); // +8px for hover gap
+
+  @media (max-width: 980px) {
+    row-gap: convertRem(80px);
+  }
+}
+
+figure {
+  height: min-content;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 2 / 1;
+  border-radius: convertRem(16px);
+  background-color: $primary__color--background--lighter;
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity 0.2s ease-in-out;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: inherit;
+    object-position: center;
+    object-fit: cover;
+  }
+}
+
+h3 {
+  color: $primary__color--text;
+}
+
+p {
+  color: $primary__color--text--muted;
+}
+
+footer:not(menu footer) {
+  margin-top: convertRem(80px);
+
+  span {
+    display: inline-flex;
+    align-items: baseline;
+    gap: convertRem(4px);
+    color: $primary__color--accent;
+    margin-bottom: convertRem(-2px);
+
+    svg {
+      display: inherit;
+      align-self: center;
+      @include svgProps($scale: 1, $stroke: 3, $color: inherit);
+      margin-top: convertRem(-1px);
+    }
+  }
+
+  @media (max-width: 980px) {
+    margin-top: convertRem(64px);
+  }
+}
+</style>

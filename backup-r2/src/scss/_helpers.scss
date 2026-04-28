@@ -1,0 +1,249 @@
+// helper functions
+@use 'sass:map';
+@use 'sass:math';
+@use 'vars' as *;
+
+// functions
+$default-font-size: 16px;
+
+@function stripUnit($value) {
+  @return math.div($value, ($value * 0 + 1));
+}
+@function convertRem($pxValue) {
+  @return #{math.div(stripUnit($pxValue), stripUnit($default-font-size))}rem;
+}
+
+// mixins
+@mixin text-style($size, $weight, $line-height, $letter-spacing: null) {
+  @if $size != 'inherit' {
+    font-size: convertRem(map.get(map.get($type-vars, sizes), $size));
+
+    @if $size == 'h1' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h1 * 0.64);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h1 * 0.56);
+      }
+    } @else if $size == 'h2' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h2 * 0.72);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h2 * 0.64);
+      }
+    } @else if $size == 'h3' or $size == 'h4' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h3 * 0.8);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h3 * 0.72);
+      }
+    } @else if $size == 'h5' or $size == 'big' {
+      @media (max-width: 680px) {
+        font-size: convertRem($text__font-size--h5 * 0.9);
+      }
+
+      @media (max-width: 480px) {
+        font-size: convertRem($text__font-size--h5 * 0.8);
+      }
+    }
+  } @else {
+    font-size: inherit;
+  }
+
+  @if $weight != 'inherit' {
+    font-weight: map.get(map.get($type-vars, weights), $weight);
+  } @else {
+    font-weight: inherit;
+  }
+
+  @if $line-height != 'inherit' {
+    line-height: map.get(map.get($type-vars, line-heights), $line-height);
+  } @else {
+    line-height: inherit;
+  }
+
+  @if $letter-spacing != null {
+    letter-spacing: map.get(map.get($type-vars, letter-spacing), $letter-spacing);
+  }
+
+  @supports (font-variation-settings: normal) {
+    font-variation-settings: 'wght' map.get(map.get($type-vars, weights), $weight);
+  }
+}
+
+@mixin container-max-width {
+  width: 100%;
+  max-width: convertRem(1600px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin container-responsive-padding {
+  @media (max-width: 1920px) {
+    padding-left: convertRem(80px);
+    padding-right: convertRem(80px);
+  }
+
+  @media (max-width: 980px) {
+    padding-left: convertRem(24px);
+    padding-right: convertRem(24px);
+  }
+}
+
+@mixin container-inner-grid {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: convertRem(40px);
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(8, [col-start] 1fr);
+    gap: convertRem(32px);
+  }
+
+  @media (max-width: 980px) {
+    grid-template-columns: repeat(8, [col-start] 1fr);
+    gap: convertRem(24px);
+  }
+
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(4, [col-start] 1fr);
+  }
+}
+
+@mixin psuedo-before-full-width-padding-fix {
+  &::before {
+    left: 0;
+    right: 0;
+
+    @media (max-width: 1920px) {
+      left: convertRem(80px);
+      right: convertRem(80px);
+    }
+
+    @media (max-width: 980px) {
+      left: convertRem(24px);
+      right: convertRem(24px);
+    }
+  }
+}
+
+@mixin split-column-layout-container {
+  display: grid;
+  place-items: start;
+  grid-template-columns: 0.8fr 1.2fr;
+  column-gap: convertRem(40px);
+}
+
+@mixin split-column-layout-side($side) {
+  @if $side == 'left' {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  } @else if $side == 'right' {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+}
+
+@mixin multi-column-extra-padding($side) {
+  @if $side == 'left' {
+    padding-right: convertRem(20px); // when combined with right side, makes the center gutter 80px
+  } @else if $side == 'right' {
+    padding-left: convertRem(20px); // when combined with left side, makes the center gutter 80px
+  }
+}
+
+// use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
+@mixin text-hover-effect($type, $timing, $delay: 0s, $color: inherit, $size: null) {
+  @if $type == 'strike' {
+    text-decoration-line: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: convertRem(4px);
+    transition: text-decoration-color $timing ease-in-out $delay;
+
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  } @else if $type == 'underline' {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: convertRem(4px);
+    transition: text-decoration-color $timing ease-in-out $delay;
+
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  } @else if $type == 'color' {
+    color: inherit;
+    transition: color $timing ease-in-out $delay;
+
+    &:hover {
+      @if $color {
+        color: $color;
+      } @else {
+        color: inherit;
+      }
+    }
+  } @else if $size != null {
+    text-decoration-thickness: convertRem($size);
+  }
+}
+
+// use a timing value of 'unset' when stacking transitions and then set a separate transition-duration to cover all of them
+@mixin button-icon-hover-translation($distance, $timing, $delay: 0s) {
+  svg {
+    translate: 0;
+    transition: translate $timing ease-in-out $delay;
+  }
+  &:hover {
+    svg {
+      translate: $distance;
+    }
+  }
+}
+
+// this is an experiment that doesn't currently work outside of firefox
+// text-decoration-line: underline;
+// text-decoration-thickness: convertRem(4px);
+// text-decoration-skip: none;
+// text-decoration-inset: -2px;
+
+@mixin svgProps(
+  $height: convertRem(16px),
+  $width: convertRem(16px),
+  $scale: 1,
+  $stroke: null,
+  $color: inherit,
+  $fill: null
+) {
+  height: $height;
+  width: $width;
+
+  @if $scale >= 0 {
+    transform: scale($scale);
+  }
+
+  @if $stroke and $stroke >= 0 {
+    stroke-width: $stroke;
+  }
+
+  @if $color == 'inherit' {
+    color: inherit;
+  } @else if $color == 'none' {
+    color: unset;
+  } @else {
+    color: $color;
+  }
+
+  @if $fill == 'transparent' {
+    fill: transparent;
+  } @else if $fill == 'none' {
+    fill: unset;
+  } @else {
+    fill: $fill;
+  }
+}

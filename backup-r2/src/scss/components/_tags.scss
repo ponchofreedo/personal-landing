@@ -1,0 +1,218 @@
+@use '@scss/vars' as *;
+@use '@scss/helpers' as *;
+
+/* support classes for tags */
+.tag {
+  height: unset;
+  display: inline-flex;
+  align-items: center;
+  @include text-style(p, medium, ui);
+  padding: convertRem(8px) 0;
+  background-color: inherit;
+  color: inherit;
+  gap: convertRem(8px);
+
+  span {
+    white-space: nowrap;
+  }
+
+  svg {
+    @include svgProps(
+      $height: convertRem(8px),
+      $width: convertRem(8px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
+}
+
+.tag--accent {
+  padding: convertRem(8px) convertRem(12px);
+  width: min-content; // this is a fix for grid layout
+  border-radius: convertRem(8px);
+  background-color: $primary__color--accent;
+  color: $primary__color--background;
+
+  span {
+    @include text-style(p, medium, fixed, inherit);
+  }
+
+  svg {
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
+}
+
+.tag--private {
+  gap: convertRem(4px); /* occular adjusment */
+  color: $primary__color--accent;
+
+  svg {
+    margin-right: convertRem(2px);
+    @include svgProps(
+      $height: convertRem(18px),
+      $width: convertRem(18px),
+      $scale: 1,
+      $stroke: 2,
+      $color: inherit
+    );
+  }
+}
+
+.tag--testing {
+  gap: convertRem(4px); /* occular adjusment */
+  color: #deb94a;
+
+  svg {
+    margin-right: convertRem(2px);
+  }
+}
+
+.tag--in-dev {
+  color: $secondary__color--accent--1;
+}
+
+.tag--beta {
+  color: $primary__color--accent;
+}
+
+.tag--shipped {
+  color: $secondary__color--accent--3;
+}
+
+.tag--freelance {
+  color: $primary__color--text--muted;
+}
+
+.tag--availability {
+  padding: convertRem(8px) convertRem(12px);
+  width: min-content; // this is a fix for grid layout
+  border-radius: convertRem(8px);
+  background-color: $secondary__color--accent--3;
+  color: $primary__color--background;
+
+  span {
+    @include text-style(big, medium, fixed, inherit);
+  }
+
+  svg {
+    @include svgProps(
+      $height: convertRem(24px),
+      $width: convertRem(24px),
+      $scale: 1,
+      $stroke: 3,
+      $color: inherit
+    );
+  }
+}
+
+.tag__snackbar,
+ul.tag__snackbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: convertRem(8px);
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  li {
+    position: relative;
+    height: unset;
+    display: inline-flex;
+    align-items: center;
+    @include text-style(p, inherit, ui);
+    padding-inline: convertRem(12px);
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      margin: auto 0;
+      right: convertRem(-7px);
+      display: inline-block;
+      vertical-align: middle;
+      height: convertRem(4px);
+      width: convertRem(4px);
+      border-radius: convertRem(999px);
+      background-color: $ui__color--neutral;
+    }
+  }
+
+  &.snackbar__inline {
+    li {
+      padding-block: 0;
+      padding-inline: convertRem(8px);
+    }
+  }
+
+  &.snackbar--no-gap {
+    gap: 0;
+  }
+
+  &.snackbar--always-wrap {
+    flex-wrap: wrap;
+
+    li:last-child {
+      flex-basis: initial;
+      margin-top: initial;
+      margin-left: initial;
+    }
+  }
+
+  span:not(li span) {
+    position: relative;
+    @include text-style(p, inherit, ui);
+    padding: convertRem(8px) 0;
+    flex-wrap: inherit;
+    color: $primary__color--text--darker;
+
+    &:first-of-type {
+      font-weight: $text__font-weight--bold;
+
+      &:has(+ ul) {
+        margin-right: 32px;
+
+        &::after {
+          position: absolute;
+          content: '';
+          top: convertRem(14px);
+          right: convertRem(-17px);
+          display: inline-block;
+          vertical-align: middle;
+          height: convertRem(4px);
+          width: convertRem(4px);
+          border-radius: convertRem(999px);
+          background-color: $ui__color--neutral;
+        }
+      }
+    }
+
+    &:last-of-type {
+      flex: auto;
+      font-weight: $text__font-weight--medium;
+      text-align: right;
+    }
+  }
+}

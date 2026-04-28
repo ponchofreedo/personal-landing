@@ -1,0 +1,851 @@
+{
+  "projects": {
+    "hubspot": {
+      "create-edit": {
+        "title": "Improving the most core data management flow in HubSpot's CRM to save admins time, money, and [data] sanity",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Solving customer pain points, driving adoption, and reducing internal and external overhead costs by rethinking the way customers create and edit their custom data properties."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "HubSpot's CRM is the core of their product and where customers first build out their HubSpot experience. This made it critical to nail onboarding and data integration from the start.",
+              "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
+            },
+            "problem": {
+              "title": "The problem.",
+              "p1": "A spike in customer support tickets around property management, upcoming internal feature kick-offs, and an opportunity to adopt new design standards from the core product team gave us the perfect moment to rethink and rebuild this workflow from the ground up.",
+              "p2": "This didn't have to be a large undertaking and I could have taken a more incremental approach with smaller wins over time, but we decided to aim higher, because the potential upside for our customers was worth the risk."
+            },
+            "challenges": {
+              "title": "Challenges.",
+              "p1a": "The wizard pattern was well-established with customers, even if disliked",
+              "p1b": "Even with strong negative sentiment in interviews and surveys, we risked running into usability biases like \"it just works\" or \"I don't like change\" mentalities that could drive churn. This same resistance is likely why some customers resorted to building their own API-first solutions rather than adopting a WYSIWYG experience that should have been easier to use.",
+              "p2a": "As a precaution, scope needed to be pared down more than anticipated",
+              "p2b": "This flow generated the building blocks that supported all other features and flows in the CRM for any customer, so if care wasn’t taken, it could’ve had a catastrophic ripple effect.",
+              "p3a": "Getting other teams to adopt a new component proved challenging",
+              "p3b": "Several other product teams drove traffic to our page or had built their own features pushing property data to our tables. In a product this complex, consistency mattered and deviations weren't ideal. I worked closely with each team to negotiate, adapt our solution to their needs, and build their confidence in adopting our component over their own.",
+              "p4a": "Admins are busy and have lives and we should not be encroaching on them",
+              "p4b": "Everyone only has a limited amount of time per day to do any number of things, so why would they want to spend hours (or days) doing a task. If the new flow didn't reduce time on task, it wouldn't have been worth releasing until it did."
+            },
+            "solving": {
+              "title": "Problem-solving.",
+              "p1": "After several major iteration rounds and feedback, I went down two paths: a quick creation component (a stripped-down, deployable flow for more common property types) and advanced property management (a richer experience designed for admins).",
+              "p2": "We took this approach for two reasons: consistency and role-appropriate experience. Guardrails keep property creation uniform across the CRM, while the two-path framework gives admins full control and gives marketers and downstream teams something faster and more focused.",
+              "p3": "User testing, beta feedback, and input from our stakeholders shaped the final production spec. I worked with a content design partner to polish the details before handing it off to engineering and shifting into QA."
+            },
+            "impact": {
+              "title": "Impact.",
+              "p1": "After a two-week closed beta and a month-long open beta reaching roughly 15% of Pro+ tier customers, we shipped to production in mid-March to a warm reception on r/HubSpot and our customer forums. Post-release surveys and interviews were promising, with CSAT improving and customer sentiment no longer including words like \"archaic,\" \"redundant,\" or \"painful.\"",
+              "p2": "In the first month after launch, support volume dropped more than 20% week-over-week, climbing to ~35% in the weeks that followed.",
+              "p3": "Being that this was my first release where I discovered, pitched, prioritized, iterated, and executed end-to-end in my time there, I was really pleased with the framework delivered and the roadmap that was planned for the future."
+            },
+            "retro": {
+              "title": "Retro.",
+              "p1": "No project is without turbulence, and this one was no exception. A few things stood out as areas for growth.",
+              "p2": "Communication is a force multiplier at the senior IC level. I had autonomy, but autonomy can breed tunnel vision. Midway through, I recalibrated and tightened how I communicated decisions and added more polish to written updates. It kept the team aligned and the project on track.",
+              "p3": "HubSpot's concurrent brand and product refresh left my design systems partners largely unavailable, which added unplanned time to the timeline. I adapted by scaling back some decisions where I could, and it didn't hurt the outcome.",
+              "p4": "Stakeholder management was the biggest learning. This was my first large-scale feature at HubSpot, and I would have mapped the stakeholder landscape earlier in the process. Mid-flight is never the right time to be expanding your audience. It's a lesson I carried into every project from then on.",
+              "p5": "Overall, I was proud of where it landed, but with the one caveat that some forward-looking ideas I had scoped didn't make it to production before I moved on."
+            },
+            "goals": {
+              "1": {
+                "goal": "Improve flexibility",
+                "goalDetail": "Rebuild flow with alternative to wizard structure to allow for more flexibility"
+              },
+              "2": {
+                "goal": "Promote self-service",
+                "goalDetail": "Increase opportunities for self-service and reduce relevant support incidence volume by up to 20% WoW"
+              },
+              "3": {
+                "goal": "Focus on scale",
+                "goalDetail": "New experience should be prepared for future AI/ML-friendly features and new core features "
+              },
+              "4": {
+                "goal": "Drive adoption",
+                "goalDetail": "Bring customers that rely on API or imports/exports for data management back to the table"
+              }
+            },
+            "results": {
+              "1": {
+                "result": "Redundancy reduced",
+                "resultDetail": "Customers responded positively to fewer required actions and clearer indicators for incomplete steps"
+              },
+              "2": {
+                "result": "~35% drop in support volume",
+                "resultDetail": "The highest-incidence requests fell sharply after 30 days in production, with customers resolving more on their own. Results held through a 60-day post-mortem"
+              },
+              "3": {
+                "result": "Built to scale",
+                "resultDetail": "The new framework includes planned slots for AI/ML and an upcoming KB feature to help keep customers on task without pulling them out of the experience"
+              },
+              "4": {
+                "result": "CSAT up 3%",
+                "resultDetail": "Scores improved from ~75% to ~78%, and customers who had shifted to workarounds for complex workflows felt more comfortable returning to the first-party experience"
+              }
+            },
+            "quotes": [
+              {
+                "quote": "It's all muscle memory at this point.",
+                "attribution": "a VP of Ops from a retailer, when asked about their current workflow"
+              },
+              {
+                "quote": "If I have to click \"back\" one more time to change the name of this property because of a typo, I might throw my mouse at my door.",
+                "attribution": "a RevOps Manager from a partner agency during a testing session"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "tags": ["shipped"],
+          "year": 2024,
+          "dateStart": "October 2023",
+          "dateEnd": "June 2024",
+          "slug": "create-edit",
+          "href": "/works/create-edit",
+          "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
+        },
+        "team": "1 PD&#128075;&#127996;, 1 PM, 2 EM, 3 SWE",
+        "company": "HubSpot",
+        "company_url": "https://www.hubspot.com/",
+        "slug": "create-edit",
+        "img": [
+          { 
+            "fileName": "hero__main.png", 
+            "alt": "New designs for creating and editing properties in HubSpot"
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A short video showing the frustration of going back and forth between stages of the existing create wizard and losing progress",
+            "caption": [
+              "Customers consistently complained about the existing wizard's rigidity and the fact that progress wasn't saved when they needed to go back and make changes."
+            ]
+          },
+          { 
+            "fileName": "challenge__2.png",
+            "alt": "An image depicting states of the current wizard flow with comment cards that target specific pain points based on feedback from user interviews.",
+            "caption": [
+              "After interviews, I summarized sentiments about certain parts of the existing create flow to help solidify the prioritization pitch to my team.",
+              "Feedback ranged from order of fields, stage clarity, jarring interactions, and, of course, lack of saved progress."
+            ]
+          },
+          { 
+            "fileName": "solving__1.png", 
+            "alt": "Side by side examples of the new quick create component on the left and the full-screen create app on the right",
+            "caption": [
+              "Quick create (left) was made to be deployable anywhere vs the full property management app (right) which was more tailored to advanced users"
+            ]
+          },
+          { 
+            "fileName": "solving__2.png", 
+            "alt": "Examples of the softer, but more functional, error-handling and messaging and validation in the new experiences.",
+            "caption": [
+              "The wizard tracked progress well, but little else. User testing and systems negotiations led to a softer indicator system using the side nav and collapsible containers, with clearer state communicated at each step."
+            ]
+          }
+        ]
+      },
+      "date-time-props": {
+      },
+      "formula-editor": {
+        "title": "Introducing a custom formular editor for calculated properties"
+      },
+      "formula-tester": {
+        "title": "Improving retention and trust with a new calculated formula tester",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Customers couldn't validate their work and were going elsewhere, even leaving the platform, so I introduced a solution to build their confidence."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "HubSpot's CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. To make that good first impression, our goal was to have a best-in-class onboarding data onboarding and integration experience.",
+              "p2": "The challenge with this particular workflow was trying to offer a robust data creation and management experience for customers of all sizes while still making it feel nimble. Based on internal and external sentiment, the current framework for creating and managing data properties was rigid, redundant, and limited; basically the antithesis of the original goal."
+            },
+            "opportunity": {
+              "title": "Opportunity.",
+              "//p1": "Between the customer support contact volume related to managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties.",
+              "p1": "We had enough of a backlog to inform us that customer support was swamped and customers were clearly frustrated with both existing and new features in the workflow. The problem was that this was a serious commitment with potential to not move the needle as much as some other projects we had in our pipeline. With that in mind, our pitch centered on four key goals:"
+            },
+            "goals": {
+              "1": {
+                "goal": "Reduce redundancy by exploring a less rigid flow",
+                "result": "New flow doesn’t require redundant actions and <em><span class='highlight'>is not strictly linear</span></em>"
+              },
+              "2": {
+                "goal": "Reduce relevant support volume by a meaningful amount",
+                "result": "Support volume <em><span class='highlight'>reduced by ~35% WoW</span></em> (~20% expected)"
+              },
+              "3": {
+                "goal": "Improve visibility of new property types and additions",
+                "result": "New test and released property types saw <em><span class='highlight'>nearly doubled adoption rate in first week</span></em> compared to previous rate"
+              },
+              "4": {
+                "goal": "Improve UX flexibility for AI and KB helpers to help drive usage of them",
+                "result": "New framework includes content slots for AI/ML and KB inclusions to <em><span class='highlight'>keep customers on task</span></em> and doesn’t drive them away"
+              }
+            },
+            "creation": {
+              "title": "Redundant, rigid, and in need of replacement.",
+              "//p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "//p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
+              "p1": "Even with a robust backlog, I wanted to get a better picture of customer pain by meeting with a cohort of beta customers. After a dozen or so conversations, the same themes kept coming up: the workflow is rigid and doesn't let them accomplish things in one shot, there are too many required hoops even to set up a simple property, and it doesn't drive adoption of new updates that are useful to them.",
+              "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for customers.",
+              "p2": "If a customer had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
+              "p3": "Going back meant needing to go all the way back. This problem in itself almost became a battle cry based on the number of times it was shared in feedback.",
+              "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
+              "p4": "Sadly, this was even more painful for more complex property types where maybe a customer had spent several minutes trying to create and test a custom formula.",
+              "//p4": "Going back meant needing to go all the way back. This became a regular headache for most customers.",
+              "//p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem.",
+              "p5": "The management flow was not so far different, but located in a different panel. Even with a change of space, the primary issue for management revolved around scalability and data density."
+            },
+            "manage": {
+              "title": "Fixing friction with unity.",
+              "//p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
+              "p1": "Creating and managing properties are, for the most part, admin tasks that have a need for efficiency. In talking to our beta customers, the top three terms that they conveyed for any new features were, \"make it efficient,\" \"make it flexible,\" and \"make it familiar.\"",
+              "p2": "Therefore, my primary objective was to strategize and craft toward a more unified experience with minimal trade-offs in current and future-looking functionality.",
+              "//p2": "There were other issues at play related to managing properties that fell out of scope for this project (things like core actions, ie, deleting, copying, etc), but by migrating the management experience to the same framework as the new creation experience, it allowed for more flexibility to perform a task and also allowed for more visibility and discovery for problem-solving tasks. It also allowed for down-the-road improvements like integrations, AI/ML augments, and KB helper injection so that customers would gain more clarity in the moment as opposed to being shepherded away for most of those moments.",
+              "p3": "The old panel left a lot to be desired according to internal and external anecdotes. It was also starting to get crowded with information and began to feel cramped. With more content and features on the way, it needed to change so that it could scale.",
+              "p4": "The updated experience allowed for more of the free-flow of information and flexibility that our admin customers were craving for some time."
+            },
+            "retro": {
+              "title": "Next steps and reflections.",
+              "//p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "p1": "My team launched the new create and management experiences into alpha just shortly before Christmas with the goal of launching private beta in the first two weeks of Jan 2024. I had scheduled some interviews in advance with our alpha customers and CSMs for those customers to get preliminary qualitative feedback to present with the quantitative data we collected. Those conversations and dives resulted in no increase in support contact over commonly flagged issues we were trying to solve and pointed to positive sentiment toward our goals of reduced redundancy and increased flexibility.",
+              "p2": "One of the goals was to keep customers within the HubSpot app to complete their task without having to contact support, so we wanted to foster a bit more self-service into the flow. I emphasized this in the new experiences by both working with our content designers to simplify helper copy within each step and by creating new content slots to highlight KB articles or [in the future] inject an AI tooltip/card to assist with a task.",
+              "//p2": "At the same time, there were two UX projects happening concurrently while engineering was in the middle of rebuilding the core tech stack for this product area: this framework delivery for creation and management and an encapsulated quick property creation experience for use outside of the admin space. The quick property creation project actually spawned the larger project, funny enough.",
+              "//p3": "The coalescing projects meant that a lot of planning was needed to deliver properly. One thing I would reflect on for this projects relates to communication. At one point I was on one track of work and unaware of what my engineering partners were working on. We discovered that we were working on opposite projects at one point and that syncing back up to get back on track was going to take at least a week. This all could’ve been alleviated by a one-line clarification in a Slack message. It taught me a lesson about properly setting the table and making sure that each partner in the pod is aligned at the right time.",
+              "p3": "The other main point of emphasis was to drive adoption of new property types and features that had been released and were on the roadmap. When using the previous create flow, for example, new property types like Calculated Properties and Sync Properties, two of the currently most popular types for SMB+ customers and which also carry a large up-sell opportunity, were being buried down a long 12+ option dropdown list. Now, by removing some of that red tape and exposing them at once, it reduces choice fatigue and makes it easier for customers to be exposed to new types.",
+              "p4": "After a several week retro and a private beta opt-in over 40%, we found that CS contact dropped ~25% WoW for flagged topics, adoption of the recently updated Calculated Property type steadily increased WoW, and general customer sentiment remained high and never dipped below a CSAT of ~75% (peaking over ~85% for a portion of time).",
+              "p5": "On a personal reflection, this project was not perfect or without faults. There were some communication hiccups between myself and my engineering and product partners that led to some unnecessary steps being taken to achieve some goals. It also led to the need to pivot high-level design decisions several times due to some unclarified product and engineering handcuffs I was not aware of (things I was still learning in my first year). To try and remedy it, I created a separate process in our team's OS to make design work and artifacts more visible in all the channels we were communicating in and create basically a Figma dashboard for a project to keep status more honest for leadership check-ins and other communications. A one-liner in a Slack message could've alleviated a bit of this pain ahead of time, but it taught me a good lesson about properly setting the table with my partners and making sure we're all properly aligned on a more consistent basis."
+            }
+          }
+        },
+        "meta": {
+          "tags": ["shipped"],
+          "date": "2023",
+          "slug": "formula-tester",
+          "href": "/works/formula-tester"
+        },
+        "team": "1PD&#128075;&#127996;, 1PM, 1SWE",
+        "company": "HubSpot",
+        "company_url": "https://www.hubspot.com/",
+        "slug": "formula-tester",
+        "img": [
+          { 
+            "fileName": "hero__1.jpg", 
+            "alt": "New designs for creating and editing properties in HubSpot" 
+          },
+          { 
+            "fileName": "feature__1--mini.jpg", 
+            "alt": "Status and badge indicators for the new sidebar nav" 
+          },
+          { 
+            "fileName": "feature__2--mini.mp4", 
+            "alt": "Smooth transition for adding more options to multi-option properties" 
+          },
+          { 
+            "fileName": "feature__3--mini.mp4", 
+            "alt": "New, simpler field type selection" 
+          },
+          { 
+            "fileName": "hero__2.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "hero__2--zoom.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A benign example of going back to change a property name and losing the field type" 
+          },
+          { 
+            "fileName": "issue__2.mp4", 
+            "alt": "This is a light example of a customer building a calculated property formula, stepping back to check something, and then losing progress" 
+          },
+          { 
+            "fileName": "hero__3.jpg", 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
+          },
+          { 
+            "fileName": "hero__3--zoom.jpg", 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
+          }
+        ]
+      },
+      "prop-declutter": {
+
+      }
+    },
+    "whalar": {
+      "buoy-foundations": {
+        "title": "Building the basics for Buoy, the design system behind Whalar's Foam platform",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Re-architecting a multi-layered mess in Figma to unify design standards, improve velocity, and foster better communication for a globally distributed product development team."
+            },
+            "context": {
+              "title": "Context.",
+              "//p1": "HubSpot is an extremely robust application that includes multiple products to provide a really wide-ranging offering for marketers. The CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. With such a robust application comes robust growth, and with robust growth comes robust debt. Falling into that category was the Data Infra/Data Management part of the application that either gets visited in the beginning of a customer’s experience or not until they have a need for those tools later down the road.",
+              "//p2": "Ten-plus years into development, there were more tools and features available than most customers would ever deal with. On top of this, when you factor in portal type, ie., SMB, enterprise, etc, this makes the offering even more complex. This was no different when it came to creating and managing custom data properties. The workflow [as it existed] was built in a wizard framework with limited flexibility to improve velocity. It also included a limited means to deliver feedback during the process which added confusion and friction while trying to both create or manage a unique property.",
+              "p1": "HubSpot's CRM sits at the core of their product offering and it’s where customers first set up the infrastructure of their HubSpot experience. To make that good first impression, our goal was to have a best-in-class onboarding data onboarding and integration experience.",
+              "p2": "The challenge with this particular workflow was trying to offer a robust data creation and management experience for customers of all sizes while still making it feel nimble. Based on internal and external sentiment, the current framework for creating and managing data properties was rigid, redundant, and limited; basically the antithesis of the original goal."
+            },
+            "opportunity": {
+              "title": "Opportunity.",
+              "//p1": "Between the customer support contact volume related to managing properties, some new features we were preparing for internally, and an opportunity to start formally preparing for and adopting some new design standards our core team was working on, we seized on the moment to prioritize exploring and delivering a new core workflow for creating and managing properties.",
+              "p1": "We had enough of a backlog to inform us that customer support was swamped and customers were clearly frustrated with both existing and new features in the workflow. The problem was that this was a serious commitment with potential to not move the needle as much as some other projects we had in our pipeline. With that in mind, our pitch centered on four key goals:"
+            },
+            "goals": {
+              "1": {
+                "goal": "Reduce redundancy by exploring a less rigid flow",
+                "result": "New flow doesn’t require redundant actions and <em><span class='highlight'>is not strictly linear</span></em>"
+              },
+              "2": {
+                "goal": "Reduce relevant support volume by a meaningful amount",
+                "result": "Support volume <em><span class='highlight'>reduced by ~35% WoW</span></em> (~20% expected)"
+              },
+              "3": {
+                "goal": "Improve visibility of new property types and additions",
+                "result": "New test and released property types saw <em><span class='highlight'>nearly doubled adoption rate in first week</span></em> compared to previous rate"
+              },
+              "4": {
+                "goal": "Improve UX flexibility for AI and KB helpers to help drive usage of them",
+                "result": "New framework includes content slots for AI/ML and KB inclusions to <em><span class='highlight'>keep customers on task</span></em> and doesn’t drive them away"
+              }
+            },
+            "creation": {
+              "title": "Redundant, rigid, and in need of replacement.",
+              "//p1": "One of the biggest issues with creating properties was the customer’s desire to test properties and verify feasibility before committing to a specific property. This problem skewed more towards the more advanced property types, but even for simple text properties there was a desire to see if what they wanted made sense and was actually doable.",
+              "//p1": "The workflow only really functioned in one direction. The unfortunate part of that decision was if you wanted to change a detail about the property, you would lose all progress that you had made. Even a simple thing like changing the property name required up to three clicks to get back to the details stage.",
+              "p1": "Even with a robust backlog, I wanted to get a better picture of customer pain by meeting with a cohort of beta customers. After a dozen or so conversations, the same themes kept coming up: the workflow is rigid and doesn't let them accomplish things in one shot, there are too many required hoops even to set up a simple property, and it doesn't drive adoption of new updates that are useful to them.",
+              "//p2": "With the linear wizard format, that meant jumping through some hoops just to get to the more “playground” aspect and caused a lot of friction for customers.",
+              "p2": "If a customer had to make even the slightest change, their expectation was to at least persist the information they had already entered.",
+              "p3": "Going back meant needing to go all the way back. This problem in itself almost became a battle cry based on the number of times it was shared in feedback.",
+              "//p3": "Then, at the same time, if a customer wanted to go back, that meant losing all of their work because it wouldn’t translated across properties (this had technical limitations in many cases, but for common cases it could be solved).",
+              "p4": "Sadly, this was even more painful for more complex property types where maybe a customer had spent several minutes trying to create and test a custom formula.",
+              "//p4": "Going back meant needing to go all the way back. This became a regular headache for most customers.",
+              "//p5": "By changing the flow to be non-linear and more of a CYOA experience, we could improve upon several things related to this problem.",
+              "p5": "The management flow was not so far different, but located in a different panel. Even with a change of space, the primary issue for management revolved around scalability and data density."
+            },
+            "manage": {
+              "title": "Fixing friction with unity.",
+              "//p1": "After creating a property there are some actions that some more admin-type customers may want to take, but its not immediately apparent how/where they can take them. On top of that, certain messaging and feedback was limited in how it was being presented because of the small panel that the properties existed in. That same issue also existed for modifying a property like a dropdown/select and trying to test a formula; all were either not doable or difficult to do in the space that customers had to try in.",
+              "p1": "Creating and managing properties are, for the most part, admin tasks that have a need for efficiency. In talking to our beta customers, the top three terms that they conveyed for any new features were, \"make it efficient,\" \"make it flexible,\" and \"make it familiar.\"",
+              "p2": "Therefore, my primary objective was to strategize and craft toward a more unified experience with minimal trade-offs in current and future-looking functionality.",
+              "//p2": "There were other issues at play related to managing properties that fell out of scope for this project (things like core actions, ie, deleting, copying, etc), but by migrating the management experience to the same framework as the new creation experience, it allowed for more flexibility to perform a task and also allowed for more visibility and discovery for problem-solving tasks. It also allowed for down-the-road improvements like integrations, AI/ML augments, and KB helper injection so that customers would gain more clarity in the moment as opposed to being shepherded away for most of those moments.",
+              "p3": "The old panel left a lot to be desired according to internal and external anecdotes. It was also starting to get crowded with information and began to feel cramped. With more content and features on the way, it needed to change so that it could scale.",
+              "p4": "The updated experience allowed for more of the free-flow of information and flexibility that our admin customers were craving for some time."
+            },
+            "retro": {
+              "title": "Next steps and reflections.",
+              "//p1": "The delivered experiences were meeting their intended goals as of spring 2024 when we released both apps into beta. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "p1": "My team launched the new create and management experiences into alpha just before the end of 2023 to gain some higher-traffic data pre-Christmas with the goal of launching private beta in the first two weeks of Jan 2024. We met with and surveyed customers in a closed beta before getting a quick confidence boost from our support team that their volume didn’t increase (closed beta group was too small to measure a significant change WoW, so we only had them focus on targeted feedback from that group). With that, we posted our public beta and received several dozen adoptions in the first couple of days. From there, it grew to over 300 by the end of the following week, and eventually reached about  15% of the customer base in Pro+ tier very soon after that. Our CSAT remained at ~75%+ from initial release day (peaked around 86% at one point) and customer support reported volume on certain topics related to management and creation started to decrease exponentially until we hit our first 20% WoW reduction goal around day 23 of public beta.",
+              "p2": "At the same time, there were two UX projects happening concurrently while engineering was in the middle of rebuilding the core tech stack for this product area: this framework delivery for creation and management and an encapsulated quick property creation experience for use outside of the admin space. The quick property creation project actually spawned the larger project, funny enough.",
+              "p3": "The coalescing projects meant that a lot of planning was needed to deliver properly. One thing I would reflect on for this projects relates to communication. At one point I was on one track of work and unaware of what my engineering partners were working on. We discovered that we were working on opposite projects at one point and that syncing back up to get back on track was going to take at least a week. This all could’ve been alleviated by a one-line clarification in a Slack message. It taught me a lesson about properly setting the table and making sure that each partner in the pod is aligned at the right time."
+            }
+          }
+        },
+        "meta": {
+          "tags": ["in-dev", "freelance"],
+          "date": "2024",
+          "slug": "create-edit",
+          "href": "/works/create-edit"
+        },
+        "team": "1SPD&#128075;&#127996;, 2PD, 1DM, 2SWE",
+        "company": "Foam (@Whalar)",
+        "company_url": "https://www.foam.io/",
+        "slug": "create-edit",
+        "img": [
+          { 
+            "fileName": "hero__1.jpg", 
+            "alt": "The Buoy system was broken up into three parts in Figma to help improve organization and limit redundancy" 
+          },
+          { 
+            "fileName": "feature__1--mini.jpg", 
+            "alt": "Status and badge indicators for the new sidebar nav" 
+          },
+          { 
+            "fileName": "feature__2--mini.mp4", 
+            "alt": "Smooth transition for adding more options to multi-option properties" 
+          },
+          { 
+            "fileName": "feature__3--mini.mp4", 
+            "alt": "New, simpler field type selection" 
+          },
+          { 
+            "fileName": "hero__2.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "hero__2--zoom.jpg", 
+            "alt": "Example of the old, rigid flow with some audit commentary" 
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A benign example of going back to change a property name and losing the field type" 
+          },
+          { 
+            "fileName": "issue__2.mp4", 
+            "alt": "This is a light example of a customer building a calculated property formula, stepping back to check something, and then losing progress" 
+          },
+          { 
+            "fileName": "hero__3.jpg", 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
+          },
+          { 
+            "fileName": "hero__3--zoom.jpg", 
+            "alt": "Familiar, flexible, and unified UIs with subtle differences for the create (left) and manage (right) workflows no matter where you access them from" 
+          }
+        ]
+      }
+    },
+    "klaviyo": {
+      "customer-profiles": {
+        "title": "Rebuilding Klaviyo's profile view to scale with customer needs, build trust in self-service, and improve how they understand and utilize their own custom data",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "One of the most central views of the platform had become a hard-to-navigate data dump, so I set out with my team to improve the experience and unlock how our customers actually use it for both support and discovery.",
+              "p2": "Profiles hadn't been meaningfully updated since it was first built over a decade ago, and it was showing its age. Poor data hierarchy, endless scrolling, unpaginated cards with reveal limits, and frequent crashes from API timeouts had turned a core workflow into a frustration. With my PM, I was also working to shift our GPS team's mission toward a stronger audience focus, so it made for the right moment to turn this page from a burden back into a useful tool."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "The profile page is Klaviyo's core view for understanding how any individual customer has interacted with a brand. It's a dense data hub, but customer come to it for two primary reasons: troubleshooting and discovery.",
+              "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
+            },
+            "goals": {
+              "title": "Goals.",
+              "p1": "The core problem came down to three things: discovery, density, and scale. Rather than settling for a 1:1 rebuild, I pitched my team and product leaders to address these issues properly, especially given that Klaviyo was mid-stack overhaul and moving to React on the front end. It was the right moment to meaningfully fix things instead of kicking the can down the road.",
+              "goals": [
+                {
+                  "goal": "Promote self-service",
+                  "goalDetail": "Observe a shift away from regular support contact and toward customers using accessible features to solve certain issues"
+                },
+                {
+                  "goal": "Decrease churn risk",
+                  "goalDetail": "Recapture customers that are using multiple platforms to sift data due to performance and hierarchy issues that currently exist"
+                },
+                {
+                  "goal": "Prepare for scale",
+                  "goalDetail": "New UI should not only prepare for a heavier data load, but also for product shifts and new features"
+                }
+              ]
+            },
+            "audits": {
+              "title": "Audits and processes.",
+              "p1": "We were also looking at how to grow the GPS product area into its own ecosystem, extending its value beyond standalone tools into other parts of the platform. While we decided to audit the entire profiles area, we pursued fixing this foundational view as the first step toward making that ecosystem possible.",
+              "p2": "With a clearer picture of the product area, we moved into customer interviews to surface pain points and sharpen our approach. It also gave me a structured moment to align with key stakeholders on their concerns and expectations."
+            },
+            "problem": {
+              "title": "The problem.",
+              "p1": "A spike in customer support tickets around property management, upcoming internal feature kick-offs, and an opportunity to adopt new design standards from the core product team gave us the perfect moment to rethink and rebuild this workflow from the ground up.",
+              "p2": "This didn't have to be a large undertaking and I could have taken a more incremental approach with smaller wins over time, but we decided to aim higher, because the potential upside for our customers was worth the risk."
+            },
+            "challenges": {
+              "title": "Challenges",
+              "p1a": "As a precaution, scope needed to be pared down more than anticipated",
+              "p1b": "This flow generated the building blocks that supported all other features and flows in the CRM for any customer, so if care wasn’t taken, it could’ve had a catastrophic ripple effect.",
+              "p2a": "Getting other teams to adopt a new component proved challenging",
+              "p2b": "Several other product teams drove traffic to our page or had built their own features pushing property data to our tables. In a product this complex, consistency mattered and deviations weren't ideal. I worked closely with each team to negotiate, adapt our solution to their needs, and build their confidence in adopting our component over their own.",
+              "p3a": "The wizard pattern was well-established with customers, even if disliked",
+              "p3b": "Even with strong negative sentiment in interviews and surveys, we risked running into usability biases like \"it just works\" or \"I don't like change\" mentalities that could drive churn. This same resistance is likely why some customers resorted to building their own API-first solutions rather than adopting a WYSIWYG experience that should have been easier to use.",
+              "p4a": "Admins are busy and have lives and we should not be encroaching on them",
+              "p4b": "Everyone only has a limited amount of time per day to do any number of things, so why would they want to spend hours (or days) doing a task. If the new flow didn't reduce time on task, it wouldn't have been worth releasing until it did."
+            },
+            "solving": {
+              "title": "Problem-solving.",
+              "p1": "I decided to go down two paths: a quick creation component (a stripped-down, deployable flow for more common property types) and advanced property management (a richer experience designed for admins).",
+              "p2": "This approach happened for two reasons: to set guardrails that keep property creation consistent across the CRM, and because not every user needs the same experience. Admins get full control and flexibility, while marketers and downstream team members get a faster, more focused experience tailored to their needs.",
+              "p3": "Signals from user testing, the beta periods, and internal support feedback gave me what I needed to start assembling the final production spec. With help from a content design partner to polish some final details, I handed it off to engineering and shifted into QA to aid them through their sprint."
+            },
+            "impact": {
+              "title": "Impact.",
+              "p1": "After a two-week closed beta and a month-long open beta reaching roughly 15% of Pro+ tier customers, we shipped to production in mid-March to a warm reception on r/HubSpot and our customer forums. Post-release surveys and interviews were promising, with CSAT improving and customer sentiment no longer including words like \"archaic,\" \"redundant,\" or \"painful.\"",
+              "p2": "In the first month after launch, support volume dropped more than 20% week-over-week, climbing to ~35% in the weeks that followed.",
+              "p3": "Being that this was my first release where I discovered, pitched, prioritized, iterated, and executed end-to-end in my time there, I was really pleased with the framework delivered and the roadmap that was planned for the future."
+            },
+            "retro": {
+              "title": "Retro.",
+              "p1": "This project wasn't without turbulence. From initial discovery to final commit, the question of \"did this actually move the needle\" was always in the back of my mind. I was confident in the direction, but a few things stood out as areas for improvement.",
+              "p2": "This was also my first major feature at HubSpot, and navigating a larger stakeholder audience while still getting up to speed came with its own challenges. In hindsight, I would have built more time into the timeline to bring stakeholders in earlier rather than mid-flight. In my experience, projects with a broad audience benefit from a bit more upfront discovery. Each project like this teaches me something new about how to handle them better.",
+              "p3": "Even with some lumps and bumps, I was still happy with how things ended with the minor exception of not being able to see some of the future plans I had cooked up through to production when they were ready. Most importantly, our customers were happy and appreciative of the changes we delivered and also excited for many of the forward-looking things we showed off during our interviews."
+            },
+            "results": {
+              "1": {
+                "result": "Redundancy reduced",
+                "resultDetail": "Feedback leaned toward customers enjoying less required redundant actions and clearer indicators for next/incomplete required steps"
+              },
+              "2": {
+                "result": "~35% reduced need for support intervention",
+                "resultDetail": "After 30 days in full prod, the highest incidence support requests took a nosedive and customers were able to troubleshoot more on their own. Results held steady through 60-day post-mortem."
+              },
+              "3": {
+                "result": "Built to scale",
+                "resultDetail": "New framework included planned component slots for AI/ML inclusions and a soon-to-come KB feature to help keep customers on task and no longer promoted drawing them away from it"
+              },
+              "4": {
+                "result": "CSAT increased by 3%",
+                "resultDetail": "Based on CSAT improving from ~75% to ~78% and feedback from surveys, customers that adopted more complex workflows to create or manage their properties were starting to come back to the first-party experience"
+              }
+            },
+            "quotes": {},
+            "user-stories": [
+              { 
+                "story": "As support stagg, I need to quickly locate key customer data to troubleshoot or triage an issue"
+              },
+              { 
+                "story": "As a marketer, I want to explore a customer's profile to better understand their behavior and engagement"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "tags": ["shipped"],
+          "year": 2023,
+          "dateStart": "February 2022",
+          "dateEnd": "March 2023",
+          "slug": "create-edit",
+          "href": "/works/create-edit",
+          "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
+        },
+        "team": "1 SrPD&#128075;&#127996;, 1 JrPD, 1 PM, 1 EM, 4 SWE",
+        "role": "Senior Product Designer",
+        "reach": "4 product teams, CS, Product Ops, Legal",
+        "company": "Klaviyo",
+        "company_url": "https://www.klaviyo.com/",
+        "slug": "customer-profiles",
+        "img": [
+          { 
+            "fileName": "hero__main.png", 
+            "alt": "New design framework for Klaviyo customer profile pages highlighting some of the updated components and features"
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A short video showing the frustration of going back and forth between stages of the existing create wizard and losing progress",
+            "caption": [
+              "Customers consistently complained about the existing wizard's rigidity and the fact that progress wasn't saved when they needed to go back and make changes."
+            ]
+          },
+          { 
+            "fileName": "challenge__2.png",
+            "alt": "An image depicting states of the current wizard flow with comment cards that target specific pain points based on feedback from user interviews.",
+            "caption": [
+              "After interviews, I summarized sentiments about certain parts of the existing create flow to help solidify the prioritization pitch to my team.",
+              "Feedback ranged from order of fields, stage clarity, jarring interactions, and, of course, lack of saved progress."
+            ]
+          },
+          { 
+            "fileName": "solving__1.png", 
+            "alt": "Side by side examples of the new quick create component on the left and the full-screen create app on the right",
+            "caption": [
+              "Quick create (left) was made to be deployable anywhere vs the full property management app (right) which was more tailored to advanced users"
+            ]
+          },
+          { 
+            "fileName": "solving__2.png", 
+            "alt": "Examples of the softer, but more functional, error-handling and messaging and validation in the new experiences.",
+            "caption": [
+              "The wizard tracked progress well, but little else. User testing and systems negotiations led to a softer indicator system using the side nav and collapsible containers, with clearer state communicated at each step."
+            ]
+          }
+        ]
+      }
+    },
+    "order": {
+      "bill-pay": {
+        "title": "Improving the most core data management flow in HubSpot's CRM to save admins time, money, and [data] sanity",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Solving customer pain points, driving adoption, and reducing internal and external overhead costs by rethinking the way customers create and edit their custom data properties."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "HubSpot's CRM is the core of their product and where customers first build out their HubSpot experience. This made it critical to nail onboarding and data integration from the start.",
+              "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
+            },
+            "problem": {
+              "title": "The problem.",
+              "p1": "A spike in customer support tickets around property management, upcoming internal feature kick-offs, and an opportunity to adopt new design standards from the core product team gave us the perfect moment to rethink and rebuild this workflow from the ground up.",
+              "p2": "This didn't have to be a large undertaking and I could have taken a more incremental approach with smaller wins over time, but we decided to aim higher, because the potential upside for our customers was worth the risk."
+            },
+            "challenges": {
+              "title": "Challenges.",
+              "p1a": "The wizard pattern was well-established with customers, even if disliked",
+              "p1b": "Even with strong negative sentiment in interviews and surveys, we risked running into usability biases like \"it just works\" or \"I don't like change\" mentalities that could drive churn. This same resistance is likely why some customers resorted to building their own API-first solutions rather than adopting a WYSIWYG experience that should have been easier to use.",
+              "p2a": "As a precaution, scope needed to be pared down more than anticipated",
+              "p2b": "This flow generated the building blocks that supported all other features and flows in the CRM for any customer, so if care wasn't taken, it could've had a catastrophic ripple effect.",
+              "p3a": "Getting other teams to adopt a new component proved challenging",
+              "p3b": "Several other product teams drove traffic to our page or had built their own features pushing property data to our tables. In a product this complex, consistency mattered and deviations weren't ideal. I worked closely with each team to negotiate, adapt our solution to their needs, and build their confidence in adopting our component over their own.",
+              "p4a": "Admins are busy and have lives and we should not be encroaching on them",
+              "p4b": "Everyone only has a limited amount of time per day to do any number of things, so why would they want to spend hours (or days) doing a task. If the new flow didn't reduce time on task, it wouldn't have been worth releasing until it did."
+            },
+            "solving": {
+              "title": "Problem-solving.",
+              "p1": "After several major iteration rounds and feedback, I went down two paths: a quick creation component (a stripped-down, deployable flow for more common property types) and advanced property management (a richer experience designed for admins).",
+              "p2": "We took this approach for two reasons: consistency and role-appropriate experience. Guardrails keep property creation uniform across the CRM, while the two-path framework gives admins full control and gives marketers and downstream teams something faster and more focused.",
+              "p3": "User testing, beta feedback, and input from our stakeholders shaped the final production spec. I worked with a content design partner to polish the details before handing it off to engineering and shifting into QA."
+            },
+            "impact": {
+              "title": "Impact.",
+              "p1": "After a two-week closed beta and a month-long open beta reaching roughly 15% of Pro+ tier customers, we shipped to production in mid-March to a warm reception on r/HubSpot and our customer forums. Post-release surveys and interviews were promising, with CSAT improving and customer sentiment no longer including words like \"archaic,\" \"redundant,\" or \"painful.\"",
+              "p2": "In the first month after launch, support volume dropped more than 20% week-over-week, climbing to ~35% in the weeks that followed.",
+              "p3": "Being that this was my first release where I discovered, pitched, prioritized, iterated, and executed end-to-end in my time there, I was really pleased with the framework delivered and the roadmap that was planned for the future."
+            },
+            "retro": {
+              "title": "Retro.",
+              "p1": "No project is without turbulence, and this one was no exception. A few things stood out as areas for growth.",
+              "p2": "Communication is a force multiplier at the senior IC level. I had autonomy, but autonomy can breed tunnel vision. Midway through, I recalibrated and tightened how I communicated decisions and added more polish to written updates. It kept the team aligned and the project on track.",
+              "p3": "HubSpot's concurrent brand and product refresh left my design systems partners largely unavailable, which added unplanned time to the timeline. I adapted by scaling back some decisions where I could, and it didn't hurt the outcome.",
+              "p4": "Stakeholder management was the biggest learning. This was my first large-scale feature at HubSpot, and I would have mapped the stakeholder landscape earlier in the process. Mid-flight is never the right time to be expanding your audience. It's a lesson I carried into every project from then on.",
+              "p5": "Overall, I was proud of where it landed, but with the one caveat that some forward-looking ideas I had scoped didn't make it to production before I moved on."
+            },
+            "goals": {
+              "1": {
+                "goal": "Improve flexibility",
+                "goalDetail": "Rebuild flow with alternative to wizard structure to allow for more flexibility"
+              },
+              "2": {
+                "goal": "Promote self-service",
+                "goalDetail": "Increase opportunities for self-service and reduce relevant support incidence volume by up to 20% WoW"
+              },
+              "3": {
+                "goal": "Focus on scale",
+                "goalDetail": "New experience should be prepared for future AI/ML-friendly features and new core features "
+              },
+              "4": {
+                "goal": "Drive adoption",
+                "goalDetail": "Bring customers that rely on API or imports/exports for data management back to the table"
+              }
+            },
+            "results": {
+              "1": {
+                "result": "Redundancy reduced",
+                "resultDetail": "Customers responded positively to fewer required actions and clearer indicators for incomplete steps"
+              },
+              "2": {
+                "result": "~35% drop in support volume",
+                "resultDetail": "The highest-incidence requests fell sharply after 30 days in production, with customers resolving more on their own. Results held through a 60-day post-mortem"
+              },
+              "3": {
+                "result": "Built to scale",
+                "resultDetail": "The new framework includes planned slots for AI/ML and an upcoming KB feature to help keep customers on task without pulling them out of the experience"
+              },
+              "4": {
+                "result": "CSAT up 3%",
+                "resultDetail": "Scores improved from ~75% to ~78%, and customers who had shifted to workarounds for complex workflows felt more comfortable returning to the first-party experience"
+              }
+            },
+            "quotes": [
+              {
+                "quote": "It's all muscle memory at this point.",
+                "attribution": "a VP of Ops from a retailer, when asked about their current workflow"
+              },
+              {
+                "quote": "If I have to click \"back\" one more time to change the name of this property because of a typo, I might throw my mouse at my door.",
+                "attribution": "a RevOps Manager from a partner agency during a testing session"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "tags": ["shipped"],
+          "year": 2024,
+          "dateStart": "October 2023",
+          "dateEnd": "June 2024",
+          "slug": "create-edit",
+          "href": "/works/create-edit",
+          "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
+        },
+        "team": "1 PD&#128075;&#127996;, 1 PM, 2 EM, 3 SWE",
+        "company": "HubSpot",
+        "company_url": "https://www.hubspot.com/",
+        "slug": "create-edit",
+        "img": [
+          { 
+            "fileName": "hero__main.png", 
+            "alt": "New designs for creating and editing properties in HubSpot"
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A short video showing the frustration of going back and forth between stages of the existing create wizard and losing progress",
+            "caption": [
+              "Customers consistently complained about the existing wizard's rigidity and the fact that progress wasn't saved when they needed to go back and make changes."
+            ]
+          },
+          { 
+            "fileName": "challenge__2.png",
+            "alt": "An image depicting states of the current wizard flow with comment cards that target specific pain points based on feedback from user interviews.",
+            "caption": [
+              "After interviews, I summarized sentiments about certain parts of the existing create flow to help solidify the prioritization pitch to my team.",
+              "Feedback ranged from order of fields, stage clarity, jarring interactions, and, of course, lack of saved progress."
+            ]
+          },
+          { 
+            "fileName": "solving__1.png", 
+            "alt": "Side by side examples of the new quick create component on the left and the full-screen create app on the right",
+            "caption": [
+              "Quick create (left) was made to be deployable anywhere vs the full property management app (right) which was more tailored to advanced users"
+            ]
+          },
+          { 
+            "fileName": "solving__2.png", 
+            "alt": "Examples of the softer, but more functional, error-handling and messaging and validation in the new experiences.",
+            "caption": [
+              "The wizard tracked progress well, but little else. User testing and systems negotiations led to a softer indicator system using the side nav and collapsible containers, with clearer state communicated at each step."
+            ]
+          }
+        ]
+      },
+      "services-subs": {
+        "title": "Expanding Order's spend management platform with a new product for recurring charges and unlocking more aspects of the customer's wallet",
+        "copy": {
+          "sections": {
+            "intro": {
+              "p1": "Going from 0 → 1 on a new product and improving the platform ecosystem by giving customers control and visibility over their recurring services and subscriptions."
+            },
+            "context": {
+              "title": "Context.",
+              "p1": "HubSpot's CRM is the core of their product and where customers first build out their HubSpot experience. This made it critical to nail onboarding and data integration from the start.",
+              "p2": "The challenge was offering a robust data creation and management experience that still felt nimble across customers of all sizes. Internal and external feedback told us the existing framework was rigid, redundant, and limited — the opposite of the original goal. It forced customers of all sizes into a single mold and wasn't meeting their needs."
+            },
+            "problem": {
+              "title": "The problem.",
+              "p1": "A spike in customer support tickets around property management, upcoming internal feature kick-offs, and an opportunity to adopt new design standards from the core product team gave us the perfect moment to rethink and rebuild this workflow from the ground up.",
+              "p2": "This didn't have to be a large undertaking and I could have taken a more incremental approach with smaller wins over time, but we decided to aim higher, because the potential upside for our customers was worth the risk."
+            },
+            "challenges": {
+              "title": "Challenges.",
+              "p1a": "The wizard pattern was well-established with customers, even if disliked",
+              "p1b": "Even with strong negative sentiment in interviews and surveys, we risked running into usability biases like \"it just works\" or \"I don't like change\" mentalities that could drive churn. This same resistance is likely why some customers resorted to building their own API-first solutions rather than adopting a WYSIWYG experience that should have been easier to use.",
+              "p2a": "As a precaution, scope needed to be pared down more than anticipated",
+              "p2b": "This flow generated the building blocks that supported all other features and flows in the CRM for any customer, so if care wasn't taken, it could've had a catastrophic ripple effect.",
+              "p3a": "Getting other teams to adopt a new component proved challenging",
+              "p3b": "Several other product teams drove traffic to our page or had built their own features pushing property data to our tables. In a product this complex, consistency mattered and deviations weren't ideal. I worked closely with each team to negotiate, adapt our solution to their needs, and build their confidence in adopting our component over their own.",
+              "p4a": "Admins are busy and have lives and we should not be encroaching on them",
+              "p4b": "Everyone only has a limited amount of time per day to do any number of things, so why would they want to spend hours (or days) doing a task. If the new flow didn't reduce time on task, it wouldn't have been worth releasing until it did."
+            },
+            "solving": {
+              "title": "Problem-solving.",
+              "p1": "After several major iteration rounds and feedback, I went down two paths: a quick creation component (a stripped-down, deployable flow for more common property types) and advanced property management (a richer experience designed for admins).",
+              "p2": "We took this approach for two reasons: consistency and role-appropriate experience. Guardrails keep property creation uniform across the CRM, while the two-path framework gives admins full control and gives marketers and downstream teams something faster and more focused.",
+              "p3": "User testing, beta feedback, and input from our stakeholders shaped the final production spec. I worked with a content design partner to polish the details before handing it off to engineering and shifting into QA."
+            },
+            "impact": {
+              "title": "Impact.",
+              "p1": "After a two-week closed beta and a month-long open beta reaching roughly 15% of Pro+ tier customers, we shipped to production in mid-March to a warm reception on r/HubSpot and our customer forums. Post-release surveys and interviews were promising, with CSAT improving and customer sentiment no longer including words like \"archaic,\" \"redundant,\" or \"painful.\"",
+              "p2": "In the first month after launch, support volume dropped more than 20% week-over-week, climbing to ~35% in the weeks that followed.",
+              "p3": "Being that this was my first release where I discovered, pitched, prioritized, iterated, and executed end-to-end in my time there, I was really pleased with the framework delivered and the roadmap that was planned for the future."
+            },
+            "retro": {
+              "title": "Retro.",
+              "p1": "No project is without turbulence, and this one was no exception. A few things stood out as areas for growth.",
+              "p2": "Communication is a force multiplier at the senior IC level. I had autonomy, but autonomy can breed tunnel vision. Midway through, I recalibrated and tightened how I communicated decisions and added more polish to written updates. It kept the team aligned and the project on track.",
+              "p3": "HubSpot's concurrent brand and product refresh left my design systems partners largely unavailable, which added unplanned time to the timeline. I adapted by scaling back some decisions where I could, and it didn't hurt the outcome.",
+              "p4": "Stakeholder management was the biggest learning. This was my first large-scale feature at HubSpot, and I would have mapped the stakeholder landscape earlier in the process. Mid-flight is never the right time to be expanding your audience. It's a lesson I carried into every project from then on.",
+              "p5": "Overall, I was proud of where it landed, but with the one caveat that some forward-looking ideas I had scoped didn't make it to production before I moved on."
+            },
+            "goals": {
+              "1": {
+                "goal": "Improve flexibility",
+                "goalDetail": "Rebuild flow with alternative to wizard structure to allow for more flexibility"
+              },
+              "2": {
+                "goal": "Promote self-service",
+                "goalDetail": "Increase opportunities for self-service and reduce relevant support incidence volume by up to 20% WoW"
+              },
+              "3": {
+                "goal": "Focus on scale",
+                "goalDetail": "New experience should be prepared for future AI/ML-friendly features and new core features "
+              },
+              "4": {
+                "goal": "Drive adoption",
+                "goalDetail": "Bring customers that rely on API or imports/exports for data management back to the table"
+              }
+            },
+            "results": {
+              "1": {
+                "result": "Redundancy reduced",
+                "resultDetail": "Customers responded positively to fewer required actions and clearer indicators for incomplete steps"
+              },
+              "2": {
+                "result": "~35% drop in support volume",
+                "resultDetail": "The highest-incidence requests fell sharply after 30 days in production, with customers resolving more on their own. Results held through a 60-day post-mortem"
+              },
+              "3": {
+                "result": "Built to scale",
+                "resultDetail": "The new framework includes planned slots for AI/ML and an upcoming KB feature to help keep customers on task without pulling them out of the experience"
+              },
+              "4": {
+                "result": "CSAT up 3%",
+                "resultDetail": "Scores improved from ~75% to ~78%, and customers who had shifted to workarounds for complex workflows felt more comfortable returning to the first-party experience"
+              }
+            },
+            "quotes": [
+              {
+                "quote": "It's all muscle memory at this point.",
+                "attribution": "a VP of Ops from a retailer, when asked about their current workflow"
+              },
+              {
+                "quote": "If I have to click \"back\" one more time to change the name of this property because of a typo, I might throw my mouse at my door.",
+                "attribution": "a RevOps Manager from a partner agency during a testing session"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "tags": ["shipped"],
+          "year": 2020,
+          "dateStart": "October",
+          "dateEnd": "November 2020",
+          "slug": "services-subs",
+          "href": "/works/services-subs",
+          "projectLink": "https://www.figma.com/design/wQ64bbfFd6stUD3wqtFcmK/Create-Edit---Shareables?m=auto&t=UTk3xD9yPp16rdPO-1"
+        },
+        "team": "1 PD&#128075;&#127996;, 1 CTO, 1 EM, 2 SWE",
+        "company": "Order",
+        "company_url": "https://www.order.co/",
+        "slug": "services-subs",
+        "img": [
+          { 
+            "fileName": "hero__main.png", 
+            "alt": "New designs for creating and editing properties in HubSpot"
+          },
+          { 
+            "fileName": "issue__1.mp4", 
+            "alt": "A short video showing the frustration of going back and forth between stages of the existing create wizard and losing progress",
+            "caption": [
+              "Customers consistently complained about the existing wizard's rigidity and the fact that progress wasn't saved when they needed to go back and make changes."
+            ]
+          },
+          { 
+            "fileName": "challenge__2.png",
+            "alt": "An image depicting states of the current wizard flow with comment cards that target specific pain points based on feedback from user interviews.",
+            "caption": [
+              "After interviews, I summarized sentiments about certain parts of the existing create flow to help solidify the prioritization pitch to my team.",
+              "Feedback ranged from order of fields, stage clarity, jarring interactions, and, of course, lack of saved progress."
+            ]
+          },
+          { 
+            "fileName": "solving__1.png", 
+            "alt": "Side by side examples of the new quick create component on the left and the full-screen create app on the right",
+            "caption": [
+              "Quick create (left) was made to be deployable anywhere vs the full property management app (right) which was more tailored to advanced users"
+            ]
+          },
+          { 
+            "fileName": "solving__2.png", 
+            "alt": "Examples of the softer, but more functional, error-handling and messaging and validation in the new experiences.",
+            "caption": [
+              "The wizard tracked progress well, but little else. User testing and systems negotiations led to a softer indicator system using the side nav and collapsible containers, with clearer state communicated at each step."
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
