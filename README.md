@@ -16,6 +16,7 @@ This time around, I'm migrating the site to Astro, but keeping Vue around for Ty
 - ~Phase 3 - Set Vercel preview env to track this branch~
 - Phase 4 - Create simple Astro scaffold to prepare static content
 - Phase 5 - Start building components and styles
+- Phase 5a - Add color system and picker component to nav (not required for initial launch)
 - Phase 6 - Ship and happy dance :)
 
 ### Project Setup
