@@ -2,7 +2,7 @@
 
 All my current work, or at least as much as I can put up, exists inside this site. As I've been writing in this readme for a few years now, it's finally written in Vue. I've also migrated this version from npm to yarn just to change things up a bit.
 
-[Figma project - 2026](https://www.figma.com/design/PmxHjTSPd169MTszaWe6ql/Site?node-id=482-733)
+[Figma project - 2026](https://www.figma.com/design/PmxHjTSPd169MTszaWe6ql/Site?node-id=10-375)
 <br>
 The plan is to build this in phases to better organize thoughts and work stream.
 * ~Phase 1 - New landing page skeleton~
