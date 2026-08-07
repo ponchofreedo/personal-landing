@@ -17,6 +17,5 @@
     "astro": "7.2.0",
     "vue": "^3.5.33"
   },
-  "author": "zach freed",
-  "license": ""
+  "author": "zach freed"
 }
